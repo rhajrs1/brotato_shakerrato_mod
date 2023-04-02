@@ -19,7 +19,8 @@ func _init(modLoader = ModLoader):
 	content_data_dir = dir + "content_data/"
 	
 	# Add extensions
-	#modLoader.install_script_extension(ext_dir + "main.gd")
+	modLoader.install_script_extension(ext_dir + "entities/units/unit/unit.gd")
+	modLoader.install_script_extension(ext_dir + "singletons/run_data.gd")
 	
 	# Add translations
 	#modLoader.add_translation_from_resource(trans_dir + "translations/modname_text.en.translation")

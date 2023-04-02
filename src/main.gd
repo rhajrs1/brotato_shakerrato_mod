@@ -97,6 +97,9 @@ onready var _test_button = $"%TestButton"
 
 func _ready()->void :
 	
+	#RunData.add_gold(999999999999999)
+	#if RunData.current_wave <= 20: RunData.current_wave = 20
+	
 	if RunData.is_testing:_test_button.show()
 	else :_test_button.hide()
 	
