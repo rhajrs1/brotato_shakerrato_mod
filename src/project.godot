@@ -149,6 +149,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://items/consumables/consumable_data.gd"
 }, {
+"base": "Resource",
+"class": "ContentData",
+"language": "GDScript",
+"path": "res://mods-unpacked/Darkly77-ContentLoader/content_data.gd"
+}, {
+"base": "Node",
+"class": "ContentLoader",
+"language": "GDScript",
+"path": "res://mods-unpacked/Darkly77-ContentLoader/content_loader.gd"
+}, {
 "base": "Effect",
 "class": "ConvertStatEffect",
 "language": "GDScript",
@@ -1078,6 +1088,8 @@ _global_script_class_icons={
 "ClassBonusEffect": "",
 "Consumable": "",
 "ConsumableData": "",
+"ContentData": "",
+"ContentLoader": "",
 "ConvertStatEffect": "",
 "CustomArg": "",
 "DelayedPlayerProjectile": "",

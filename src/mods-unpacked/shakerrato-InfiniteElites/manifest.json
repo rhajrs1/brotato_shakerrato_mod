@@ -1,0 +1,23 @@
+{
+  "name": "InfiniteElites",
+  "namespace": "shakerrato",
+  "version_number": "1.0.0",
+  "description": "여긴 마음대로",
+  "website_url": "https://github.com/example/repo",
+  "dependencies": [
+    "Darkly77-ContentLoader"
+  ],
+  "extra": {
+    "godot": {
+      "incompatibilities": [],
+      "authors": [
+        "shakerrato"
+      ],
+      "compatible_mod_loader_version": "4.0.0",
+      "compatible_game_version": [
+        "0.8.0.0"
+      ],
+      "config_defaults": {}
+    }
+  }
+}
