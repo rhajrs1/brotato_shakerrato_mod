@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=8 format=2]
+
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=1]
+[ext_resource path="res://items/sets/fire/fire_set_data.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/dark_magic/2/dark_magic_2_stats.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/sets/homing/homing_set_data.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/dark_magic/3/dark_magic_3_data.tres" type="Resource" id=5]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/dark_magic/dark_magic.tscn" type="PackedScene" id=6]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/dark_magic/dark_magic_icon.png" type="Texture" id=7]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "weapon_dark_magic_2"
+unlocked_by_default = true
+icon = ExtResource( 7 )
+name = "Dark magic book"
+tier = 1
+value = 31
+effects = [  ]
+tracking_text = ""
+weapon_id = "weapon_dark_magic"
+type = 1
+sets = [ ExtResource( 2 ), ExtResource( 4 ) ]
+scene = ExtResource( 6 )
+stats = ExtResource( 3 )
+upgrades_into = ExtResource( 5 )

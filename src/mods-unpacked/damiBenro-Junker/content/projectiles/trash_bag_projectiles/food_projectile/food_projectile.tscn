@@ -1,0 +1,33 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://projectiles/player_projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/sprites/junker_trash_food_1.png" type="Texture" id=2]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/food_projectile/food_projectile.gd" type="Script" id=3]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/sprites/junker_trash_food_2.png" type="Texture" id=4]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/sprites/junker_trash_food_3.png" type="Texture" id=5]
+[ext_resource path="res://items/consumables/fruit/comedy_bite_chew_03.wav" type="AudioStream" id=6]
+[ext_resource path="res://items/consumables/fruit/comedy_bite_chew_02.wav" type="AudioStream" id=7]
+[ext_resource path="res://items/consumables/fruit/comedy_bite_chew_01.wav" type="AudioStream" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 45.5, 34 )
+
+[node name="FoodProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+enable_physics_process = true
+rotation_speed = 0
+projectile_sprites = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ) ]
+consume_sounds = [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ) ]
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 1, 1 )
+texture = ExtResource( 2 )
+
+[node name="Hitbox" parent="." index="1"]
+position = Vector2( -23, 1 )
+
+[node name="Collision" parent="Hitbox" index="0"]
+position = Vector2( 25.5, -3 )
+shape = SubResource( 1 )
+
+[editable path="Hitbox"]

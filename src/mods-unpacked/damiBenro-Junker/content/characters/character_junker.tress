@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://items/characters/character_data.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "character_junker"
+unlocked_by_default = true
+name = "CHARACTER_JUNKER"
+tier = 0
+value = 1
+effects = [  ]
+has_gameplay_modifications = false
+tracking_text = ""
+unique = false
+max_nb = -1
+item_appearances = [  ]
+tags = [  ]
+wanted_tags = [  ]
+starting_weapons = [  ]

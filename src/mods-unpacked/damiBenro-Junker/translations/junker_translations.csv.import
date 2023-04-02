@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://mods-unpacked/damiBenro-Junker/translations/junker_translations.en.translation", "res://mods-unpacked/damiBenro-Junker/translations/junker_translations.fr.translation", "res://mods-unpacked/damiBenro-Junker/translations/junker_translations.ru.translation" ]
+
+source_file="res://mods-unpacked/damiBenro-Junker/translations/junker_translations.csv"
+dest_files=[ "res://mods-unpacked/damiBenro-Junker/translations/junker_translations.en.translation", "res://mods-unpacked/damiBenro-Junker/translations/junker_translations.fr.translation", "res://mods-unpacked/damiBenro-Junker/translations/junker_translations.ru.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

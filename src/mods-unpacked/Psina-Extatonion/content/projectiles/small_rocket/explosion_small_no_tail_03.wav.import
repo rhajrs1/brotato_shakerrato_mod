@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/explosion_small_no_tail_03.wav-9e189a40f5d575f66b9496c52ca4b9b1.sample"
+
+[deps]
+
+source_file="res://mods-unpacked/Psina-Extatonion/content/projectiles/small_rocket/explosion_small_no_tail_03.wav"
+dest_files=[ "res://.import/explosion_small_no_tail_03.wav-9e189a40f5d575f66b9496c52ca4b9b1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

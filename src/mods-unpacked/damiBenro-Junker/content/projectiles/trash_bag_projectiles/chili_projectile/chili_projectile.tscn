@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://projectiles/player_projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/sprites/junker_trash_chili.png" type="Texture" id=2]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/chili_projectile/chili_projectile.gd" type="Script" id=3]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/chili_projectile/chili_exploding_effect.tres" type="Resource" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 36.5, 25.5 )
+
+[node name="ChiliProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+enable_physics_process = true
+rotation_speed = 0
+exploding_effect = ExtResource( 4 )
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( -3.57628e-07, 1 )
+scale = Vector2( 0.85, 0.866667 )
+texture = ExtResource( 2 )
+
+[node name="Hitbox" parent="." index="1"]
+position = Vector2( -23, 1 )
+
+[node name="Collision" parent="Hitbox" index="0"]
+position = Vector2( 24.5, -3.5 )
+shape = SubResource( 1 )
+
+[editable path="Hitbox"]

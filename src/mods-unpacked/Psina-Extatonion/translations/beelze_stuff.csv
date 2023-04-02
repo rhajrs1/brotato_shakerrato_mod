@@ -1,0 +1,9 @@
+keys,en
+EFFECT_BUB_SWARM,When an enemy dies it releases 4 homing flies from its corpse dealing {1} ({3}) damage
+EFFECT_SHOT_ORBITAL,Spawns a companion that flies around you and shoots enemies for {0} ({1}) damage
+EFFECT_SWARM,When an enemy dies it releases 2 homing flies from its corpse dealing {1} ({3}) damage
+EFFECT_GLITCH_ONE,Has no ability
+EFFECT_GLITCH_TWO,Can start with any Extatonion weapon
+EFFECT_REDUCE_SURVIVAL,Survivability modifications are reduced by 35%
+EFFECT_INCREASE_DAMAGE,Damage modifications are increased by 35%
+EFFECT_WORKS_BOTH,Works both ways

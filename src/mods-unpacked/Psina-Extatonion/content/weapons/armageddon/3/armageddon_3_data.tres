@@ -1,0 +1,27 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=1]
+[ext_resource path="res://items/sets/explosive/explosive_set_data.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/sets/homing/homing_set_data.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/armageddon/armageddon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/armageddon/4/armageddon_4_data.tres" type="Resource" id=5]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/armageddon/3/armageddon_3_stats.tres" type="Resource" id=6]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/armageddon/armageddon_effect.tres" type="Resource" id=7]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/armageddon/armageddon_icon.png" type="Texture" id=8]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "weapon_armaged_3"
+unlocked_by_default = true
+icon = ExtResource( 8 )
+name = "Armageddon"
+tier = 2
+value = 75
+effects = [ ExtResource( 7 ) ]
+tracking_text = ""
+weapon_id = "weapon_armageddon"
+type = 1
+sets = [ ExtResource( 3 ), ExtResource( 2 ) ]
+scene = ExtResource( 4 )
+stats = ExtResource( 6 )
+upgrades_into = ExtResource( 5 )

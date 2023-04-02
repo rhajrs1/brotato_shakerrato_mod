@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://items/global/item_data.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/legendary/rhinos_relic/rhinos_relic_effect_3.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/legendary/rhinos_relic/rhinos_relic_effect_1.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/legendary/rhinos_relic/rhinos_relic_effect_4.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/legendary/rhinos_relic/rhinos_relic_effect_2.tres" type="Resource" id=5]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/legendary/rhinos_relic/rhinos_relic.png" type="Texture" id=6]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "item_rhinos_relic"
+unlocked_by_default = true
+icon = ExtResource( 6 )
+name = "Rhino's relic"
+tier = 3
+value = 100
+effects = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ) ]
+tracking_text = ""
+max_nb = 1
+item_appearances = [  ]
+tags = [ "stat_armor" ]

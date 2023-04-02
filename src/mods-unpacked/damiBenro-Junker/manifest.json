@@ -1,0 +1,24 @@
+{
+	"name": "Junker",
+	"namespace": "damiBenro",
+	"version_number": "0.8.2",
+	"description": "New Junker character who loves commons. Concept by Benro, art by Psina.",
+	"website_url": "",
+	"dependencies": [
+		"Darkly77-ContentLoader",
+		"Darkly77-ExpandedChallenges"
+	],
+	"extra": {
+		"godot": {
+			"incompatibilities": [],
+			"authors": [
+				"dami",
+				"Benro",
+				"Psina"
+			],
+			"compatible_mod_loader_version": "4.0.0",
+			"compatible_game_version": ["0.8.0.0"],
+			"config_defaults": {}
+		}
+	}
+}

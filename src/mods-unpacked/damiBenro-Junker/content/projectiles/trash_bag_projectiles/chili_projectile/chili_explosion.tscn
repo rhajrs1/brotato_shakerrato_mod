@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://projectiles/explosion.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/chili_projectile/chili_explosion.gd" type="Script" id=2]
+
+[node name="ChiliExplosion" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[editable path="Hitbox"]

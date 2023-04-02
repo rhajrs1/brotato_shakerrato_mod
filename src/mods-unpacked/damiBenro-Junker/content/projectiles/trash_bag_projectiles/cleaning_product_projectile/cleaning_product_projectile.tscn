@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://projectiles/player_projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/sprites/junker_cleaning_product.png" type="Texture" id=2]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/cleaning_product_projectile/random_sprite_projectile.gd" type="Script" id=3]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/sprites/junker_cleaning_product_3.png" type="Texture" id=4]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/sprites/junker_cleaning_product_2.png" type="Texture" id=5]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/cleaning_product_projectile/cleaning_product_burning_data.tres" type="Resource" id=6]
+
+[node name="CleaningProductProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+enable_physics_process = true
+rotation_speed = 0
+projectile_sprites = [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ]
+burning_data = ExtResource( 6 )
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 0.5, 0.500001 )
+scale = Vector2( 0.825, 0.841667 )
+texture = ExtResource( 2 )
+
+[node name="Hitbox" parent="." index="1"]
+position = Vector2( -23, 1 )
+
+[node name="Collision" parent="Hitbox" index="0"]
+position = Vector2( 24, -2.5 )
+
+[editable path="Hitbox"]

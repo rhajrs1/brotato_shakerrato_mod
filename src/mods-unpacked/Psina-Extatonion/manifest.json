@@ -1,0 +1,22 @@
+{
+	"name": "Extatonion",
+	"namespace": "Psina",
+	"version_number": "1.0.7",
+	"description": "Port unfinished",
+	"website_url": "",
+	"dependencies": [
+		"Darkly77-ContentLoader",
+		"Darkly77-ExpandedChallenges"
+	],
+	"extra": {
+		"godot": {
+			"incompatibilities": [],
+			"authors": [
+				"Psina"
+			],
+			"compatible_mod_loader_version": "4.0.0",
+			"compatible_game_version": ["0.8.0.0"],
+			"config_defaults": {}
+		}
+	}
+}

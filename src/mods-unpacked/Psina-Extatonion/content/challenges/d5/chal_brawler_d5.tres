@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/d5charsicons/brawlerd5.png" type="Texture" id=1]
+[ext_resource path="res://mods-unpacked/Darkly77-ExpandedChallenges/challenges/ex_challenge_data.gd" type="Script" id=2]
+[ext_resource path="res://items/characters/brawler/brawler_data.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/unlocks/click_fingers/2/click_fingers_2_data.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 2 )
+my_id = "chal_brawler_d5"
+unlocked_by_default = false
+icon = ExtResource( 1 )
+name = "Knockout!"
+tier = 0
+value = 1
+effects = [  ]
+tracking_text = ""
+description = "Beat danger 5 with Brawler"
+reward_type = 1
+reward = ExtResource( 4 )
+number = 0
+stat = ""
+additional_args = [  ]
+must_win_run = true
+required_character = ExtResource( 3 )
+required_danger_number = 5
+required_weapons_and = [  ]
+required_weapons_or = [  ]
+required_items_and = [  ]
+required_items_or = [  ]

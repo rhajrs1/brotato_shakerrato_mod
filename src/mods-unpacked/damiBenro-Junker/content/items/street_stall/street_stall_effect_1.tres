@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/effects/get_random_item_at_end_of_wave_effect.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+key = "random_item_at_end_of_wave"
+text_key = "effect_random_item_at_end_of_wave"
+value = 1
+custom_key = ""
+storage_method = 0
+effect_sign = 3
+custom_args = [  ]
+item_tier = 0
+item_price = 35

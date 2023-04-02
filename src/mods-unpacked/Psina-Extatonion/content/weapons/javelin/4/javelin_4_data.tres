@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/javelin/javelin_effect_2.tres" type="Resource" id=1]
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=2]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/javelin/4/javelin_4_stats.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/javelin/javelin_effect.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/javelin/javelin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/javelin/javelin_icon.png" type="Texture" id=6]
+[ext_resource path="res://items/sets/explosive/explosive_set_data.tres" type="Resource" id=7]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/sets/tactical/tactical_set_data.tres" type="Resource" id=8]
+
+[resource]
+script = ExtResource( 2 )
+my_id = "weapon_javelin_4"
+unlocked_by_default = true
+icon = ExtResource( 6 )
+name = "Javelin"
+tier = 3
+value = 220
+effects = [ ExtResource( 4 ), ExtResource( 1 ) ]
+tracking_text = ""
+weapon_id = "weapon_javelin"
+type = 1
+sets = [ ExtResource( 8 ), ExtResource( 7 ) ]
+scene = ExtResource( 5 )
+stats = ExtResource( 3 )

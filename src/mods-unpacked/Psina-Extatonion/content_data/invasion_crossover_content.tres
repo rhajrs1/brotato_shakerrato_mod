@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=11 format=2]
+
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/characters/agent/agent_data.tres" type="Resource" id=1]
+[ext_resource path="res://mods-unpacked/Darkly77-ContentLoader/content_data.gd" type="Script" id=2]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/characters/beelzebub/beelzebub_data.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/Darkly77-Invasion/content/weapons/melee/big_hand/1/big_hand_1_data.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/Darkly77-Invasion/content/weapons/ranged/metal_cannon/1/metal_cannon_1_data.tres" type="Resource" id=5]
+[ext_resource path="res://mods-unpacked/Darkly77-Invasion/content/weapons/melee/alien_arm/1/alien_arm_1_data.tres" type="Resource" id=6]
+[ext_resource path="res://mods-unpacked/Darkly77-Invasion/content/weapons/ranged/clone/1/clone_1_data.tres" type="Resource" id=7]
+[ext_resource path="res://mods-unpacked/Darkly77-Invasion/content/weapons/ranged/demon_stick/1/demon_stick_1_data.tres" type="Resource" id=8]
+[ext_resource path="res://mods-unpacked/Darkly77-Invasion/content/weapons/melee/cudgel/1/cudgel_1_data.tres" type="Resource" id=9]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/characters/peasant/peasant_data.tres" type="Resource" id=51]
+
+[resource]
+script = ExtResource( 2 )
+characters = [  ]
+items = [  ]
+weapons = [ ExtResource( 9 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 8 ) ]
+weapons_characters = [ [ ExtResource( 3 ), ExtResource( 51 ) ], [ ExtResource( 3 ), ExtResource( 51 ) ], [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 51 ) ], [ ExtResource( 1 ), ExtResource( 3 ) ], [ ExtResource( 1 ), ExtResource( 3 ) ], [ ExtResource( 3 ) ] ]
+sets = [  ]
+challenges = [  ]
+debug_items = [  ]
+debug_weapons = [  ]

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=1]
+[ext_resource path="res://items/sets/fire/fire_set_data.tres" type="Resource" id=2]
+[ext_resource path="res://items/sets/support/support_set_data.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/staff_of_abundance/staff_of_abundance.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/staff_of_abundance/staff_of_abundance_icon.png" type="Texture" id=5]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/staff_of_abundance/3/staff_of_abundance_3_data.tres" type="Resource" id=6]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/staff_of_abundance/2/staff_of_abundance_2_stats.tres" type="Resource" id=7]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/staff_of_abundance/2/staff_of_abundance_effect_1.tres" type="Resource" id=8]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "weapon_staff_of_abundance_2"
+unlocked_by_default = true
+icon = ExtResource( 5 )
+name = "Staff of abundance"
+tier = 1
+value = 40
+effects = [ ExtResource( 8 ) ]
+tracking_text = ""
+weapon_id = "weapon_staff_of_abundance"
+type = 1
+sets = [ ExtResource( 2 ), ExtResource( 3 ) ]
+scene = ExtResource( 4 )
+stats = ExtResource( 7 )
+upgrades_into = ExtResource( 6 )

@@ -1,0 +1,51 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://weapons/weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/shaders/outline.gdshader" type="Shader" id=2]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/weapons/trash_bag/junker_trash_bag.png" type="Texture" id=3]
+[ext_resource path="res://weapons/shooting_behaviors/melee_weapon_shooting_behavior.gd" type="Script" id=4]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/weapons/trash_bag/trash_bag.gd" type="Script" id=5]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/cleaning_product_projectile/cleaning_product_projectile.tscn" type="PackedScene" id=6]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/fly_projectile/fly_projectile.tscn" type="PackedScene" id=7]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/can_projectile/can_projectile.tscn" type="PackedScene" id=8]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/chili_projectile/chili_projectile.tscn" type="PackedScene" id=9]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/cloth_projectile/cloth_projectile.tscn" type="PackedScene" id=10]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/food_projectile/food_projectile.tscn" type="PackedScene" id=11]
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/width = 2.0
+shader_param/outline_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 86, 45 )
+
+[sub_resource type="CircleShape2D" id=2]
+resource_local_to_scene = true
+radius = 72.4431
+
+[node name="TrashBag" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+outline_shader_mat = SubResource( 3 )
+possible_projectile_scenes = [ ExtResource( 11 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 10 ) ]
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 24, 0 )
+scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 3 )
+
+[node name="Collision" parent="Sprite/Hitbox" index="0"]
+position = Vector2( -34, 0 )
+shape = SubResource( 1 )
+
+[node name="Muzzle" parent="Sprite" index="1"]
+position = Vector2( 48, 0 )
+
+[node name="CollisionShape2D" parent="Range" index="0"]
+shape = SubResource( 2 )
+
+[node name="ShootingBehavior" parent="." index="4"]
+script = ExtResource( 4 )
+
+[editable path="Sprite/Hitbox"]

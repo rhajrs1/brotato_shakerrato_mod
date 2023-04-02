@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/sets/tactical/tactical_set_data.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/fn_f/fn_f.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/fn_f/fn_f_icon.png" type="Texture" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/fn_f/3/fn_f_3_stats.tres" type="Resource" id=5]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/fn_f/4/fn_f_4_data.tres" type="Resource" id=6]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "weapon_fn_f_3"
+unlocked_by_default = true
+icon = ExtResource( 4 )
+name = "FN F2000"
+tier = 2
+value = 140
+effects = [  ]
+tracking_text = ""
+weapon_id = "weapon_fn_f"
+type = 1
+sets = [ ExtResource( 2 ) ]
+scene = ExtResource( 3 )
+stats = ExtResource( 5 )
+upgrades_into = ExtResource( 6 )

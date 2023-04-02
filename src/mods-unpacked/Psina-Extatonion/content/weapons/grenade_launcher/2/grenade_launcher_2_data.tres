@@ -1,0 +1,27 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/grenade_launcher/2/grenade_launcher_2_stats.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/sets/tactical/tactical_set_data.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/grenade_launcher/2/grenade_launcher_2_effect.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/grenade_launcher/3/grenade_launcher_3_data.tres" type="Resource" id=5]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/grenade_launcher/grenade_launcher.tscn" type="PackedScene" id=6]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/grenade_launcher/grenade_launcher_icon.png" type="Texture" id=7]
+[ext_resource path="res://items/sets/explosive/explosive_set_data.tres" type="Resource" id=8]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "weapon_grenade_launcher_2"
+unlocked_by_default = true
+icon = ExtResource( 7 )
+name = "Grenade Launcher"
+tier = 1
+value = 31
+effects = [ ExtResource( 4 ) ]
+tracking_text = ""
+weapon_id = "weapon_grenade_launcher"
+type = 1
+sets = [ ExtResource( 3 ), ExtResource( 8 ) ]
+scene = ExtResource( 6 )
+stats = ExtResource( 2 )
+upgrades_into = ExtResource( 5 )

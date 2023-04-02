@@ -1,0 +1,27 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/weapons/trash_bag/1/trash_bag_stats.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/weapons/trash_bag/trash_bag.tscn" type="PackedScene" id=3]
+[ext_resource path="res://items/sets/primitive/primitive_set_data.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/sets/junk/junk_set_data.tres" type="Resource" id=5]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/weapons/trash_bag/1/trash_bag_effect_1.tres" type="Resource" id=6]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/weapons/trash_bag/2/trash_bag_2_data.tres" type="Resource" id=7]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/weapons/trash_bag/junker_trash_bag_icon.png" type="Texture" id=8]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "weapon_trash_bag_1"
+unlocked_by_default = false
+icon = ExtResource( 8 )
+name = "WEAPON_TRASH_BAG"
+tier = 0
+value = 13
+effects = [ ExtResource( 6 ) ]
+tracking_text = ""
+weapon_id = "weapon_trash_bag"
+type = 0
+sets = [ ExtResource( 5 ), ExtResource( 4 ) ]
+scene = ExtResource( 3 )
+stats = ExtResource( 2 )
+upgrades_into = ExtResource( 7 )

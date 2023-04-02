@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=10 format=2]
+
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/legendary/ultra_mush/ultra_mush_effect_5.tres" type="Resource" id=1]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/legendary/ultra_mush/ultra_mush_appearance.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/legendary/ultra_mush/ultra_mush_effect_1.tres" type="Resource" id=3]
+[ext_resource path="res://items/global/item_data.gd" type="Script" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/legendary/ultra_mush/ultra_mush_effect_2.tres" type="Resource" id=5]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/legendary/ultra_mush/ultra_mush_effect_3.tres" type="Resource" id=6]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/legendary/ultra_mush/ultra_mush_effect_6.tres" type="Resource" id=7]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/legendary/ultra_mush/ultra_mush_effect_4.tres" type="Resource" id=8]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/legendary/ultra_mush/ultra_mush_icon.png" type="Texture" id=9]
+
+[resource]
+script = ExtResource( 4 )
+my_id = "item_ultra_mush"
+unlocked_by_default = true
+icon = ExtResource( 9 )
+name = "Ultra mush"
+tier = 3
+value = 100
+effects = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 7 ) ]
+tracking_text = ""
+max_nb = 1
+item_appearances = [ ExtResource( 2 ) ]
+tags = [ "stat_attack_speed", "stat_hp_regeneration" ]

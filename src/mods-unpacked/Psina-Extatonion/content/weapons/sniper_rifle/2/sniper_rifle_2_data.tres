@@ -1,0 +1,27 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/sniper_rifle/sniper_rifle_effect_2.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/sets/tactical/tactical_set_data.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/sniper_rifle/2/sniper_rifle_2_effect_1.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/sniper_rifle/sniper_rifle_icon.png" type="Texture" id=5]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/sniper_rifle/2/sniper_rifle_2_stats.tres" type="Resource" id=6]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/sniper_rifle/3/sniper_rifle_3_data.tres" type="Resource" id=7]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/sniper_rifle/sniper_rifle.tscn" type="PackedScene" id=8]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "weapon_sniper_rifle_2"
+unlocked_by_default = true
+icon = ExtResource( 5 )
+name = "Headshotter"
+tier = 1
+value = 62
+effects = [ ExtResource( 4 ), ExtResource( 2 ) ]
+tracking_text = ""
+weapon_id = "weapon_sniper_rifle"
+type = 1
+sets = [ ExtResource( 3 ) ]
+scene = ExtResource( 8 )
+stats = ExtResource( 6 )
+upgrades_into = ExtResource( 7 )

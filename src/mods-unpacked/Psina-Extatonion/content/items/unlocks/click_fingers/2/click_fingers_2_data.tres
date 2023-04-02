@@ -1,0 +1,27 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=1]
+[ext_resource path="res://items/sets/fire/fire_set_data.tres" type="Resource" id=2]
+[ext_resource path="res://items/sets/explosive/explosive_set_data.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/unlocks/click_fingers/2/click_fingers_2_stats.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/unlocks/click_fingers/click_fingers_effect.tres" type="Resource" id=5]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/unlocks/click_fingers/3/click_fingers_3_data.tres" type="Resource" id=6]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/unlocks/click_fingers/click_fingers.tscn" type="PackedScene" id=7]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/unlocks/click_fingers/click_fingers_icon.png" type="Texture" id=8]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "weapon_click_fingers_2"
+unlocked_by_default = false
+icon = ExtResource( 8 )
+name = "Click fingers"
+tier = 1
+value = 31
+effects = [ ExtResource( 5 ) ]
+tracking_text = ""
+weapon_id = "weapon_click_fingers"
+type = 1
+sets = [ ExtResource( 2 ), ExtResource( 3 ) ]
+scene = ExtResource( 7 )
+stats = ExtResource( 4 )
+upgrades_into = ExtResource( 6 )

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=15 format=2]
+
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/uncommon/not_a_rat/not_a_rat_effect_4.tres" type="Resource" id=1]
+[ext_resource path="res://items/global/item_data.gd" type="Script" id=2]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/uncommon/not_a_rat/not_a_rat_effect_12.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/uncommon/not_a_rat/not_a_rat_effect_1.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/uncommon/not_a_rat/not_a_rat_effect_7.tres" type="Resource" id=5]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/uncommon/not_a_rat/not_a_rat_effect_2.tres" type="Resource" id=6]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/uncommon/not_a_rat/not_a_rat_effect_10.tres" type="Resource" id=7]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/uncommon/not_a_rat/not_a_rat_effect_3.tres" type="Resource" id=8]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/uncommon/not_a_rat/not_a_rat_effect_11.tres" type="Resource" id=9]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/uncommon/not_a_rat/not_a_rat_appearance.tres" type="Resource" id=10]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/uncommon/not_a_rat/not_a_rat_effect_6.tres" type="Resource" id=11]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/uncommon/not_a_rat/not_a_rat_effect_5.tres" type="Resource" id=12]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/uncommon/not_a_rat/not_a_rat_effect_8.tres" type="Resource" id=13]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/uncommon/not_a_rat/not_a_rat_icon.png" type="Texture" id=14]
+
+[resource]
+script = ExtResource( 2 )
+my_id = "item_not_a_rat"
+unlocked_by_default = true
+icon = ExtResource( 14 )
+name = "Not a rat"
+tier = 1
+value = 65
+effects = [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 5 ), ExtResource( 13 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 3 ) ]
+tracking_text = ""
+max_nb = 1
+item_appearances = [ ExtResource( 10 ) ]
+tags = [ "stat_crit_chance" ]

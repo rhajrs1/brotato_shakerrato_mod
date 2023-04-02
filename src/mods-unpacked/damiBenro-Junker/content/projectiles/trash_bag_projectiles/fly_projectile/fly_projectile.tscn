@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://projectiles/player_projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/sprites/junker_trash_fly.png" type="Texture" id=2]
+[ext_resource path="res://mods-unpacked/damiBenro-Junker/content/projectiles/trash_bag_projectiles/fly_projectile/homing_projectile.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 21.5, 20.5 )
+
+[node name="FlyProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+enable_physics_process = true
+rotation_speed = 0
+drifting_factor = 0.08
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 1, 1 )
+texture = ExtResource( 2 )
+
+[node name="Hitbox" parent="." index="1"]
+position = Vector2( -23, 1 )
+
+[node name="Collision" parent="Hitbox" index="0"]
+position = Vector2( 24.5, 0.5 )
+shape = SubResource( 1 )
+
+[editable path="Hitbox"]

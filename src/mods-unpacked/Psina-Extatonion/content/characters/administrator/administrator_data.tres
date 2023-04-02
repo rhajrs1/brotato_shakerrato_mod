@@ -1,0 +1,45 @@
+[gd_resource type="Resource" load_steps=28 format=2]
+
+[ext_resource path="res://items/characters/character_data.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/characters/administrator/administrator_effect_2.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/characters/administrator/administrator_mouth_appearance.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/characters/administrator/administrator_eyes_appearance.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/characters/administrator/administrator_effect_1.tres" type="Resource" id=5]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/characters/administrator/administrator_icon.png" type="Texture" id=6]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/usp/1/usp_data.tres" type="Resource" id=7]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/grenade_launcher/1/grenade_launcher_data.tres" type="Resource" id=8]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/fn_f/2/fn_f_2_data.tres" type="Resource" id=9]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/sniper_rifle/2/sniper_rifle_2_data.tres" type="Resource" id=10]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/locust_gun/1/locust_gun_data.tres" type="Resource" id=11]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/bee_hive/1/bee_hive_data.tres" type="Resource" id=12]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/pitchfork/1/pitchfork_data.tres" type="Resource" id=13]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/bow/1/bow_data.tres" type="Resource" id=14]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/unlocks/m4a1_s/3/m4a1_s_3_data.tres" type="Resource" id=15]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/unlocks/vasileks_bow/2/vasileks_bow_2_data.tres" type="Resource" id=16]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/javelin/3/javelin_3_data.tres" type="Resource" id=17]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/dark_magic/2/dark_magic_2_data.tres" type="Resource" id=18]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/leafys_machinegun/2/leafys_machinegun_2_data.tres" type="Resource" id=19]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/armageddon/2/armageddon_2_data.tres" type="Resource" id=20]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/cutted_off_hand/1/cutted_off_hand_data.tres" type="Resource" id=21]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/unlocks/knife_thrower/2/knife_thrower_data_2.tres" type="Resource" id=22]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/unlocks/click_fingers/2/click_fingers_2_data.tres" type="Resource" id=23]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/paper/1/paper_data.tres" type="Resource" id=24]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/big_spoon/1/big_spoon_data.tres" type="Resource" id=25]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/knife_of_abundance/1/knife_of_abundance_data.tres" type="Resource" id=26]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/staff_of_abundance/1/staff_of_abundance_data.tres" type="Resource" id=27]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "character_administrator"
+unlocked_by_default = true
+icon = ExtResource( 6 )
+name = "Glitched"
+tier = 0
+value = 1
+effects = [ ExtResource( 5 ), ExtResource( 2 ) ]
+tracking_text = ""
+max_nb = -1
+item_appearances = [ ExtResource( 4 ), ExtResource( 3 ) ]
+tags = [  ]
+wanted_tags = [  ]
+starting_weapons = [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ]

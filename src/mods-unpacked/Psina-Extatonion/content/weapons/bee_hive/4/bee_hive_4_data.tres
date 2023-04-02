@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/bee_hive/4/bee_hive_4_effect_1.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/bee_hive/4/bee_hive_4_stats.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/bee_hive/bee_hive.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/bee_hive/bee_hive_icon.png" type="Texture" id=5]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/sets/insect/insect_set_data.tres" type="Resource" id=6]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "weapon_beehive_4"
+unlocked_by_default = true
+icon = ExtResource( 5 )
+name = "Bee hive"
+tier = 3
+value = 140
+effects = [ ExtResource( 2 ) ]
+tracking_text = ""
+weapon_id = "weapon_beehive"
+type = 0
+sets = [ ExtResource( 6 ) ]
+scene = ExtResource( 4 )
+stats = ExtResource( 3 )
