@@ -2,8 +2,8 @@
   "name": "InfiniteElites",
   "namespace": "shakerrato",
   "version_number": "1.0.0",
-  "description": "여긴 마음대로",
-  "website_url": "https://github.com/example/repo",
+  "description": "shakerrato's freaking hard mod",
+  "website_url": "",
   "dependencies": [
     "Darkly77-ContentLoader"
   ],
