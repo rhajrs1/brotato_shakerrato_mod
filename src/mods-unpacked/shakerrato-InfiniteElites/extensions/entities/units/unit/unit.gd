@@ -1,7 +1,6 @@
 extends "res://entities/units/unit/unit.gd"
 
 func init_current_stats()->void :
-	print("이게 패치 된 메서드22222222")
 	max_stats.copy_stats(stats)
 	
 	var str_factor = Utils.get_stat("enemy_health") / 100.0
