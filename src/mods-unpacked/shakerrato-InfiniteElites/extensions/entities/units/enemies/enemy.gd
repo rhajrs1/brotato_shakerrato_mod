@@ -1,4 +1,4 @@
-extends "res://entities/units/unit/unit.gd"
+extends "res://entities/units/enemies/enemy.gd"
 
 func init_current_stats()->void :
 	max_stats.copy_stats(stats)
