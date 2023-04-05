@@ -1,5 +1,19 @@
-class_name ContentUnloader
+class_name ContentEditor
 extends Node
+
+func exec() -> void:
+	
+	var hc = find_item("ITEM_HANDCUFFS")
+	if hc != null:
+		hc.effects[0].value = 16
+	
+	remove_weapon("weapon_smg")
+
+func find_item(name: String):
+	for i in ItemService.items.size():
+		if ItemService.items[i].name == name:
+			return ItemService.items[i]
+	return null
 
 func remove_weapon(name: String) -> void:
 	var removeTarget = []
@@ -20,3 +34,4 @@ func remove_weapon(name: String) -> void:
 		
 		for j in removeTarget.size():
 			targetCharacter.starting_weapons.erase(removeTarget[j])
+

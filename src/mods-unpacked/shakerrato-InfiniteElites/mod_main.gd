@@ -31,5 +31,4 @@ func _ready():
 	
 	# Add content. These .tres files are ContentData resources
 	#ContentLoader.load_data(content_data_dir + "main_content.tres", MYMODNAME_LOG)
-	var ContentUnloader = load(ext_dir + "content_unloader.gd").new()
-	ContentUnloader.remove_weapon("weapon_smg")
+	(load(ext_dir + "content_editor.gd").new()).exec()
