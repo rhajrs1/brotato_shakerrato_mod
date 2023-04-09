@@ -19,7 +19,7 @@ func _init(modLoader = ModLoader):
 	content_data_dir = dir + "content_data/"
 	
 	# Add extensions
-	modLoader.install_script_extension(ext_dir + "entities/units/enemies/enemy.gd")
+	modLoader.install_script_extension(ext_dir + "entities/units/enemies/boss/boss.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/run_data.gd")
 	modLoader.install_script_extension(ext_dir + "ui/menus/run/difficulty_selection/difficulty_selection.gd")
 	

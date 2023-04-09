@@ -1,11 +1,11 @@
 extends "res://singletons/run_data.gd"
 
 func get_additional_elites_endless()->Array:
-	var difficulty = 50.0
+	var difficulty = .5
 	if ProgressData.settings.has("endless_mode_difficulty"):
 		difficulty = ProgressData.settings["endless_mode_difficulty"]
 	
-	var weight = 20 - ((difficulty / 100) * 60)
+	var weight = 20 - (difficulty * 60)
 	
 	var new_elites = []
 	if RunData.current_wave > RunData.nb_of_waves:
