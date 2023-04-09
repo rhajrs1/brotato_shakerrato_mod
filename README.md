@@ -11,7 +11,14 @@
 
 ### checkout 방법
 ```bash
+git fetch --all
 git checkout ex
+````
+
+- 만약 코드가 수정이 되어 위 커맨드가 동작되지 않을 경우, 아래 코드를 통해 cleanup 할 수 있습니다. (수정 된 코드가 모두 rollback 되니 주의 해야 합니다.)
+```bash
+git reset --hard
+git clean -df
 ````
 
 ## endless elite 난이도 수정
