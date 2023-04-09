@@ -21,6 +21,7 @@ func _init(modLoader = ModLoader):
 	# Add extensions
 	modLoader.install_script_extension(ext_dir + "entities/units/enemies/enemy.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/run_data.gd")
+	modLoader.install_script_extension(ext_dir + "ui/menus/run/difficulty_selection/difficulty_selection.gd")
 	
 	# Add translations
 	#modLoader.add_translation_from_resource(trans_dir + "translations/modname_text.en.translation")

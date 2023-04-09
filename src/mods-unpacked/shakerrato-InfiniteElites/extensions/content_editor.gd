@@ -57,8 +57,6 @@ func find_item(name: String):
 	return null
 
 func find_weapon(name: String, tier):
-	print(name)
-	print(tier)
 	for i in ItemService.weapons.size():
 		var item = ItemService.weapons[i]
 		if item.name == name && item.tier == tier:
