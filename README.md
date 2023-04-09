@@ -23,10 +23,10 @@ git clean -df
 
 ## endless elite 난이도 수정
 
-###elite 수 조정
+### elite 수 조정
 - res://mods-unpacked/shakerrato-InfiniteElites/extensions/singletons/run_data.gd
 
-###elite hp 조정
+### elite hp 조정
 - res://mods-unpacked/shakerrato-InfiniteElites/extensions/entities/units/enemies/enemy.gd
 
 ## Item 수정
