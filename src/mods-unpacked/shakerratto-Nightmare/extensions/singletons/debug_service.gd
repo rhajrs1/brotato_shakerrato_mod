@@ -226,17 +226,60 @@ func edit_items() -> void:
 	
 	item = find_item("Rhino's relic")
 	if item != null:
-		item.effects[0].key = "stat_melee_damage"
-		item.effects[0].value = 8
-		item.effects[1].key = "stat_percent_damage"
-		item.effects[1].text_key = ""
-		item.effects[1].custom_key = ""
-		item.effects[1].value = 10
-		item.effects[2].key = "stat_range"
-		item.effects[2].text_key = ""
-		item.effects[2].value = -40
-		item.effects[3].key = "stat_max_hp"
-		item.effects[3].value = -15
+		item.effects = []
+		var effect = Effect.new()
+		effect.key = "stat_melee_damage"
+		effect.text_key = ""
+		effect.value = 8
+		effect.storage_method = Effect.StorageMethod.SUM
+		effect.effect_sign = Effect.Sign.FROM_VALUE
+		item.effects.append(effect)
+		var e2 = StatGainsModificationEffect.new()
+		e2.key = "effect_increase_stat_gains"
+		e2.value = 10
+		e2.storage_method = Effect.StorageMethod.SUM
+		e2.effect_sign = Effect.Sign.FROM_VALUE
+		e2.stat_displayed = "stat_melee_damage"
+		e2.stats_modified = [ "stat_melee_damage" ]
+		item.effects.append(e2)
+		effect = Effect.new()
+		effect.key = "stat_range"
+		effect.value = -40
+		effect.storage_method = Effect.StorageMethod.SUM
+		effect.effect_sign = Effect.Sign.FROM_VALUE
+		item.effects.append(effect)
+		effect = Effect.new()
+		effect.key = "stat_max_hp"
+		effect.value = -15
+		effect.storage_method = Effect.StorageMethod.SUM
+		effect.effect_sign = Effect.Sign.FROM_VALUE
+		item.effects.append(effect)
+	
+	item = find_item("Dark altar")
+	if item != null:
+		item.effects = []
+		var e1 = StatGainsModificationEffect.new()
+		e1.key = "effect_increase_stat_gains"
+		e1.text_key = ""
+		e1.value = 25
+		e1.storage_method = Effect.StorageMethod.SUM
+		e1.effect_sign = Effect.Sign.FROM_VALUE
+		e1.stat_displayed = "stat_harvesting"
+		e1.stats_modified = [ "stat_harvesting" ]
+		item.effects.append(e1)
+		var effect = Effect.new()
+		effect.key = "hp_start_wave"
+		effect.text_key = "EFFECT_START_WAVE_LESS_HP"
+		effect.value = -40
+		effect.storage_method = Effect.StorageMethod.SUM
+		effect.effect_sign = Effect.Sign.FROM_VALUE
+		item.effects.append(effect)
+		effect = Effect.new()
+		effect.key = "stat_harvesting"
+		effect.value = 20
+		effect.storage_method = Effect.StorageMethod.SUM
+		effect.effect_sign = Effect.Sign.FROM_VALUE
+		item.effects.append(effect)
 	
 	item = find_item("Vurtfish")
 	if item != null:
@@ -292,42 +335,7 @@ func edit_items() -> void:
 
 # note: 무기 수정 method, find_weapon으로 무기 찾은 후 property 수정
 func edit_weapons() -> void:
-	var w = find_weapon("WEAPON_SMG", ItemParentData.Tier.COMMON)
-	if w != null:
-		w.stats.damage = 999999
-		w.stats.cooldown = 1
-		w.stats.recoil = 1
-		w.stats.recoil_duration = 0.01
-	
-	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.COMMON)
-	if w != null:
-		w.stats.damage = 999999
-		w.stats.cooldown = 1
-		w.stats.recoil = 1
-		w.stats.recoil_duration = 0.01
-		
-	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.UNCOMMON)
-	if w != null:
-		w.stats.damage = 999999
-		w.stats.cooldown = 1
-		w.stats.recoil = 1
-		w.stats.recoil_duration = 0.01
-		
-	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.RARE)
-	if w != null:
-		w.stats.damage = 999999
-		w.stats.cooldown = 1
-		w.stats.recoil = 1
-		w.stats.recoil_duration = 0.01
-		
-	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.LEGENDARY)
-	if w != null:
-		w.stats.damage = 999999
-		w.stats.cooldown = 1
-		w.stats.recoil = 1
-		w.stats.recoil_duration = 0.01
-	
-	w = find_weapon("WEAPON_POTATO_THROWER", ItemParentData.Tier.UNCOMMON)	
+	var w = find_weapon("WEAPON_POTATO_THROWER", ItemParentData.Tier.UNCOMMON)	
 	if w != null:
 		w.stats.scaling_stats[0][1] = .3
 		w.stats.scaling_stats[1][1] = .1
@@ -401,6 +409,77 @@ func edit_weapons() -> void:
 		effect.storage_method = Effect.StorageMethod.SUM
 		effect.effect_sign = Effect.Sign.FROM_VALUE
 		w.effects.append(effect)
+	
+	w = find_weapon("WEAPON_WRENCH", ItemParentData.Tier.COMMON)
+	if w != null:
+		w.stats.scaling_stats.append([ "stat_engineering", .7 ])
+		
+	w = find_weapon("WEAPON_WRENCH", ItemParentData.Tier.UNCOMMON)
+	if w != null:
+		w.stats.scaling_stats.append([ "stat_engineering", .8 ])
+		
+	w = find_weapon("WEAPON_WRENCH", ItemParentData.Tier.RARE)
+	if w != null:
+		w.stats.scaling_stats.append([ "stat_engineering", .9 ])
+		
+	w = find_weapon("WEAPON_WRENCH", ItemParentData.Tier.LEGENDARY)
+	if w != null:
+		w.stats.scaling_stats.append([ "stat_engineering", 1.0 ])
+		
+	w = find_weapon("WEAPON_SCREWDRIVER", ItemParentData.Tier.COMMON)
+	if w != null:
+		w.stats.scaling_stats[0][1] = 0.5
+		w.stats.scaling_stats[1][1] = 0.5
+		
+	w = find_weapon("WEAPON_SCREWDRIVER", ItemParentData.Tier.UNCOMMON)
+	if w != null:
+		w.stats.scaling_stats[0][1] = 0.6
+		w.stats.scaling_stats[1][1] = 0.6
+		
+	w = find_weapon("WEAPON_SCREWDRIVER", ItemParentData.Tier.RARE)
+	if w != null:
+		w.stats.scaling_stats[0][1] = 0.7
+		w.stats.scaling_stats[1][1] = 0.7
+		
+	w = find_weapon("WEAPON_SCREWDRIVER", ItemParentData.Tier.LEGENDARY)
+	if w != null:
+		w.stats.scaling_stats[0][1] = 1.0
+		w.stats.scaling_stats[1][1] = 1.0
+		
+#	w = find_weapon("WEAPON_SMG", ItemParentData.Tier.COMMON)
+#	if w != null:
+#		w.stats.damage = 999999
+#		w.stats.cooldown = 1
+#		w.stats.recoil = 1
+#		w.stats.recoil_duration = 0.01
+#
+#	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.COMMON)
+#	if w != null:
+#		w.stats.damage = 999999
+#		w.stats.cooldown = 1
+#		w.stats.recoil = 1
+#		w.stats.recoil_duration = 0.01
+#
+#	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.UNCOMMON)
+#	if w != null:
+#		w.stats.damage = 999999
+#		w.stats.cooldown = 1
+#		w.stats.recoil = 1
+#		w.stats.recoil_duration = 0.01
+#
+#	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.RARE)
+#	if w != null:
+#		w.stats.damage = 999999
+#		w.stats.cooldown = 1
+#		w.stats.recoil = 1
+#		w.stats.recoil_duration = 0.01
+#
+#	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.LEGENDARY)
+#	if w != null:
+#		w.stats.damage = 999999
+#		w.stats.cooldown = 1
+#		w.stats.recoil = 1
+#		w.stats.recoil_duration = 0.01
 
 # note : 아이 삭제 method, remove_item(삭제 할 아이템 이름)
 func remove_items() -> void:

@@ -1,8 +1,8 @@
 {
-  "name": "InfiniteElites",
-  "namespace": "shakerrato",
+  "name": "Nightmare",
+  "namespace": "shakerratto",
   "version_number": "1.0.0",
-  "description": "shakerrato's freaking hard mod",
+  "description": "shakerratto's freaking hard mod",
   "website_url": "",
   "dependencies": [
     "Darkly77-ContentLoader",
@@ -12,7 +12,7 @@
     "godot": {
       "incompatibilities": [],
       "authors": [
-        "shakerrato"
+        "shakerratto"
       ],
       "compatible_mod_loader_version": "4.0.0",
       "compatible_game_version": [
