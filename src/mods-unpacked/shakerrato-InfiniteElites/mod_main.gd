@@ -19,17 +19,15 @@ func _init(modLoader = ModLoader):
 	content_data_dir = dir + "content_data/"
 	
 	# Add extensions
+	modLoader.install_script_extension(ext_dir + "ui/menus/run/difficulty_selection/difficulty_selection.gd")
 	modLoader.install_script_extension(ext_dir + "entities/units/enemies/boss/boss.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/run_data.gd")
-	modLoader.install_script_extension(ext_dir + "ui/menus/run/difficulty_selection/difficulty_selection.gd")
+	modLoader.install_script_extension(ext_dir + "singletons/debug_service.gd")
 	
 	# Add translations
 	#modLoader.add_translation_from_resource(trans_dir + "translations/modname_text.en.translation")
 
-
-func _ready():
-		#var ContentLoader = get_node("/root/ModLoader/Darkly77-ContentLoader/ContentLoader")
-	
+#func _ready():
+	#var ContentLoader = get_node("/root/ModLoader/Darkly77-ContentLoader/ContentLoader")
 	# Add content. These .tres files are ContentData resources
 	#ContentLoader.load_data(content_data_dir + "main_content.tres", MYMODNAME_LOG)
-	(load(ext_dir + "content_editor.gd").new()).exec()
