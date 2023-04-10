@@ -15,6 +15,9 @@ func _ready()->void :
 	_endlessOption.margin_right = _endlessButton.margin_right
 	_endlessOption._label.text = "Endless Difficulty"
 	_endlessOption._slider.connect("value_changed", self, "_on_EndlessSlider_changed")
+	
+	if _endlessButton.pressed == true: _endlessOption.show()
+	else: _endlessOption.hide()
 
 func _on_EndlessButton_toggled(button_pressed:bool)->void :
 	._on_EndlessButton_toggled(button_pressed)
