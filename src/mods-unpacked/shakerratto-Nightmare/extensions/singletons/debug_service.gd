@@ -201,6 +201,11 @@ func edit_items() -> void:
 		item.effects[0].nb_stat_scaled = 2
 		item.effects[0].stat_scaled = "xp_gain"
 		
+	item = find_item("John's contract")
+	if item != null:
+		item.effects[0].value = 35
+		item.effects[2].value = -3
+		
 	item = find_item("Chaos")
 	if item != null:
 		item.effects[1].key = "stat_melee_damage"
