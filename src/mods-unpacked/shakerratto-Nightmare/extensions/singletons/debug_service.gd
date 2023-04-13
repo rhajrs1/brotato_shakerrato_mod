@@ -53,55 +53,73 @@ func edit_items() -> void:
 		
 	item = find_item("ITEM_TORTURE")
 	if item != null:
-		item.effects[0].key = "hp_start_wave"
-		item.effects[0].text_key = "EFFECT_START_WAVE_LESS_HP"
-		item.effects[0].value = -33
-		item.effects[0].custom_key = ""
-		var e2 = Effect.new()
-		e2.key = "enemy_damage"
-		e2.text_key = "effect_stat_next_wave"
-		e2.value = 100
-		e2.custom_key = "stats_next_wave"
-		e2.effect_sign = Effect.Sign.NEGATIVE
-		e2.storage_method = Effect.StorageMethod.KEY_VALUE
-		item.effects.append(e2)
-		var e3 = GainStatForEveryStatEffect.new()
-		e3.key = "stat_percent_damage"
-		e3.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
-		e3.value = 1
-		e3.custom_key = ""
-		e3.storage_method = Effect.StorageMethod.SUM
-		e3.effect_sign = Effect.Sign.POSITIVE
-		e3.custom_args = []
-		e3.nb_stat_scaled = 1
-		e3.stat_scaled = "stat_lifesteal"
-		item.effects.append(e3)
-		var e4 = GainStatForEveryStatEffect.new()
-		e4.key = "stat_percent_damage"
-		e4.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
-		e4.value = 2
-		e4.custom_key = ""
-		e4.storage_method = Effect.StorageMethod.SUM
-		e4.effect_sign = Effect.Sign.POSITIVE
-		e4.custom_args = []
-		e4.nb_stat_scaled = 1
-		e4.stat_scaled = "stat_hp_regeneration"
-		item.effects.append(e4)
+		item.effects = []
+		var e = Effect.new()
+		e.key = "hp_start_wave"
+		e.text_key = "EFFECT_START_WAVE_LESS_HP"
+		e.value = -33
+		e.custom_key = ""
+		e.effect_sign = Effect.Sign.FROM_VALUE
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "torture"
+		e.text_key = "effect_torture"
+		e.value = 4
+		e.custom_key = ""
+		e.effect_sign = Effect.Sign.NEUTRAL
+		e.storage_method = Effect.StorageMethod.KEY_VALUE
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "enemy_damage"
+		e.text_key = "effect_stat_next_wave"
+		e.value = 100
+		e.custom_key = "stats_next_wave"
+		e.effect_sign = Effect.Sign.NEGATIVE
+		e.storage_method = Effect.StorageMethod.KEY_VALUE
+		item.effects.append(e)
+		e = GainStatForEveryStatEffect.new()
+		e.key = "stat_percent_damage"
+		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
+		e.value = 1
+		e.custom_key = ""
+		e.storage_method = Effect.StorageMethod.SUM
+		e.effect_sign = Effect.Sign.POSITIVE
+		e.custom_args = []
+		e.nb_stat_scaled = 1
+		e.stat_scaled = "stat_lifesteal"
+		item.effects.append(e)
+		var effect = GainStatForEveryStatEffect.new()
+		effect.key = "stat_percent_damage"
+		effect.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
+		effect.value = 2
+		effect.custom_key = ""
+		effect.storage_method = Effect.StorageMethod.SUM
+		effect.effect_sign = Effect.Sign.POSITIVE
+		effect.custom_args = []
+		effect.nb_stat_scaled = 1
+		effect.stat_scaled = "stat_hp_regeneration"
+		item.effects.append(effect)
 	
 	item = find_item("ITEM_POTION")
 	if item != null:
-		item.effects[0].key = "stat_melee_damage"
-		item.effects[0].text_key = ""
-		item.effects[0].value = 40
-		item.effects[0].custom_key = ""
-		item.effects[0].storage_method = Effect.StorageMethod.SUM
-		item.effects[0].effect_sign = Effect.Sign.FROM_VALUE
-		item.effects[1].key = "explosion_size"
-		item.effects[1].text_key = ""
-		item.effects[1].value = -1000
-		item.effects[1].custom_key = ""
-		item.effects[1].storage_method = Effect.StorageMethod.SUM
-		item.effects[1].effect_sign = Effect.Sign.FROM_VALUE
+		item.effects = []
+		var e1 = StatGainsModificationEffect.new()
+		e1.key = "effect_increase_stat_gains"
+		e1.text_key = ""
+		e1.value = 40
+		e1.storage_method = Effect.StorageMethod.SUM
+		e1.effect_sign = Effect.Sign.FROM_VALUE
+		e1.stat_displayed = "stat_melee_damage"
+		e1.stats_modified = [ "stat_melee_damage" ]
+		item.effects.append(e1)
+		var effect = Effect.new()
+		effect.key = "explosion_size"
+		effect.text_key = ""
+		effect.value = -1000
+		effect.custom_key = ""
+		effect.storage_method = Effect.StorageMethod.SUM
+		effect.effect_sign = Effect.Sign.FROM_VALUE
+		item.effects.append(effect)
 	
 	item = find_item("ITEM_POTATO")
 	if item != null:
@@ -118,12 +136,47 @@ func edit_items() -> void:
 		
 	item = find_item("ITEM_ESTYS_COUCH")
 	if item != null:
-		item.effects[1].key = "stat_crit_chance"
-		item.effects[1].stat_scaled = "stat_armor"
-		item.effects[0].key = "stat_dodge"
-		item.effects[0].value = 10
-		item.effects[2].key = "stat_armor"
-		item.effects[2].value = -10
+		item.effects = []
+		var e = GainStatForEveryStatEffect.new()
+		e.key = "stat_crit_chance"
+		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
+		e.value = 2
+		e.storage_method = Effect.StorageMethod.SUM
+		e.effect_sign = Effect.Sign.FROM_VALUE
+		e.nb_stat_scaled = -1
+		e.stat_scaled = "stat_armor"
+		e.custom_args = []
+		var c = CustomArg.new()
+		c.arg_index = 2
+		c.arg_sign = CustomArg.Sign.NEGATIVE
+		c.arg_value = CustomArg.ArgValue.USUAL
+		c.arg_format = CustomArg.Format.USUAL
+		e.custom_args.append(c)
+		c = CustomArg.new()
+		c.arg_index = 3
+		c.arg_sign = CustomArg.Sign.NEGATIVE
+		c.arg_value = CustomArg.ArgValue.USUAL
+		c.arg_format = CustomArg.Format.USUAL
+		e.custom_args.append(c)
+		c = CustomArg.new()
+		c.arg_index = 4
+		c.arg_sign = CustomArg.Sign.FROM_ARG
+		c.arg_value = CustomArg.ArgValue.USUAL
+		c.arg_format = CustomArg.Format.USUAL
+		e.custom_args.append(c)
+		item.effects.append(e)
+		var effect = Effect.new()
+		effect.key = "stat_dodge"
+		effect.value = 10
+		effect.storage_method = Effect.StorageMethod.SUM
+		effect.effect_sign = Effect.Sign.FROM_VALUE
+		item.effects.append(effect)
+		effect = Effect.new()
+		effect.key = "stat_armor"
+		effect.value = -10
+		effect.storage_method = Effect.StorageMethod.SUM
+		effect.effect_sign = Effect.Sign.FROM_VALUE
+		item.effects.append(effect)
 	
 	item = find_item("ITEM_EXTRA_STOMACH")
 	if item != null:
@@ -197,9 +250,7 @@ func edit_items() -> void:
 		
 	item = find_item("Olexa's mantle")
 	if item != null:
-		item.max_nb = 2
-		item.effects[0].nb_stat_scaled = 2
-		item.effects[0].stat_scaled = "xp_gain"
+		item.max_nb = 1
 		
 	item = find_item("John's contract")
 	if item != null:
@@ -296,9 +347,19 @@ func edit_items() -> void:
 		effect.storage_method = Effect.StorageMethod.SUM
 		effect.effect_sign = Effect.Sign.FROM_VALUE
 		item.effects.append(effect)
+		var e1 = StatGainsModificationEffect.new()
+		e1.key = "effect_increase_stat_gains"
+		e1.text_key = ""
+		e1.value = 60
+		e1.storage_method = Effect.StorageMethod.SUM
+		e1.effect_sign = Effect.Sign.FROM_VALUE
+		e1.stat_displayed = "stat_attack_speed"
+		e1.stats_modified = [ "stat_attack_speed" ]
+		item.effects.append(e1)
 		effect = Effect.new()
-		effect.key = "stat_attack_speed"
-		effect.value = 50
+		effect.key = "no_ranged_weapons"
+		effect.text_key = "effect_no_ranged_weapons"
+		effect.value = 0
 		effect.storage_method = Effect.StorageMethod.SUM
 		effect.effect_sign = Effect.Sign.FROM_VALUE
 		item.effects.append(effect)
@@ -308,24 +369,20 @@ func edit_items() -> void:
 		effect.storage_method = Effect.StorageMethod.SUM
 		effect.effect_sign = Effect.Sign.FROM_VALUE
 		item.effects.append(effect)
-		effect = Effect.new()
-		effect.key = "no_ranged_weapons"
-		effect.text_key = "effect_no_ranged_weapons"
-		effect.value = 0
-		effect.storage_method = Effect.StorageMethod.SUM
-		effect.effect_sign = Effect.Sign.FROM_VALUE
-		item.effects.append(effect)
-		effect = Effect.new()
-		effect.key = "stat_ranged_damage"
-		effect.value = -100
-		effect.storage_method = Effect.StorageMethod.SUM
-		effect.effect_sign = Effect.Sign.FROM_VALUE
-		item.effects.append(effect)
+		e1 = StatGainsModificationEffect.new()
+		e1.key = "effect_reduce_stat_gains"
+		e1.text_key = ""
+		e1.value = -100
+		e1.storage_method = Effect.StorageMethod.SUM
+		e1.effect_sign = Effect.Sign.FROM_VALUE
+		e1.stat_displayed = "stat_ranged_damage"
+		e1.stats_modified = [ "stat_ranged_damage" ]
+		item.effects.append(e1)
 		
 	item = find_item("Tank muzzle")
 	if item != null:
 		item.effects[0].key = "explosion_damage"
-		item.effects[0].text_key = "explosion_damage"
+		item.effects[0].text_key = "effect_gain_stat_end_of_wave"
 		item.effects[0].value = 8
 		item.effects[0].custom_key = "stats_end_of_wave"
 		item.effects[1].value = 50
@@ -337,6 +394,30 @@ func edit_items() -> void:
 	item = find_item("Slashing Turret")
 	if item != null:
 		item.effects[0].stats.scaling_stats[0][1] = 1.45
+	
+	item = find_item("Meat Amulet")
+	if item != null:
+		item.max_nb = 1
+		
+	item = find_item("Investments")
+	if item != null:
+		item.effects = []
+		var e1 = GainStatForEveryStatEffect.new()
+		e1.key = "stat_harvesting"
+		e1.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
+		e1.value = 1
+		e1.storage_method = Effect.StorageMethod.KEY_VALUE
+		e1.effect_sign = Effect.Sign.FROM_VALUE
+		e1.nb_stat_scaled = 2
+		e1.stat_scaled = "xp_gain"
+		item.effects.append(e1)
+		var effect = Effect.new()
+		effect.key = "stat_percent_damage"
+		effect.text_key = ""
+		effect.value = -10
+		effect.storage_method = Effect.StorageMethod.SUM
+		effect.effect_sign = Effect.Sign.FROM_VALUE
+		item.effects.append(effect)
 
 # note: 무기 수정 method, find_weapon으로 무기 찾은 후 property 수정
 func edit_weapons() -> void:
@@ -357,64 +438,116 @@ func edit_weapons() -> void:
 		
 	w = find_weapon("WEAPON_JOUSTING_LANCE", ItemParentData.Tier.COMMON)	
 	if w != null:
-		w.effects[0].value = 1
-		w.effects[1].text_key = "effect_stat_while_moving"
-		w.effects[1].value = 3
-		w.effects[1].custom_key = "temp_stats_while_moving"
-		var effect = Effect.new()
-		effect.key = "stat_melee_damage"
-		effect.text_key = "effect_stat_while_moving"
-		effect.value = 1
-		effect.custom_key = "temp_stats_while_moving"
-		effect.storage_method = Effect.StorageMethod.SUM
-		effect.effect_sign = Effect.Sign.FROM_VALUE
-		w.effects.append(effect)
+		w.effects = []
+		var e = Effect.new()
+		e.key = "stat_speed"
+		e.text_key = ""
+		e.value = 2
+		e.custom_key = ""
+		e.storage_method = Effect.StorageMethod.SUM
+		e.effect_sign = Effect.Sign.FROM_VALUE
+		w.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_percent_damage"
+		e.text_key = "effect_stat_while_moving"
+		e.value = 3
+		e.custom_key = "temp_stats_while_moving"
+		e.storage_method = Effect.StorageMethod.SUM
+		e.effect_sign = Effect.Sign.FROM_VALUE
+		w.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_melee_damage"
+		e.text_key = "effect_stat_while_moving"
+		e.value = 1
+		e.custom_key = "temp_stats_while_moving"
+		e.storage_method = Effect.StorageMethod.SUM
+		e.effect_sign = Effect.Sign.FROM_VALUE
+		w.effects.append(e)
 		
 	w = find_weapon("WEAPON_JOUSTING_LANCE", ItemParentData.Tier.UNCOMMON)	
 	if w != null:
-		w.effects[0].value = 2
-		w.effects[1].text_key = "effect_stat_while_moving"
-		w.effects[1].value = 6
-		w.effects[1].custom_key = "temp_stats_while_moving"
-		var effect = Effect.new()
-		effect.key = "stat_melee_damage"
-		effect.text_key = "effect_stat_while_moving"
-		effect.value = 2
-		effect.custom_key = "temp_stats_while_moving"
-		effect.storage_method = Effect.StorageMethod.SUM
-		effect.effect_sign = Effect.Sign.FROM_VALUE
-		w.effects.append(effect)
+		w.effects = []
+		var e = Effect.new()
+		e.key = "stat_speed"
+		e.text_key = ""
+		e.value = 2
+		e.custom_key = ""
+		e.storage_method = Effect.StorageMethod.SUM
+		e.effect_sign = Effect.Sign.FROM_VALUE
+		w.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_percent_damage"
+		e.text_key = "effect_stat_while_moving"
+		e.value = 6
+		e.custom_key = "temp_stats_while_moving"
+		e.storage_method = Effect.StorageMethod.SUM
+		e.effect_sign = Effect.Sign.FROM_VALUE
+		w.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_melee_damage"
+		e.text_key = "effect_stat_while_moving"
+		e.value = 2
+		e.custom_key = "temp_stats_while_moving"
+		e.storage_method = Effect.StorageMethod.SUM
+		e.effect_sign = Effect.Sign.FROM_VALUE
+		w.effects.append(e)
 		
 	w = find_weapon("WEAPON_JOUSTING_LANCE", ItemParentData.Tier.RARE)	
 	if w != null:
-		w.effects[0].value = 3
-		w.effects[1].text_key = "effect_stat_while_moving"
-		w.effects[1].value = 9
-		w.effects[1].custom_key = "temp_stats_while_moving"
-		var effect = Effect.new()
-		effect.key = "stat_melee_damage"
-		effect.text_key = "effect_stat_while_moving"
-		effect.value = 4
-		effect.custom_key = "temp_stats_while_moving"
-		effect.storage_method = Effect.StorageMethod.SUM
-		effect.effect_sign = Effect.Sign.FROM_VALUE
-		w.effects.append(effect)
+		w.effects = []
+		var e = Effect.new()
+		e.key = "stat_speed"
+		e.text_key = ""
+		e.value = 3
+		e.custom_key = ""
+		e.storage_method = Effect.StorageMethod.SUM
+		e.effect_sign = Effect.Sign.FROM_VALUE
+		w.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_percent_damage"
+		e.text_key = "effect_stat_while_moving"
+		e.value = 9
+		e.custom_key = "temp_stats_while_moving"
+		e.storage_method = Effect.StorageMethod.SUM
+		e.effect_sign = Effect.Sign.FROM_VALUE
+		w.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_melee_damage"
+		e.text_key = "effect_stat_while_moving"
+		e.value = 4
+		e.custom_key = "temp_stats_while_moving"
+		e.storage_method = Effect.StorageMethod.SUM
+		e.effect_sign = Effect.Sign.FROM_VALUE
+		w.effects.append(e)
 		
 	w = find_weapon("WEAPON_JOUSTING_LANCE", ItemParentData.Tier.LEGENDARY)	
 	if w != null:
-		w.effects[0].value = 5
-		w.effects[1].text_key = "effect_stat_while_moving"
-		w.effects[1].value = 15
-		w.effects[1].custom_key = "temp_stats_while_moving"
-		var effect = Effect.new()
-		effect.key = "stat_melee_damage"
-		effect.text_key = "effect_stat_while_moving"
-		effect.value = 8
-		effect.custom_key = "temp_stats_while_moving"
-		effect.storage_method = Effect.StorageMethod.SUM
-		effect.effect_sign = Effect.Sign.FROM_VALUE
-		w.effects.append(effect)
-	
+		w.effects = []
+		var e = Effect.new()
+		e.key = "stat_speed"
+		e.text_key = ""
+		e.value = 5
+		e.custom_key = ""
+		e.storage_method = Effect.StorageMethod.SUM
+		e.effect_sign = Effect.Sign.FROM_VALUE
+		w.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_percent_damage"
+		e.text_key = "effect_stat_while_moving"
+		e.value = 15
+		e.custom_key = "temp_stats_while_moving"
+		e.storage_method = Effect.StorageMethod.SUM
+		e.effect_sign = Effect.Sign.FROM_VALUE
+		w.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_melee_damage"
+		e.text_key = "effect_stat_while_moving"
+		e.value = 8
+		e.custom_key = "temp_stats_while_moving"
+		e.storage_method = Effect.StorageMethod.SUM
+		e.effect_sign = Effect.Sign.FROM_VALUE
+		w.effects.append(e)
+		
 	w = find_weapon("WEAPON_WRENCH", ItemParentData.Tier.COMMON)
 	if w != null:
 		w.stats.scaling_stats.append([ "stat_engineering", .7 ])
@@ -450,14 +583,7 @@ func edit_weapons() -> void:
 	if w != null:
 		w.stats.scaling_stats[0][1] = 1.0
 		w.stats.scaling_stats[1][1] = 1.0
-		
-#	w = find_weapon("WEAPON_SMG", ItemParentData.Tier.COMMON)
-#	if w != null:
-#		w.stats.damage = 999999
-#		w.stats.cooldown = 1
-#		w.stats.recoil = 1
-#		w.stats.recoil_duration = 0.01
-#
+
 #	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.COMMON)
 #	if w != null:
 #		w.stats.damage = 999999
@@ -485,6 +611,10 @@ func edit_weapons() -> void:
 #		w.stats.cooldown = 1
 #		w.stats.recoil = 1
 #		w.stats.recoil_duration = 0.01
+#
+#	for i in ItemService.characters.size():
+#		ItemService.characters[i].starting_weapons.append(w)
+
 
 # note : 아이 삭제 method, remove_item(삭제 할 아이템 이름)
 func remove_items() -> void:
