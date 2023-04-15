@@ -231,7 +231,7 @@ func edit_items() -> void:
 	if item != null:
 		for i in item.effects.size():
 			if item.effects[i].key == "stat_percent_damage":
-				item.effects[i] = 5
+				item.effects[i].value = 5
 	
 	item = find_item("ITEM_DIPLOMA")
 	if item != null:
