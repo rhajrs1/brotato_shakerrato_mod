@@ -23,6 +23,7 @@ func _init(modLoader = ModLoader):
 	modLoader.install_script_extension(ext_dir + "entities/units/enemies/boss/boss.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/run_data.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/debug_service.gd")
+	modLoader.install_script_extension(ext_dir + "main.gd")
 	
 	# Add translations
 	#modLoader.add_translation_from_resource(trans_dir + "translations/modname_text.en.translation")
