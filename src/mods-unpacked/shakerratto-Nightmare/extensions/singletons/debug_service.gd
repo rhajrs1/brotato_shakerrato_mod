@@ -160,8 +160,8 @@ func edit_items() -> void:
 		e.text_key = "effect_torture"
 		e.value = 4
 		e.custom_key = ""
+		e.storage_method = Effect.StorageMethod.SUM
 		e.effect_sign = Effect.Sign.NEUTRAL
-		e.storage_method = Effect.StorageMethod.KEY_VALUE
 		item.effects.append(e)
 		var effect = GainStatForEveryStatEffect.new()
 		effect.key = "stat_percent_damage"
@@ -229,9 +229,17 @@ func edit_items() -> void:
 	
 	item = find_item("ITEM_POTATO")
 	if item != null:
-		for i in item.effects.size():
-			if item.effects[i].key == "stat_percent_damage":
-				item.effects[i].value = 5
+		var e = StatGainsModificationEffect.new()
+		e.key = "effect_increase_stat_gains"
+		e.text_key = ""
+		e.value = 5
+		e.custom_key = ""
+		e.storage_method = Effect.StorageMethod.SUM
+		e.effect_sign = Effect.Sign.FROM_VALUE
+		e.custom_args = []
+		e.stat_displayed = "stat_damage"
+		e.stats_modified = [ "stat_percent_damage", "stat_ranged_damage", "stat_melee_damage", "stat_elemental_damage", "explosion_damage", "piercing_damage", "bounce_damage" ]
+		item.effects.append(e)
 	
 	item = find_item("ITEM_DIPLOMA")
 	if item != null:
@@ -514,7 +522,6 @@ func edit_items() -> void:
 		e1.key = "stat_harvesting"
 		e1.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
 		e1.value = 1
-		e1.storage_method = Effect.StorageMethod.KEY_VALUE
 		e1.effect_sign = Effect.Sign.FROM_VALUE
 		e1.nb_stat_scaled = 2
 		e1.stat_scaled = "xp_gain"
