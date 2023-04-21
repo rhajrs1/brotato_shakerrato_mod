@@ -300,6 +300,15 @@ func edit_items() -> void:
 	item = find_item("ITEM_EXTRA_STOMACH")
 	if item != null:
 		item.effects[0].max_value = 15
+		
+	item = find_item("ITEM_ALIEN_EYES")
+	if item != null:
+		item.max_nb = 5
+		item.effects[0].weapon_stats.scaling_stats[0][1] = 0.25
+	
+	item = find_item("ITEM_TARDIGRADE")
+	if item != null:
+		item.max_nb = 10
 	
 	item = find_item("Blanket")
 	if item != null:
