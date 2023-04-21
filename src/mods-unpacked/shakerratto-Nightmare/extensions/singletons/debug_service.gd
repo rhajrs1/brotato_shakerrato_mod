@@ -239,7 +239,10 @@ func edit_items() -> void:
 		e.custom_args = []
 		e.stat_displayed = "stat_damage"
 		e.stats_modified = [ "stat_percent_damage", "stat_ranged_damage", "stat_melee_damage", "stat_elemental_damage", "explosion_damage", "piercing_damage", "bounce_damage" ]
-		item.effects.append(e)
+		var effects = item.effects
+		item.effects = [ e ]
+		for i in effects.size():
+			item.effects.append(effects[i])
 	
 	item = find_item("ITEM_DIPLOMA")
 	if item != null:
