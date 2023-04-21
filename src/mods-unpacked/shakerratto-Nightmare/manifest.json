@@ -5,8 +5,7 @@
   "description": "shakerratto's freaking hard mod",
   "website_url": "",
   "dependencies": [
-    "Darkly77-ContentLoader",
-	"Psina-Extatonion"
+    "Darkly77-ContentLoader"
   ],
   "extra": {
     "godot": {
