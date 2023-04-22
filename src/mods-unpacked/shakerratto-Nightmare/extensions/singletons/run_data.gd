@@ -1,14 +1,16 @@
 extends "res://singletons/run_data.gd"
 
-var bosses = []
+var nightmare_end_wave = 50
+var boss_scenes = []
+var boss_1 = null;
 
 func _ready()->void :
-	bosses = []
 	var current_wave_data = ZoneService.get_wave_data(0, 20)
 	for i in current_wave_data.groups_data.size():
 		var groups_data = current_wave_data.groups_data[i]
 		if groups_data.is_boss:
-			bosses.append_array(groups_data.wave_units_data)
+			for j in groups_data.wave_units_data.size():
+				boss_scenes.append(groups_data.wave_units_data[j].unit_scene)
 	._ready()
 
 func init_elites_spawn(base_wave:int = 10, horde_chance:float = 0.4)->void :

@@ -10,4 +10,6 @@ func init(zone_min_pos:Vector2, zone_max_pos:Vector2, player_ref:Node2D = null, 
 	if ProgressData.settings.has("nightmare_mode_difficulty"):
 		difficulty = ProgressData.settings["nightmare_mode_difficulty"]
 
-	max_stats.health = round(max_stats.health * (3.0 + (difficulty * 10))) as int
+	var targetHeath = round(max_stats.health * (3.0 + (difficulty * 10))) as int
+	max_stats.health = targetHeath
+	current_stats.health = targetHeath
