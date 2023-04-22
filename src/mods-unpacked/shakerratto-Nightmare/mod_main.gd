@@ -21,6 +21,7 @@ func _init(modLoader = ModLoader):
 	# Add extensions
 	modLoader.install_script_extension(ext_dir + "ui/menus/run/difficulty_selection/difficulty_selection.gd")
 	modLoader.install_script_extension(ext_dir + "entities/units/enemies/boss/boss.gd")
+	modLoader.install_script_extension(ext_dir + "zones/wave_manager.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/run_data.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/debug_service.gd")
 	modLoader.install_script_extension(ext_dir + "main.gd")

@@ -1,15 +1,34 @@
 extends "res://singletons/run_data.gd"
 
+var bosses = []
+
+func _ready()->void :
+	bosses = []
+	var current_wave_data = ZoneService.get_wave_data(0, 20)
+	for i in current_wave_data.groups_data.size():
+		var groups_data = current_wave_data.groups_data[i]
+		if groups_data.is_boss:
+			bosses.append_array(groups_data.wave_units_data)
+	._ready()
+
+func init_elites_spawn(base_wave:int = 10, horde_chance:float = 0.4)->void :
+	if base_wave < 20: .init_elites_spawn(base_wave, horde_chance)
+	else :
+		elites_spawn = []
+		var nb_elites = get_current_difficulty()
+		if nb_elites <= 0: nb_elites = 1
+		var step = floor(10.0 / nb_elites)
+		var possible_elites = ItemService.elites.duplicate()
+		
+		for i in nb_elites:
+			var wave = int(base_wave + ((i + 1) * step))
+			if wave % 10 == 0: continue
+			elites_spawn.push_back([wave, EliteType.ELITE, Utils.get_rand_element(possible_elites).my_id])
+
 func get_additional_elites_endless()->Array:
-	var difficulty = .5
-	if ProgressData.settings.has("endless_mode_difficulty"):
-		difficulty = ProgressData.settings["endless_mode_difficulty"]
-	
-	var weight = 20 - (difficulty * 60)
-	
 	var new_elites = []
 	if RunData.current_wave > RunData.nb_of_waves:
-		var nb_of_additional_elites = ceil((RunData.current_wave - weight) / 10.0)
+		var nb_of_additional_elites = ceil((RunData.current_wave - 10) / 10.0)
 		for i in nb_of_additional_elites:
 			new_elites.push_back(Utils.get_rand_element(ItemService.elites).my_id)
 	

@@ -6,8 +6,8 @@ func init(zone_min_pos:Vector2, zone_max_pos:Vector2, player_ref:Node2D = null, 
 	if RunData.current_wave <= 20:
 		return
 	
-	var difficulty = .5
-	if ProgressData.settings.has("endless_mode_difficulty"):
-		difficulty = ProgressData.settings["endless_mode_difficulty"]
+	var difficulty = .0
+	if ProgressData.settings.has("nightmare_mode_difficulty"):
+		difficulty = ProgressData.settings["nightmare_mode_difficulty"]
 
-	max_stats.health = round(max_stats.health * (1.0 + (difficulty * 2))) as int
+	max_stats.health = round(max_stats.health * (3.0 + (difficulty * 10))) as int
