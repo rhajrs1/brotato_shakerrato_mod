@@ -3,7 +3,6 @@ extends "res://zones/wave_manager.gd"
 func init(p_wave_timer:Timer, wave_data:Resource)->void :
 #	p_wave_timer.wait_time = 5
 #	p_wave_timer.start()
-	
 	.init(p_wave_timer, wave_data)
 	
 	var isEndless = RunData.current_wave > RunData.nb_of_waves

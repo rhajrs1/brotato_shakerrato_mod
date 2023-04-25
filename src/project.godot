@@ -149,6 +149,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/units/enemies/attack_behaviors/charging_attack_behavior.gd"
 }, {
+"base": "AttackBehavior",
+"class": "ChargingStraightAttackBehavior",
+"language": "GDScript",
+"path": "res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/attack_behaviors/charging_straight_attack_behavior.gd"
+}, {
 "base": "Effect",
 "class": "ClassBonusEffect",
 "language": "GDScript",
@@ -639,6 +644,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/units/movement_behaviors/movement_behavior.gd"
 }, {
+"base": "AttackBehavior",
+"class": "MultipleGroundAttackBehavior",
+"language": "GDScript",
+"path": "res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/attack_behaviors/multiple_ground_attack_behavior.gd"
+}, {
 "base": "Effect",
 "class": "MultiplyStatEffect",
 "language": "GDScript",
@@ -769,6 +779,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://mods-unpacked/Darkly77-Invasion/content/effects/effect_random_negative_stat_invert.gd"
 }, {
+"base": "AttackBehavior",
+"class": "RandomSpawnAttackBehavior",
+"language": "GDScript",
+"path": "res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/attack_behaviors/random_spawn_attack_behavior.gd"
+}, {
+"base": "AttackBehavior",
+"class": "RandomSpawnAttackBehaviorForDodge",
+"language": "GDScript",
+"path": "res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/attack_behaviors/random_spawn_attack_behavior_for_dodge.gd"
+}, {
 "base": "ShootingData",
 "class": "RangedShootingData",
 "language": "GDScript",
@@ -884,6 +904,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/units/enemies/attack_behaviors/spawning_attack_behavior.gd"
 }, {
+"base": "AttackBehavior",
+"class": "SpiralShootingAttackBehavior",
+"language": "GDScript",
+"path": "res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/attack_behaviors/spiral_shooting_attack_behavior.gd"
+}, {
 "base": "Effect",
 "class": "StatCapEffect",
 "language": "GDScript",
@@ -983,6 +1008,11 @@ _global_script_classes=[ {
 "class": "TitleScreenMenus",
 "language": "GDScript",
 "path": "res://ui/menus/title_screen/title_screen_menus.gd"
+}, {
+"base": "MovementBehavior",
+"class": "ToCenterMovementBehavior",
+"language": "GDScript",
+"path": "res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/movement_behaviors/to_center_movement_behavior.gd"
 }, {
 "base": "Structure",
 "class": "Turret",
@@ -1198,6 +1228,7 @@ _global_script_class_icons={
 "CharacterSelection": "",
 "CharacterToggle": "",
 "ChargingAttackBehavior": "",
+"ChargingStraightAttackBehavior": "",
 "ClassBonusEffect": "",
 "Colors": "",
 "Consumable": "",
@@ -1296,6 +1327,7 @@ _global_script_class_icons={
 "ModLoaderUtils": "",
 "ModManifest": "",
 "MovementBehavior": "",
+"MultipleGroundAttackBehavior": "",
 "MultiplyStatEffect": "",
 "MyHSlider": "",
 "MyMenuButton": "",
@@ -1322,6 +1354,8 @@ _global_script_class_icons={
 "ProjectilesOnHitEffect": "",
 "RandomNegativeStatHalfEffect": "",
 "RandomNegativeStatInvertEffect": "",
+"RandomSpawnAttackBehavior": "",
+"RandomSpawnAttackBehaviorForDodge": "",
 "RangedShootingData": "",
 "RangedWeapon": "",
 "RangedWeaponShootingBehavior": "",
@@ -1345,6 +1379,7 @@ _global_script_class_icons={
 "Sorter": "",
 "SoundManagerParent": "",
 "SpawningAttackBehavior": "",
+"SpiralShootingAttackBehavior": "",
 "StatCapEffect": "",
 "StatContainer": "",
 "StatData": "",
@@ -1365,6 +1400,7 @@ _global_script_class_icons={
 "Tier": "",
 "TitleScreen": "",
 "TitleScreenMenus": "",
+"ToCenterMovementBehavior": "",
 "Turret": "",
 "TurretEffect": "",
 "UIBonusold": "",

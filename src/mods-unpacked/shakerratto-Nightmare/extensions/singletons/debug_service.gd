@@ -719,57 +719,57 @@ func edit_weapons() -> void:
 	if w != null:
 		w.stats.projectile_speed = 2000
 
-	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.COMMON)
-	if w != null:
-		w.stats.damage = 200000
-		w.stats.cooldown = 1
-		w.stats.recoil = 1
-		w.stats.recoil_duration = 0.01
-
-	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.UNCOMMON)
-	if w != null:
-		w.stats.damage = 200000
-		w.stats.cooldown = 1
-		w.stats.recoil = 1
-		w.stats.recoil_duration = 0.01
-
-	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.RARE)
-	if w != null:
-		w.stats.damage = 200000
-		w.stats.cooldown = 1
-		w.stats.recoil = 1
-		w.stats.recoil_duration = 0.01
-
-	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.LEGENDARY)
-	if w != null:
-		w.stats.damage = 200000
-		w.stats.cooldown = 1
-		w.stats.recoil = 1
-		w.stats.recoil_duration = 0.01
-
-	for i in ItemService.characters.size():
-		ItemService.characters[i].starting_weapons.append(w)
-
-	var character = find_character("CHARACTER_WELL_ROUNDED")
-	if character != null:
-		var e = Effect.new()
-		e.key = "stat_max_hp"
-		e.text_key = ""
-		e.value = 999999999999999
-		e.custom_key = ""
-		e.storage_method = 0
-		e.effect_sign = 3
-		e.custom_args = [  ]
-		character.effects.append(e)
-		e = Effect.new()
-		e.key = "stat_speed"
-		e.text_key = ""
-		e.value = 100
-		e.custom_key = ""
-		e.storage_method = 0
-		e.effect_sign = 3
-		e.custom_args = [  ]
-		character.effects.append(e)
+#	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.COMMON)
+#	if w != null:
+#		w.stats.damage = 12000
+#		w.stats.cooldown = 1
+#		w.stats.recoil = 1
+#		w.stats.recoil_duration = 0.05
+#
+#	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.UNCOMMON)
+#	if w != null:
+#		w.stats.damage = 12000
+#		w.stats.cooldown = 1
+#		w.stats.recoil = 1
+#		w.stats.recoil_duration = 0.05
+#
+#	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.RARE)
+#	if w != null:
+#		w.stats.damage = 12000
+#		w.stats.cooldown = 1
+#		w.stats.recoil = 1
+#		w.stats.recoil_duration = 0.05
+#
+#	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.LEGENDARY)
+#	if w != null:
+#		w.stats.damage = 12000
+#		w.stats.cooldown = 1
+#		w.stats.recoil = 1
+#		w.stats.recoil_duration = 0.05
+#
+#	for i in ItemService.characters.size():
+#		ItemService.characters[i].starting_weapons.append(w)
+#
+#	var character = find_character("CHARACTER_WELL_ROUNDED")
+#	if character != null:
+#		var e = Effect.new()
+#		e.key = "stat_max_hp"
+#		e.text_key = ""
+#		e.value = 999999999999999
+#		e.custom_key = ""
+#		e.storage_method = 0
+#		e.effect_sign = 3
+#		e.custom_args = [  ]
+#		character.effects.append(e)
+#		e = Effect.new()
+#		e.key = "stat_speed"
+#		e.text_key = ""
+#		e.value = 100
+#		e.custom_key = ""
+#		e.storage_method = 0
+#		e.effect_sign = 3
+#		e.custom_args = [  ]
+#		character.effects.append(e)
 
 
 # note : 아이 삭제 method, remove_item(삭제 할 아이템 이름)

@@ -3,11 +3,11 @@ extends AttackBehavior
 
 signal wanted_to_spawn_an_enemy(enemy_scene, position)
 
-export (float) var cooldown = 60.0
+export (float) var cooldown = 100.0
 export (int) var max_cd_randomization = 5
 export (float) var attack_anim_speed = 0.5
 export (int) var nb_to_boss_spawn = 1
-export (int) var nb_to_elite_spawn = 2
+export (int) var nb_to_elite_spawn = 1
 export (int) var nb_to_enemy_spawn = 10
 export (int) var nb_to_egg_spawn_max = 3
 export (int) var egg_spawn_radius = 300
@@ -21,6 +21,7 @@ var elites = [
 ]
 
 var enemies = [
+	preload("res://entities/units/enemies/013/13.tscn"),
 	preload("res://entities/units/enemies/025/25.tscn"),
 	preload("res://entities/units/enemies/026/26.tscn")
 ]
@@ -40,10 +41,10 @@ func physics_process(delta:float)->void :
 
 
 func shoot()->void :
-	for i in nb_to_boss_spawn:
+	if Utils.get_random_int(0, nb_to_boss_spawn) == 0:
 		emit_signal("wanted_to_spawn_an_enemy", Utils.get_rand_element(RunData.boss_scenes), ZoneService.get_rand_pos())
-		
-	for i in nb_to_elite_spawn:
+	
+	if Utils.get_random_int(0, nb_to_elite_spawn) == 0:	
 		emit_signal("wanted_to_spawn_an_enemy", Utils.get_rand_element(elites), ZoneService.get_rand_pos())
 		
 	for i in nb_to_enemy_spawn:
