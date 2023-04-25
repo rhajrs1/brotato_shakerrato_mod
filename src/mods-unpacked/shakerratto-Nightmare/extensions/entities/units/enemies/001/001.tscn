@@ -1,15 +1,24 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://entities/units/enemies/boss/boss.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/units/enemies/attack_behaviors/enemy_charge_prep_animation.tres" type="Animation" id=2]
 [ext_resource path="res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/enemies/001/001.gd" type="Script" id=3]
 [ext_resource path="res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/enemies/001/shakerratto-001.png" type="Texture" id=4]
-[ext_resource path="res://entities/units/enemies/boss/boss_state.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/units/movement_behaviors/follow_player_movement_behavior.gd" type="Script" id=5]
 [ext_resource path="res://projectiles/pillar_enemy/pillar_projectile.tscn" type="PackedScene" id=6]
-[ext_resource path="res://entities/units/movement_behaviors/target_rand_pos_movement_behavior.gd" type="Script" id=7]
+[ext_resource path="res://entities/units/movement_behaviors/movement_behavior.gd" type="Script" id=7]
 [ext_resource path="res://entities/units/enemies/attack_behaviors/shooting_attack_behavior.gd" type="Script" id=8]
 [ext_resource path="res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/enemies/001/001_stats.tres" type="Resource" id=9]
 [ext_resource path="res://resources/shaders/flash.gdshader" type="Shader" id=10]
+[ext_resource path="res://entities/units/enemies/boss/boss_state.gd" type="Script" id=11]
+[ext_resource path="res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/attack_behaviors/spiral_shooting_attack_behavior.gd" type="Script" id=12]
+[ext_resource path="res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/attack_behaviors/multiple_ground_attack_behavior.gd" type="Script" id=14]
+[ext_resource path="res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/attack_behaviors/charging_straight_attack_behavior.gd" type="Script" id=15]
+[ext_resource path="res://entities/units/enemies/attack_behaviors/attack_behavior.gd" type="Script" id=16]
+[ext_resource path="res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/movement_behaviors/to_center_movement_behavior.gd" type="Script" id=17]
+[ext_resource path="res://mods-unpacked/shakerratto-Nightmare/extensions/projectiles/obliterator_enemy/enemy_projectile_obliterator.tscn" type="PackedScene" id=18]
+[ext_resource path="res://projectiles/bullet_enemy/enemy_projectile.tscn" type="PackedScene" id=19]
+[ext_resource path="res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/attack_behaviors/random_spawn_attack_behavior.gd" type="Script" id=35]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -49,69 +58,110 @@ anims/shoot = ExtResource( 2 )
 
 [node name="AttackBehavior" parent="." index="7"]
 script = ExtResource( 8 )
-projectile_scene = ExtResource( 6 )
-projectile_speed = 0
-cooldown = 50.0
+projectile_scene = ExtResource( 19 )
+projectile_speed = 1000
+cooldown = 300.0
 damage = 1
-damage_increase_each_wave = 1.15
-max_cd_randomization = 10
+damage_increase_each_wave = 1.0
+max_cd_randomization = 0
 min_range = 0
-max_range = 2000
+max_range = 99999
 attack_anim_speed = 1.0
 random_direction = false
-number_projectiles = 10
-projectile_spread = 0.0
-spawn_projectiles_on_target = true
+number_projectiles = 5
+projectile_spread = 1.0
+spawn_projectiles_on_target = false
 projectile_spawn_spread = 500
 projectile_spawn_only_on_borders = false
-constant_spread = false
-atleast_one_projectile_on_target = true
-initial_cooldown = 120
-shoot_in_unit_direction = false
+constant_spread = true
+atleast_one_projectile_on_target = false
+initial_cooldown = 0
+shoot_in_unit_direction = true
 rotate_projectile = false
 delete_projectile_on_death = false
 
-[node name="State1" parent="States" index="0" instance=ExtResource( 5 )]
-hp_start = 0.75
-timer_start = 30.0
+[node name="ChargingAttackBehavior" type="Node2D" parent="." index="8"]
+script = ExtResource( 8 )
+projectile_speed = 400
+cooldown = 0.01
+max_cd_randomization = 0
+max_range = 999999
+attack_anim_speed = 0.01
+number_projectiles = 2
+projectile_spread = 1.0
+constant_spread = true
+shoot_in_unit_direction = true
 
-[node name="AttackBehavior" parent="States/State1" index="1"]
-projectile_scene = ExtResource( 6 )
-projectile_speed = 0
-damage_increase_each_wave = 1.15
-max_range = 2000
-number_projectiles = 30
-spawn_projectiles_on_target = true
-projectile_spawn_spread = 800
-atleast_one_projectile_on_target = true
-rotate_projectile = false
+[node name="PhaseAlways" type="Node2D" parent="States" index="0"]
+script = ExtResource( 11 )
+hp_start = 0.0
 
-[node name="State2" parent="States" index="1" instance=ExtResource( 5 )]
-hp_start = 0.4
-timer_start = 60.0
-
-[node name="MovementBehavior" parent="States/State2" index="0"]
+[node name="MovementBehavior" type="Node2D" parent="States/PhaseAlways" index="0"]
 script = ExtResource( 7 )
 
-[node name="AttackBehavior" parent="States/State2" index="1"]
+[node name="AttackBehavior" type="Node2D" parent="States/PhaseAlways" index="1"]
+script = ExtResource( 16 )
+
+[node name="RandomSpawnAttackBehavior" type="Node2D" parent="States/PhaseAlways" index="2"]
+script = ExtResource( 35 )
+cooldown = 1000.0
+
+[node name="Phase1" type="Node2D" parent="States" index="1"]
+script = ExtResource( 11 )
+hp_start = 1.0
+timer_start = 86400.0
+
+[node name="MovementBehavior" type="Node2D" parent="States/Phase1" index="0"]
+script = ExtResource( 5 )
+
+[node name="AttackBehavior" type="Node2D" parent="States/Phase1" index="1"]
+script = ExtResource( 15 )
+
+[node name="Phase2" type="Node2D" parent="States" index="2"]
+script = ExtResource( 11 )
+hp_start = 0.3
+timer_start = 86400.0
+
+[node name="MovementBehavior" type="Node2D" parent="States/Phase2" index="0"]
+script = ExtResource( 17 )
+
+[node name="AttackBehavior" type="Node2D" parent="States/Phase2" index="1"]
+script = ExtResource( 12 )
+
+[node name="AttackBehavior2" type="Node2D" parent="States/Phase2" index="2"]
+script = ExtResource( 14 )
 projectile_scene = ExtResource( 6 )
 projectile_speed = 0
-damage_increase_each_wave = 1.15
+cooldown = 330.0
+max_cd_randomization = 0
 max_range = 2000
-number_projectiles = 24
+attack_anim_speed = 2.0
+
+[node name="AttackBehavior3" type="Node2D" parent="States/Phase2" index="3"]
+script = ExtResource( 8 )
+projectile_scene = ExtResource( 6 )
+projectile_speed = 0
+cooldown = 450.0
+max_range = 2000
+number_projectiles = 200
 spawn_projectiles_on_target = true
-projectile_spawn_spread = 600
-projectile_spawn_only_on_borders = true
-constant_spread = true
+projectile_spawn_spread = 2500
 rotate_projectile = false
 
-[node name="LifeBar" parent="." index="12"]
+[node name="AttackBehavior4" type="Node2D" parent="States/Phase2" index="4"]
+script = ExtResource( 8 )
+projectile_scene = ExtResource( 18 )
+projectile_speed = 650
+max_range = 99999
+number_projectiles = 6
+projectile_spread = 3.1
+
+[node name="LifeBar" parent="." index="13"]
 margin_top = -200.0
 margin_bottom = -184.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="wanted_to_spawn_an_enemy" from="States/PhaseAlways/RandomSpawnAttackBehavior" to="." method="_on_AttackBehavior_wanted_to_spawn_an_enemy"]
 
 [editable path="Hurtbox"]
 [editable path="Hitbox"]
-[editable path="States/State1"]
-[editable path="States/State2"]

@@ -1,13 +1,15 @@
 extends "res://main.gd"
 
+func _ready()->void :
+	._ready()
+	if is_last_wave() == true: _nb_bosses_killed_this_wave = -99999999
+
 func _on_enemy_died(enemy:Enemy)->void :
 	._on_enemy_died(enemy)
 	
-	if not _cleaning_up:
-		if enemy is Boss:
-			if (_nb_bosses_killed_this_wave >= 1) and (RunData.current_wave == RunData.nightmare_end_wave):
-				_wave_timer.wait_time = 0.1
-				_wave_timer.start()
+	if enemy.stats.gold_spread == 278654:
+		_wave_timer.wait_time = 0.1
+		_wave_timer.start()
 
 func is_last_wave()->bool:
 	var is_last_wave = RunData.current_wave == ZoneService.get_zone_data(RunData.current_zone).waves_data.size()
