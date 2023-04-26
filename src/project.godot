@@ -650,6 +650,11 @@ _global_script_classes=[ {
 "path": "res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/attack_behaviors/multiple_ground_attack2_behavior.gd"
 }, {
 "base": "AttackBehavior",
+"class": "MultipleGroundAttack3Behavior",
+"language": "GDScript",
+"path": "res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/attack_behaviors/multiple_ground_attack3_behavior.gd"
+}, {
+"base": "AttackBehavior",
 "class": "MultipleGroundAttackBehavior",
 "language": "GDScript",
 "path": "res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/attack_behaviors/multiple_ground_attack_behavior.gd"
@@ -1333,6 +1338,7 @@ _global_script_class_icons={
 "ModManifest": "",
 "MovementBehavior": "",
 "MultipleGroundAttack2Behavior": "",
+"MultipleGroundAttack3Behavior": "",
 "MultipleGroundAttackBehavior": "",
 "MultiplyStatEffect": "",
 "MyHSlider": "",

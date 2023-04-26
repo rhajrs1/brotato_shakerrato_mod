@@ -1,11 +1,10 @@
-class_name MultipleGroundAttack2Behavior
+class_name MultipleGroundAttack3Behavior
 extends AttackBehavior
 
 
 export (PackedScene) var projectile_scene = preload("res://projectiles/bullet_enemy/enemy_projectile.tscn")
 export (int) var projectile_speed = 3000
 export (float) var cooldown = 60.0
-export (float) var cooldown_per_rings = 5.0
 export (int) var damage = 1
 export (float) var damage_increase_each_wave = 1.0
 export (int) var max_cd_randomization = 10
@@ -13,8 +12,6 @@ export (int) var min_range = 0
 export (int) var max_range = 500
 export (float) var attack_anim_speed = 1.0
 
-export (int) var range1 = 350
-export (int) var range2 = 500
 export (float, 0.1, 3.14, 0.1) var projectile_angle = 0.1
 
 export (int) var initial_cooldown = 0
@@ -43,15 +40,26 @@ func physics_process(delta:float)->void :
 
 
 func shoot()->void :
-	var limitAngle = 2 * PI
-	var angle = .0
-	var t = true
-	while angle < limitAngle:
-		spawn_projectile(0, Vector2(_parent.global_position.x + cos(angle) * range1, _parent.global_position.y + sin(angle) * range1))
-		if t == true: 
-			spawn_projectile(0, Vector2(_parent.global_position.x + cos(angle) * range2, _parent.global_position.y + sin(angle) * range2))
-		t = !t
-		angle += projectile_angle
+	var x = 0
+	var y = 0
+	var xg = Utils.get_random_int(0, 800) + 400
+	var yg = Utils.get_random_int(0, 800) + 400
+	
+	x = xg
+	while x < ZoneService.current_zone_max_position.x:
+		y = 0
+		while y < ZoneService.current_zone_max_position.y:
+			spawn_projectile(0, Vector2(x, y))
+			y += 100
+		x += xg
+		
+	y = yg
+	while y < ZoneService.current_zone_max_position.y:
+		x = 0
+		while x < ZoneService.current_zone_max_position.x:
+			spawn_projectile(0, Vector2(x, y))
+			x += 100
+		y += yg
 
 func animation_finished(anim_name:String)->void :
 	if anim_name == "shoot":
