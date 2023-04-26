@@ -1,30 +1,29 @@
-class_name SpiralShootingAttackBehavior
+class_name MultipleGroundAttack2Behavior
 extends AttackBehavior
 
 
 export (PackedScene) var projectile_scene = preload("res://projectiles/bullet_enemy/enemy_projectile.tscn")
-export (int) var projectile_speed = 100
-export (float) var cooldown = 150
-export (float) var cooldown_per_cycle = 20
+export (int) var projectile_speed = 3000
+export (float) var cooldown = 60.0
+export (float) var cooldown_per_rings = 5.0
 export (int) var damage = 1
 export (float) var damage_increase_each_wave = 1.0
 export (int) var max_cd_randomization = 10
 export (int) var min_range = 0
-export (int) var max_range = 99999
-export (float) var attack_anim_speed = 99999
-export (int) var projectiles_per_angle = 9
-export (int) var max_cycle = 21
+export (int) var max_range = 500
+export (float) var attack_anim_speed = 1.0
+
+export (int) var range1 = 350
+export (int) var range2 = 500
+export (float, 0.1, 3.14, 0.1) var projectile_angle = 0.1
+
 export (int) var initial_cooldown = 0
-export (bool) var rotate_projectile = true
+export (bool) var rotate_projectile = false
 export (bool) var delete_projectile_on_death = false
 
 var _current_initial_cooldown = 0
 var _projectiles_node:Node
-var _last_angle:float = .0
 var _current_cd:float = cooldown
-var _current_cooldown = cooldown_per_cycle
-var _current_cycle = 1
-var _angle_per_projectile:float = 6.2 / projectiles_per_angle
 
 func _ready()->void :
 	_projectiles_node = get_tree().current_scene.get_node("Projectiles")
@@ -32,7 +31,6 @@ func _ready()->void :
 	_current_initial_cooldown = initial_cooldown
 
 func physics_process(delta:float)->void :
-	
 	if _current_initial_cooldown > 0:
 		_current_initial_cooldown = max(_current_initial_cooldown - Utils.physics_one(delta), 0)
 		return 
@@ -45,20 +43,15 @@ func physics_process(delta:float)->void :
 
 
 func shoot()->void :
-	if _current_cycle != 6 and _current_cycle != 7 and _current_cycle != 8 and _current_cycle != 14 and _current_cycle != 15 and _current_cycle != 16:
-		for i in projectiles_per_angle:
-			_last_angle += _angle_per_projectile
-			var _projectile = spawn_projectile(_last_angle, _parent.global_position)
-		
-	if _current_cycle >= max_cycle:
-		_current_cooldown = cooldown
-		_current_cycle = 1
-	else:
-		_current_cooldown = cooldown_per_cycle
-		_current_cycle += 1
-		
-	_current_cd = get_cd()
-
+	var limitAngle = 2 * PI
+	var angle = .0
+	var t = true
+	while angle < limitAngle:
+		var _projectile = spawn_projectile(0, Vector2(_parent.global_position.x + cos(angle) * range1, _parent.global_position.y + sin(angle) * range1))
+		if t == true: 
+			var _projectile2 = spawn_projectile(0, Vector2(_parent.global_position.x + cos(angle) * range2, _parent.global_position.y + sin(angle) * range2))
+		t = !t
+		angle += projectile_angle
 
 func animation_finished(anim_name:String)->void :
 	if anim_name == "shoot":
@@ -85,4 +78,4 @@ func spawn_projectile(rotation:float, pos:Vector2)->Node:
 
 
 func get_cd()->float:
-	return rand_range(max(1, _current_cooldown - max_cd_randomization), _current_cooldown + max_cd_randomization)
+	return rand_range(max(1, _current_cd - max_cd_randomization), _current_cd + max_cd_randomization)

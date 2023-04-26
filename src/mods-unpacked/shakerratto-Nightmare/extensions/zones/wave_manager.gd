@@ -7,8 +7,8 @@ func init(p_wave_timer:Timer, wave_data:Resource)->void :
 	
 	var isEndless = RunData.current_wave > RunData.nb_of_waves
 	if RunData.current_wave == RunData.nightmare_end_wave:
-		# end wave
-		p_wave_timer.wait_time = 86400
+		# end wave 
+		p_wave_timer.wait_time = 600
 		p_wave_timer.start()
 		
 		var local_elite_group = elite_group.duplicate()

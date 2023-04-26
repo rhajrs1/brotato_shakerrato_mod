@@ -8,9 +8,11 @@ var charging_attack_cd = 0.0
 
 onready var _phaseAlways = $States / PhaseAlways
 onready var _charging_attack_behavior = $ChargingAttackBehavior
+onready var _ground_attack_behavior = $GroundAttackBehavior
 
 func _ready()->void :
 	_charging_attack_behavior.init(self)
+	_ground_attack_behavior.init(self)
 	
 	for b in _phaseAlways.get_children():
 		if b is AttackBehavior:

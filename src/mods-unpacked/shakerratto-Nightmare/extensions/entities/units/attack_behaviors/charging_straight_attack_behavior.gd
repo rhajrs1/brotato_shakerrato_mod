@@ -70,6 +70,7 @@ func getPosPattern():
 
 func start_shoot()->void :
 	_parent._can_move = false
+	_parent._ground_attack_behavior.shoot()
 
 func shoot()->void :
 	_parent._can_move = true
@@ -89,7 +90,9 @@ func on_unlock_move_timer_timeout()->void :
 	_parent.bonus_speed = 0
 	_parent._animation_player.playback_speed = _parent._idle_playback_speed
 	
-	if posList.size() <= 0: _current_cooldown = cooldown
+	if posList.size() <= 0: 
+		_current_cooldown = cooldown
+		_parent._ground_attack_behavior.shoot()
 	else: _current_cooldown = EDGE_CD
 	_current_cd = get_cd()
 

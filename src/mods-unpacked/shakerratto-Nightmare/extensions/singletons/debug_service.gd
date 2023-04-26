@@ -379,6 +379,7 @@ func edit_items() -> void:
 	item = find_item("Olexa's mantle")
 	if item != null:
 		item.max_nb = 1
+		item.effects[0].nb_stat_scaled = 2
 		
 	item = find_item("John's contract")
 	if item != null:
@@ -445,7 +446,7 @@ func edit_items() -> void:
 		var e1 = StatGainsModificationEffect.new()
 		e1.key = "effect_increase_stat_gains"
 		e1.text_key = ""
-		e1.value = 10
+		e1.value = 7
 		e1.storage_method = Effect.StorageMethod.SUM
 		e1.effect_sign = Effect.Sign.FROM_VALUE
 		e1.stat_displayed = "stat_harvesting"
@@ -529,13 +530,14 @@ func edit_items() -> void:
 		
 	item = find_item("Investments")
 	if item != null:
+		item.max_nb = 1
 		item.effects = []
 		var e1 = GainStatForEveryStatEffect.new()
 		e1.key = "stat_harvesting"
 		e1.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
 		e1.value = 1
 		e1.effect_sign = Effect.Sign.FROM_VALUE
-		e1.nb_stat_scaled = 2
+		e1.nb_stat_scaled = 1
 		e1.stat_scaled = "xp_gain"
 		item.effects.append(e1)
 		var effect = Effect.new()
