@@ -46,7 +46,7 @@ func physics_process(delta:float)->void :
 		_parent._animation_player.play("shoot")
 
 func getPosPattern():
-	match Utils.get_random_int(0, 3):
+	match Utils.get_random_int(0, 2):
 		0:
 			return [_parent.player_ref.global_position - _parent.global_position]
 		1:
@@ -55,17 +55,18 @@ func getPosPattern():
 				_parent.global_position - _parent.player_ref.global_position
 			]
 		2:
-			var p1 = Vector2(Utils.get_random_int(0, ZoneService.current_zone_max_position.x), Utils.get_random_int(0, ZoneService.current_zone_max_position.y))
-			var p2 = Vector2(Utils.get_random_int(0, ZoneService.current_zone_max_position.x), Utils.get_random_int(0, ZoneService.current_zone_max_position.y))
-			var p3 = Vector2(Utils.get_random_int(0, ZoneService.current_zone_max_position.x), Utils.get_random_int(0, ZoneService.current_zone_max_position.y))
-			return [ p1 - _parent.global_position, p2 - p1, p3 - p2 ]
-		3:
 			var target_pos = _parent.player_ref.global_position
-			var p1 = Vector2(target_pos.x + cos(QPI + (HPI * 2)) * EDGE_DISTANCE, target_pos.y + sin(QPI + (HPI * 2)) * EDGE_DISTANCE)
-			var p2 = Vector2(target_pos.x + cos(QPI + (HPI * 3)) * EDGE_DISTANCE, target_pos.y + sin(QPI + (HPI * 3)) * EDGE_DISTANCE)
-			var p3 = Vector2(target_pos.x + cos(QPI + (HPI * 4)) * EDGE_DISTANCE, target_pos.y + sin(QPI + (HPI * 4)) * EDGE_DISTANCE)
-			var p4 = Vector2(target_pos.x + cos(QPI + (HPI * 5)) * EDGE_DISTANCE, target_pos.y + sin(QPI + (HPI * 5)) * EDGE_DISTANCE)
-			return [ p1 - _parent.global_position, p3 - p1, p2 - p3, p4 - p2	]
+			var posC = [ 
+				Vector2(target_pos.x + cos(QPI + (HPI * 2)) * EDGE_DISTANCE, target_pos.y + sin(QPI + (HPI * 2)) * EDGE_DISTANCE),
+				Vector2(target_pos.x + cos(QPI + (HPI * 3)) * EDGE_DISTANCE, target_pos.y + sin(QPI + (HPI * 3)) * EDGE_DISTANCE),
+				Vector2(target_pos.x + cos(QPI + (HPI * 4)) * EDGE_DISTANCE, target_pos.y + sin(QPI + (HPI * 4)) * EDGE_DISTANCE),
+				Vector2(target_pos.x + cos(QPI + (HPI * 5)) * EDGE_DISTANCE, target_pos.y + sin(QPI + (HPI * 5)) * EDGE_DISTANCE) ]
+			var index = Utils.get_random_int(0, posC.size() - 1)
+			var pos1 = posC[index]
+			posC.remove(index)
+			index = Utils.get_random_int(0, posC.size() - 1)
+			var pos2 = posC[index]
+			return [ pos1 - _parent.global_position, pos2 - pos1 ]
 
 func start_shoot()->void :
 	_parent._can_move = false

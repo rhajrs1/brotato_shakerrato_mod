@@ -103,7 +103,6 @@ func _ready()->void :
 	if RunData.is_testing:_test_button.show()
 	else :_test_button.hide()
 	
-	
 	RunData.shop_effects_checked = false
 	RunData.current_living_enemies = 0
 	_convert_stats_half_wave_proced = false

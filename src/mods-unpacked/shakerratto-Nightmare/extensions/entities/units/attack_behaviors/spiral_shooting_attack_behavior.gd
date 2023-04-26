@@ -4,7 +4,7 @@ extends AttackBehavior
 
 export (PackedScene) var projectile_scene = preload("res://projectiles/bullet_enemy/enemy_projectile.tscn")
 export (int) var projectile_speed = 100
-export (float) var cooldown = 350
+export (float) var cooldown = 250
 export (float) var cooldown_per_cycle = 30
 export (int) var damage = 1
 export (float) var damage_increase_each_wave = 1.0
@@ -12,7 +12,7 @@ export (int) var max_cd_randomization = 10
 export (int) var min_range = 0
 export (int) var max_range = 99999
 export (float) var attack_anim_speed = 99999
-export (int) var projectiles_per_angle = 8
+export (int) var projectiles_per_angle = 9
 export (int) var max_cycle = 15
 export (int) var initial_cooldown = 0
 export (bool) var rotate_projectile = true

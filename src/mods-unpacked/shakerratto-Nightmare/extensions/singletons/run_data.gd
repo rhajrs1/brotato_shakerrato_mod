@@ -5,13 +5,14 @@ var boss_scenes = []
 var boss_1 = null;
 
 func _ready()->void :
-	var current_wave_data = ZoneService.get_wave_data(0, 20)
-	for i in current_wave_data.groups_data.size():
-		var groups_data = current_wave_data.groups_data[i]
-		if groups_data.is_boss:
-			for j in groups_data.wave_units_data.size():
-				boss_scenes.append(groups_data.wave_units_data[j].unit_scene)
 	._ready()
+	if boss_scenes.size() <= 0:
+		var current_wave_data = ZoneService.get_wave_data(0, 20)
+		for i in current_wave_data.groups_data.size():
+			var groups_data = current_wave_data.groups_data[i]
+			if groups_data.is_boss:
+				for j in groups_data.wave_units_data.size():
+					boss_scenes.append(groups_data.wave_units_data[j].unit_scene)
 
 func init_elites_spawn(base_wave:int = 10, horde_chance:float = 0.4)->void :
 	if base_wave < 20: .init_elites_spawn(base_wave, horde_chance)

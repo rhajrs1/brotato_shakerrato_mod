@@ -695,54 +695,54 @@ func edit_weapons() -> void:
 	if w != null:
 		w.stats.scaling_stats[0][1] = 0.5
 		w.stats.scaling_stats[1][1] = 0.5
-		
+
 	w = find_weapon("WEAPON_SCREWDRIVER", ItemParentData.Tier.UNCOMMON)
 	if w != null:
 		w.stats.scaling_stats[0][1] = 0.6
 		w.stats.scaling_stats[1][1] = 0.6
-		
+
 	w = find_weapon("WEAPON_SCREWDRIVER", ItemParentData.Tier.RARE)
 	if w != null:
 		w.stats.scaling_stats[0][1] = 0.7
 		w.stats.scaling_stats[1][1] = 0.7
-		
+
 	w = find_weapon("WEAPON_SCREWDRIVER", ItemParentData.Tier.LEGENDARY)
 	if w != null:
 		w.stats.scaling_stats[0][1] = 1.0
 		w.stats.scaling_stats[1][1] = 1.0
-		
+
 	w = find_weapon("WEAPON_OBLITERATOR", ItemParentData.Tier.RARE)
 	if w != null:
 		w.stats.projectile_speed = 2000
-		
+
 	w = find_weapon("WEAPON_OBLITERATOR", ItemParentData.Tier.LEGENDARY)
 	if w != null:
 		w.stats.projectile_speed = 2000
 
 #	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.COMMON)
 #	if w != null:
-#		w.stats.damage = 12000
+#		w.stats.damage = 50000
 #		w.stats.cooldown = 1
 #		w.stats.recoil = 1
 #		w.stats.recoil_duration = 0.05
 #
 #	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.UNCOMMON)
 #	if w != null:
-#		w.stats.damage = 12000
+#		w.stats.damage = 50000
 #		w.stats.cooldown = 1
 #		w.stats.recoil = 1
 #		w.stats.recoil_duration = 0.05
 #
 #	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.RARE)
 #	if w != null:
-#		w.stats.damage = 12000
+#		w.stats.damage = 50000
 #		w.stats.cooldown = 1
 #		w.stats.recoil = 1
 #		w.stats.recoil_duration = 0.05
 #
 #	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.LEGENDARY)
 #	if w != null:
-#		w.stats.damage = 12000
+#		w.stats.damage = 50000
 #		w.stats.cooldown = 1
 #		w.stats.recoil = 1
 #		w.stats.recoil_duration = 0.05
@@ -755,7 +755,7 @@ func edit_weapons() -> void:
 #		var e = Effect.new()
 #		e.key = "stat_max_hp"
 #		e.text_key = ""
-#		e.value = 999999999999999
+#		e.value = 9999999999999999
 #		e.custom_key = ""
 #		e.storage_method = 0
 #		e.effect_sign = 3
@@ -764,7 +764,7 @@ func edit_weapons() -> void:
 #		e = Effect.new()
 #		e.key = "stat_speed"
 #		e.text_key = ""
-#		e.value = 100
+#		e.value = 60
 #		e.custom_key = ""
 #		e.storage_method = 0
 #		e.effect_sign = 3

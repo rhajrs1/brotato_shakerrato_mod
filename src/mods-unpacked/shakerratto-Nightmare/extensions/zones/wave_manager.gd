@@ -17,7 +17,7 @@ func init(p_wave_timer:Timer, wave_data:Resource)->void :
 		unit.unit_scene = RunData.boss_1
 		local_elite_group.wave_units_data.push_back(unit)
 		wave_data.groups_data = [ local_elite_group ]
-	#elif isEndless and RunData.current_wave % 10 = 0:	
+	#elif isEndless and RunData.current_wave % 10 = 0:
 
 func init_elite_group(elites_to_spawn:Array = [])->WaveGroupData:
 	var local_elite_group = .init_elite_group(elites_to_spawn)

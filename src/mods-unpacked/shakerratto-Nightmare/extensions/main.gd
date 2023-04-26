@@ -1,10 +1,8 @@
 extends "res://main.gd"
 
-func _ready()->void :
-	._ready()
-	if is_last_wave() == true: _nb_bosses_killed_this_wave = -99999999
-
 func _on_enemy_died(enemy:Enemy)->void :
+	if is_last_wave() == true: _nb_bosses_killed_this_wave = -99999999
+	
 	._on_enemy_died(enemy)
 	
 	if enemy.stats.gold_spread == 278654:

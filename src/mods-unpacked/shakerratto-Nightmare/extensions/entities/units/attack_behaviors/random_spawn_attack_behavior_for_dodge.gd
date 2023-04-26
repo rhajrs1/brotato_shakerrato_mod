@@ -3,7 +3,7 @@ extends AttackBehavior
 
 signal wanted_to_spawn_an_enemy(enemy_scene, position)
 
-export (float) var cooldown = 60.0
+export (float) var cooldown = 40.0
 export (int) var max_cd_randomization = 5
 export (float) var attack_anim_speed = 0.5
 export (int) var nb_to_enemy_spawn = 10
