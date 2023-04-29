@@ -1,9 +1,10 @@
 extends "res://zones/wave_manager.gd"
 
 func init(p_wave_timer:Timer, wave_data:Resource)->void :
-#	p_wave_timer.wait_time = 5
+#	p_wave_timer.wait_time = 2
 #	p_wave_timer.start()
 	.init(p_wave_timer, wave_data)
+	if RunData.game_play_mode <= 1: return
 	
 	var isEndless = RunData.current_wave > RunData.nb_of_waves
 	if RunData.current_wave == RunData.nightmare_end_wave:
@@ -17,10 +18,10 @@ func init(p_wave_timer:Timer, wave_data:Resource)->void :
 		unit.unit_scene = RunData.boss_1
 		local_elite_group.wave_units_data.push_back(unit)
 		wave_data.groups_data = [ local_elite_group ]
-	#elif isEndless and RunData.current_wave % 10 = 0:
 
 func init_elite_group(elites_to_spawn:Array = [])->WaveGroupData:
 	var local_elite_group = .init_elite_group(elites_to_spawn)
+	if RunData.game_play_mode <= 0: return local_elite_group
 	
 	var bossCount = local_elite_group.wave_units_data.size() - 1
 	for i in bossCount:

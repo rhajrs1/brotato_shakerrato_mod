@@ -3,13 +3,13 @@ extends AttackBehavior
 
 enum TargetType{PLAYER, RAND_POINT_AROUND_PLAYER}
 
-export (float) var cooldown = 100
+export (float) var cooldown = 200
 export (int) var max_cd_randomization = 0
 export (int) var min_range = 0
 export (int) var max_range = 2000
 export (float) var attack_anim_speed = 1.0
 export (float) var charge_duration = 1.0
-export (int) var charge_speed_acc = 3
+export (float) var charge_speed_acc = 40
 
 const EDGE_DISTANCE = 700
 const EDGE_CD = 0
@@ -97,7 +97,8 @@ func on_unlock_move_timer_timeout()->void :
 	_current_cd = get_cd()
 
 func on_charge_acc_timer_timeout()->void :
-	_parent.bonus_speed += charge_speed_acc + (_parent.bonus_speed * .085)
+	_parent.bonus_speed += charge_speed_acc
+	if _parent.bonus_speed > 3000: _parent.bonus_speed = 3000
 	if _parent._move_locked == true:
 		_charge_acc_timer.start()
 

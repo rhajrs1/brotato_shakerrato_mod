@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/themes/base_theme.tres" type="Theme" id=1]
+[ext_resource path="res://mods-unpacked/shakerratto-Nightmare/extensions/ui/controls/multiple_state_slider.gd" type="Script" id=2]
+[ext_resource path="res://mods-unpacked/shakerratto-Nightmare/extensions/ui/controls/multiple_state_toggle.gd" type="Script" id=3]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+margin_top = 107.0
+margin_right = 600.0
+margin_bottom = 169.0
+theme = ExtResource( 1 )
+custom_constants/separation = 50
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_top = 8.0
+margin_right = 115.0
+margin_bottom = 53.0
+text = "LABEL"
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 165.0
+margin_right = 365.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_vertical = 1
+max_value = 3.0
+script = ExtResource( 2 )
+
+[node name="Value" type="Label" parent="."]
+margin_left = 415.0
+margin_top = 8.0
+margin_right = 599.0
+margin_bottom = 53.0
+text = "Difficulty"
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="HSlider" to="HSlider" method="_on_HSlider_value_changed"]
