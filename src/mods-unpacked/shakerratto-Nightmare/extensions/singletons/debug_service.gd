@@ -468,6 +468,7 @@ func edit_items() -> void:
 	
 	item = find_item("Vurtfish")
 	if item != null:
+		item.max_nb = 1
 		item.effects = []
 		var effect = Effect.new()
 		effect.key = "hit_protection"
