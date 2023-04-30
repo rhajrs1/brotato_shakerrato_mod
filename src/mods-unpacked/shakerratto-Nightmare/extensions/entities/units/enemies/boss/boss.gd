@@ -10,10 +10,7 @@ func init(zone_min_pos:Vector2, zone_max_pos:Vector2, player_ref:Node2D = null, 
 		difficulty = ProgressData.settings["hardcore_difficulty"]
 
 	var dw = (difficulty - 1) * (10.0 / 6)
-	var targetHeath = round(max_stats.health * (2.0 + dw)) as int
+	var targetHeath = round(max_stats.health * (2.3 + dw)) as int
 	
 	max_stats.health = targetHeath
 	current_stats.health = targetHeath
-
-func get_giant_factor()->float:
-	return (RunData.effects["giant_crit_damage"] / 10000.0)

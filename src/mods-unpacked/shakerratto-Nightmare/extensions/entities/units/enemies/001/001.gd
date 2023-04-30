@@ -65,3 +65,6 @@ func on_state_changed(new_state:int)->void :
 				if b is AttackBehavior: 
 					newPhaseAB.append(b)
 			phaseAB = newPhaseAB
+
+func get_giant_factor()->float:
+	return (RunData.effects["giant_crit_damage"] / 10000.0)
