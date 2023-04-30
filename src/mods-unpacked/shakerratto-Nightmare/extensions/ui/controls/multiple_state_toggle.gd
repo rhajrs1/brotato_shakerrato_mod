@@ -1,7 +1,7 @@
 class_name MultipleStateToggle
 extends HBoxContainer
 
-export (Array) var states: Array = [ "Original", "Endless", "Hardcore", "Impossible" ]
+export (Array) var states: Array = [ "Original", "Endless", "Impossible" ]
 
 signal value_changed(value)
 
