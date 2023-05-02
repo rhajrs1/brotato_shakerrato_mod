@@ -89,6 +89,32 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
+	
+	character = find_character("CHARACTER_MULTITASKER")
+	if character != null:
+		character.effects[1].value = 18
+		character.effects[2].value = -3
+		
+		var e = Effect.new()
+		e.key = "weapons_price"
+		e.text_key = ""
+		e.value = -50
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_armor"
+		e.text_key = "effect_upgrade_random_weapon"
+		e.value = 2
+		e.custom_key = "upgrade_random_weapon"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+	
 
 # note : 아이템 수정 method, find_item으로 아이템을 찾은 후 property 수정
 func edit_items() -> void:
