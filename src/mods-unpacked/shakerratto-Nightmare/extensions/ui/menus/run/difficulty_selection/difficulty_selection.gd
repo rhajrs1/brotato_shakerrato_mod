@@ -60,4 +60,6 @@ func _on_Mode_changed(value: int)-> void :
 		ProgressData.settings.endless_mode_toggled = true
 
 func _on_Difficulty_changed(value: float)->void :
-	ProgressData.settings["hardcore_difficulty"] = value
+	var intValue = int(value)
+	RunData.game_play_difficulty = intValue
+	ProgressData.settings["hardcore_difficulty"] = intValue

@@ -1,6 +1,7 @@
 extends "res://singletons/run_data.gd"
 
 var game_play_mode = 0
+var game_play_difficulty = 1
 var nightmare_end_wave = 40
 var boss_scenes = []
 var boss_1 = null;
@@ -8,6 +9,9 @@ var boss_1 = null;
 func _ready()->void :
 	if ProgressData.settings.has("gameplay_mode"):
 		RunData.game_play_mode = ProgressData.settings["gameplay_mode"]
+		
+	if ProgressData.settings.has("hardcore_difficulty"):
+		RunData.game_play_difficulty = ProgressData.settings["hardcore_difficulty"]
 		
 	._ready()
 	

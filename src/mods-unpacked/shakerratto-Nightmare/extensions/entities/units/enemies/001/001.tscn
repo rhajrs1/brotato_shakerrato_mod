@@ -225,7 +225,7 @@ constant_spread = true
 [node name="AttackBehavior1" type="Node2D" parent="States/Phase3" index="2"]
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 23 )
-projectile_speed = 500
+projectile_speed = 550
 cooldown = 120.0
 damage_increase_each_wave = 1.5
 max_range = 99999
@@ -236,7 +236,7 @@ constant_spread = true
 [node name="AttackBehavior2" type="Node2D" parent="States/Phase3" index="3"]
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 23 )
-projectile_speed = 750
+projectile_speed = 800
 cooldown = 100.0
 damage_increase_each_wave = 1.5
 max_range = 99999

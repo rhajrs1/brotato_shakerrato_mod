@@ -5,12 +5,7 @@ func init(zone_min_pos:Vector2, zone_max_pos:Vector2, player_ref:Node2D = null, 
 	
 	if RunData.game_play_mode == 0 or RunData.current_wave <= 20: return
 	
-	var difficulty = 1
-	if ProgressData.settings.has("hardcore_difficulty"):
-		difficulty = ProgressData.settings["hardcore_difficulty"]
-
-	var dw = (difficulty - 1) * (10.0 / 6)
-	var targetHeath = round(max_stats.health * (2.3 + dw)) as int
+	var targetHeath = round(max_stats.health * (2.4 + ((RunData.game_play_difficulty - 1) * (10.0 / 6)))) as int
 	
 	max_stats.health = targetHeath
 	current_stats.health = targetHeath
