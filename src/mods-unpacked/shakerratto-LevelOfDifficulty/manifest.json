@@ -1,8 +1,8 @@
 {
-  "name": "Nightmare",
+  "name": "LevelOfDifficulty",
   "namespace": "shakerratto",
   "version_number": "2.0.0",
-  "description": "shakerratto's freaking hard mod",
+  "description": "shakerratto's level of difficulty",
   "website_url": "",
   "dependencies": [
     "Darkly77-ContentLoader"

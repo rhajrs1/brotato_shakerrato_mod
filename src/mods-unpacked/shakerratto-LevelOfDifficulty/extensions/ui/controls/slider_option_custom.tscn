@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://resources/themes/base_theme.tres" type="Theme" id=1]
-[ext_resource path="res://mods-unpacked/shakerratto-Nightmare/extensions/ui/controls/slider_option_custom.gd" type="Script" id=2]
+[ext_resource path="res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/ui/controls/slider_option_custom.gd" type="Script" id=2]
 [ext_resource path="res://ui/menus/global/my_h_slider.gd" type="Script" id=3]
 [ext_resource path="res://resources/fonts/actual/base/font_menus.tres" type="DynamicFont" id=4]
 

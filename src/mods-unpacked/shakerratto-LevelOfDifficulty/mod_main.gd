@@ -1,6 +1,6 @@
 extends Node
 
-const MOD_DIR = "shakerratto-Nightmare/"
+const MOD_DIR = "shakerratto-LevelOfDifficulty/"
 const MYMODNAME_LOG = "shakerrato"
 
 var dir = ""

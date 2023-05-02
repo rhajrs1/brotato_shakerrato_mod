@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shakerratto-001.png-7d078df8f102d7c033aacb1cf100a577.stex"
+path="res://.import/shakerratto-002.png-38308fe6376845fc2412993cda26b572.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mods-unpacked/shakerratto-Nightmare/extensions/entities/units/enemies/001/shakerratto-001.png"
-dest_files=[ "res://.import/shakerratto-001.png-7d078df8f102d7c033aacb1cf100a577.stex" ]
+source_file="res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/projectiles/s_bullet_enemy/shakerratto-002.png"
+dest_files=[ "res://.import/shakerratto-002.png-38308fe6376845fc2412993cda26b572.stex" ]
 
 [params]
 

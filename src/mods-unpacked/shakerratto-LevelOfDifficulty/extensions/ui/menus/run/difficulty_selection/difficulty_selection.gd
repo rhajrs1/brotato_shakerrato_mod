@@ -3,8 +3,8 @@ extends "res://ui/menus/run/difficulty_selection/difficulty_selection.gd"
 onready var _boxContainer: Node = $MarginContainer / VBoxContainer
 onready var _endlessButton: Node = $MarginContainer / VBoxContainer / EndlessButton
 
-var _multipleStateToggle = preload("res://mods-unpacked/shakerratto-Nightmare/extensions/ui/controls/multiple_state_toggle.tscn")
-var _sliderOptionCustom = preload("res://mods-unpacked/shakerratto-Nightmare/extensions/ui/controls/slider_option_custom.tscn")
+var _multipleStateToggle = preload("res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/ui/controls/multiple_state_toggle.tscn")
+var _sliderOptionCustom = preload("res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/ui/controls/slider_option_custom.tscn")
 var _difficultyOption = _multipleStateToggle.instance()
 var _endlessOption = _sliderOptionCustom.instance()
 var _endlessOption_root: Node = null

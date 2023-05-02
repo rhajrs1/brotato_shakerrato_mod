@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://projectiles/projectile.tscn" type="PackedScene" id=1]
-[ext_resource path="res://mods-unpacked/shakerratto-Nightmare/extensions/projectiles/obliterator_enemy/shakerratto-004.png" type="Texture" id=2]
+[ext_resource path="res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/projectiles/s_bullet_enemy/shakerratto-002.png" type="Texture" id=2]
 [ext_resource path="res://projectiles/bullet_enemy/enemy_projectile.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -23,7 +23,8 @@ position = Vector2( 0, 0 )
 shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" parent="." index="2"]
-position = Vector2( 0, -1 )
+position = Vector2( 1, 0.5 )
+scale = Vector2( 3.8, 2.55 )
 
 [connection signal="hit_something" from="Hitbox" to="." method="_on_Hitbox_hit_something"]
 
