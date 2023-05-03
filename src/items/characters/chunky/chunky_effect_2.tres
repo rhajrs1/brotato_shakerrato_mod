@@ -11,6 +11,5 @@ custom_key = ""
 storage_method = 0
 effect_sign = 0
 custom_args = [  ]
-arch_custom_args = [  ]
 stat_displayed = "stat_max_hp"
 stats_modified = [ "stat_max_hp" ]

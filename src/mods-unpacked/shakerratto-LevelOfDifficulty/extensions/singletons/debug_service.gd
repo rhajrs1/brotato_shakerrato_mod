@@ -167,7 +167,20 @@ func edit_characters() -> void:
 	character = find_character("CHARACTER_CHUNKY")
 	if character != null:
 		
-		var e = StatWithMaxEffect.new()
+		character.effects = []
+		var e = StatGainsModificationEffect.new()
+		e.key = "effect_increase_stat_gains"
+		e.text_key = ""
+		e.value = 25
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		e.stat_displayed = "stat_max_hp"
+		e.stats_modified = [ "stat_max_hp" ]
+		character.effects.append(e)
+		
+		e = StatWithMaxEffect.new()
 		e.key = "stat_max_hp"
 		e.text_key = "EFFECT_CONSUMABLE_STAT_WHILE_MAX_LIMITED"
 		e.value = 1
@@ -177,12 +190,91 @@ func edit_characters() -> void:
 		e.custom_args = [  ]
 		e.max_value = 10
 		character.effects.append(e)
+		
+		e = GainStatForEveryStatEffect.new()
+		e.key = "stat_percent_damage"
+		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
+		e.value = 1
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		var c = CustomArg.new()
+		c.arg_index = 4
+		c.arg_sign = CustomArg.Sign.FROM_ARG
+		c.arg_value = CustomArg.ArgValue.USUAL
+		c.arg_format = CustomArg.Format.USUAL
+		e.custom_args.append(c)
+		e.nb_stat_scaled = 3
+		e.stat_scaled = "stat_max_hp"
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "consumable_heal"
+		e.text_key = "effect_consumable_heal"
+		e.value = 3
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_lifesteal"
+		e.text_key = ""
+		e.value = -100
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = StatGainsModificationEffect.new()
+		e.key = "effect_reduce_stat_gains"
+		e.text_key = ""
+		e.value = -50
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		e.stat_displayed = "stat_hp_regeneration"
+		e.stats_modified = [ "stat_hp_regeneration" ]
+		character.effects.append(e)
+		
+		e = StatGainsModificationEffect.new()
+		e.key = "effect_reduce_stat_gains"
+		e.text_key = ""
+		e.value = -30
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		e.stat_displayed = "stat_dodge"
+		e.stats_modified = [ "stat_dodge" ]
+		character.effects.append(e)
 
 	character = find_character("CHARACTER_KNIGHT")
 	if character != null:
-		character.effects[5].value = -20
-
-		var e = Effect.new()
+		
+		character.effects = []
+		var e = GainStatForEveryStatEffect.new()
+		e.key = "stat_melee_damage"
+		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
+		e.value = 2
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		var c = CustomArg.new()
+		c.arg_index = 4
+		c.arg_sign = CustomArg.Sign.FROM_ARG
+		c.arg_value = CustomArg.ArgValue.USUAL
+		c.arg_format = CustomArg.Format.USUAL
+		e.nb_stat_scaled = 1
+		e.stat_scaled = "stat_armor"
+		character.effects.append(e)
+		
+		e = Effect.new()
 		e.key = "stat_armor"
 		e.text_key = "effect_gain_stat_end_of_wave"
 		e.value = 2
@@ -190,6 +282,44 @@ func edit_characters() -> void:
 		e.storage_method = 0
 		e.effect_sign = 3
 		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "no_ranged_weapons"
+		e.text_key = "effect_no_ranged_weapons"
+		e.value = 1
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 1
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = StatGainsModificationEffect.new()
+		e.key = "effect_reduce_stat_gains"
+		e.text_key = ""
+		e.value = -40
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		e.stat_displayed = "stat_attack_speed"
+		e.stats_modified = [ "stat_attack_speed" ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "min_weapon_tier"
+		e.text_key = "effect_min_weapon_tier"
+		e.value = 1
+		e.custom_key = ""
+		e.storage_method = 2
+		e.effect_sign = 1
+		e.custom_args = [  ]
+		c = CustomArg.new()
+		c.arg_index = 0
+		c.arg_sign = CustomArg.Sign.NEGATIVE
+		c.arg_value = CustomArg.ArgValue.TIER
+		c.arg_format = CustomArg.Format.USUAL
+		e.custom_args.append(c)
 		character.effects.append(e)
 
 

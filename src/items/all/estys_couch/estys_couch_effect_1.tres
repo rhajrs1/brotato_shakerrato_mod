@@ -33,6 +33,5 @@ custom_key = ""
 storage_method = 0
 effect_sign = 0
 custom_args = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ]
-arch_custom_args = [ [ 2, 0, 1, 0 ], [ 3, 0, 1, 0 ], [ 4, 0, 4, 0 ] ]
 nb_stat_scaled = -1
 stat_scaled = "stat_speed"

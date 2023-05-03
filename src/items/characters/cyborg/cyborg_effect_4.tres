@@ -11,6 +11,5 @@ custom_key = ""
 storage_method = 0
 effect_sign = 3
 custom_args = [  ]
-arch_custom_args = [  ]
 stat_displayed = "stat_elemental_damage"
 stats_modified = [ "stat_elemental_damage" ]
