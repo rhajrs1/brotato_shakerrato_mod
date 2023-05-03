@@ -310,6 +310,7 @@ func edit_characters() -> void:
 		c.arg_sign = CustomArg.Sign.FROM_ARG
 		c.arg_value = CustomArg.ArgValue.USUAL
 		c.arg_format = CustomArg.Format.USUAL
+		e.custom_args.append(c)
 		e.nb_stat_scaled = 1
 		e.stat_scaled = "stat_armor"
 		character.effects.append(e)
@@ -361,8 +362,46 @@ func edit_characters() -> void:
 		c.arg_format = CustomArg.Format.USUAL
 		e.custom_args.append(c)
 		character.effects.append(e)
-
-
+		
+		character = find_character("CHARACTER_GENERALIST")
+	if character != null:
+		character.effects = []
+		var e = GainStatForEveryStatEffect.new()
+		e.key = "stat_melee_damage"
+		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
+		e.value = 2
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		var c = CustomArg.new()
+		c.arg_index = 4
+		c.arg_sign = CustomArg.Sign.FROM_ARG
+		c.arg_value = CustomArg.ArgValue.USUAL
+		c.arg_format = CustomArg.Format.USUAL
+		e.custom_args.append(c)
+		e.nb_stat_scaled = 1
+		e.stat_scaled = "stat_ranged_damage"
+		character.effects.append(e)
+		
+		e = GainStatForEveryStatEffect.new()
+		e.key = "stat_ranged_damage"
+		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
+		e.value = 1
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		c = CustomArg.new()
+		c.arg_index = 4
+		c.arg_sign = CustomArg.Sign.FROM_ARG
+		c.arg_value = CustomArg.ArgValue.USUAL
+		c.arg_format = CustomArg.Format.USUAL
+		e.custom_args.append(c)
+		e.nb_stat_scaled = 2
+		e.stat_scaled = "stat_melee_damage"
+		character.effects.append(e)
+		
 # note : 아이템 수정 method, find_item으로 아이템을 찾은 후 property 수정
 func edit_items() -> void:
 	var item = find_item("ITEM_BAIT")
@@ -1038,9 +1077,10 @@ func edit_weapons() -> void:
 	if w != null:
 		w.stats.crit_damage = 2.5
 		w.stats.scaling_stats[0][1] = 1.5
-
-
-
+		
+		
+		
+		
 #	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.COMMON)
 #	if w != null:
 #		w.stats.damage = 10000
