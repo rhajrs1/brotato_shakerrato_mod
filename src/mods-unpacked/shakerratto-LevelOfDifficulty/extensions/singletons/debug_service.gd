@@ -117,7 +117,6 @@ func edit_characters() -> void:
 
 	character = find_character("CHARACTER_SOLDIER")
 	if character != null:
-		
 		var e = Effect.new()
 		e.key = "stat_percent_damage"
 		e.text_key = "effect_gain_stat_end_of_wave"
@@ -140,7 +139,6 @@ func edit_characters() -> void:
 
 	character = find_character("CHARACTER_RANGER")
 	if character != null:
-		
 		var e = Effect.new()
 		e.key = "stat_ranged_damage"
 		e.text_key = "effect_gain_stat_end_of_wave"
@@ -153,7 +151,6 @@ func edit_characters() -> void:
 
 	character = find_character("CHARACTER_MAGE")
 	if character != null:
-		
 		var e = Effect.new()
 		e.key = "stat_elemental_damage"
 		e.text_key = "effect_gain_stat_end_of_wave"
@@ -163,10 +160,54 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
-
+		
+	character = find_character("CHARACTER_ONE_ARM")
+	if character != null:
+		character.effects = []
+		var e = Effect.new()
+		e.key = "stat_attack_speed"
+		e.text_key = ""
+		e.value = 200
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = StatGainsModificationEffect.new()
+		e.key = "effect_increase_stat_gains"
+		e.text_key = ""
+		e.value = 100
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		e.stat_displayed = "stat_damage"
+		e.stats_modified = [ "stat_percent_damage", "stat_ranged_damage", "stat_melee_damage", "stat_elemental_damage", "explosion_damage", "piercing_damage", "bounce_damage" ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_attack_speed"
+		e.text_key = "effect_gain_stat_end_of_wave"
+		e.value = 8
+		e.custom_key = "stats_end_of_wave"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "weapon_slot"
+		e.text_key = "EFFECT_ONE_WEAPON_SLOT_LIMIT"
+		e.value = -5
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 1
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
 	character = find_character("CHARACTER_CHUNKY")
 	if character != null:
-		
 		character.effects = []
 		var e = StatGainsModificationEffect.new()
 		e.key = "effect_increase_stat_gains"
@@ -255,7 +296,6 @@ func edit_characters() -> void:
 
 	character = find_character("CHARACTER_KNIGHT")
 	if character != null:
-		
 		character.effects = []
 		var e = GainStatForEveryStatEffect.new()
 		e.key = "stat_melee_damage"
