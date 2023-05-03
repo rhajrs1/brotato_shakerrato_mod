@@ -114,7 +114,84 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
-	
+
+	character = find_character("CHARACTER_SOLDIER")
+	if character != null:
+		
+		var e = Effect.new()
+		e.key = "stat_percent_damage"
+		e.text_key = "effect_gain_stat_end_of_wave"
+		e.value = 4
+		e.custom_key = "stats_end_of_wave"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_attack_speed"
+		e.text_key = "effect_gain_stat_end_of_wave"
+		e.value = 3
+		e.custom_key = "stats_end_of_wave"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+	character = find_character("CHARACTER_RANGER")
+	if character != null:
+		
+		var e = Effect.new()
+		e.key = "stat_ranged_damage"
+		e.text_key = "effect_gain_stat_end_of_wave"
+		e.value = 1
+		e.custom_key = "stats_end_of_wave"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+	character = find_character("CHARACTER_MAGE")
+	if character != null:
+		
+		var e = Effect.new()
+		e.key = "stat_elemental_damage"
+		e.text_key = "effect_gain_stat_end_of_wave"
+		e.value = 1
+		e.custom_key = "stats_end_of_wave"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+	character = find_character("CHARACTER_CHUNKY")
+	if character != null:
+		
+		var e = StatWithMaxEffect.new()
+		e.key = "stat_max_hp"
+		e.text_key = "EFFECT_CONSUMABLE_STAT_WHILE_MAX_LIMITED"
+		e.value = 1
+		e.custom_key = "consumable_stats_while_max"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		e.max_value = 10
+		character.effects.append(e)
+
+	character = find_character("CHARACTER_KNIGHT")
+	if character != null:
+		character.effects[5].value = -20
+
+		var e = Effect.new()
+		e.key = "stat_armor"
+		e.text_key = "effect_gain_stat_end_of_wave"
+		e.value = 2
+		e.custom_key = "stats_end_of_wave"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
 
 # note : 아이템 수정 method, find_item으로 아이템을 찾은 후 property 수정
 func edit_items() -> void:
@@ -747,6 +824,52 @@ func edit_weapons() -> void:
 	w = find_weapon("WEAPON_OBLITERATOR", ItemParentData.Tier.LEGENDARY)
 	if w != null:
 		w.stats.projectile_speed = 2000
+
+	w = find_weapon("WEAPON_LASER_GUN", ItemParentData.Tier.COMMON)
+	if w != null:
+		w.stats.cooldown = 60
+		w.stats.recoil = 30
+		w.stats.recoil_duration = 0.15
+		
+	w = find_weapon("WEAPON_LASER_GUN", ItemParentData.Tier.UNCOMMON)
+	if w != null:
+		w.stats.cooldown = 55
+		w.stats.recoil = 30
+		w.stats.recoil_duration = 0.15
+		
+	w = find_weapon("WEAPON_LASER_GUN", ItemParentData.Tier.RARE)
+	if w != null:
+		w.stats.cooldown = 50
+		w.stats.recoil = 30
+		w.stats.recoil_duration = 0.15
+		
+	w = find_weapon("WEAPON_LASER_GUN", ItemParentData.Tier.LEGENDARY)
+	if w != null:
+		w.stats.cooldown = 45
+		w.stats.recoil = 30
+		w.stats.recoil_duration = 0.15
+
+	w = find_weapon("WEAPON_PISTOL", ItemParentData.Tier.COMMON)
+	if w != null:
+		w.stats.crit_damage = 2.15
+		w.stats.scaling_stats[0][1] = 1.0
+
+	w = find_weapon("WEAPON_PISTOL", ItemParentData.Tier.UNCOMMON)
+	if w != null:
+		w.stats.crit_damage = 2.3
+		w.stats.scaling_stats[0][1] = 1.1
+
+	w = find_weapon("WEAPON_PISTOL", ItemParentData.Tier.RARE)
+	if w != null:
+		w.stats.crit_damage = 2.4
+		w.stats.scaling_stats[0][1] = 1.2
+		
+	w = find_weapon("WEAPON_PISTOL", ItemParentData.Tier.LEGENDARY)
+	if w != null:
+		w.stats.crit_damage = 2.5
+		w.stats.scaling_stats[0][1] = 1.5
+
+
 
 #	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.COMMON)
 #	if w != null:
