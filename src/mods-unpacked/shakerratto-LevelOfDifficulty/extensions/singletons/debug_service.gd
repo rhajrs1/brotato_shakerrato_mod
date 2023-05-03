@@ -852,7 +852,7 @@ func edit_weapons() -> void:
 	w = find_weapon("WEAPON_PISTOL", ItemParentData.Tier.COMMON)
 	if w != null:
 		w.stats.crit_damage = 2.15
-		w.stats.scaling_stats[0][1] = 2.0
+		w.stats.scaling_stats[0][1] = 1.0
 
 	w = find_weapon("WEAPON_PISTOL", ItemParentData.Tier.UNCOMMON)
 	if w != null:
