@@ -49,3 +49,9 @@ func get_additional_elites_endless()->Array:
 			new_elites.push_back(Utils.get_rand_element(ItemService.elites).my_id)
 	
 	return new_elites
+
+
+func init_effects()->Dictionary:
+	var ret = .init_effects()
+	ret["end_of_wave_20"] = []
+	return ret

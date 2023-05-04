@@ -136,6 +136,16 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "gain_gold"
+		e.text_key = "effect_gain_gold_end_of_wave_20"
+		e.value = 30000
+		e.custom_key = "end_of_wave_20"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
 
 	character = find_character("CHARACTER_RANGER")
 	if character != null:

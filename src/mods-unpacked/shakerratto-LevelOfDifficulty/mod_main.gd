@@ -29,7 +29,8 @@ func _init(modLoader = ModLoader):
 	modLoader.install_script_extension(ext_dir + "main.gd")
 	
 	# Add translations
-	#modLoader.add_translation_from_resource(trans_dir + "translations/modname_text.en.translation")
+	modLoader.add_translation_from_resource(trans_dir + "/shakerratto_translations.en.translation")
+	modLoader.add_translation_from_resource(trans_dir + "/shakerratto_translations.ko.translation")
 
 func _ready():
 	#var ContentLoader = get_node("/root/ModLoader/Darkly77-ContentLoader/ContentLoader")

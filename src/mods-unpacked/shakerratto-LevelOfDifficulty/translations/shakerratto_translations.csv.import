@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://mods-unpacked/shakerratto-LevelOfDifficulty/translations/shakerratto_translations.en.translation", "res://mods-unpacked/shakerratto-LevelOfDifficulty/translations/shakerratto_translations.ko.translation" ]
+
+source_file="res://mods-unpacked/shakerratto-LevelOfDifficulty/translations/shakerratto_translations.csv"
+dest_files=[ "res://mods-unpacked/shakerratto-LevelOfDifficulty/translations/shakerratto_translations.en.translation", "res://mods-unpacked/shakerratto-LevelOfDifficulty/translations/shakerratto_translations.ko.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

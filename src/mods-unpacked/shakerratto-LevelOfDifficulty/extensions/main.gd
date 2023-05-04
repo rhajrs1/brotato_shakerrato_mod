@@ -26,3 +26,12 @@ func _on_HarvestingTimer_timeout()->void :
 	if weight > 0:
 		var val = ceil(Utils.get_stat("stat_harvesting") * (weight / 100.0))
 		RunData.remove_stat("stat_harvesting", val)
+
+func _on_WaveTimer_timeout()->void :
+	._on_WaveTimer_timeout()
+	
+	if RunData.current_wave == 20:
+		if RunData.effects["end_of_wave_20"].size() > 0:
+			for kv in RunData.effects["end_of_wave_20"]:
+				if kv[0] == "gain_gold":
+					RunData.add_gold(kv[1])
