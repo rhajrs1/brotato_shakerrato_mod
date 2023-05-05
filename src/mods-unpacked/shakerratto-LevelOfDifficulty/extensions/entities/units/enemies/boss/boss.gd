@@ -7,7 +7,5 @@ func init(zone_min_pos:Vector2, zone_max_pos:Vector2, player_ref:Node2D = null, 
 	
 	var targetHeath = round(max_stats.health * (2.4 + ((RunData.game_play_difficulty - 1) * (10.0 / 6)))) as int
 	
-	print("before : " + String(max_stats.health) + " after : " + String(targetHeath))
-	
 	max_stats.health = targetHeath
 	current_stats.health = targetHeath
