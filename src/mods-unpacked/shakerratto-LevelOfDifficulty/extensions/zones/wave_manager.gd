@@ -1,8 +1,8 @@
 extends "res://zones/wave_manager.gd"
 
 func init(p_wave_timer:Timer, wave_data:Resource)->void :
-	p_wave_timer.wait_time = 2
-	p_wave_timer.start()
+#	p_wave_timer.wait_time = 2
+#	p_wave_timer.start()
 	.init(p_wave_timer, wave_data)
 	if RunData.game_play_mode <= 1: return
 	
