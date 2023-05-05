@@ -634,61 +634,51 @@ func edit_items() -> void:
 		
 	item = find_item("ITEM_TURRET")
 	if item != null:
-		item.effects[0].stats.scaling_stats[0][1] = 1.0
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 		
 	item = find_item("ITEM_TURRET_FLAME")
 	if item != null:
-		item.effects[0].stats.scaling_stats[0][1] = 1.0
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 		
 	item = find_item("ITEM_TURRET_LASER")
 	if item != null:
-		item.effects[0].stats.scaling_stats[0][1] = 1.0
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 		
 	item = find_item("ITEM_TURRET_ROCKET")
 	if item != null:
-		item.effects[0].stats.scaling_stats[0][1] = 1.0
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 		
 	item = find_item("ITEM_TYLER")
 	if item != null:
-		item.effects[0].stats.scaling_stats[0][1] = 1.0
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 		
 	item = find_item("Dami's plushie")
 	if item != null:
-		item.effects[0].stats.scaling_stats[0][1] = 1.0
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 		
 	item = find_item("Drone")
 	if item != null:
-		item.effects[0].stats.scaling_stats[0][1] = 1.0
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 		
 	item = find_item("Insect turret")
 	if item != null:
-		item.effects[0].stats.scaling_stats[0][1] = 1.0
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 		
 	item = find_item("Slashing Turret")
 	if item != null:
-		item.effects[0].stats.scaling_stats[0][1] = 1.0
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 		
 	item = find_item("Spiky Ball")
 	if item != null:
-		item.effects[0].stats.scaling_stats[0][1] = 1.0
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 	
