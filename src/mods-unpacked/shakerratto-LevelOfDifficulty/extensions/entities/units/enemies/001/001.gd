@@ -1,5 +1,6 @@
 extends Boss
 
+const TARGET_GIANT_DAMAGE = 100000
 const CHARGING_ATTACK_COOLDOWN = 5.0
 
 var defaultAB = []
@@ -67,4 +68,4 @@ func on_state_changed(new_state:int)->void :
 			phaseAB = newPhaseAB
 
 func get_giant_factor()->float:
-	return (RunData.effects["giant_crit_damage"] / 10000.0)
+	return (TARGET_GIANT_DAMAGE * max(1.0, RunData.get_endless_factor() * 0.2)) / current_stats.health

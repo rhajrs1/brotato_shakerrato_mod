@@ -1153,28 +1153,28 @@ func edit_weapons() -> void:
 		
 #	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.COMMON)
 #	if w != null:
-#		w.stats.damage = 10000
+#		w.stats.damage = 20000
 #		w.stats.cooldown = 1
 #		w.stats.recoil = 1
 #		w.stats.recoil_duration = 0.05
 #
 #	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.UNCOMMON)
 #	if w != null:
-#		w.stats.damage = 10000
+#		w.stats.damage = 20000
 #		w.stats.cooldown = 1
 #		w.stats.recoil = 1
 #		w.stats.recoil_duration = 0.05
 #
 #	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.RARE)
 #	if w != null:
-#		w.stats.damage = 10000
+#		w.stats.damage = 20000
 #		w.stats.cooldown = 1
 #		w.stats.recoil = 1
 #		w.stats.recoil_duration = 0.05
 #
 #	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.LEGENDARY)
 #	if w != null:
-#		w.stats.damage = 10000
+#		w.stats.damage = 20000
 #		w.stats.cooldown = 1
 #		w.stats.recoil = 1
 #		w.stats.recoil_duration = 0.05
@@ -1194,6 +1194,15 @@ func edit_weapons() -> void:
 #		e.custom_args = [  ]
 #		character.effects.append(e)
 #		e = Effect.new()
+#		e.key = "stat_crit_chance"
+#		e.text_key = ""
+#		e.value = 100.0
+#		e.custom_key = ""
+#		e.storage_method = 0
+#		e.effect_sign = 3
+#		e.custom_args = [  ]
+#		character.effects.append(e)
+#		e = Effect.new()
 #		e.key = "stat_speed"
 #		e.text_key = ""
 #		e.value = 60
@@ -1201,6 +1210,21 @@ func edit_weapons() -> void:
 #		e.storage_method = 0
 #		e.effect_sign = 3
 #		e.custom_args = [  ]
+#		character.effects.append(e)
+#		e = Effect.new()
+#		e.key = "giant_crit_damage"
+#		e.text_key = "effect_giant_crit_damage"
+#		e.value = 10
+#		e.custom_key = ""
+#		e.storage_method = 0
+#		e.effect_sign = 3
+#		e.custom_args = [  ]
+#		var c = CustomArg.new()
+#		c.arg_index = 1
+#		c.arg_sign = CustomArg.Sign.POSITIVE
+#		c.arg_value = CustomArg.ArgValue.VALUE
+#		c.arg_format = CustomArg.Format.ARG_VALUE_AS_NUMBER
+#		e.custom_args.append(c)
 #		character.effects.append(e)
 
 
