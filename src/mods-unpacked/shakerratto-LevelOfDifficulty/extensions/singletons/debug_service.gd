@@ -631,7 +631,12 @@ func edit_items() -> void:
 	item = find_item("ITEM_TARDIGRADE")
 	if item != null:
 		item.max_nb = 10
-		
+	
+	item = find_item("ITEM_LANDMINES")
+	if item != null:
+		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
+		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
+	
 	item = find_item("ITEM_TURRET")
 	if item != null:
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
