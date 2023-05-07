@@ -1,5 +1,7 @@
 extends "res://singletons/debug_service.gd"
 
+var supportSetData = preload("res://items/sets/support/support_set_data.tres")
+
 func _ready():
 	edit_characters()
 	edit_items()
@@ -747,6 +749,7 @@ func edit_items() -> void:
 	
 	item = find_item("ITEM_LANDMINES")
 	if item != null:
+		item.effects[0].stats.crit_damage = 2.0
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 	
@@ -1183,26 +1186,36 @@ func edit_weapons() -> void:
 	w = find_weapon("WEAPON_WRENCH", ItemParentData.Tier.LEGENDARY)
 	if w != null:
 		w.stats.scaling_stats.append([ "stat_engineering", 1.0 ])
-		
+	
+	supportSetData.set_bonuses[0][0].value = 25
+	supportSetData.set_bonuses[1][0].value = 30
+	supportSetData.set_bonuses[2][0].value = 35
+	supportSetData.set_bonuses[3][0].value = 40
+	supportSetData.set_bonuses[4][0].value = 50
+	
 	w = find_weapon("WEAPON_SCREWDRIVER", ItemParentData.Tier.COMMON)
 	if w != null:
 		w.stats.scaling_stats[0][1] = 0.5
 		w.stats.scaling_stats[1][1] = 0.5
+		w.sets.append(supportSetData)
 
 	w = find_weapon("WEAPON_SCREWDRIVER", ItemParentData.Tier.UNCOMMON)
 	if w != null:
 		w.stats.scaling_stats[0][1] = 0.6
 		w.stats.scaling_stats[1][1] = 0.6
+		w.sets.append(supportSetData)
 
 	w = find_weapon("WEAPON_SCREWDRIVER", ItemParentData.Tier.RARE)
 	if w != null:
 		w.stats.scaling_stats[0][1] = 0.7
 		w.stats.scaling_stats[1][1] = 0.7
+		w.sets.append(supportSetData)
 
 	w = find_weapon("WEAPON_SCREWDRIVER", ItemParentData.Tier.LEGENDARY)
 	if w != null:
 		w.stats.scaling_stats[0][1] = 1.0
 		w.stats.scaling_stats[1][1] = 1.0
+		w.sets.append(supportSetData)
 
 	w = find_weapon("WEAPON_OBLITERATOR", ItemParentData.Tier.RARE)
 	if w != null:
