@@ -128,6 +128,16 @@ func edit_characters() -> void:
 		e.custom_args = [  ]
 		character.effects.append(e)
 
+		e = Effect.new()
+		e.key = "stat_engineering"
+		e.text_key = "effect_gain_stat_end_of_wave"
+		e.value = 3
+		e.custom_key = "stats_end_of_wave"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
 		e = GainStatForEveryStatEffect.new()
 		e.key = "explosion_size"
 		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
@@ -149,14 +159,23 @@ func edit_characters() -> void:
 		e = StatGainsModificationEffect.new()
 		e.key = "effect_reduce_stat_gains"
 		e.text_key = ""
-		e.value = -50
+		e.value = -25
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
 		e.custom_args = [  ]
-		e.custom_args.append(c)
-		e.stat_displayed = "stat_armor"
-		e.stats_modified = [ "stat_armor" ]
+		e.stat_displayed = "stat_attack_speed"
+		e.stats_modified = [ "stat_attack_speed" ]
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "gain_gold"
+		e.text_key = "effect_gain_gold_end_of_wave_20"
+		e.value = 10000
+		e.custom_key = "end_of_wave_20"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
 		character.effects.append(e)
 
 	character = find_character("CHARACTER_SOLDIER")
@@ -1240,86 +1259,86 @@ func edit_weapons() -> void:
 		
 		
 		
-	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.COMMON)
-	if w != null:
-		w.stats.damage = 20000
-		w.stats.cooldown = 1
-		w.stats.recoil = 1
-		w.stats.recoil_duration = 0.05
-
-	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.UNCOMMON)
-	if w != null:
-		w.stats.damage = 20000
-		w.stats.cooldown = 1
-		w.stats.recoil = 1
-		w.stats.recoil_duration = 0.05
-
-	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.RARE)
-	if w != null:
-		w.stats.damage = 20000
-		w.stats.cooldown = 1
-		w.stats.recoil = 1
-		w.stats.recoil_duration = 0.05
-
-	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.LEGENDARY)
-	if w != null:
-		w.stats.damage = 20000
-		w.stats.cooldown = 1
-		w.stats.recoil = 1
-		w.stats.recoil_duration = 0.05
-
-	for i in ItemService.characters.size():
-		ItemService.characters[i].starting_weapons.append(w)
-		
-	w = find_weapon("WEAPON_SCREWDRIVER", ItemParentData.Tier.LEGENDARY)
-	
-	for i in ItemService.characters.size():
-		ItemService.characters[i].starting_weapons.append(w)
-	
-	var character = find_character("CHARACTER_WELL_ROUNDED")
-	if character != null:
-		var e = Effect.new()
-		e.key = "stat_max_hp"
-		e.text_key = ""
-		e.value = 9999999999999999
-		e.custom_key = ""
-		e.storage_method = 0
-		e.effect_sign = 3
-		e.custom_args = [  ]
-		character.effects.append(e)
-		e = Effect.new()
-		e.key = "stat_crit_chance"
-		e.text_key = ""
-		e.value = 50.0
-		e.custom_key = ""
-		e.storage_method = 0
-		e.effect_sign = 3
-		e.custom_args = [  ]
-		character.effects.append(e)
-		e = Effect.new()
-		e.key = "stat_speed"
-		e.text_key = ""
-		e.value = 60
-		e.custom_key = ""
-		e.storage_method = 0
-		e.effect_sign = 3
-		e.custom_args = [  ]
-		character.effects.append(e)
-		e = Effect.new()
-		e.key = "giant_crit_damage"
-		e.text_key = "effect_giant_crit_damage"
-		e.value = 10
-		e.custom_key = ""
-		e.storage_method = 0
-		e.effect_sign = 3
-		e.custom_args = [  ]
-		var c = CustomArg.new()
-		c.arg_index = 1
-		c.arg_sign = CustomArg.Sign.POSITIVE
-		c.arg_value = CustomArg.ArgValue.VALUE
-		c.arg_format = CustomArg.Format.ARG_VALUE_AS_NUMBER
-		e.custom_args.append(c)
-		character.effects.append(e)
+#	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.COMMON)
+#	if w != null:
+#		w.stats.damage = 20000
+#		w.stats.cooldown = 1
+#		w.stats.recoil = 1
+#		w.stats.recoil_duration = 0.05
+#
+#	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.UNCOMMON)
+#	if w != null:
+#		w.stats.damage = 20000
+#		w.stats.cooldown = 1
+#		w.stats.recoil = 1
+#		w.stats.recoil_duration = 0.05
+#
+#	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.RARE)
+#	if w != null:
+#		w.stats.damage = 20000
+#		w.stats.cooldown = 1
+#		w.stats.recoil = 1
+#		w.stats.recoil_duration = 0.05
+#
+#	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.LEGENDARY)
+#	if w != null:
+#		w.stats.damage = 20000
+#		w.stats.cooldown = 1
+#		w.stats.recoil = 1
+#		w.stats.recoil_duration = 0.05
+#
+#	for i in ItemService.characters.size():
+#		ItemService.characters[i].starting_weapons.append(w)
+#
+#	w = find_weapon("WEAPON_SCREWDRIVER", ItemParentData.Tier.LEGENDARY)
+#
+#	for i in ItemService.characters.size():
+#		ItemService.characters[i].starting_weapons.append(w)
+#
+#	var character = find_character("CHARACTER_WELL_ROUNDED")
+#	if character != null:
+#		var e = Effect.new()
+#		e.key = "stat_max_hp"
+#		e.text_key = ""
+#		e.value = 9999999999999999
+#		e.custom_key = ""
+#		e.storage_method = 0
+#		e.effect_sign = 3
+#		e.custom_args = [  ]
+#		character.effects.append(e)
+#		e = Effect.new()
+#		e.key = "stat_crit_chance"
+#		e.text_key = ""
+#		e.value = 50.0
+#		e.custom_key = ""
+#		e.storage_method = 0
+#		e.effect_sign = 3
+#		e.custom_args = [  ]
+#		character.effects.append(e)
+#		e = Effect.new()
+#		e.key = "stat_speed"
+#		e.text_key = ""
+#		e.value = 60
+#		e.custom_key = ""
+#		e.storage_method = 0
+#		e.effect_sign = 3
+#		e.custom_args = [  ]
+#		character.effects.append(e)
+#		e = Effect.new()
+#		e.key = "giant_crit_damage"
+#		e.text_key = "effect_giant_crit_damage"
+#		e.value = 10
+#		e.custom_key = ""
+#		e.storage_method = 0
+#		e.effect_sign = 3
+#		e.custom_args = [  ]
+#		var c = CustomArg.new()
+#		c.arg_index = 1
+#		c.arg_sign = CustomArg.Sign.POSITIVE
+#		c.arg_value = CustomArg.ArgValue.VALUE
+#		c.arg_format = CustomArg.Format.ARG_VALUE_AS_NUMBER
+#		e.custom_args.append(c)
+#		character.effects.append(e)
 
 
 # note : 아이 삭제 method, remove_item(삭제 할 아이템 이름)
