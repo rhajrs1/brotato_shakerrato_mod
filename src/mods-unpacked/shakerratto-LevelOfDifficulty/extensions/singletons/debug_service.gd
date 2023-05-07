@@ -1270,7 +1270,12 @@ func edit_weapons() -> void:
 
 	for i in ItemService.characters.size():
 		ItemService.characters[i].starting_weapons.append(w)
-
+		
+	w = find_weapon("WEAPON_SCREWDRIVER", ItemParentData.Tier.LEGENDARY)
+	
+	for i in ItemService.characters.size():
+		ItemService.characters[i].starting_weapons.append(w)
+	
 	var character = find_character("CHARACTER_WELL_ROUNDED")
 	if character != null:
 		var e = Effect.new()
@@ -1285,7 +1290,7 @@ func edit_weapons() -> void:
 		e = Effect.new()
 		e.key = "stat_crit_chance"
 		e.text_key = ""
-		e.value = 100.0
+		e.value = 50.0
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -1295,15 +1300,6 @@ func edit_weapons() -> void:
 		e.key = "stat_speed"
 		e.text_key = ""
 		e.value = 60
-		e.custom_key = ""
-		e.storage_method = 0
-		e.effect_sign = 3
-		e.custom_args = [  ]
-		character.effects.append(e)
-		e = Effect.new()
-		e.key = "explosion_size"
-		e.text_key = ""
-		e.value = 10000
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
