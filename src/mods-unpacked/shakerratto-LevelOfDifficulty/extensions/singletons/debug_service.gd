@@ -20,7 +20,7 @@ func edit_characters() -> void:
 		effect.effect_sign = 3
 		effect.custom_args = [  ]
 		effect.stat_displayed = "stat_damage"
-		effect.stats_modified = [ "stat_percent_damage", "stat_ranged_damage", "stat_melee_damage", "stat_elemental_damage", "explosion_damage", "piercing_damage", "bounce_damage" ]
+		effect.stats_modified = [ "stat_percent_damage", "stat_ranged_damage", "stat_melee_damage", "stat_elemental_damage", "explosion_damage", "piercing_damage", "bounce_damage", "stat_engineering" ]
 		character.effects.append(effect)
 		
 		effect = StatGainsModificationEffect.new()
@@ -115,6 +115,50 @@ func edit_characters() -> void:
 		e.custom_args = [  ]
 		character.effects.append(e)
 
+	character = find_character("CHARACTER_ARTIFICER")
+	if character != null:
+		character.effects = []
+		var e = Effect.new()
+		e.key = "explosion_damage"
+		e.text_key = ""
+		e.value = 75
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = GainStatForEveryStatEffect.new()
+		e.key = "explosion_size"
+		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
+		e.value = 4
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		var c = CustomArg.new()
+		c.arg_index = 4
+		c.arg_sign = CustomArg.Sign.FROM_ARG
+		c.arg_value = CustomArg.ArgValue.USUAL
+		c.arg_format = CustomArg.Format.USUAL
+		e.custom_args.append(c)
+		e.nb_stat_scaled = 1
+		e.stat_scaled = "stat_elemental_damage"
+		character.effects.append(e)
+
+		e = StatGainsModificationEffect.new()
+		e.key = "effect_reduce_stat_gains"
+		e.text_key = ""
+		e.value = -50
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		e.custom_args.append(c)
+		e.stat_displayed = "stat_armor"
+		e.stats_modified = [ "stat_armor" ]
+		character.effects.append(e)
+
 	character = find_character("CHARACTER_SOLDIER")
 	if character != null:
 		var e = Effect.new()
@@ -140,7 +184,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "gain_gold"
 		e.text_key = "effect_gain_gold_end_of_wave_20"
-		e.value = 30000
+		e.value = 15000
 		e.custom_key = "end_of_wave_20"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -159,6 +203,16 @@ func edit_characters() -> void:
 		e.custom_args = [  ]
 		character.effects.append(e)
 
+		e = Effect.new()
+		e.key = "gain_gold"
+		e.text_key = "effect_gain_gold_end_of_wave_20"
+		e.value = 5000
+		e.custom_key = "end_of_wave_20"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
 	character = find_character("CHARACTER_MAGE")
 	if character != null:
 		var e = Effect.new()
@@ -166,6 +220,16 @@ func edit_characters() -> void:
 		e.text_key = "effect_gain_stat_end_of_wave"
 		e.value = 1
 		e.custom_key = "stats_end_of_wave"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "gain_gold"
+		e.text_key = "effect_gain_gold_end_of_wave_20"
+		e.value = 5000
+		e.custom_key = "end_of_wave_20"
 		e.storage_method = 0
 		e.effect_sign = 3
 		e.custom_args = [  ]
@@ -193,7 +257,7 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		e.stat_displayed = "stat_damage"
-		e.stats_modified = [ "stat_percent_damage", "stat_ranged_damage", "stat_melee_damage", "stat_elemental_damage", "explosion_damage", "piercing_damage", "bounce_damage" ]
+		e.stats_modified = [ "stat_percent_damage", "stat_ranged_damage", "stat_melee_damage", "stat_elemental_damage", "explosion_damage", "piercing_damage", "bounce_damage", "stat_engineering" ]
 		character.effects.append(e)
 		
 		e = Effect.new()
@@ -213,6 +277,16 @@ func edit_characters() -> void:
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 1
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "gain_gold"
+		e.text_key = "effect_gain_gold_end_of_wave_20"
+		e.value = 10000
+		e.custom_key = "end_of_wave_20"
+		e.storage_method = 0
+		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
 		
@@ -372,6 +446,16 @@ func edit_characters() -> void:
 		c.arg_format = CustomArg.Format.USUAL
 		e.custom_args.append(c)
 		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "gain_gold"
+		e.text_key = "effect_gain_gold_end_of_wave_20"
+		e.value = 8000
+		e.custom_key = "end_of_wave_20"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
 		
 	character = find_character("CHARACTER_GENERALIST")
 	if character != null:
@@ -410,6 +494,16 @@ func edit_characters() -> void:
 		e.custom_args.append(c)
 		e.nb_stat_scaled = 2
 		e.stat_scaled = "stat_melee_damage"
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "gain_gold"
+		e.text_key = "effect_gain_gold_end_of_wave_20"
+		e.value = 5000
+		e.custom_key = "end_of_wave_20"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
 		character.effects.append(e)
 		
 # note : 아이템 수정 method, find_item으로 아이템을 찾은 후 property 수정
@@ -560,7 +654,7 @@ func edit_items() -> void:
 		e.effect_sign = Effect.Sign.FROM_VALUE
 		e.custom_args = []
 		e.stat_displayed = "stat_damage"
-		e.stats_modified = [ "stat_percent_damage", "stat_ranged_damage", "stat_melee_damage", "stat_elemental_damage", "explosion_damage", "piercing_damage", "bounce_damage" ]
+		e.stats_modified = [ "stat_percent_damage", "stat_ranged_damage", "stat_melee_damage", "stat_elemental_damage", "explosion_damage", "piercing_damage", "bounce_damage", "stat_engineering" ]
 		var effects = item.effects
 		item.effects = [ e ]
 		for i in effects.size():
@@ -1146,81 +1240,90 @@ func edit_weapons() -> void:
 		
 		
 		
-#	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.COMMON)
-#	if w != null:
-#		w.stats.damage = 20000
-#		w.stats.cooldown = 1
-#		w.stats.recoil = 1
-#		w.stats.recoil_duration = 0.05
-#
-#	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.UNCOMMON)
-#	if w != null:
-#		w.stats.damage = 20000
-#		w.stats.cooldown = 1
-#		w.stats.recoil = 1
-#		w.stats.recoil_duration = 0.05
-#
-#	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.RARE)
-#	if w != null:
-#		w.stats.damage = 20000
-#		w.stats.cooldown = 1
-#		w.stats.recoil = 1
-#		w.stats.recoil_duration = 0.05
-#
-#	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.LEGENDARY)
-#	if w != null:
-#		w.stats.damage = 20000
-#		w.stats.cooldown = 1
-#		w.stats.recoil = 1
-#		w.stats.recoil_duration = 0.05
-#
-#	for i in ItemService.characters.size():
-#		ItemService.characters[i].starting_weapons.append(w)
-#
-#	var character = find_character("CHARACTER_WELL_ROUNDED")
-#	if character != null:
-#		var e = Effect.new()
-#		e.key = "stat_max_hp"
-#		e.text_key = ""
-#		e.value = 9999999999999999
-#		e.custom_key = ""
-#		e.storage_method = 0
-#		e.effect_sign = 3
-#		e.custom_args = [  ]
-#		character.effects.append(e)
-#		e = Effect.new()
-#		e.key = "stat_crit_chance"
-#		e.text_key = ""
-#		e.value = 100.0
-#		e.custom_key = ""
-#		e.storage_method = 0
-#		e.effect_sign = 3
-#		e.custom_args = [  ]
-#		character.effects.append(e)
-#		e = Effect.new()
-#		e.key = "stat_speed"
-#		e.text_key = ""
-#		e.value = 60
-#		e.custom_key = ""
-#		e.storage_method = 0
-#		e.effect_sign = 3
-#		e.custom_args = [  ]
-#		character.effects.append(e)
-#		e = Effect.new()
-#		e.key = "giant_crit_damage"
-#		e.text_key = "effect_giant_crit_damage"
-#		e.value = 10
-#		e.custom_key = ""
-#		e.storage_method = 0
-#		e.effect_sign = 3
-#		e.custom_args = [  ]
-#		var c = CustomArg.new()
-#		c.arg_index = 1
-#		c.arg_sign = CustomArg.Sign.POSITIVE
-#		c.arg_value = CustomArg.ArgValue.VALUE
-#		c.arg_format = CustomArg.Format.ARG_VALUE_AS_NUMBER
-#		e.custom_args.append(c)
-#		character.effects.append(e)
+	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.COMMON)
+	if w != null:
+		w.stats.damage = 20000
+		w.stats.cooldown = 1
+		w.stats.recoil = 1
+		w.stats.recoil_duration = 0.05
+
+	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.UNCOMMON)
+	if w != null:
+		w.stats.damage = 20000
+		w.stats.cooldown = 1
+		w.stats.recoil = 1
+		w.stats.recoil_duration = 0.05
+
+	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.RARE)
+	if w != null:
+		w.stats.damage = 20000
+		w.stats.cooldown = 1
+		w.stats.recoil = 1
+		w.stats.recoil_duration = 0.05
+
+	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.LEGENDARY)
+	if w != null:
+		w.stats.damage = 20000
+		w.stats.cooldown = 1
+		w.stats.recoil = 1
+		w.stats.recoil_duration = 0.05
+
+	for i in ItemService.characters.size():
+		ItemService.characters[i].starting_weapons.append(w)
+
+	var character = find_character("CHARACTER_WELL_ROUNDED")
+	if character != null:
+		var e = Effect.new()
+		e.key = "stat_max_hp"
+		e.text_key = ""
+		e.value = 9999999999999999
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_crit_chance"
+		e.text_key = ""
+		e.value = 100.0
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_speed"
+		e.text_key = ""
+		e.value = 60
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		e = Effect.new()
+		e.key = "explosion_size"
+		e.text_key = ""
+		e.value = 10000
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		e = Effect.new()
+		e.key = "giant_crit_damage"
+		e.text_key = "effect_giant_crit_damage"
+		e.value = 10
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		var c = CustomArg.new()
+		c.arg_index = 1
+		c.arg_sign = CustomArg.Sign.POSITIVE
+		c.arg_value = CustomArg.ArgValue.VALUE
+		c.arg_format = CustomArg.Format.ARG_VALUE_AS_NUMBER
+		e.custom_args.append(c)
+		character.effects.append(e)
 
 
 # note : 아이 삭제 method, remove_item(삭제 할 아이템 이름)

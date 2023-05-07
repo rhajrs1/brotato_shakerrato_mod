@@ -1,0 +1,281 @@
+[b][u]2.0.2 [2023-05-07][/u][/b]
+
+[b][English][/b]
+
+- [Stat update] Damage modifications include engineering
+[list]
+[*] [Character] Well-Rounded, One-Armed
+[*] [Item] Photato
+[/list]
+
+- [Gold gains after 20 wave]
+[list]
+[*] Soldier - 15000 gold
+[*] Ranger - 5000 gold
+[*] Mage - 5000 gold
+[*] One-Armed - 10000 gold
+[*] Knight - 8000 gold
+[*] Generalist - 5000 gold
+[/list]
+
+- [Character updates] Artificer
+[list]
+[*] +75% Explosion Damage
+[*] +4% Explosion Size for every 1 Elemental Damage you have
+[*] Armor modifications are reduced by 50%
+[/list]
+
+
+[b][한국어][/b]
+
+- [스탯 업데이트] 대미지 증가 스탯이 엔지니어링 스탯을 참조합니다. 
+[list]
+[*] [적용 캐릭터] 다재다능, 외팔이
+[*] [적용 아이템] 감자
+[/list]
+
+- [퇴직금] 지급 골드 조정
+[list]
+[*] 군인 - 15000 골드
+[*] 저격수 - 5000 골드
+[*] 마법사 - 5000 골드
+[*] 외팔이 - 10000 골드
+[*] 기사- 8000 골드
+[*] 박학다식 - 5000 골드
+[/list]
+
+- [Character updates] 장인
+[list]
+[*] +75% 폭발 대미지
+[*] 가지고 있는 모든 1 원소 대미지에 +4% 폭발 크기
+[*] 방어구 수정이 50%만큼 감소
+[/list]
+
+
+[b][u]2.0.1 [2023-05-07][/u][/b]
+
+[b][English][/b]
+
+- [Adjust boss balance] Reduce giant belt's damage ratio & boss's HP
+
+- [Character updates] Engeneer
+[list]
+[*] Turret's 'critical chance' and 'damage percentage' stats are following players stats.
+[/list]
+
+- [Character updates] Soldier
+[list]
+[*] Get 30000 golds when clear 20 wave.
+[/list]
+
+- [Character updates] Multitasker
+[list]
+[*] You can equip up to 18 weapons at a time
+[*] -3% Damage for every weapon you have
+[*] -50% Weapons price
+[/list]
+
+- [Character updates] One arm
+[list]
+[*] +8% Attack Speed at the end of a wave
+[/list]
+
+- [Character updates] Generalist
+[list]
+[*] Weapon equipment limit is removed
+[/list]
+
+
+[b][한국어][/b]
+
+- [보스 밸런스 조정] 거인의 벨트 대미지 하향(마지막 보스 한정 0.01%) & 보스 HP 하향.
+
+- [캐릭터 업데이트] 엔지니어
+[list]
+[*] 터렛의 크리티컬 확률과 대미지 % 스탯이 사용자의 스탯을 따릅니다.
+[/list]
+
+- [캐릭터 업데이트] 군인
+[list]
+[*] 20 웨이브 클리어 시 퇴직금 30000골드를 지급 받습니다.
+[/list]
+
+- [캐릭터 업데이트] 멀티태스커
+[list]
+[*] 한번에 최대 18개의 무기를 탑재 할 수 있습니다.
+[*] 가지고 있는 모든 무기에 대한 -3% 대미지
+[*] -50% 무기 가격
+[/list]
+
+- [캐릭터 업데이트] 외팔이
+[list]
+[*] 웨이브가 끝날 때 +8% 공격 속도
+[/list]
+
+- [캐릭터 업데이트] 박학다식
+[list]
+[*] 무기 착용 제한 제거
+[/list]
+
+
+[b][u]2.0.0 [2023-05-02][/u][/b]
+
+[b][English][/b]
+
+- [New Mode] "Impossible mode" is provided with 7 steps of difficulties.
+- [New Difficulties] Boss's and Elite's HP is increased and enemies damage is increased per steps.
+- [New boss] Last wave is 40 with the new boss on impossible mod.
+
+- [Item updates] Investments
+[list]
+[*] Harvesting for every 1% XP gain you have
+[*] Number of item limits -> 1
+[/list]
+
+- [Item updates] Olexa's mantle
+[list]
+[*] +1 Harvesting for every 2 Max HP you have
+[/list]
+
+- [Item updates] Dark altar
+[list]
+[*] Harvesting modifications are increased by 7%
+[/list]
+
+[b][한국어][/b]
+
+- [New Mode] "Impossible mod"가 추가 되었습니다. 7단계의 난이도 조정이 가능합니다.
+- [New Difficulties] 스텝당 보스/엘리트의 HP가 증가하고, 적들의 대미지가 증가 합니다.
+- [New boss] "Impossible mode"는 40웨이브까지만 제공 되며, 40웨이브에서 새로운 보스가 등장 합니다.
+
+- [Item updates] Investments
+[list]
+[*] 가지고 있는 모든 1% XP 획득에 +1 수확
+[*] 아이템 소지 한도 -> 1
+[/list]
+
+- [Item updates] Olexa's mantle
+[list]
+[*] 가지고 있는 모든 2 최대 HP에 +1 수확
+[/list]
+
+- [Item updates] Dark altar
+[list]
+[*] 수확 수정이 7%만큼 증가
+[/list]
+
+
+[b][u]1.0.3 [2023-04-22][/u][/b]
+
+[b][English][/b]
+
+- [Fix mod dependencies] Reference Pisina's mod as optional.
+
+- [Item updates] Alien eyes
+[list]
+[*] Decrease damage scaling by hp (50% -> 25%)
+[*] Number of item limits -> 5
+[/list]
+
+- [Item updates] Tardigrade
+[list]
+[*] Number of item limits -> 10
+[/list]
+
+[b][한국어][/b]
+
+- [Mod 의존성 수정] Pisina의 mod를 필수가 아닌, 선택 mod로서 참조 할 수 있도록 수정 되었습니다.
+
+- [아이템 업데이트] 외계인의 눈
+[list]
+[*] HP 비례 데미지 계수 감소 (50% -> 25%)
+[*] 아이템 소지 한도 -> 5
+[/list]
+
+- [아이템 업데이트] 완보동물
+[list]
+[*] 아이템 소지 한도 -> 10
+[/list]
+
+
+[b][u]1.0.2 [2023-04-16][/u][/b]
+
+[b][English][/b]
+
+- [Fix bug] Game is crashed when use buy the item torture.
+
+- [Item updates] Potato
+[list]
+[*] ++ [Additional stats] Damage modifications are increased by 5%
+[/list]
+
+[b][한국어][/b]
+
+- [버그 수정] 고문 아이템을 구매 할 시 게임이 튕기는 증상을 수정했습니다.
+
+- [아이템 업데이트] 감자
+[list]
+[*] ++ [스탯 추가] 대미지 수정이 5%만큼 증가
+[/list]
+
+
+[b][u]1.0.1 [2023-04-15][/u][/b]
+
+[b][English][/b]
+
+- After 30 wave, decreasing harvest stat weight is increased.
+(additionally -1%/wave)
+
+[b][한국어][/b]
+
+- 30웨이브 이후 수확 감소량이 증가합니다. 웨이브 당 1%씩 증가합니다.
+(ex. 31 wave -> -11%, 32 wave -> -12% ...)
+
+
+[b][u]1.0.0 [2023-04-15][/u][/b]
+
+[b][English][/b]
+
+- Publish first version
+
+- [Additional character updates] Well-Rounded
+[list]
+[*]Damage modifications are increased by 20%
+[*]% Attack Speed modifications are increased by 20%
+[*]Harvesting modifications are increased by 25%
+[/list]
+- [Additional character updates] Farmer
+[list]
+[*]+40 Harvesting
+[*]Harvesting increased by an additional 5% at the end of a wave
+[*]+1 Harvesting when picking up a consumable while at maximum health
+[*]-20% materals dropped
+[/list]
+
+- [Additional weapon updates] Obliterator
+[list]
+[*]Increase projectile speed : 1500 -> 2000 (medical gun : 2000, pistol: 3000)
+[/list]
+
+[b][한국어][/b]
+
+- 초기 버전 배포
+
+- [추가 캐릭터 업데이트] 다재다능
+[list]
+[*]대미지 수정이 20% 만큼 증가
+[*]% 공격 속도 수정이 20% 만큼 증가
+[*]수확 수정이 25% 만큼 증가
+[/list]
+- [추가 캐릭터 업데이트] Farmer
+[list]
+[*]+40 수확
+[*]웨이브가 끝날 때 수확이 추가로 5%만큼 증가합니다.
+[*]체력이 최대일 때 소모품을 획득하면 +1 수확
+[*]재료 -20%개 떨어짐
+[/list]
+
+- [추가 무기 업데이트] 말살자
+[list]
+[*]투사체 속도 증가 : 1500 -> 2000 (의료총 : 2000, 권총: 3000)
+[/list]
