@@ -1,6 +1,8 @@
 extends "res://singletons/debug_service.gd"
 
 var supportSetData = preload("res://items/sets/support/support_set_data.tres")
+var explosionSecene = preload("res://projectiles/explosion.tscn")
+var explosionStats = preload("res://items/characters/bull/bull_explosion_stats.tres")
 
 func _ready():
 	edit_characters()
@@ -527,6 +529,30 @@ func edit_characters() -> void:
 		e.custom_args = [  ]
 		character.effects.append(e)
 		
+#	character = find_character("CHARACTER_BULL")
+#	if character != null:
+#		character.effects = []
+#		var e = ItemExplodingEffect.new()
+#		e.key = "explode_on_hit"
+#		e.text_key = "effect_explode_on_hit"
+#		e.value = 1
+#		e.custom_key = ""
+#		e.chance = 1
+#		e.explosion_scene = explosionSecene
+#		e.scale = 1
+#		e.base_smoke_amount = 20
+#		e.sound_db_mod = -15
+#		e.stats = explosionStats
+#		character.effects.append(e)
+#		e = Effect.new()
+#		e.key = "weapon_slot"
+#		e.text_key = "effect_no_weapons"
+#		e.value = 0
+#		e.storage_method = 2
+#		e.effect_sign = 3
+#		character.effects.append(e)
+		
+
 # note : 아이템 수정 method, find_item으로 아이템을 찾은 후 property 수정
 func edit_items() -> void:
 	var item = find_item("ITEM_BAIT")
