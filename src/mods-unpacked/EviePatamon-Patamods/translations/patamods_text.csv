@@ -1,0 +1,34 @@
+keys,en
+CHARACTER_COLLECTOR,Collector
+CHARACTER_DWARF,Dwarf
+CHARACTER_PERFECTIONIST,Perfectionist
+CHARACTER_STUCK,Stuck
+CHARACTER_CATATO,Catato
+CHARACTER_MAGNETIC,Magnetic
+CHARACTER_DUAL_WIELDER,Dual Wielder
+CHARACTER_BUILDER,Builder
+CHARACTER_HERO,Hero
+GMO_COMBINES CHARACTER_COLLECTOR,Starts with Collector
+GMO_COMBINES CHARACTER_DWARF,Starts with Dwarf
+GMO_COMBINES CHARACTER_PERFECTIONIST,Starts with Perfectionist
+GMO_COMBINES CHARACTER_STUCK,Starts with Stuck
+GMO_COMBINES CHARACTER_CATATO,Starts with Catato
+GMO_COMBINES CHARACTER_MAGNETIC,Starts with Magnetic
+GMO_COMBINES CHARACTER_DUAL_WIELDER,Starts with Dual Wielder
+GMO_COMBINES CHARACTER_BUILDER,Starts with Builder
+GMO_COMBINES CHARACTER_HERO,Starts with Hero
+ITEM_MONOCLE,Monocle
+ITEM_FORTRESS,Fortress
+ITEM_BULLET_TIME,Bullet Time
+ITEM_BELL_COLLAR,Bell Collar
+ITEM_FISHING_MAGNET,Fishing Magnet
+ITEM_DOMINO,Domino
+ITEM_BLUEPRINTS,Blueprints
+ITEM_BRAVE_HEART,Brave Heart
+WEAPON_HOOKSHOT,Hookshot
+EFFECT_RECYCLING_LOSSES,Gain [color=red]99%[/color] less materials from recyling items
+EFFECT_STUCK_NULLIFIED,[color=#00ff00]5[/color] hits taken are nullified every wave
+EFFECT_CATATO_NULLIFIED,[color=#00ff00]8[/color] hits taken are nullified every wave
+EFFECT_TWO_WEAPON_SLOT_LIMIT,You can only equip two weapons at a time
+EFFECT_NO_HARVESTING_GROWTH,{0}% Harvesting growth between waves
+EFFECT_CAP_MAP_SIZE,Map Size stops increasing at Wave 20

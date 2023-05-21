@@ -1,8 +1,6 @@
 extends "res://singletons/debug_service.gd"
 
-var supportSetData = preload("res://items/sets/support/support_set_data.tres")
-var explosionSecene = preload("res://projectiles/explosion.tscn")
-var explosionStats = preload("res://items/characters/bull/bull_explosion_stats.tres")
+var supportSetData = load("res://items/sets/support/support_set_data.tres")
 
 func _ready():
 	edit_characters()
@@ -538,11 +536,11 @@ func edit_characters() -> void:
 #		e.value = 1
 #		e.custom_key = ""
 #		e.chance = 1
-#		e.explosion_scene = explosionSecene
+#		e.explosion_scene = load("res://projectiles/explosion.tscn")
 #		e.scale = 1
 #		e.base_smoke_amount = 20
 #		e.sound_db_mod = -15
-#		e.stats = explosionStats
+#		e.stats = load("res://items/characters/bull/bull_explosion_stats.tres")
 #		character.effects.append(e)
 #		e = Effect.new()
 #		e.key = "weapon_slot"

@@ -1,0 +1,22 @@
+{
+	"name": "Patamods",
+	"namespace": "EviePatamon",
+	"version_number": "1.2.0",
+	"description": "Installs Patamods, a collection of new mods including various characters, items, weapons and challenges. Requires ContentLoader.",
+	"website_url": "https://github.com/EviePatamon/Brotato-Patamods",
+	"dependencies": [
+		"Darkly77-ContentLoader"
+	],
+	"extra": {
+		"godot": {
+			"incompatibilities": [
+			],
+			"authors": [
+				"EviePatamon"
+			],
+			"compatible_mod_loader_version": "3.0.0",
+			"compatible_game_version": ["0.8.0.3"],
+			"config_defaults": {}
+		}
+	}
+}
