@@ -65,7 +65,7 @@ func edit_characters() -> void:
 		var e = ClassBonusEffect.new()
 		e.key = "EFFECT_WEAPON_CLASS_BONUS"
 		e.text_key = ""
-		e.value = 50
+		e.value = 150
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -78,7 +78,7 @@ func edit_characters() -> void:
 		e = StatGainsModificationEffect.new()
 		e.key = "effect_increase_stat_gains"
 		e.text_key = ""
-		e.value = 20
+		e.value = 25
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -100,31 +100,43 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "stat_dodge"
 		e.text_key = ""
-		e.value = 15
+		e.value = 25
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "stat_luck"
+		e.text_key = ""
+		e.value = 25
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "stat_attack_speed"
+		e.text_key = ""
+		e.value = -100
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
 		
-		e = Effect.new()
-		e.key = "stat_range"
+		e = StatGainsModificationEffect.new()
+		e.key = "effect_reduce_stat_gains"
 		e.text_key = ""
-		e.value = -50
+		e.value = -100
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
 		e.custom_args = [  ]
-		character.effects.append(e)
-		
-		e = Effect.new()
-		e.key = "stat_ranged_damage"
-		e.text_key = ""
-		e.value = -50
-		e.custom_key = ""
-		e.storage_method = 0
-		e.effect_sign = 3
-		e.custom_args = [  ]
+		e.stat_displayed = "stat_ranged_damage"
+		e.stats_modified = [ "stat_ranged_damage" ]
 		character.effects.append(e)
 		
 		e = Effect.new()
@@ -156,17 +168,27 @@ func edit_characters() -> void:
 		e = StatGainsModificationEffect.new()
 		e.key = "effect_increase_stat_gains"
 		e.text_key = ""
-		e.value = 20
+		e.value = 25
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
 		e.custom_args = [  ]
-		e.stat_displayed = "stat_attack_speed"
-		e.stats_modified = [ "stat_attack_speed" ]
+		e.stat_displayed = "stat_range"
+		e.stats_modified = [ "stat_range" ]
 		character.effects.append(e)
 
 		e = Effect.new()
 		e.key = "stat_attack_speed"
+		e.text_key = ""
+		e.value = 25
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "stat_luck"
 		e.text_key = ""
 		e.value = 25
 		e.custom_key = ""
@@ -198,7 +220,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "stat_engineering"
 		e.text_key = ""
-		e.value = -10
+		e.value = -100
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -208,7 +230,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "stat_ranged_damage"
 		e.text_key = ""
-		e.value = -10
+		e.value = -100
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -744,7 +766,7 @@ func edit_characters() -> void:
 		e.custom_args = [  ]
 		character.effects.append(e)
 		
-		character = find_character("CHARACTER_MULTITASKER")
+	character = find_character("CHARACTER_MULTITASKER")
 	if character != null:
 		character.effects = []
 		var e = Effect.new()
@@ -812,7 +834,6 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
-
 		
 	character = find_character("CHARACTER_WILDLING")
 	if character != null:
@@ -1453,6 +1474,93 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
+
+	character = find_character("CHARACTER_HUNTER")
+	if character != null:
+		character.effects = []
+		var e = Effect.new()
+		e.key = "stat_range"
+		e.text_key = ""
+		e.value = 100
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = GainStatForEveryStatEffect.new()
+		e.key = "stat_percent_damage"
+		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
+		e.value = 1
+		e.custom_key = "starting_weapon"
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		var c = CustomArg.new()
+		c.arg_index = 4
+		c.arg_sign = 4
+		c.arg_value = 0
+		c.arg_format = 0
+		e.custom_args.append(c)
+		e.nb_stat_scaled = 10
+		e.stat_scaled = "stat_range"
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "item_hunting_trophy"
+		e.text_key = "effect_starting_item"
+		e.value = 1
+		e.custom_key = "starting_item"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = StatGainsModificationEffect.new()
+		e.key = "effect_increase_stat_gains"
+		e.text_key = ""
+		e.value = 25
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		e.stat_displayed = "stat_crit_chance"
+		e.stats_modified = [ "stat_crit_chance" ]
+		character.effects.append(e)
+		
+		e = StatGainsModificationEffect.new()
+		e.key = "effect_reduce_stat_gains"
+		e.text_key = ""
+		e.value = -100
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 1
+		e.custom_args = [  ]
+		e.stat_displayed = "stat_harvesting"
+		e.stats_modified = [ "stat_harvesting" ]
+		character.effects.append(e)
+		
+		e = StatGainsModificationEffect.new()
+		e.key = "effect_reduce_stat_gains"
+		e.text_key = ""
+		e.value = -33
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		e.stat_displayed = "stat_max_hp"
+		e.stats_modified = [ "stat_max_hp" ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "gain_gold"
+		e.text_key = "effect_gain_gold_end_of_wave_20"
+		e.value = 5000
+		e.custom_key = "end_of_wave_20"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
 		
 	character = find_character("CHARACTER_ARTIFICER")
 	if character != null:
@@ -1528,38 +1636,6 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
-
-	character = find_character("CHARACTER_SOLDIER")
-	if character != null:
-		var e = Effect.new()
-		e.key = "stat_percent_damage"
-		e.text_key = "effect_gain_stat_end_of_wave"
-		e.value = 4
-		e.custom_key = "stats_end_of_wave"
-		e.storage_method = 0
-		e.effect_sign = 3
-		e.custom_args = [  ]
-		character.effects.append(e)
-		
-		e = Effect.new()
-		e.key = "stat_attack_speed"
-		e.text_key = "effect_gain_stat_end_of_wave"
-		e.value = 3
-		e.custom_key = "stats_end_of_wave"
-		e.storage_method = 0
-		e.effect_sign = 3
-		e.custom_args = [  ]
-		character.effects.append(e)
-		
-		e = Effect.new()
-		e.key = "gain_gold"
-		e.text_key = "effect_gain_gold_end_of_wave_20"
-		e.value = 15000
-		e.custom_key = "end_of_wave_20"
-		e.storage_method = 0
-		e.effect_sign = 3
-		e.custom_args = [  ]
-		character.effects.append(e)
 		
 	character = find_character("CHARACTER_ONE_ARM")
 	if character != null:
@@ -1610,6 +1686,38 @@ func edit_characters() -> void:
 		e.key = "gain_gold"
 		e.text_key = "effect_gain_gold_end_of_wave_20"
 		e.value = 12000
+		e.custom_key = "end_of_wave_20"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+	character = find_character("CHARACTER_SOLDIER")
+	if character != null:
+		var e = Effect.new()
+		e.key = "stat_percent_damage"
+		e.text_key = "effect_gain_stat_end_of_wave"
+		e.value = 4
+		e.custom_key = "stats_end_of_wave"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_attack_speed"
+		e.text_key = "effect_gain_stat_end_of_wave"
+		e.value = 3
+		e.custom_key = "stats_end_of_wave"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "gain_gold"
+		e.text_key = "effect_gain_gold_end_of_wave_20"
+		e.value = 15000
 		e.custom_key = "end_of_wave_20"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -1694,12 +1802,22 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
-	
+
 	character = find_character("CHARACTER_BULL")
 	if character != null:
 		character.effects = []
 		var e = Effect.new()
 		e.key = "stat_max_hp"
+		e.text_key = ""
+		e.value = 20
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "stat_luck"
 		e.text_key = ""
 		e.value = 20
 		e.custom_key = ""
@@ -1723,6 +1841,16 @@ func edit_characters() -> void:
 		e.text_key = ""
 		e.value = 10
 		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "item_tardigrade"
+		e.text_key = "effect_starting_item"
+		e.value = 1
+		e.custom_key = "starting_item"
 		e.storage_method = 0
 		e.effect_sign = 3
 		e.custom_args = [  ]
@@ -1775,7 +1903,7 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
-	
+		
 	character = find_character("CHARACTER_HERO")
 	if character != null:
 		character.effects = []
@@ -2094,16 +2222,16 @@ func edit_items() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		item.effects.append(e)
-		e = StatGainsModificationEffect.new()
-		e.key = "effect_increase_stat_gains"
-		e.text_key = ""
+		e = Effect.new()
+		e.key = "harvesting_growth"
+		e.text_key = "effect_harvesting_growth"
 		e.value = 1
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
 		e.custom_args = [  ]
-		e.stat_displayed = "stat_harvesting"
-		e.stats_modified = [ "stat_harvesting" ]
+#		e.stat_displayed = "stat_harvesting"
+#		e.stats_modified = [ "stat_harvesting" ]
 		item.effects.append(e)
 
 	item = find_item("ITEM_LITTLE_MUSCLEY_DUDE")
