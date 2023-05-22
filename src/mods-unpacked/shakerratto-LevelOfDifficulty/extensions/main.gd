@@ -1,6 +1,6 @@
 extends "res://main.gd"
 
-func _on_enemy_died(enemy:Enemy)->void :
+func _on_enemy_died(enemy)->void :
 	if RunData.game_play_mode <= 1:
 		._on_enemy_died(enemy)
 	else:
