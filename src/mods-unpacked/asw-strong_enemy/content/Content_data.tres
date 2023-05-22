@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://mods-unpacked/asw-strong_enemy/content/difficulties/difficulty_6.tres" type="Resource" id=1]
+[ext_resource path="res://mods-unpacked/Darkly77-ContentLoader/content_data.gd" type="Script" id=2]
+
+[resource]
+script = ExtResource( 2 )
+characters = [  ]
+items = [  ]
+weapons = [  ]
+weapons_characters = [  ]
+sets = [  ]
+challenges = [  ]
+upgrades = [  ]
+consumables = [  ]
+elites = [  ]
+difficulties = [ ExtResource( 1 ) ]
+debug_items = [  ]
+debug_weapons = [  ]

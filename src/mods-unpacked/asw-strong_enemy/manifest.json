@@ -1,0 +1,23 @@
+{
+  "name": "strong_enemy",
+  "namespace": "asw",
+  "version_number": "1.0.0",
+  "description": "Add a new difficulty 6 with 5 kinds of strong enemies",
+  "website_url": "",
+  "dependencies": [
+    "Darkly77-ContentLoader"
+  ],
+  "extra": {
+    "godot": {
+      "incompatibilities": [
+
+      ],
+      "authors": [
+        "asw"
+      ],
+      "compatible_mod_loader_version": "3.0.0",
+      "compatible_game_version": [ "0.8.0.0" ],
+      "config_defaults": {}
+    }
+  }
+}

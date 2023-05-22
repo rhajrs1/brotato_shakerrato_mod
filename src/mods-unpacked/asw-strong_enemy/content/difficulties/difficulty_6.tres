@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://items/difficulties/difficulty_data.gd" type="Script" id=1]
+[ext_resource path="res://ui/menus/run/difficulty_selection/difficulty_icons/6.png" type="Texture" id=2]
+[ext_resource path="res://mods-unpacked/asw-strong_enemy/content/difficulties/difficulty_5_effect_4.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/asw-strong_enemy/content/difficulties/difficulty_5_effect_5.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/asw-strong_enemy/content/difficulties/difficulty_5_effect_2.tres" type="Resource" id=5]
+[ext_resource path="res://mods-unpacked/asw-strong_enemy/content/difficulties/difficulty_5_effect_3.tres" type="Resource" id=6]
+[ext_resource path="res://mods-unpacked/asw-strong_enemy/content/difficulties/difficulty_5_effect_0.tres" type="Resource" id=7]
+[ext_resource path="res://mods-unpacked/asw-strong_enemy/content/difficulties/difficulty_5_effect_1.tres" type="Resource" id=8]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "difficulty_6"
+unlocked_by_default = true
+icon = ExtResource( 2 )
+name = "DIFFICULTY_NB"
+tier = 0
+value = 6
+effects = [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ) ]
+tracking_text = ""
