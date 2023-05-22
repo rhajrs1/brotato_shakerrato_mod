@@ -1,3 +1,72 @@
+
+[b][u]2.0.4 [2023-05-07][/u][/b]
+
+[b][English][/b]
+
+- [Item Update] (Landmine) Increase critical damage to x2
+
+- [Weapon Update] Screwdriver
+[list]
+[*] Apply "support" set effect
+[/list]
+
+- [Set effect Update] Support
+[list]
+[*] (2) +25 Harvesting
+[*] (3) +30 Harvesting
+[*] (4) +35 Harvesting
+[*] (5) +40 Harvesting
+[*] (6) +50 Harvesting
+[/list]
+
+[b][한국어][/b]
+
+- [아이템 업데이트] (지뢰) 크리티컬 대미지 계수 x2로 증가
+
+- [무기 업데이트] 드라이버
+[list]
+[*] 지원 효과 적용
+[/list]
+
+- [세트 효과 업데이트] 지원
+[list]
+[*] (2) +25 수확
+[*] (3) +30 수확
+[*] (4) +35 수확
+[*] (5) +40 수확
+[*] (6) +50 수확
+[/list]
+
+
+[b][u]2.0.3 [2023-05-07][/u][/b]
+
+[b][English][/b]
+
+- [Fix bug] Correct to support critical chance for landmine.
+
+- [Character updates] Artificer
+[list]
+[*] +75% Explosion Damage
+[*] +3 Engineering at the end of a wave
+[*] +4% Explosion Size for every 1 Elemental Damage you have
+[*] % Attack Speed modifications are reduced by 25%
+[*] Get 10000 golds when enter endless waves.
+[/list]
+
+
+[b][한국어][/b]
+
+- [버그 수정] 지뢰에 크리티컬 확률이 올바르게 적용 되지 않던 문제 수정
+
+- [캐릭터 업데이트] 장인
+[list]
+[*] +75% 폭발 대미지
+[*] 웨이브가 끝날 때 +3 엔지니어링
+[*] 가지고 있는 모든 1 원소 대미지에 +4% 폭발 크기
+[*] % 공격 속도 수정이 25% 만큼 감소
+[*] 20웨이브 종료시 퇴직금으로 10000골드를 지급 받습니다.
+[/list]
+
 [b][u]2.0.2 [2023-05-07][/u][/b]
 
 [b][English][/b]
