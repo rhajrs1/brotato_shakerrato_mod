@@ -2944,6 +2944,23 @@ func edit_items() -> void:
 			if item.effects[i].key == "stat_percent_damage":
 				item.effects[i].value = 12
 
+#	item = find_item("ITEM_BOOK")
+#	if item != null:
+#		var effect = Effect.new()
+#		effect.key = "stat_max_hp"
+#		effect.text_key = "EFFECT_FEELING_GOOD"
+#		effect.value = 0
+#		effect.storage_method = Effect.StorageMethod.SUM
+#		effect.effect_sign = Effect.Sign.FROM_VALUE
+#		item.effects.append(effect)
+#		effect = Effect.new()
+#		effect.key = "stat_max_hp"
+#		effect.text_key = "EFFECT_FEELING_INCREASING_DROPING"
+#		effect.value = 0
+#		effect.storage_method = Effect.StorageMethod.SUM
+#		effect.effect_sign = Effect.Sign.FROM_VALUE
+#		item.effects.append(effect)
+
 	item = find_item("ITEM_GLASSES")
 	if item != null:
 		item.effects = []
