@@ -1498,9 +1498,29 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "item_bag"
+		e.text_key = "effect_starting_item"
+		e.value = 1
+		e.custom_key = "starting_item"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
 		
 		e = Effect.new()
 		e.key = "stat_speed"
+		e.text_key = ""
+		e.value = 10
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "stat_luck"
 		e.text_key = ""
 		e.value = 10
 		e.custom_key = ""
@@ -1582,7 +1602,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "gain_gold"
 		e.text_key = "effect_gain_gold_end_of_wave_20"
-		e.value = 5000
+		e.value = 2000
 		e.custom_key = "end_of_wave_20"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -1897,7 +1917,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "gain_gold"
 		e.text_key = "effect_gain_gold_end_of_wave_20"
-		e.value = 10000
+		e.value = 9000
 		e.custom_key = "end_of_wave_20"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -2029,7 +2049,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "gain_gold"
 		e.text_key = "effect_gain_gold_end_of_wave_20"
-		e.value = 8000
+		e.value = 2000
 		e.custom_key = "end_of_wave_20"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -2134,7 +2154,7 @@ func edit_characters() -> void:
 		character.effects.append(e)
 		
 		e = Effect.new()
-		e.key = "explosion_damage"
+		e.key = "exsion_damage"
 		e.text_key = "EFFECT_CONSUMABLE_STAT_WHILE_MAX"
 		e.value = 1
 		e.custom_key = "consumable_stats_while_max"
@@ -3023,14 +3043,6 @@ func edit_items() -> void:
 	item = find_item("ITEM_BOOK")
 	if item != null:
 		item.effects = []
-		var e = Effect.new()
-		e.key = "stat_engineering"
-		e.text_key = ""
-		e.value = 2
-		e.custom_key = ""
-		e.storage_method = 0
-		e.effect_sign = 3
-		item.effects.append(e)
 		var effect = Effect.new()
 		effect.key = "stat_max_hp"
 		effect.text_key = "EFFECT_FEELING_GOOD"
@@ -3052,6 +3064,23 @@ func edit_items() -> void:
 		effect.storage_method = Effect.StorageMethod.SUM
 		effect.effect_sign = Effect.Sign.FROM_VALUE
 		item.effects.append(effect)
+
+#	item = find_item("ITEM_BOOK")
+#	if item != null:
+#		var effect = Effect.new()
+#		effect.key = "stat_max_hp"stat_luck
+#		effect.text_key = "EFFECT_FEELING_GOOD"
+#		effect.value = 0
+#		effect.storage_method = Effect.StorageMethod.SUM
+#		effect.effect_sign = Effect.Sign.FROM_VALUE
+#		item.effects.append(effect)
+#		effect = Effect.new()
+#		effect.key = "stat_max_hp"
+#		effect.text_key = "EFFECT_FEELING_INCREASING_DROPING"
+#		effect.value = 0
+#		effect.storage_method = Effect.StorageMethod.SUM
+#		effect.effect_sign = Effect.Sign.FROM_VALUE
+#		item.effects.append(effect)
 
 	item = find_item("ITEM_LITTLE_MUSCLEY_DUDE")
 	if item != null:
@@ -4210,9 +4239,9 @@ func edit_items() -> void:
 		effect = Effect.new()
 		effect.key = "no_ranged_weapons"
 		effect.text_key = "effect_no_ranged_weapons"
-		effect.value = 1
+		effect.value = 0
 		effect.storage_method = Effect.StorageMethod.SUM
-		effect.effect_sign = Effect.Sign.NEGATIVE
+		effect.effect_sign = Effect.Sign.FROM_VALUE
 		item.effects.append(effect)
 		effect = Effect.new()
 		effect.key = "stat_max_hp"
@@ -4442,21 +4471,25 @@ func edit_weapons() -> void:
 
 	w = find_weapon("Taxes", ItemParentData.Tier.COMMON)	
 	if w != null:
+		w.stats.scaling_stats[0][1] = 0.1
 		w.stats.scaling_stats.append([ "stat_melee_damage", 0.1 ])
 		w.stats.crit_damage = 2
 		
 	w = find_weapon("Taxes", ItemParentData.Tier.UNCOMMON)	
 	if w != null:
+		w.stats.scaling_stats[0][1] = 0.1
 		w.stats.scaling_stats.append([ "stat_melee_damage", 0.2 ])
 		w.stats.crit_damage = 3
 
 	w = find_weapon("Taxes", ItemParentData.Tier.RARE)	
 	if w != null:
+		w.stats.scaling_stats[0][1] = 0.1
 		w.stats.scaling_stats.append([ "stat_melee_damage", 0.3 ])
 		w.stats.crit_damage = 4
 		
 	w = find_weapon("Taxes", ItemParentData.Tier.LEGENDARY)	
 	if w != null:
+		w.stats.scaling_stats[0][1] = 0.1
 		w.stats.scaling_stats.append([ "stat_melee_damage", 0.4 ])
 		w.stats.crit_damage = 5
 
