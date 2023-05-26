@@ -1892,8 +1892,6 @@ func edit_characters() -> void:
 		e.storage_method = 2
 		e.effect_sign = 3
 		e.custom_args = [  ]
-		e.stat_displayed = "stat_armor"
-		e.stats_modified = [ "stat_armor" ]
 		character.effects.append(e)
 		
 		e = Effect.new()
@@ -2944,23 +2942,6 @@ func edit_items() -> void:
 			if item.effects[i].key == "stat_percent_damage":
 				item.effects[i].value = 12
 
-#	item = find_item("ITEM_BOOK")
-#	if item != null:
-#		var effect = Effect.new()
-#		effect.key = "stat_max_hp"
-#		effect.text_key = "EFFECT_FEELING_GOOD"
-#		effect.value = 0
-#		effect.storage_method = Effect.StorageMethod.SUM
-#		effect.effect_sign = Effect.Sign.FROM_VALUE
-#		item.effects.append(effect)
-#		effect = Effect.new()
-#		effect.key = "stat_max_hp"
-#		effect.text_key = "EFFECT_FEELING_INCREASING_DROPING"
-#		effect.value = 0
-#		effect.storage_method = Effect.StorageMethod.SUM
-#		effect.effect_sign = Effect.Sign.FROM_VALUE
-#		item.effects.append(effect)
-
 	item = find_item("ITEM_GLASSES")
 	if item != null:
 		item.effects = []
@@ -3037,8 +3018,6 @@ func edit_items() -> void:
 		e.storage_method = 0
 		e.effect_sign = 3
 		e.custom_args = [  ]
-		e.stat_displayed = "stat_harvesting"
-		e.stats_modified = [ "stat_harvesting" ]
 		item.effects.append(e)
 
 	item = find_item("ITEM_BOOK")
@@ -3052,6 +3031,27 @@ func edit_items() -> void:
 		e.storage_method = 0
 		e.effect_sign = 3
 		item.effects.append(e)
+		var effect = Effect.new()
+		effect.key = "stat_max_hp"
+		effect.text_key = "EFFECT_FEELING_GOOD"
+		effect.value = 0
+		effect.storage_method = Effect.StorageMethod.SUM
+		effect.effect_sign = Effect.Sign.FROM_VALUE
+		item.effects.append(effect)
+		effect = Effect.new()
+		effect.key = "stat_max_hp"
+		effect.text_key = "EFFECT_FEELING_INCREASING_DROPING"
+		effect.value = 0
+		effect.storage_method = Effect.StorageMethod.SUM
+		effect.effect_sign = Effect.Sign.FROM_VALUE
+		item.effects.append(effect)
+		effect = Effect.new()
+		effect.key = "stat_max_hp"
+		effect.text_key = "EFFECT_FEELING_TIRED_WHEN_READ"
+		effect.value = 0
+		effect.storage_method = Effect.StorageMethod.SUM
+		effect.effect_sign = Effect.Sign.FROM_VALUE
+		item.effects.append(effect)
 
 	item = find_item("ITEM_LITTLE_MUSCLEY_DUDE")
 	if item != null:
@@ -4210,9 +4210,9 @@ func edit_items() -> void:
 		effect = Effect.new()
 		effect.key = "no_ranged_weapons"
 		effect.text_key = "effect_no_ranged_weapons"
-		effect.value = 0
+		effect.value = 1
 		effect.storage_method = Effect.StorageMethod.SUM
-		effect.effect_sign = Effect.Sign.FROM_VALUE
+		effect.effect_sign = Effect.Sign.NEGATIVE
 		item.effects.append(effect)
 		effect = Effect.new()
 		effect.key = "stat_max_hp"

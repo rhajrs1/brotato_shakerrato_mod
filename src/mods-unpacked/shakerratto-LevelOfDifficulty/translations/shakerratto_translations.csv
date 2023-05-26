@@ -1,4 +1,5 @@
 keys,en,ko
 EFFECT_GAIN_GOLD_END_OF_WAVE_20,Get {0} golds when enter endless waves.,Endless 모드 진입 시 퇴직금({0})을 지급 받습니다.
 EFFECT_FEELING_GOOD,Your feeling is good when this stuff is on your hand.,보유시 기분이 좋아집니다.
-EFFECT_FEELING_INCREASING_DROPING,Charm. Somebody belive that this stuff helps to find good items.. but it is not verified.,조상 대대로 물려 내려오는 부적입니다. 아이템 드랍율이 상승 할 수도 있지만 아닐수도 있습니다. 검증은 되지 않았습니다.
+EFFECT_FEELING_INCREASING_DROPING,Charm. Somebody belive that this stuff helps to find good items.. but it is not verified.,조상 대대로 물려 내려오는 부적입니다.아이템 드랍율이 상승할 수도 있지만 아닐 수도 있습니다. 검증은 되지 않았습니다.
+EFFECT_FEELING_TIRED_WHEN_READ,Feels tired when you read it.,이것을 읽으면 피로가 몰려옵니다.
