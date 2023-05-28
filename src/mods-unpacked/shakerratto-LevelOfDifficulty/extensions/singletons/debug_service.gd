@@ -1842,7 +1842,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "gain_gold"
 		e.text_key = "effect_gain_gold_end_of_wave_20"
-		e.value = 10000
+		e.value = 9000
 		e.custom_key = "end_of_wave_20"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -2133,7 +2133,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "gain_gold"
 		e.text_key = "effect_gain_gold_end_of_wave_20"
-		e.value = 10000
+		e.value = 3000
 		e.custom_key = "end_of_wave_20"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -2154,7 +2154,7 @@ func edit_characters() -> void:
 		character.effects.append(e)
 		
 		e = Effect.new()
-		e.key = "exsion_damage"
+		e.key = "explosion_damage"
 		e.text_key = "EFFECT_CONSUMABLE_STAT_WHILE_MAX"
 		e.value = 1
 		e.custom_key = "consumable_stats_while_max"
@@ -2203,7 +2203,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "gain_gold"
 		e.text_key = "effect_gain_gold_end_of_wave_20"
-		e.value = 10000
+		e.value = 6000
 		e.custom_key = "end_of_wave_20"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -2266,7 +2266,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "gain_gold"
 		e.text_key = "effect_gain_gold_end_of_wave_20"
-		e.value = 10000
+		e.value = 5000
 		e.custom_key = "end_of_wave_20"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -2339,7 +2339,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "gain_gold"
 		e.text_key = "effect_gain_gold_end_of_wave_20"
-		e.value = 10000
+		e.value = 2000
 		e.custom_key = "end_of_wave_20"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -3053,16 +3053,16 @@ func edit_items() -> void:
 		effect = StatGainsModificationEffect.new()
 		effect.key = "effect_increase_stat_gains"
 		effect.text_key = "EFFECT_FEELING_INCREASING_DROPING"
-		effect.value = 10
+		effect.value = 5
 		effect.storage_method = Effect.StorageMethod.SUM
 		effect.effect_sign = Effect.Sign.FROM_VALUE
 		effect.stat_displayed = "stat_luck"
 		effect.stats_modified = [ "stat_luck" ]
 		item.effects.append(effect)
 		effect = Effect.new()
-		effect.key = "enemy_damage"
+		effect.key = "stat_max_hp"
 		effect.text_key = "EFFECT_FEELING_TIRED_WHEN_READ"
-		effect.value = 50
+		effect.value = -5
 		effect.storage_method = Effect.StorageMethod.SUM
 		effect.effect_sign = 1
 		item.effects.append(effect)
