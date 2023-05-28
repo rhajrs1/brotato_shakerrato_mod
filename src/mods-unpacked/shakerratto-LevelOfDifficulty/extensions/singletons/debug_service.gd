@@ -4643,9 +4643,10 @@ func edit_weapons() -> void:
 	if w != null:
 		w.stats.crit_damage = 2.5
 		w.stats.scaling_stats[0][1] = 1.5
-		
-		
-		
+	
+#	w = find_weapon("Vasilek's bow", ItemParentData.Tier.UNCOMMON)
+#	if w != null:
+#		w.effects[0].weapon_stats.scaling_stats[0][0] = "stat_speed"
 		
 #	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.COMMON)
 #	if w != null:
