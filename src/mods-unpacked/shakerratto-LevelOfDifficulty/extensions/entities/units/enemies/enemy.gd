@@ -5,7 +5,7 @@ var staticHitBox = Hitbox.new()
 func _on_BurningTimer_timeout()->void :
 	if _burning != null:
 		staticHitBox.crit_chance = Utils.get_stat("stat_crit_chance") / 100.0
-		staticHitBox.crit_damage = 2.0
+		staticHitBox.crit_damage = 1.2
 		var dmg_taken = take_damage(_burning.damage, staticHitBox, false, false, Utils.get_rand_element(burn_sounds), 0.1)
 		
 		

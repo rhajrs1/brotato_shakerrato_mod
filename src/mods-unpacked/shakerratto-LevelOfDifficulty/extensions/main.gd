@@ -60,7 +60,7 @@ func handle_stat_damages(stat_damages:Array)->Array:
 		return dmg_taken
 	
 	staticHitBox.crit_chance = Utils.get_stat("stat_crit_chance") / 100.0
-	staticHitBox.crit_damage = 2.0
+	staticHitBox.crit_damage = 1.5
 	dmg_taken = other_enemy.take_damage(total_dmg_to_deal, staticHitBox)
 	
 	return dmg_taken
