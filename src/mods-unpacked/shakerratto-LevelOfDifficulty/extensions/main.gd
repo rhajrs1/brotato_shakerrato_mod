@@ -1,5 +1,7 @@
 extends "res://main.gd"
 
+var staticHitBox = Hitbox.new()
+
 func _on_enemy_died(enemy)->void :
 	if RunData.game_play_mode <= 1:
 		._on_enemy_died(enemy)
@@ -35,3 +37,30 @@ func _on_WaveTimer_timeout()->void :
 			for kv in RunData.effects["end_of_wave_20"]:
 				if kv[0] == "gain_gold":
 					RunData.add_gold(kv[1])
+
+func handle_stat_damages(stat_damages:Array)->Array:
+	var total_dmg_to_deal = 0
+	var dmg_taken = [0, 0]
+	
+	if stat_damages.size() <= 0 or _entity_spawner.get_all_enemies().size() <= 0:
+		return dmg_taken
+	
+	for stat_dmg in stat_damages:
+		
+		if randf() >= stat_dmg[2] / 100.0:
+			continue
+		
+		var dmg_from_stat = max(1, (stat_dmg[1] / 100.0) * Utils.get_stat(stat_dmg[0]))
+		var dmg = RunData.get_dmg(dmg_from_stat) as int
+		total_dmg_to_deal += dmg
+	
+	var other_enemy = Utils.get_rand_element(_entity_spawner.get_all_enemies())
+	
+	if total_dmg_to_deal <= 0 or other_enemy == null or not is_instance_valid(other_enemy):
+		return dmg_taken
+	
+	staticHitBox.crit_chance = Utils.get_stat("stat_crit_chance") / 100.0
+	staticHitBox.crit_damage = 2.0
+	dmg_taken = other_enemy.take_damage(total_dmg_to_deal, staticHitBox)
+	
+	return dmg_taken
