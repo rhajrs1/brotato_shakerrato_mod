@@ -23,6 +23,7 @@ func _init(modLoader = ModLoader):
 	modLoader.install_script_extension(ext_dir + "projectiles/bullet_enemy/enemy_projectile.gd")
 	modLoader.install_script_extension(ext_dir + "entities/structures/landmine/landmine.gd")
 	modLoader.install_script_extension(ext_dir + "entities/structures/turret/turret.gd")
+	modLoader.install_script_extension(ext_dir + "entities/units/enemies/enemy.gd")
 	modLoader.install_script_extension(ext_dir + "entities/units/enemies/boss/boss.gd")
 	modLoader.install_script_extension(ext_dir + "zones/wave_manager.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/run_data.gd")
