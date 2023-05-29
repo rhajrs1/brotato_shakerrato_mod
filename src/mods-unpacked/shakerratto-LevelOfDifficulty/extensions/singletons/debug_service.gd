@@ -1937,7 +1937,7 @@ func edit_characters() -> void:
 		e.custom_args = [  ]
 		e.max_value = 25
 		character.effects.append(e)
-		
+
 		e = Effect.new()
 		e.key = "stat_percent_damage"
 		e.text_key = "effect_stat_while_moving"
@@ -1947,7 +1947,7 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
-		
+
 		e = Effect.new()
 		e.key = "stat_attack_speed"
 		e.text_key = "effect_stat_while_moving"
@@ -1957,7 +1957,7 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
-		
+
 		e = GainStatForEveryStatEffect.new()
 		e.key = "stat_armor"
 		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
@@ -1975,8 +1975,8 @@ func edit_characters() -> void:
 		e.nb_stat_scaled = 1
 		e.stat_scaled = "structure"
 		character.effects.append(e)
-		
-		e = GainStatForEveryStatEffect.new()
+
+		e = Effect.new()
 		e.key = "gold_drops"
 		e.text_key = "effect_gold_drops"
 		e.value = -50
@@ -1985,7 +1985,7 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
-		
+
 		e = GainStatForEveryStatEffect.new()
 		e.key = "stat_percent_damage"
 		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
@@ -2015,7 +2015,7 @@ func edit_characters() -> void:
 		e.nb_stat_scaled = 15
 		e.stat_scaled = "materials"
 		character.effects.append(e)
-		
+
 		e = GainStatForEveryStatEffect.new()
 		e.key = "stat_speed"
 		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
@@ -2045,7 +2045,7 @@ func edit_characters() -> void:
 		e.nb_stat_scaled = 30
 		e.stat_scaled = "materials"
 		character.effects.append(e)
-		
+
 		e = Effect.new()
 		e.key = "gain_gold"
 		e.text_key = "effect_gain_gold_end_of_wave_20"
