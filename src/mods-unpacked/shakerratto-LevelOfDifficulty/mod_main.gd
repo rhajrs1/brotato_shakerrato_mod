@@ -35,7 +35,6 @@ func _init(modLoader = ModLoader):
 	modLoader.add_translation_from_resource(trans_dir + "/shakerratto_translations.ko.translation")
 
 func _ready():
-	#var ContentLoader = get_node("/root/ModLoader/Darkly77-ContentLoader/ContentLoader")
-	# Add content. These .tres files are ContentData resources
-	#ContentLoader.load_data(content_data_dir + "main_content.tres", MYMODNAME_LOG)
 	RunData.boss_1 = load(ext_dir + "entities/units/enemies/001/001.tscn")
+	var ContentLoader = get_node("/root/ModLoader/Darkly77-ContentLoader/ContentLoader")
+	ContentLoader.load_data(content_data_dir + "main_content.tres", MYMODNAME_LOG)
