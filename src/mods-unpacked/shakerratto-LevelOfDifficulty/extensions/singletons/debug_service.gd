@@ -3040,7 +3040,17 @@ func edit_characters() -> void:
 
 func append_items() -> void:
 	var character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	var w = find_weapon("Pitchfork", ItemParentData.Tier.COMMON)
+	var w = find_weapon("WEAPON_DAGGER", ItemParentData.Tier.COMMON)
+	if character != null and w != null:
+		character.starting_weapons.append(w)
+
+	character = find_character("CHARACTER_GREED_SHAKERRATTO")
+	w = find_weapon("WEAPON_LIGHTNING_SHIV", ItemParentData.Tier.COMMON)
+	if character != null and w != null:
+		character.starting_weapons.append(w)
+
+	character = find_character("CHARACTER_GREED_SHAKERRATTO")
+	w = find_weapon("Pitchfork", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 	
@@ -3050,97 +3060,82 @@ func append_items() -> void:
 		character.starting_weapons.append(w)
 
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("CACTUS_MACE", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEAPON_CACTI_CLUB", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("CHOPPER", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEAPON_CHOPPER", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("KNIFE", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEAPON_FIST", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("DAGGER", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEAPON_HAND", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("LIGHTNING", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEAPON_GHOST_AXE", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("FIST", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEAPON_GHOST_FLINT", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("HAND", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEAPON_GHOST_SCEPTER", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("GHOST_AXE", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEAPON_PRUNER", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("GHOST_FLINT", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEAPON_SCREWDRIVER", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("GHOST_SCEPTER", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEAPON_WRENCH", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("PRUNER", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEAPON_TORCH", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("SCREWDRIVER", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEAPON_DOUBLE_BARREL_SHOTGUN", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("WRENCH", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEAPON_MEDICAL_GUN", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("TORCH", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("DOUBLE_BARREL_SHOTGUN", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEAPON_SMG", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("MEDICAL_GUN", ItemParentData.Tier.COMMON)
-	if character != null and w != null:
-		character.starting_weapons.append(w)
-
-	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("SHREDDER", ItemParentData.Tier.COMMON)
-	if character != null and w != null:
-		character.starting_weapons.append(w)
-
-	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("SMG", ItemParentData.Tier.COMMON)
-	if character != null and w != null:
-		character.starting_weapons.append(w)
-
-	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("TASER", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEAPON_TASER", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 
