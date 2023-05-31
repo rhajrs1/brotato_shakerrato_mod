@@ -89,7 +89,7 @@ delete_projectile_on_death = false
 [node name="ChargingAttackBehavior" type="Node2D" parent="." index="8"]
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 22 )
-projectile_speed = 400
+projectile_speed = 600
 cooldown = 0.01
 damage_increase_each_wave = 1.5
 max_cd_randomization = 0
@@ -176,7 +176,7 @@ initial_cooldown = 1000
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 6 )
 projectile_speed = 0
-cooldown = 450.0
+cooldown = 650.0
 damage_increase_each_wave = 1.5
 max_range = 2000
 number_projectiles = 200
@@ -196,7 +196,7 @@ projectile_spread = 3.1
 [node name="AttackBehavior6" type="Node2D" parent="States/Phase2" index="6"]
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 18 )
-projectile_speed = 1000
+projectile_speed = 1100
 cooldown = 75.0
 damage_increase_each_wave = 1.5
 max_range = 99999
@@ -214,7 +214,7 @@ script = ExtResource( 13 )
 [node name="AttackBehavior" type="Node2D" parent="States/Phase3" index="1"]
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 23 )
-projectile_speed = 50
+projectile_speed = 200
 cooldown = 150.0
 damage_increase_each_wave = 1.5
 max_range = 99999
@@ -225,7 +225,7 @@ constant_spread = true
 [node name="AttackBehavior1" type="Node2D" parent="States/Phase3" index="2"]
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 23 )
-projectile_speed = 550
+projectile_speed = 750
 cooldown = 120.0
 damage_increase_each_wave = 1.5
 max_range = 99999
@@ -236,7 +236,7 @@ constant_spread = true
 [node name="AttackBehavior2" type="Node2D" parent="States/Phase3" index="3"]
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 23 )
-projectile_speed = 800
+projectile_speed = 1250
 cooldown = 100.0
 damage_increase_each_wave = 1.5
 max_range = 99999

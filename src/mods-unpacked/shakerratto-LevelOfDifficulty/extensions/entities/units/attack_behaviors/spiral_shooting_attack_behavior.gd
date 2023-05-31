@@ -3,7 +3,7 @@ extends AttackBehavior
 
 
 export (PackedScene) var projectile_scene = preload("res://projectiles/bullet_enemy/enemy_projectile.tscn")
-export (int) var projectile_speed = 100
+export (int) var projectile_speed = 150
 export (float) var cooldown = 150
 export (float) var cooldown_per_cycle = 20
 export (int) var damage = 1
