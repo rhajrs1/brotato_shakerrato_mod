@@ -89,7 +89,7 @@ delete_projectile_on_death = false
 [node name="ChargingAttackBehavior" type="Node2D" parent="." index="8"]
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 22 )
-projectile_speed = 600
+projectile_speed = 500
 cooldown = 0.01
 damage_increase_each_wave = 1.5
 max_cd_randomization = 0
@@ -187,7 +187,7 @@ rotate_projectile = false
 [node name="AttackBehavior5" type="Node2D" parent="States/Phase2" index="5"]
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 18 )
-projectile_speed = 750
+projectile_speed = 700
 damage_increase_each_wave = 1.5
 max_range = 99999
 number_projectiles = 6
