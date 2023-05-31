@@ -8,6 +8,7 @@ func _ready():
 	edit_weapons()
 	remove_items()
 	remove_weapons()
+	append_items()
 
 func edit_characters() -> void:
 	var character = find_character("CHARACTER_WELL_ROUNDED")
@@ -4729,6 +4730,16 @@ func edit_weapons() -> void:
 #		e.custom_args.append(c)
 #		character.effects.append(e)
 
+func append_items() -> void:
+	var character = find_character("CHARACTER_GREED_SHAKERRATTO")
+	var w = find_weapon("Pitchfork", ItemParentData.Tier.COMMON)
+	if character != null and w != null:
+		character.starting_weapons.append(w)
+	
+	character = find_character("CHARACTER_GREED_SHAKERRATTO")
+	w = find_weapon("Taxes", ItemParentData.Tier.COMMON)
+	if character != null and w != null:
+		character.starting_weapons.append(w)
 
 # note : 아이 삭제 method, remove_item(삭제 할 아이템 이름)
 func remove_items() -> void:

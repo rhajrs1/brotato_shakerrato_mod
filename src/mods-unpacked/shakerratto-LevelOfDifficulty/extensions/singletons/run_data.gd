@@ -54,4 +54,5 @@ func get_additional_elites_endless()->Array:
 func init_effects()->Dictionary:
 	var ret = .init_effects()
 	ret["end_of_wave_20"] = []
+	ret["stats_on_hit"] = []
 	return ret
