@@ -2954,6 +2954,105 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
+
+		character = find_character("CHARACTER_GREED_SHAKERRATTO")
+	if character != null:
+		character.effects = []
+		var e = Effect.new()
+		e.key = "hp_start_wave"
+		e.text_key = "EFFECT_START_WAVE_LESS_HP"
+		e.value = -100
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "enemy_damage"
+		e.text_key = ""
+		e.value = 200
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 1
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "enemy_damage"
+		e.text_key = "EFFECT_GAIN_STATS_ON_HIT"
+		e.value = 5
+		e.custom_key = "stats_on_hit"
+		e.storage_method = 0
+		e.effect_sign = 1
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "stat_luck"
+		e.text_key = ""
+		e.value = 30
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_harvesting"
+		e.text_key = ""
+		e.value = 30
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "stat_hp_regeneration"
+		e.text_key = ""
+		e.value = 5
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "stat_harvesting"
+		e.text_key = "EFFECT_GAIN_STATS_ON_HIT"
+		e.value = 5
+		e.custom_key = "stats_on_hit"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = Effect.new()
+		e.key = "gain_gold"
+		e.text_key = "effect_gain_gold_end_of_wave_20"
+		e.value = 5000
+		e.custom_key = "end_of_wave_20"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+func append_items() -> void:
+	var character = find_character("CHARACTER_GREED_SHAKERRATTO")
+	var w = find_weapon("Pitchfork", ItemParentData.Tier.COMMON)
+	if character != null and w != null:
+		character.starting_weapons.append(w)
+	
+	character = find_character("CHARACTER_GREED_SHAKERRATTO")
+	w = find_weapon("Taxes", ItemParentData.Tier.COMMON)
+	if character != null and w != null:
+		character.starting_weapons.append(w)
+
+	character = find_character("CHARACTER_DEMON")
+	w = find_weapon("Pitchfork", ItemParentData.Tier.COMMON)
+	if character != null and w != null:
+		character.starting_weapons.append(w)
 		
 # note : 아이템 수정 method, find_item으로 아이템을 찾은 후 property 수정
 func edit_items() -> void:
@@ -4730,16 +4829,6 @@ func edit_weapons() -> void:
 #		e.custom_args.append(c)
 #		character.effects.append(e)
 
-func append_items() -> void:
-	var character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	var w = find_weapon("Pitchfork", ItemParentData.Tier.COMMON)
-	if character != null and w != null:
-		character.starting_weapons.append(w)
-	
-	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("Taxes", ItemParentData.Tier.COMMON)
-	if character != null and w != null:
-		character.starting_weapons.append(w)
 
 # note : 아이 삭제 method, remove_item(삭제 할 아이템 이름)
 func remove_items() -> void:
