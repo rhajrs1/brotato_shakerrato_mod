@@ -3229,6 +3229,7 @@ func edit_items() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		item.effects.append(e)
+		item.tags.append("tag_for_shakerratto")
 
 	item = find_item("ITEM_BOOK")
 	if item != null:

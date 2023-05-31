@@ -55,4 +55,5 @@ func init_effects()->Dictionary:
 	var ret = .init_effects()
 	ret["end_of_wave_20"] = []
 	ret["stats_on_hit"] = []
+	ret["tag_for_shakerratto"] = []
 	return ret
