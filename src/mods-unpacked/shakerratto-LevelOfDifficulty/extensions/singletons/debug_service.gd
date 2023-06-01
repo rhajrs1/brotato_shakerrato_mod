@@ -2989,6 +2989,15 @@ func edit_characters() -> void:
 		character.effects.append(e)
 
 		e = Effect.new()
+		e.key = "hp_cap"
+		e.text_key = "EFFECT_HP_CAP"
+		e.value = 200
+		e.custom_key = ""
+		e.storage_method = 2
+		e.effect_sign = 1
+		character.effects.append(e)
+
+		e = Effect.new()
 		e.key = "stat_luck"
 		e.text_key = ""
 		e.value = 30
@@ -3021,7 +3030,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "stat_harvesting"
 		e.text_key = "EFFECT_GAIN_STATS_ON_HIT"
-		e.value = 5
+		e.value = 3
 		e.custom_key = "stats_on_hit"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -3031,7 +3040,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "gain_gold"
 		e.text_key = "effect_gain_gold_end_of_wave_20"
-		e.value = 5000
+		e.value = 1000
 		e.custom_key = "end_of_wave_20"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -3652,6 +3661,7 @@ func edit_items() -> void:
 	item = find_item("ITEM_TARDIGRADE")
 	if item != null:
 		item.max_nb = 5
+		item.tags.append("tag_for_shakerratto")
 		
 	item = find_item("ITEM_TORTURE")
 	if item != null:
