@@ -33,6 +33,8 @@ var keys_needing_operator: = {
 	"effect_weapon_bonus":[0], 
 	"effect_weapon_stack":[0, 3], 
 	"effect_unique_weapon_bonus":[0, 2], 
+	"effect_tier_iv_weapon_bonus":[0, 2], 
+	"effect_tier_i_weapon_bonus":[0, 2], 
 	"effect_consumable_heal":[0], 
 	"effect_pickup_range":[0], 
 	"effect_on_hit":[0], 
@@ -44,7 +46,9 @@ var keys_needing_operator: = {
 	"effect_gain_stat_end_of_wave":[0], 
 	"effect_gain_stat_for_every_stat":[0, 4], 
 	"effect_gain_stat_for_every_perm_stat":[0, 4], 
+	"effect_gain_stat_for_every_different_stat":[0, 4], 
 	"effect_gain_stat_for_every_enemy":[0, 4], 
+	"effect_gain_stat_for_every_tree":[0, 4], 
 	"effect_gain_stat_every_killed_enemies":[0], 
 	"effect_gold_drops":[0], 
 	"effect_neutral_gold_drops":[0], 
@@ -68,6 +72,11 @@ var keys_needing_operator: = {
 	"effect_heal_on_crit_kill":[0], 
 	"effect_pct_start_wave_stat":[0], 
 	"effect_pct_stack_stat":[0], 
+	"effect_piercing_damage_short":[0], 
+	"effect_stat_on_level_up":[0], 
+	"effect_stat_below_half_health":[0], 
+	"effect_temp_stat_on_dodge":[0], 
+	"effect_projectiles":[0]
 }
 
 var keys_needing_percent: = {
@@ -81,6 +90,7 @@ var keys_needing_percent: = {
 	"effect_deal_dmg_when_death":[0], 
 	"effect_deal_dmg_when_heal":[0], 
 	"effect_piercing_damage":[0], 
+	"effect_piercing_damage_short":[0], 
 	"effect_remove_speed":[0, 2], 
 	"info_pos_stat_crit_chance":[0], 
 	"info_neg_stat_crit_chance":[0], 
@@ -133,6 +143,8 @@ var keys_needing_percent: = {
 	"effect_structures_cooldown_reduction":[0], 
 	"effect_pct_start_wave_stat":[0], 
 	"effect_pct_stack_stat":[0], 
+	"effect_specific_item_price":[0], 
+	"effect_accuracy":[0], 
 }
 
 

@@ -44,6 +44,8 @@ func update_stat()->void :
 		value_text += " | " + str(RunData.effects["dodge_cap"] as int)
 	elif key.to_lower() == "stat_max_hp" and RunData.effects["hp_cap"] < 9999:
 		value_text += " | " + str(RunData.effects["hp_cap"] as int)
+	elif key.to_lower() == "stat_speed" and RunData.effects["speed_cap"] < 9999:
+		value_text += " | " + str(RunData.effects["speed_cap"] as int)
 	
 	_value.text = value_text
 	

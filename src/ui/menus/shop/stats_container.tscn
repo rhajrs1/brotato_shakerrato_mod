@@ -362,5 +362,13 @@ key = "ENEMY_SPEED"
 custom_text_key = "PCT_ENEMY_SPEED"
 reverse = true
 
+[node name="EnemyDamageContainer" parent="MarginContainer/VBoxContainer2/SecondaryStats" instance=ExtResource( 5 )]
+visible = false
+margin_top = 600.0
+margin_right = 354.0
+margin_bottom = 630.0
+key = "ENEMY_DAMAGE"
+reverse = true
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/HBoxContainer/Primary" to="." method="_on_Primary_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/HBoxContainer/Secondary" to="." method="_on_Secondary_pressed"]

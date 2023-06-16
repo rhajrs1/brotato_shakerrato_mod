@@ -16,7 +16,7 @@ shader_param/flash_color = Color( 1, 1, 1, 1 )
 shader_param/flash_modifier = 0.0
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 11.0
+radius = 19.0263
 
 [sub_resource type="CircleShape2D" id=5]
 radius = 48.0104
@@ -33,7 +33,7 @@ material = SubResource( 1 )
 texture = ExtResource( 4 )
 
 [node name="Collision" parent="." index="1"]
-position = Vector2( 0, 13 )
+position = Vector2( 0, 10 )
 shape = SubResource( 4 )
 
 [node name="Hurtbox" parent="." index="2"]

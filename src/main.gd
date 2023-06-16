@@ -6,6 +6,7 @@ signal upgrade_to_process_added(consumable_data)
 export (PackedScene) var gold_bag_scene:PackedScene
 export (PackedScene) var gold_scene:PackedScene
 export (PackedScene) var consumable_scene:PackedScene
+export (Resource) var turret_effect:Resource
 export (Array) var gold_sprites:Array
 export (Array, Resource) var gold_pickup_sounds:Array
 export (Array, Resource) var gold_alt_pickup_sounds:Array
@@ -39,16 +40,20 @@ var _last_rjoy_input:Vector2 = Vector2.ZERO
 
 var _proj_on_death_stat_cache:Dictionary = {}
 var _items_spawned_this_wave: = 0
+var _player_is_under_half_health: = false
 
 var _nb_bosses_killed_this_wave: = 0
 var _update_stats_on_gold_changed: = false
 var _update_stats_on_enemies_changed: = false
 var _update_stats_on_enemies_changed_timer:Timer = null
+var _update_stats_on_neutrals_changed: = false
+var _update_stats_on_neutrals_changed_timer:Timer = null
 var _last_gold_amount_used_to_reload_stats: = 0
 var _is_horde_wave: = false
 var _is_elite_wave: = false
 var _elite_killed_bonus: = 0
 var _elite_killed: = false
+
 
 var _convert_stats_half_wave_proced: = false
 
@@ -97,14 +102,15 @@ onready var _test_button = $"%TestButton"
 
 func _ready()->void :
 	
-#	RunData.add_gold(999999999999999)
-#	if RunData.current_wave <= 10: RunData.current_wave = 10
-	
 	if RunData.is_testing:_test_button.show()
 	else :_test_button.hide()
 	
+	if DebugService.hide_wave_timer:_ui_wave_container.hide()
+	
+	
 	RunData.shop_effects_checked = false
 	RunData.current_living_enemies = 0
+	RunData.current_living_trees = 0
 	_convert_stats_half_wave_proced = false
 	
 	var _popup = _challenge_completed_ui.connect("started", self, "on_chal_popup")
@@ -204,6 +210,8 @@ func _ready()->void :
 			_update_stats_on_enemies_changed_timer.wait_time = 1.0
 			_update_stats_on_enemies_changed_timer.one_shot = true
 			add_child(_update_stats_on_enemies_changed_timer)
+		elif stat_link[2] == "living_tree":
+			_update_stats_on_neutrals_changed = true
 	
 	if RunData.effects["temp_pct_stats_start_wave"].size() > 0:
 		for pct_temp_stat_stacked in RunData.effects["temp_pct_stats_start_wave"]:
@@ -440,8 +448,18 @@ func _on_enemy_died(enemy:Enemy)->void :
 
 
 func _on_neutral_died(neutral:Neutral)->void :
+	RunData.current_living_trees -= 1
+	
+	if _update_stats_on_neutrals_changed:
+		reload_stats()
+	
 	if not _cleaning_up:
 		spawn_loot(neutral, EntityType.NEUTRAL)
+		
+		if RunData.effects["tree_turrets"] > 0:
+			for _i in RunData.effects["tree_turrets"]:
+				var pos = _entity_spawner.get_spawn_pos_in_area(neutral.global_position, 200)
+				_entity_spawner.queue_to_spawn_structures.push_back([EntityType.STRUCTURE, turret_effect.scene, pos, turret_effect])
 
 
 func spawn_loot(unit:Unit, entity_type:int)->void :
@@ -630,6 +648,9 @@ func on_levelled_up()->void :
 	set_level_label()
 	RunData.add_stat("stat_max_hp", 1)
 	RunData.emit_signal("healing_effect", 1)
+	
+	for stat_level_up in RunData.effects["stats_on_level_up"]:
+		RunData.add_stat(stat_level_up[0], stat_level_up[1])
 
 
 func set_level_label()->void :
@@ -828,6 +849,12 @@ func _on_WaveTimer_timeout()->void :
 	
 	ChallengeService.check_counted_challenges()
 	
+	if _player != null and is_instance_valid(_player) and _player.current_stats.health == ChallengeService.get_chal("chal_reckless").value:
+		ChallengeService.complete_challenge("chal_reckless")
+	
+	if _entity_spawner.neutrals.size() >= ChallengeService.get_chal("chal_forest").value:
+		ChallengeService.complete_challenge("chal_forest")
+	
 	if RunData.effects["stats_end_of_wave"].size() > 0:
 		for stat_end_of_wave in RunData.effects["stats_end_of_wave"]:
 			RunData.add_stat(stat_end_of_wave[0], stat_end_of_wave[1])
@@ -941,6 +968,10 @@ func _on_UIBonusGold_mouse_exited()->void :
 
 
 func _on_EntitySpawner_player_spawned(player:Player)->void :
+	_player = player
+	TempStats.player = player
+	_floating_text_manager.player = player
+	
 	player.get_remote_transform().remote_path = _camera.get_path()
 	player.get_life_bar_remote_transform().remote_path = _player_life_bar_container.get_path()
 	player.current_stats.health = max(1, player.max_stats.health * (RunData.effects["hp_start_wave"] / 100.0)) as int
@@ -970,14 +1001,13 @@ func _on_EntitySpawner_player_spawned(player:Player)->void :
 	var _error_on_healed = player.connect("healed", self, "on_player_healed")
 	var _error_lifesteal_effect = RunData.connect("lifesteal_effect", player, "on_lifesteal_effect")
 	connect_visual_effects(player)
-	_player = player
-	TempStats.player = player
-	_floating_text_manager.player = player
 	
 	for stat_next_wave in RunData.effects["stats_next_wave"]:
 		TempStats.add_stat(stat_next_wave[0], stat_next_wave[1])
 	
 	RunData.effects["stats_next_wave"] = []
+	
+	check_half_health_stats(player.current_stats.health, player.max_stats.health)
 
 
 func _on_EntitySpawner_enemy_spawned(enemy:Enemy)->void :
@@ -996,9 +1026,13 @@ func _on_EntitySpawner_enemy_spawned(enemy:Enemy)->void :
 
 
 func _on_EntitySpawner_neutral_spawned(neutral:Neutral)->void :
+	RunData.current_living_trees += 1
 	var _error_died = neutral.connect("died", self, "_on_neutral_died")
 	var _error_took_damage = neutral.connect("took_damage", _screenshaker, "_on_unit_took_damage")
 	connect_visual_effects(neutral)
+	
+	if _update_stats_on_neutrals_changed:
+		reload_stats()
 
 
 func _on_EntitySpawner_structure_spawned(structure:Structure)->void :
@@ -1074,7 +1108,23 @@ func handle_stat_damages(stat_damages:Array)->Array:
 	return dmg_taken
 
 
+func check_half_health_stats(current_val:int, max_val:int)->void :
+	if current_val < (max_val / 2.0) and not _player_is_under_half_health:
+		_player_is_under_half_health = true
+		for stat in RunData.effects["stats_below_half_health"]:
+			TempStats.add_stat(stat[0], stat[1])
+			RunData.emit_signal("stat_added", stat[0], stat[1], 0.0)
+	elif current_val >= max_val / 2.0 and _player_is_under_half_health:
+		_player_is_under_half_health = false
+		for stat in RunData.effects["stats_below_half_health"]:
+			TempStats.remove_stat(stat[0], stat[1])
+			RunData.emit_signal("stat_removed", stat[0], stat[1], 0.0)
+
+
 func on_player_health_updated(current_val:int, max_val:int)->void :
+	
+	check_half_health_stats(current_val, max_val)
+	
 	if ProgressData.settings.hp_bar_on_character:
 		if not _player_life_bar.visible:
 			_player_life_bar.show()
@@ -1104,5 +1154,3 @@ func on_chal_popout()->void :
 
 func _on_TestButton_pressed()->void :
 	var _error = get_tree().change_scene(MenuData.editor_scene)
-
-

@@ -19,4 +19,4 @@ is_boss = false
 is_horde = false
 min_difficulty = 0
 min_wave = 0
-max_wave = 9999
+max_wave = 99999

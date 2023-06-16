@@ -129,11 +129,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ui/menus/run/character_info_panel.gd"
 }, {
-"base": "Effect",
-"class": "CharacterNoteEffect",
-"language": "GDScript",
-"path": "res://mods-unpacked/Darkly77-Invasion/content/effects/effect_character_specific_note.gd"
-}, {
 "base": "Control",
 "class": "CharacterSelection",
 "language": "GDScript",
@@ -149,7 +144,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/units/enemies/attack_behaviors/charging_attack_behavior.gd"
 }, {
-"base": "Reference",
+"base": "AttackBehavior",
 "class": "ChargingStraightAttackBehavior",
 "language": "GDScript",
 "path": "res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/entities/units/attack_behaviors/charging_straight_attack_behavior.gd"
@@ -158,6 +153,11 @@ _global_script_classes=[ {
 "class": "ClassBonusEffect",
 "language": "GDScript",
 "path": "res://effects/items/class_bonus_effect.gd"
+}, {
+"base": "HBoxContainer",
+"class": "ColorOption",
+"language": "GDScript",
+"path": "res://mods-unpacked/dami-ModOptions/extensions/ui/menus/pages/color_option.gd"
 }, {
 "base": "Node",
 "class": "Colors",
@@ -309,7 +309,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/entity_type.gd"
 }, {
-"base": "ChallengeData",
+"base": "Reference",
 "class": "ExpandedChallengeData",
 "language": "GDScript",
 "path": "res://mods-unpacked/Darkly77-ExpandedChallenges/challenges/ex_challenge_data.gd"
@@ -373,11 +373,6 @@ _global_script_classes=[ {
 "class": "GetRandomItemAtEndOfWaveEffect",
 "language": "GDScript",
 "path": "res://mods-unpacked/damiBenro-Junker/content/effects/get_random_item_at_end_of_wave_effect.gd"
-}, {
-"base": "Effect",
-"class": "GiftEffect",
-"language": "GDScript",
-"path": "res://mods-unpacked/Darkly77-Invasion/content/effects/MOVED__effect_gift.gd"
 }, {
 "base": "Item",
 "class": "Gold",
@@ -514,6 +509,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://mods-unpacked/otDan-ItemExplorer/ui/menus/items/parts/item_toggle.gd"
 }, {
+"base": "File",
+"class": "JSONFile",
+"language": "GDScript",
+"path": "res://addons/JSON_Schema_Validator/scripts/json_file.gd"
+}, {
+"base": "Reference",
+"class": "JSONSchema",
+"language": "GDScript",
+"path": "res://addons/JSON_Schema_Validator/scripts/json_schema_validator.gd"
+}, {
 "base": "Structure",
 "class": "Landmine",
 "language": "GDScript",
@@ -614,6 +619,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://projectiles/mob_projectile_stats.gd"
 }, {
+"base": "Resource",
+"class": "ModConfig",
+"language": "GDScript",
+"path": "res://addons/mod_loader/resources/mod_config.gd"
+}, {
 "base": "PanelContainer",
 "class": "ModContainer",
 "language": "GDScript",
@@ -622,57 +632,107 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "ModData",
 "language": "GDScript",
-"path": "res://addons/mod_loader/mod_data.gd"
+"path": "res://addons/mod_loader/resources/mod_data.gd"
 }, {
 "base": "PanelContainer",
 "class": "ModInfoContainer",
 "language": "GDScript",
 "path": "res://ui/menus/pages/mods/mod_info_container.gd"
 }, {
+"base": "Object",
+"class": "ModLoaderConfig",
+"language": "GDScript",
+"path": "res://addons/mod_loader/api/config.gd"
+}, {
+"base": "Resource",
+"class": "ModLoaderCurrentOptions",
+"language": "GDScript",
+"path": "res://addons/mod_loader/resources/options_current.gd"
+}, {
+"base": "Node",
+"class": "ModLoaderDeprecated",
+"language": "GDScript",
+"path": "res://addons/mod_loader/api/deprecated.gd"
+}, {
+"base": "Node",
+"class": "ModLoaderLog",
+"language": "GDScript",
+"path": "res://addons/mod_loader/api/log.gd"
+}, {
+"base": "Object",
+"class": "ModLoaderMod",
+"language": "GDScript",
+"path": "res://addons/mod_loader/api/mod.gd"
+}, {
+"base": "Resource",
+"class": "ModLoaderOptionsProfile",
+"language": "GDScript",
+"path": "res://addons/mod_loader/resources/options_profile.gd"
+}, {
+"base": "Reference",
+"class": "ModLoaderSetupLog",
+"language": "GDScript",
+"path": "res://addons/mod_loader/setup/setup_log.gd"
+}, {
+"base": "Reference",
+"class": "ModLoaderSetupUtils",
+"language": "GDScript",
+"path": "res://addons/mod_loader/setup/setup_utils.gd"
+}, {
+"base": "Object",
+"class": "ModLoaderUserProfile",
+"language": "GDScript",
+"path": "res://addons/mod_loader/api/profile.gd"
+}, {
 "base": "Node",
 "class": "ModLoaderUtils",
 "language": "GDScript",
-"path": "res://addons/mod_loader/mod_loader_utils.gd"
+"path": "res://addons/mod_loader/internal/mod_loader_utils.gd"
 }, {
 "base": "Resource",
 "class": "ModManifest",
 "language": "GDScript",
-"path": "res://addons/mod_loader/mod_manifest.gd"
+"path": "res://addons/mod_loader/resources/mod_manifest.gd"
+}, {
+"base": "Resource",
+"class": "ModUserProfile",
+"language": "GDScript",
+"path": "res://addons/mod_loader/resources/mod_user_profile.gd"
+}, {
+"base": "Node",
+"class": "ModsConfigInterface",
+"language": "GDScript",
+"path": "res://mods-unpacked/dami-ModOptions/mods_config_interface.gd"
 }, {
 "base": "Behavior",
 "class": "MovementBehavior",
 "language": "GDScript",
 "path": "res://entities/units/movement_behaviors/movement_behavior.gd"
 }, {
-"base": "Reference",
+"base": "AttackBehavior",
 "class": "MultipleGroundAttack2Behavior",
 "language": "GDScript",
 "path": "res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/entities/units/attack_behaviors/multiple_ground_attack2_behavior.gd"
 }, {
-"base": "Reference",
+"base": "AttackBehavior",
 "class": "MultipleGroundAttack3Behavior",
 "language": "GDScript",
 "path": "res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/entities/units/attack_behaviors/multiple_ground_attack3_behavior.gd"
 }, {
-"base": "Reference",
+"base": "AttackBehavior",
 "class": "MultipleGroundAttackBehavior",
 "language": "GDScript",
 "path": "res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/entities/units/attack_behaviors/multiple_ground_attack_behavior.gd"
 }, {
-"base": "Reference",
+"base": "HSlider",
 "class": "MultipleStateSlider",
 "language": "GDScript",
 "path": "res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/ui/controls/multiple_state_slider.gd"
 }, {
-"base": "Reference",
+"base": "HBoxContainer",
 "class": "MultipleStateToggle",
 "language": "GDScript",
 "path": "res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/ui/controls/multiple_state_toggle.gd"
-}, {
-"base": "Effect",
-"class": "MultiplyStatEffect",
-"language": "GDScript",
-"path": "res://mods-unpacked/Darkly77-Invasion/content/effects/effect_multiply_stat.gd"
 }, {
 "base": "HSlider",
 "class": "MyHSlider",
@@ -718,11 +778,6 @@ _global_script_classes=[ {
 "class": "NullEffect",
 "language": "GDScript",
 "path": "res://effects/weapons/null_effect.gd"
-}, {
-"base": "Effect",
-"class": "OnHealingTestEffect",
-"language": "GDScript",
-"path": "res://mods-unpacked/Darkly77-Invasion/content/effects/effect_on_healing_test.gd"
 }, {
 "base": "MovementBehavior",
 "class": "PatrolEdgesOfMapMovementBehavior",
@@ -789,22 +844,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://effects/weapons/projectiles_on_hit_effect.gd"
 }, {
-"base": "Effect",
-"class": "RandomNegativeStatHalfEffect",
-"language": "GDScript",
-"path": "res://mods-unpacked/Darkly77-Invasion/content/effects/effect_random_negative_stat_half.gd"
-}, {
-"base": "Effect",
-"class": "RandomNegativeStatInvertEffect",
-"language": "GDScript",
-"path": "res://mods-unpacked/Darkly77-Invasion/content/effects/effect_random_negative_stat_invert.gd"
-}, {
-"base": "Reference",
+"base": "AttackBehavior",
 "class": "RandomSpawnAttackBehavior",
 "language": "GDScript",
 "path": "res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/entities/units/attack_behaviors/random_spawn_attack_behavior.gd"
 }, {
-"base": "Reference",
+"base": "AttackBehavior",
 "class": "RandomSpawnAttackBehaviorForDodge",
 "language": "GDScript",
 "path": "res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/entities/units/attack_behaviors/random_spawn_attack_behavior_for_dodge.gd"
@@ -853,6 +898,11 @@ _global_script_classes=[ {
 "class": "Screenshaker",
 "language": "GDScript",
 "path": "res://global/screenshaker.gd"
+}, {
+"base": "Resource",
+"class": "ScriptExtensionData",
+"language": "GDScript",
+"path": "res://addons/mod_loader/resources/script_extension_data.gd"
 }, {
 "base": "HBoxContainer",
 "class": "SecondaryStatContainer",
@@ -904,7 +954,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ui/menus/global/slider_option.gd"
 }, {
-"base": "Reference",
+"base": "HBoxContainer",
 "class": "SliderOptionCustom",
 "language": "GDScript",
 "path": "res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/ui/controls/slider_option_custom.gd"
@@ -929,7 +979,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/units/enemies/attack_behaviors/spawning_attack_behavior.gd"
 }, {
-"base": "Reference",
+"base": "AttackBehavior",
 "class": "SpiralShootingAttackBehavior",
 "language": "GDScript",
 "path": "res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/entities/units/attack_behaviors/spiral_shooting_attack_behavior.gd"
@@ -1034,7 +1084,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ui/menus/title_screen/title_screen_menus.gd"
 }, {
-"base": "Reference",
+"base": "MovementBehavior",
 "class": "ToCenterMovementBehavior",
 "language": "GDScript",
 "path": "res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/entities/units/movement_behaviors/to_center_movement_behavior.gd"
@@ -1169,11 +1219,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://weapons/shooting_behaviors/weapon_shooting_behavior.gd"
 }, {
-"base": "Effect",
-"class": "WeaponSlotAddEffect",
-"language": "GDScript",
-"path": "res://mods-unpacked/Darkly77-Invasion/content/effects/effect_weapon_slot_add.gd"
-}, {
 "base": "NullEffect",
 "class": "WeaponStackEffect",
 "language": "GDScript",
@@ -1223,6 +1268,46 @@ _global_script_classes=[ {
 "class": "ZoneUILocked",
 "language": "GDScript",
 "path": "res://ui/menus/run/zone_ui_locked.gd"
+}, {
+"base": "Reference",
+"class": "_ModLoaderCLI",
+"language": "GDScript",
+"path": "res://addons/mod_loader/internal/cli.gd"
+}, {
+"base": "Reference",
+"class": "_ModLoaderCache",
+"language": "GDScript",
+"path": "res://addons/mod_loader/internal/cache.gd"
+}, {
+"base": "Reference",
+"class": "_ModLoaderDependency",
+"language": "GDScript",
+"path": "res://addons/mod_loader/internal/dependency.gd"
+}, {
+"base": "Reference",
+"class": "_ModLoaderFile",
+"language": "GDScript",
+"path": "res://addons/mod_loader/internal/file.gd"
+}, {
+"base": "Object",
+"class": "_ModLoaderGodot",
+"language": "GDScript",
+"path": "res://addons/mod_loader/internal/godot.gd"
+}, {
+"base": "Reference",
+"class": "_ModLoaderPath",
+"language": "GDScript",
+"path": "res://addons/mod_loader/internal/path.gd"
+}, {
+"base": "Reference",
+"class": "_ModLoaderScriptExtension",
+"language": "GDScript",
+"path": "res://addons/mod_loader/internal/script_extension.gd"
+}, {
+"base": "Node",
+"class": "_ModLoaderSteam",
+"language": "GDScript",
+"path": "res://addons/mod_loader/internal/third_party/steam.gd"
 } ]
 _global_script_class_icons={
 "ArgValue": "",
@@ -1249,12 +1334,12 @@ _global_script_class_icons={
 "CharacterData": "",
 "CharacterDifficultyInfo": "",
 "CharacterInfoPanel": "",
-"CharacterNoteEffect": "",
 "CharacterSelection": "",
 "CharacterToggle": "",
 "ChargingAttackBehavior": "",
 "ChargingStraightAttackBehavior": "",
 "ClassBonusEffect": "",
+"ColorOption": "",
 "Colors": "",
 "Consumable": "",
 "ConsumableData": "",
@@ -1298,7 +1383,6 @@ _global_script_class_icons={
 "GainStatForEveryStatEffect": "",
 "Garden": "",
 "GetRandomItemAtEndOfWaveEffect": "",
-"GiftEffect": "",
 "Gold": "",
 "GoldBag": "",
 "GoldLabel": "",
@@ -1326,6 +1410,8 @@ _global_script_class_icons={
 "ItemPopup": "",
 "ItemTierStatGainsModificationEffect": "",
 "ItemToggle": "",
+"JSONFile": "",
+"JSONSchema": "",
 "Landmine": "",
 "LanguageButton": "",
 "LevelContainer": "",
@@ -1346,18 +1432,29 @@ _global_script_class_icons={
 "MenuRestart": "",
 "Menus": "",
 "MobProjectileStats": "",
+"ModConfig": "",
 "ModContainer": "",
 "ModData": "",
 "ModInfoContainer": "",
+"ModLoaderConfig": "",
+"ModLoaderCurrentOptions": "",
+"ModLoaderDeprecated": "",
+"ModLoaderLog": "",
+"ModLoaderMod": "",
+"ModLoaderOptionsProfile": "",
+"ModLoaderSetupLog": "",
+"ModLoaderSetupUtils": "",
+"ModLoaderUserProfile": "",
 "ModLoaderUtils": "",
 "ModManifest": "",
+"ModUserProfile": "",
+"ModsConfigInterface": "",
 "MovementBehavior": "",
 "MultipleGroundAttack2Behavior": "",
 "MultipleGroundAttack3Behavior": "",
 "MultipleGroundAttackBehavior": "",
 "MultipleStateSlider": "",
 "MultipleStateToggle": "",
-"MultiplyStatEffect": "",
 "MyHSlider": "",
 "MyMenuButton": "",
 "MyMenuButtonParent": "",
@@ -1367,7 +1464,6 @@ _global_script_class_icons={
 "Neutral": "",
 "NodeSorter": "",
 "NullEffect": "",
-"OnHealingTestEffect": "",
 "PatrolEdgesOfMapMovementBehavior": "",
 "PatrollingEnemy": "",
 "PauseMenu": "",
@@ -1381,8 +1477,6 @@ _global_script_class_icons={
 "Projectile": "",
 "ProjectileEffect": "",
 "ProjectilesOnHitEffect": "",
-"RandomNegativeStatHalfEffect": "",
-"RandomNegativeStatInvertEffect": "",
 "RandomSpawnAttackBehavior": "",
 "RandomSpawnAttackBehaviorForDodge": "",
 "RangedShootingData": "",
@@ -1394,6 +1488,7 @@ _global_script_class_icons={
 "SaveStatus": "",
 "ScoreStoringButton": "",
 "Screenshaker": "",
+"ScriptExtensionData": "",
 "SecondaryStatContainer": "",
 "SecondaryStatsContainer": "",
 "SetData": "",
@@ -1457,7 +1552,6 @@ _global_script_class_icons={
 "WeaponData": "",
 "WeaponSelection": "",
 "WeaponShootingBehavior": "",
-"WeaponSlotAddEffect": "",
 "WeaponStackEffect": "",
 "WeaponStats": "",
 "WeaponType": "",
@@ -1467,7 +1561,15 @@ _global_script_class_icons={
 "ZonePanel": "",
 "ZoneSelection": "",
 "ZoneUI": "",
-"ZoneUILocked": ""
+"ZoneUILocked": "",
+"_ModLoaderCLI": "",
+"_ModLoaderCache": "",
+"_ModLoaderDependency": "",
+"_ModLoaderFile": "",
+"_ModLoaderGodot": "",
+"_ModLoaderPath": "",
+"_ModLoaderScriptExtension": "",
+"_ModLoaderSteam": ""
 }
 
 [application]
@@ -1485,6 +1587,7 @@ default_bus_layout="res://resources/music/default_bus_layout.tres"
 
 [autoload]
 
+ModLoaderStore="*res://addons/mod_loader/mod_loader_store.gd"
 ModLoader="*res://addons/mod_loader/mod_loader.gd"
 Utils="*res://singletons/utils.gd"
 MenuData="*res://singletons/menu_data.gd"
@@ -1661,6 +1764,10 @@ translations=PoolStringArray( "res://resources/translations/translations.de.tran
 locale_filter=[ 1, [ "de", "en", "es", "fr", "it", "ja", "ko", "pl", "pt", "ru", "tr", "zh", "zh_TW" ] ]
 translation_remaps={
 }
+
+[network]
+
+limits/debugger_stdout/max_chars_per_second=10000
 
 [physics]
 

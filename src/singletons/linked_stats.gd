@@ -21,6 +21,14 @@ func reset()->void :
 			stat_scaled = RunData.effects["structures"].size()
 		elif linked_stat[2] == "living_enemy":
 			stat_scaled = RunData.current_living_enemies
+		elif linked_stat[2] == "living_tree":
+			stat_scaled = RunData.current_living_trees
+		elif linked_stat[2] == "common_item":
+			stat_scaled = RunData.get_nb_different_items_of_tier(Tier.COMMON)
+		elif linked_stat[2] == "legendary_item":
+			stat_scaled = RunData.get_nb_different_items_of_tier(Tier.LEGENDARY)
+		elif linked_stat[2].begins_with("item_"):
+			stat_scaled = RunData.get_nb_item(linked_stat[2], false)
 		else :
 			if RunData.effects.has(linked_stat[2]):
 				stat_scaled = RunData.get_stat(linked_stat[2]) + TempStats.get_stat(linked_stat[2])

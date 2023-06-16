@@ -26,6 +26,9 @@ func init(zone_min_pos:Vector2, zone_max_pos:Vector2, player_ref:Node2D = null, 
 		state.attack_behavior.init(self)
 		_states.push_back([state.hp_start, state.timer_start, state.movement_behavior, state.attack_behavior])
 	
+	if not ProgressData.settings.hp_bar_on_bosses:
+		life_bar.hide()
+	
 	var _error_hp_lifebar = connect("health_updated", self, "on_health_updated")
 
 
@@ -34,7 +37,7 @@ func take_damage(value:int, hitbox:Hitbox = null, dodgeable:bool = true, armor_a
 	var dmg_value = value
 	
 	if RunData.effects["damage_against_bosses"] > 0:
-		dmg_value = int(value * (1.0 + (RunData.effects["damage_against_bosses"] / 100.0)))
+		dmg_value = int(value * (1.0 + (Utils.get_stat("damage_against_bosses") / 100.0)))
 	
 	return .take_damage(dmg_value, hitbox, dodgeable, armor_applied, custom_sound, base_effect_scale)
 

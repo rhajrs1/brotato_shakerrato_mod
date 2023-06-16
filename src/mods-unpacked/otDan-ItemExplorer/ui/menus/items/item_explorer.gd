@@ -24,7 +24,7 @@ onready var StringComparer = get_node("/root/ModLoader/otDan-ItemExplorer/String
 
 var item_dictionary: Dictionary
 var character_toggle_dictionary: Dictionary
-var item_mod_names: PoolStringArray
+var mod_items: Dictionary
 
 var visible_items: Dictionary
 enum visible_keys {
@@ -33,7 +33,12 @@ enum visible_keys {
 }
 
 
+func _ready():
+	var _size_changed = get_tree().root.connect("size_changed", self, "_on_viewport_size_changed")
+
+
 func init() -> void:
+	_on_viewport_size_changed()
 	ItemExplorer.selected_character = null
 	start_run_button.disabled = true
 
@@ -66,8 +71,9 @@ func init() -> void:
 		instance.connect("item_button_pressed", self, "item_button_pressed")
 		item_container.add_child(instance)
 
-		if not item_mod_names.has(mod):
-			item_mod_names.append(mod)
+		if not mod_items.has(mod):
+			mod_items[mod] = []
+		mod_items[mod].append(item)
 
 		item_dictionary[item] = instance
 
@@ -81,11 +87,11 @@ func init() -> void:
 		character_container.add_child(instance)
 		character_toggle_dictionary[character] = instance
 
-	for mod in item_mod_names:
+	for mod in mod_items.keys():
 		var instance: CheckBox = mod_toggle.instance()
-		instance.name = mod
-		instance.connect("mod_toggled", self, "on_mod_toggled")
+		var _mod_toggled = instance.connect("mod_toggled", self, "on_mod_toggled")
 		mod_container.add_child(instance)
+		instance.set_info(mod, mod_items[mod].size())
 
 	first_item.grab_focus()
 
@@ -183,6 +189,11 @@ func handle_item_visiblity():
 				item_visible = false
 		var item_button = item_dictionary[item]
 		item_button.visible = item_visible
+
+
+func _on_viewport_size_changed():
+	var items = int(round(get_viewport().get_visible_rect().size.x * 0.5 / 90))
+	item_container.columns = items
 
 
 func _on_BackButton_pressed() -> void:

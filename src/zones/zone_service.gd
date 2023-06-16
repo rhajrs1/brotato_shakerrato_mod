@@ -4,6 +4,7 @@ export (Array, Resource) var zones = null
 export (Array, Resource) var endless_groups = []
 export (Array, Resource) var endless_unit_groups = []
 export (Array, Resource) var endless_enemy_scenes = []
+export (Array, Resource) var extra_enemy_scenes = []
 
 var current_zone_min_position:Vector2 = Vector2.ZERO
 var current_zone_max_position:Vector2 = Vector2.ZERO
@@ -27,7 +28,8 @@ func get_wave_data(my_id:int, index:int)->Resource:
 		wave.max_enemies *= 1.25 + (wave_index * 0.01)
 		wave.wave_duration = 60
 		
-		var additional_groups = get_additional_groups(int((index / 10.0) * 2))
+		var nb = int((index / 10.0) * 2)
+		var additional_groups = get_additional_groups(nb, 60, nb / 5.0)
 		
 		wave.groups_data.append_array(additional_groups)
 		
@@ -37,17 +39,23 @@ func get_wave_data(my_id:int, index:int)->Resource:
 		if index == zone.waves_data.size() and RunData.is_endless_run:
 			wave.wave_duration = 60
 	
+	if RunData.effects["upgraded_baits"] > 0:
+		var nb_baits = RunData.get_nb_item("item_bait")
+		
+		if nb_baits > 0:
+			var additional_groups = get_additional_groups(max(1, (nb_baits / 10.0) as int), 60, max(0, (nb_baits / 15.0) as int), extra_enemy_scenes, 15)
+			wave.groups_data.append_array(additional_groups)
+	
 	return wave
 
 
-func get_additional_groups(nb_additional_groups:int, wave_duration:int = 60)->Array:
+func get_additional_groups(nb_additional_groups:int, wave_duration:int = 60, bonus_enemies_per_group:int = 1, enemy_scenes:Array = endless_enemy_scenes, min_spawn_timing:int = 0)->Array:
 	var groups = []
-	var bonus_enemies_per_group = round(nb_additional_groups / 5.0)
 	
 	for i in nb_additional_groups:
 		var group_to_add = Utils.get_rand_element(endless_groups).duplicate()
 		
-		group_to_add.spawn_timing = ((i * ((wave_duration - 10.0) / nb_additional_groups)) + 1.0) as int
+		group_to_add.spawn_timing = max(min_spawn_timing, ((i * ((wave_duration - 10.0) / nb_additional_groups)) + 1.0)) as int
 		
 		var spawn_edge_of_map_rand = randf()
 		var area_rand = randf()
@@ -58,7 +66,7 @@ func get_additional_groups(nb_additional_groups:int, wave_duration:int = 60)->Ar
 		
 		var unit_group = Utils.get_rand_element(endless_unit_groups).duplicate()
 		
-		unit_group.unit_scene = Utils.get_rand_element(endless_enemy_scenes)
+		unit_group.unit_scene = Utils.get_rand_element(enemy_scenes)
 		unit_group.min_number = int(1 + bonus_enemies_per_group)
 		unit_group.max_number = int(round(rand_range(unit_group.min_number, unit_group.min_number + 1)) + bonus_enemies_per_group)
 		

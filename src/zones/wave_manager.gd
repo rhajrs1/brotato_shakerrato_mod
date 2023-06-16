@@ -5,7 +5,9 @@ signal group_spawn_timing_reached(group_data, is_elite_wave)
 
 enum {DATA, REPEATING, REPEATING_INTERVAL, REDUCE_REPEATING_INTERVAL, MIN_REPEATING_INTERVAL, NEXT_REPEAT}
 
+export (Array, Resource) var debug_groups: = []
 export (Array, Resource) var extra_groups: = []
+export (Array, Resource) var loot_alien_groups: = []
 export (Array, Resource) var groups_data_in_all_waves: = []
 export (Array, Resource) var horde_groups: = []
 export (Resource) var elite_group
@@ -26,6 +28,15 @@ func init(p_wave_timer:Timer, wave_data:Resource)->void :
 	wave_timer = p_wave_timer
 	current_wave_data = wave_data
 	
+	if DebugService.debug_enemies.size() > 0:
+		current_wave_data.groups_data = debug_groups
+		debug_groups[0].wave_units_data = DebugService.debug_enemies
+	
+	
+	if DebugService.no_enemies:
+		current_wave_data.groups_data = []
+		return 
+	
 	for group_data in groups_data_in_all_waves:
 		current_wave_data.groups_data.push_back(group_data)
 	
@@ -34,6 +45,16 @@ func init(p_wave_timer:Timer, wave_data:Resource)->void :
 			for group in extra_groups:
 				current_wave_data.groups_data.push_back(group)
 		RunData.effects["extra_enemies_next_wave"] = 0
+	
+	if RunData.effects["extra_loot_aliens_next_wave"] > 0:
+		
+		for i in RunData.effects["extra_loot_aliens_next_wave"]:
+			for group in loot_alien_groups:
+				var new_group = group.duplicate()
+				new_group.spawn_timing = rand_range(5, wave_timer.time_left - 10)
+				current_wave_data.groups_data.push_back(new_group)
+		
+		RunData.effects["extra_loot_aliens_next_wave"] = 0
 	
 	var groups_to_add = []
 	

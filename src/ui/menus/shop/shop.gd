@@ -18,6 +18,7 @@ var _need_to_set_locked: = false
 
 onready var _title = $Content / MarginContainer / HBoxContainer / VBoxContainer / HBoxContainer / Title
 onready var _go_button = $Content / MarginContainer / HBoxContainer / VBoxContainer2 / GoButton
+onready var _endless_button = $"%EndlessButton"
 onready var _gold_label = $Content / MarginContainer / HBoxContainer / VBoxContainer / HBoxContainer / GoldUI / GoldLabel
 onready var _weapons_container = $Content / MarginContainer / HBoxContainer / VBoxContainer / HBoxContainer3 / WeaponsContainer
 onready var _items_container = $Content / MarginContainer / HBoxContainer / VBoxContainer / HBoxContainer3 / ItemsContainer
@@ -35,6 +36,12 @@ onready var _elite_infobox = $"%EliteInfobox"
 
 
 func _ready()->void :
+	
+	_endless_button.hide()
+	
+	if RunData.current_wave == 19 and not RunData.is_endless_run:
+		_endless_button.show()
+		_go_button.focus_neighbour_top = _endless_button.get_path()
 	
 	if not RunData.shop_effects_checked:
 		if RunData.effects["destroy_weapons"]:
@@ -113,7 +120,9 @@ func _ready()->void :
 	_pause_menu.connect("paused", self, "on_paused")
 	_pause_menu.connect("unpaused", self, "on_unpaused")
 	_block_background.hide()
-	_title.text = tr("MENU_SHOP") + " (" + Text.text("WAVE", [str(RunData.current_wave + 1)]) + ")"
+	
+	_title.text = tr("MENU_SHOP") + " (" + Text.text("WAVE", [str(RunData.current_wave)]) + ")"
+	_go_button.text = tr("MENU_GO") + " (" + Text.text("WAVE", [str(RunData.current_wave + 1)]) + ")"
 	
 	_shop_items_container.set_shop_items(_shop_items)
 	
@@ -268,7 +277,7 @@ func on_shop_item_bought(shop_item:ShopItem)->void :
 	if nb_coupons > 0:
 		var coupon_value = get_coupon_value()
 		var coupon_effect = nb_coupons * (coupon_value / 100.0)
-		var base_value = ItemService.get_value(shop_item.wave_value, shop_item.item_data.value, false, shop_item.item_data is WeaponData)
+		var base_value = ItemService.get_value(shop_item.wave_value, shop_item.item_data.value, false, shop_item.item_data is WeaponData, shop_item.item_data.my_id)
 		RunData.tracked_item_effects["item_coupon"] += (base_value * coupon_effect) as int
 	
 	emit_signal("item_bought", shop_item.item_data)
@@ -354,7 +363,7 @@ func on_item_discard_button_pressed(weapon_data:WeaponData)->void :
 	RunData.add_gold(ItemService.get_recycling_value(RunData.current_wave, weapon_data.value, true))
 	
 	if RunData.get_nb_item("item_recycling_machine") > 0:
-		var value = ItemService.get_value(RunData.current_wave, weapon_data.value, true, true)
+		var value = ItemService.get_value(RunData.current_wave, weapon_data.value, true, true, weapon_data.my_id)
 		RunData.tracked_item_effects["item_recycling_machine"] += (value * (RunData.effects["recycling_gains"] / 100.0)) as int
 	
 	var nb_coupons = RunData.get_nb_item("item_coupon")
@@ -455,3 +464,8 @@ func hide_synergies(shop_item:ShopItem)->void :
 
 func _on_RerollButton_focus_entered()->void :
 	_stats_container.enable_focus()
+
+
+func _on_EndlessButton_pressed()->void :
+	RunData.is_endless_run = true
+	_on_GoButton_pressed()

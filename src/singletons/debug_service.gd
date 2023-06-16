@@ -3,6 +3,7 @@ extends Node
 export (int, 1, 1000) var starting_wave: = 1
 export (int) var starting_gold = 30
 export (bool) var invulnerable = false
+export (bool) var invisible = false
 export (bool) var one_shot_enemies = false
 export (bool) var instant_waves = false
 export (bool) var no_fullscreen_on_launch = false
@@ -18,6 +19,13 @@ export (bool) var generate_full_unlocked_save_file = false
 export (bool) var reinitialize_save = false
 export (bool) var reinitialize_steam_data = false
 export (bool) var disable_saving = false
+export (bool) var randomize_equipment = false
+export (bool) var randomize_waves = false
+export (bool) var hide_wave_timer = false
+export (bool) var nullify_enemy_speed = false
+export (bool) var no_enemies = false
+export (Array, Resource) var debug_enemies = []
+export (String) var spawn_specific_elite = ""
 
 var debug_items_added = false
 var debug_weapons_added = false
@@ -34,6 +42,19 @@ func handle_player_spawn_debug_options()->void :
 	if remove_starting_weapons and not starting_weapons_removed:
 		RunData.weapons = []
 		starting_weapons_removed = true
+	
+	if DebugService.randomize_equipment:
+		var weapon = Utils.get_rand_element(ItemService.weapons)
+		for _i in range(6):
+			var _weapon = RunData.add_weapon(weapon)
+		
+		for i in 10:
+			var item = Utils.get_rand_element(ItemService.items)
+			RunData.add_item(item)
+		
+		for i in 30:
+			var upg = Utils.get_rand_element(ItemService.upgrades)
+			RunData.add_item(upg)
 	
 	if add_all_weapons and not debug_weapons_added:
 		for weapon in ItemService.weapons:

@@ -14,7 +14,7 @@ func _init(modLoader = ModLoader):
 
 	# Add extensions
 	var extensions = [
-		#"/singletons/run_data.gd", #Initialise custom tracking data and stats
+		"/singletons/run_data.gd", #Initialise custom tracking data and stats
 		"/main.gd"
 	]
 	for path in extensions:

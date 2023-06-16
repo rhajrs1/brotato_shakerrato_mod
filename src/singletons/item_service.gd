@@ -42,6 +42,7 @@ enum TierData{
 var _tiers_data:Array
 
 export (Array, Resource) var elites: = []
+export (Array, Resource) var specials: = []
 export (Array, Resource) var effects: = []
 export (Array, Resource) var stats: = []
 export (Array, Resource) var characters: = []
@@ -122,6 +123,7 @@ func get_shop_items(wave:int, number:int = NB_SHOP_ITEMS, shop_items:Array = [],
 	var new_items = []
 	var nb_weapons_guaranteed = 0
 	var nb_weapons_added = 0
+	var guaranteed_items:Array = RunData.effects["guaranteed_shop_items"].duplicate()
 	
 	var nb_locked_weapons = 0
 	var _nb_locked_items = 0
@@ -146,6 +148,8 @@ func get_shop_items(wave:int, number:int = NB_SHOP_ITEMS, shop_items:Array = [],
 		
 		if RunData.current_wave <= MAX_WAVE_TWO_WEAPONS_GUARANTEED:
 			type = TierData.WEAPONS if (nb_weapons_added + nb_locked_weapons < nb_weapons_guaranteed) else TierData.ITEMS
+		elif guaranteed_items.size() > 0:
+			type = TierData.ITEMS
 		else :
 			type = TierData.WEAPONS if (randf() < CHANCE_WEAPON or nb_weapons_added + nb_locked_weapons < nb_weapons_guaranteed) else TierData.ITEMS
 		
@@ -155,7 +159,15 @@ func get_shop_items(wave:int, number:int = NB_SHOP_ITEMS, shop_items:Array = [],
 		if RunData.effects["weapon_slot"] <= 0:
 			type = TierData.ITEMS
 		
-		new_items.push_back([get_rand_item_from_wave(wave, type, new_items, shop_items), wave])
+		var new_item
+		
+		if type == TierData.ITEMS and guaranteed_items.size() > 0:
+			new_item = get_element(items, guaranteed_items[0][0])
+			guaranteed_items.pop_front()
+		else :
+			new_item = get_rand_item_from_wave(wave, type, new_items, shop_items)
+		
+		new_items.push_back([new_item, wave])
 	
 	return new_items
 
@@ -450,10 +462,17 @@ func change_inventory_element_stylebox_from_tier(stylebox:StyleBoxFlat, tier:int
 	stylebox.bg_color = tier_color
 
 
-func get_value(wave:int, base_value:int, affected_by_items_price_stat:bool = true, is_weapon:bool = false)->int:
+func get_value(wave:int, base_value:int, affected_by_items_price_stat:bool = true, is_weapon:bool = false, item_id:String = "")->int:
 	var value_after_weapon_price = base_value if not is_weapon or not affected_by_items_price_stat else base_value * (1.0 + (RunData.effects["weapons_price"] / 100.0))
 	
-	var items_price_factor = (1.0 + (RunData.effects["items_price"] / 100.0)) if affected_by_items_price_stat else 1.0
+	var specific_item_price_factor = 0
+	
+	for specific_item_price in RunData.effects["specific_items_price"]:
+		if specific_item_price[0] == item_id:
+			specific_item_price_factor = specific_item_price[1]
+			break
+		
+	var items_price_factor = (1.0 + ((RunData.effects["items_price"] + specific_item_price_factor) / 100.0)) if affected_by_items_price_stat else 1.0
 	var diff_factor = (RunData.effects["inflation"] / 100.0) if affected_by_items_price_stat else 0.0
 	var endless_factor = (RunData.get_endless_factor(wave) / 5.0) if affected_by_items_price_stat else 0.0
 	

@@ -1,6 +1,6 @@
 extends Node
 
-const VERSION = "0.8.0.3"
+const VERSION = "1.0.0.1"
 const STEAM_APP_ID = 1942280
 
 var smallest_text_font = preload("res://resources/fonts/actual/base/font_smallest_text.tres")

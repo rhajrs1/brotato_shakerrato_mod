@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/sets/biological/biological_set_data.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/eye_club/eye_club_icon.png" type="Texture" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/eye_club/eye_club.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/eye_club/4/eye_club_4_stats.tres" type="Resource" id=5]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/eye_club/4/eye_club_4_effect_1.tres" type="Resource" id=6]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "weapon_eyemace_4"
+unlocked_by_default = true
+icon = ExtResource( 3 )
+name = "Meat club"
+tier = 3
+value = 140
+effects = [ ExtResource( 6 ) ]
+tracking_text = ""
+weapon_id = "weapon_eye_club"
+type = 0
+sets = [ ExtResource( 2 ) ]
+scene = ExtResource( 4 )
+stats = ExtResource( 5 )

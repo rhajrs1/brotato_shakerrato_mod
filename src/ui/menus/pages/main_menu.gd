@@ -38,7 +38,7 @@ func init()->void :
 		
 		set_neighbours(start_button, mods_button)
 	
-	version_label.text = "early access version " + ProgressData.VERSION
+	version_label.text = "version " + ProgressData.VERSION
 	
 	if ProgressData.save_status != SaveStatus.SAVE_OK:
 		

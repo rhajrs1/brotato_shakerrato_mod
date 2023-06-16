@@ -29,6 +29,10 @@ func init(zone_min_pos:Vector2, zone_max_pos:Vector2, player_ref:Node2D = null, 
 	
 	init_current_stats()
 	
+	if DebugService.nullify_enemy_speed:
+		stats.speed = - 1000
+		current_stats.speed = - 1000
+	
 	_hitbox.connect("hit_something", self, "_on_hit_something")
 	_hitbox.damage = current_stats.damage
 	

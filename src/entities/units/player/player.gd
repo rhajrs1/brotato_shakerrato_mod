@@ -56,10 +56,10 @@ func _ready()->void :
 	if RunData.invulnerable:
 		disable_hurtbox()
 	
-	_health_regen_timer.wait_time = RunData.get_hp_regeneration_timer(Utils.get_stat("stat_hp_regeneration") as int)
+	if DebugService.invisible:
+		visible = false
 	
-	if RunData.effects["torture"] > 0:
-		_health_regen_timer.wait_time = 1
+	set_hp_regen_timer_value()
 	
 	if RunData.effects["double_hp_regen"] > 0:
 		_hp_regen_val = 2
@@ -231,7 +231,7 @@ func update_player_stats()->void :
 	var old_max_health = max_stats.health
 	
 	max_stats.health = clamp(Utils.get_stat("stat_max_hp"), 1, RunData.effects["hp_cap"]) as int
-	max_stats.speed = stats.speed * (1 + (Utils.get_stat("stat_speed") / 100.0)) as float
+	max_stats.speed = stats.speed * (1 + (min(Utils.get_stat("stat_speed"), RunData.effects["speed_cap"]) / 100.0)) as float
 	max_stats.armor = Utils.get_stat("stat_armor") as int
 	max_stats.dodge = min(RunData.effects["dodge_cap"] / 100.0, Utils.get_stat("stat_dodge") / 100.0)
 	
@@ -242,7 +242,8 @@ func update_player_stats()->void :
 	
 	if old_max_health != max_stats.health:
 		emit_signal("health_updated", current_stats.health, max_stats.health)
-		check_hp_regen()
+	
+	check_hp_regen()
 
 
 func add_weapon(weapon:WeaponData, pos:int)->void :
@@ -290,6 +291,10 @@ func take_damage(value:int, hitbox:Hitbox = null, dodgeable:bool = true, armor_a
 					if randf() < heal_on_dodge[2] / 100.0:
 						total_to_heal += heal_on_dodge[1]
 				var _healed = on_healing_effect(total_to_heal, "item_adrenaline", false)
+			
+			if RunData.effects["temp_stats_on_dodge"].size() > 0:
+				for temp_stat_on_hit in RunData.effects["temp_stats_on_dodge"]:
+					TempStats.add_stat(temp_stat_on_hit[0], temp_stat_on_hit[1])
 		
 		if dmg_taken[1] > 0 and consumables_in_range.size() > 0:
 			for cons in consumables_in_range:
@@ -330,11 +335,22 @@ func get_iframes(damage_taken:float)->float:
 
 
 func check_hp_regen()->void :
+	set_hp_regen_timer_value()
 	if (RunData.effects["torture"] > 0 or Utils.get_stat("stat_hp_regeneration") > 0) and _health_regen_timer.is_stopped() and current_stats.health < max_stats.health and not cleaning_up:
 		_health_regen_timer.start()
 
 
+func set_hp_regen_timer_value()->void :
+	_health_regen_timer.wait_time = RunData.get_hp_regeneration_timer(Utils.get_stat("stat_hp_regeneration") as int)
+	
+	if RunData.effects["torture"] > 0:
+		_health_regen_timer.wait_time = 1
+
+
 func play_step_sound()->void :
+	if DebugService.invisible:
+		return 
+	
 	SoundManager.play(Utils.get_rand_element(step_sounds), - 6, 0.1)
 
 
@@ -419,7 +435,7 @@ func get_heal_db()->float:
 func heal(value:int, is_from_torture:bool = false)->int:
 	var value_healed = 0
 	
-	if dead:
+	if dead or RunData.effects["no_heal"]:
 		return value_healed
 	
 	if RunData.effects["torture"] <= 0 or is_from_torture or cleaning_up:

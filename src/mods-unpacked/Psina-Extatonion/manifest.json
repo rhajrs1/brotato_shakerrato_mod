@@ -1,7 +1,7 @@
 {
 	"name": "Extatonion",
 	"namespace": "Psina",
-	"version_number": "1.0.7",
+	"version_number": "1.0.9",
 	"description": "Port unfinished",
 	"website_url": "",
 	"dependencies": [

@@ -70,7 +70,7 @@ func set_shop_item(p_item_data:ItemParentData, p_wave_value:int = RunData.curren
 	item_data = p_item_data
 	_item_description.set_item(p_item_data)
 	wave_value = p_wave_value
-	value = ItemService.get_value(wave_value, p_item_data.value, true, p_item_data is WeaponData)
+	value = ItemService.get_value(wave_value, p_item_data.value, true, p_item_data is WeaponData, p_item_data.my_id)
 	
 	if RunData.effects["hp_shop"]:
 		value = ceil(value / 20.0) as int

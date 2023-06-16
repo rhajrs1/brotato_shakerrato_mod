@@ -53,6 +53,8 @@ func manage_back(event:InputEvent)->void :
 		RunData.active_set_effects = []
 		RunData.unique_effects = []
 		RunData.additional_weapon_effects = []
+		RunData.tier_iv_weapon_effects = []
+		RunData.tier_i_weapon_effects = []
 		
 		RunData.add_character(RunData.current_character)
 		

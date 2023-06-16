@@ -1,4 +1,4 @@
-[gd_scene load_steps=159 format=2]
+[gd_scene load_steps=192 format=2]
 
 [ext_resource path="res://weapons/ranged/pistol/pistol_icon.png" type="Texture" id=1]
 [ext_resource path="res://weapons/ranged/smg/smg_icon.png" type="Texture" id=2]
@@ -158,6 +158,39 @@
 [ext_resource path="res://weapons/ranged/revolver/revolver.png" type="Texture" id=156]
 [ext_resource path="res://weapons/melee/pruner/pruner.png" type="Texture" id=157]
 [ext_resource path="res://weapons/melee/jousting_lance/jousting_lance_icon.png" type="Texture" id=158]
+[ext_resource path="res://entities/units/enemies/028/28.png" type="Texture" id=159]
+[ext_resource path="res://entities/units/enemies/032/32.png" type="Texture" id=163]
+[ext_resource path="res://entities/units/enemies/027/27.png" type="Texture" id=164]
+[ext_resource path="res://weapons/melee/claw/claw.png" type="Texture" id=165]
+[ext_resource path="res://weapons/melee/excalibur/excalibur.png" type="Texture" id=166]
+[ext_resource path="res://items/all/fairy/fairy_icon.png" type="Texture" id=167]
+[ext_resource path="res://weapons/melee/drill/drill.png" type="Texture" id=168]
+[ext_resource path="res://entities/units/enemies/033/33.png" type="Texture" id=169]
+[ext_resource path="res://items/all/stone_skin/stone_skin_icon.png" type="Texture" id=170]
+[ext_resource path="res://weapons/melee/excalibur/excalibur_icon.png" type="Texture" id=171]
+[ext_resource path="res://items/all/sharp_bullet/sharp_bullet_icon.png" type="Texture" id=172]
+[ext_resource path="res://weapons/melee/claw/claw_icon.png" type="Texture" id=173]
+[ext_resource path="res://weapons/ranged/chain_gun/chain_gun_icon.png" type="Texture" id=174]
+[ext_resource path="res://weapons/ranged/gatling_laser/gatling_laser_icon.png" type="Texture" id=175]
+[ext_resource path="res://weapons/melee/scythe/scythe_icon.png" type="Texture" id=176]
+[ext_resource path="res://weapons/ranged/chain_gun/chain_gun.png" type="Texture" id=177]
+[ext_resource path="res://items/all/lure/lure_icon.png" type="Texture" id=178]
+[ext_resource path="res://items/all/shackles/shackles_icon.png" type="Texture" id=179]
+[ext_resource path="res://weapons/ranged/gatling_laser/gatling_laser.png" type="Texture" id=180]
+[ext_resource path="res://entities/units/enemies/034/34.png" type="Texture" id=181]
+[ext_resource path="res://weapons/melee/scythe/scythe.png" type="Texture" id=182]
+[ext_resource path="res://weapons/melee/fighting_stick/fighting_stick_icon.png" type="Texture" id=184]
+[ext_resource path="res://weapons/melee/drill/drill_icon.png" type="Texture" id=185]
+[ext_resource path="res://items/all/pocket_factory/pocket_factory_icon.png" type="Texture" id=186]
+[ext_resource path="res://weapons/melee/fighting_stick/fighting_stick.png" type="Texture" id=187]
+[ext_resource path="res://weapons/melee/screwdriver/screwdriver_icon.png" type="Texture" id=188]
+[ext_resource path="res://items/all/silver_bullet/silver_bullet_icon.png" type="Texture" id=189]
+[ext_resource path="res://items/characters/king/king_icon.png" type="Texture" id=190]
+[ext_resource path="res://items/characters/apprentice/apprentice_icon.png" type="Texture" id=191]
+[ext_resource path="res://items/characters/renegade/renegade_icon.png" type="Texture" id=192]
+[ext_resource path="res://items/characters/cryptid/cryptid_icon.png" type="Texture" id=193]
+[ext_resource path="res://items/characters/fisherman/fisherman_icon.png" type="Texture" id=194]
+[ext_resource path="res://items/characters/golem/golem_icon.png" type="Texture" id=195]
 
 [node name="Hammer" type="Sprite"]
 position = Vector2( 848, 600 )
@@ -382,7 +415,7 @@ position = Vector2( -272, 128 )
 texture = ExtResource( 63 )
 
 [node name="PumpkinIcon" type="Sprite" parent="."]
-position = Vector2( -136, 120 )
+position = Vector2( -206.731, 150.254 )
 texture = ExtResource( 52 )
 
 [node name="SadTomatoIcon" type="Sprite" parent="."]
@@ -406,7 +439,7 @@ position = Vector2( -256, 16 )
 texture = ExtResource( 55 )
 
 [node name="TerrifiedOnionIcon" type="Sprite" parent="."]
-position = Vector2( -112, 0 )
+position = Vector2( -256.347, -58.4322 )
 texture = ExtResource( 46 )
 
 [node name="UglyToothIcon" type="Sprite" parent="."]
@@ -504,6 +537,14 @@ texture = ExtResource( 88 )
 [node name="21" type="Sprite" parent="11"]
 position = Vector2( 406.001, 308.127 )
 texture = ExtResource( 147 )
+
+[node name="33" type="Sprite" parent="11"]
+position = Vector2( 687.156, 566.898 )
+texture = ExtResource( 169 )
+
+[node name="34" type="Sprite" parent="11"]
+position = Vector2( 439.078, 700.457 )
+texture = ExtResource( 181 )
 
 [node name="1" type="Sprite" parent="."]
 position = Vector2( 360, 776 )
@@ -674,7 +715,7 @@ position = Vector2( -248, 856 )
 texture = ExtResource( 127 )
 
 [node name="SnailIcon" type="Sprite" parent="."]
-position = Vector2( -800, 944 )
+position = Vector2( -843.464, 934.915 )
 texture = ExtResource( 123 )
 
 [node name="SpiderIcon" type="Sprite" parent="."]
@@ -698,7 +739,7 @@ position = Vector2( -336, 944 )
 texture = ExtResource( 128 )
 
 [node name="TylerIcon" type="Sprite" parent="."]
-position = Vector2( -584, 1040 )
+position = Vector2( -256.347, 1043.43 )
 texture = ExtResource( 133 )
 
 [node name="Tyler" type="Sprite" parent="."]
@@ -792,3 +833,130 @@ texture = ExtResource( 157 )
 [node name="PrunerIcon" type="Sprite" parent="."]
 position = Vector2( 653.271, -175.297 )
 texture = ExtResource( 153 )
+
+[node name="27" type="Sprite" parent="."]
+position = Vector2( 264.616, 1410.72 )
+texture = ExtResource( 164 )
+
+[node name="28" type="Sprite" parent="."]
+position = Vector2( 769.041, 1101.86 )
+texture = ExtResource( 159 )
+
+[node name="32" type="Sprite" parent="."]
+position = Vector2( 57.8848, 1402.37 )
+texture = ExtResource( 163 )
+
+[node name="FairyIcon" type="Sprite" parent="."]
+position = Vector2( -702.887, 1160.3 )
+texture = ExtResource( 167 )
+
+[node name="LureIcon" type="Sprite" parent="."]
+position = Vector2( -802.118, 1043.43 )
+texture = ExtResource( 178 )
+
+[node name="PocketFactoryIcon" type="Sprite" parent="."]
+position = Vector2( -901.349, 1126.91 )
+texture = ExtResource( 186 )
+
+[node name="PocketMagicianIcon" type="Sprite" parent="."]
+position = Vector2( -702.887, 1126.91 )
+
+[node name="SchacklesIcon" type="Sprite" parent="."]
+position = Vector2( -802.118, 1135.25 )
+texture = ExtResource( 179 )
+
+[node name="SharpBulletIcon" type="Sprite" parent="."]
+position = Vector2( -595.386, 1126.91 )
+texture = ExtResource( 172 )
+
+[node name="SilverBulletIcon" type="Sprite" parent="."]
+position = Vector2( -372.116, 1051.78 )
+texture = ExtResource( 189 )
+
+[node name="StoneSkinIcon" type="Sprite" parent="."]
+position = Vector2( -868.272, 1243.77 )
+texture = ExtResource( 170 )
+
+[node name="ChainGunIcon" type="Sprite" parent="."]
+position = Vector2( 1116.35, -141.907 )
+texture = ExtResource( 174 )
+
+[node name="GatlingLaserIcon" type="Sprite" parent="."]
+position = Vector2( 1132.89, -225.381 )
+texture = ExtResource( 175 )
+
+[node name="ClawIcon" type="Sprite" parent="."]
+position = Vector2( 1017.12, -175.297 )
+texture = ExtResource( 173 )
+
+[node name="ScytheIcon" type="Sprite" parent="."]
+position = Vector2( 1066.73, -308.856 )
+texture = ExtResource( 176 )
+
+[node name="ExcaliburIcon" type="Sprite" parent="."]
+position = Vector2( 950.964, -258.771 )
+texture = ExtResource( 171 )
+
+[node name="StaffIcon" type="Sprite" parent="."]
+position = Vector2( 851.733, -267.119 )
+texture = ExtResource( 184 )
+
+[node name="DrillIcon" type="Sprite" parent="."]
+position = Vector2( 901.349, -150.254 )
+texture = ExtResource( 185 )
+
+[node name="ScrewdriverIcon" type="Sprite" parent="."]
+position = Vector2( 992.311, 33.3898 )
+texture = ExtResource( 188 )
+
+[node name="ChainGun" type="Sprite" parent="."]
+position = Vector2( 0, 158.602 )
+texture = ExtResource( 177 )
+
+[node name="GatlingLaser" type="Sprite" parent="."]
+position = Vector2( -107.5, 58.4323 )
+texture = ExtResource( 180 )
+
+[node name="Scythe" type="Sprite" parent="."]
+position = Vector2( -107.5, -33.3898 )
+texture = ExtResource( 182 )
+
+[node name="Staff" type="Sprite" parent="."]
+position = Vector2( 140.577, 91.822 )
+texture = ExtResource( 187 )
+
+[node name="Excalibur" type="Sprite" parent="Staff"]
+position = Vector2( -264.616, 25.0425 )
+texture = ExtResource( 166 )
+
+[node name="Drill" type="Sprite" parent="Staff"]
+position = Vector2( -281.155, -183.644 )
+texture = ExtResource( 168 )
+
+[node name="Claw" type="Sprite" parent="Staff/Drill"]
+position = Vector2( 66.1541, -41.7373 )
+texture = ExtResource( 165 )
+
+[node name="ApprenticeIcon" type="Sprite" parent="."]
+position = Vector2( -744.233, 1293.86 )
+texture = ExtResource( 191 )
+
+[node name="CryptidIcon" type="Sprite" parent="."]
+position = Vector2( -661.54, 1293.86 )
+texture = ExtResource( 193 )
+
+[node name="FishermanIcon" type="Sprite" parent="."]
+position = Vector2( -570.579, 1293.86 )
+texture = ExtResource( 194 )
+
+[node name="GolemIcon" type="Sprite" parent="."]
+position = Vector2( -562.309, 1385.68 )
+texture = ExtResource( 195 )
+
+[node name="KingIcon" type="Sprite" parent="."]
+position = Vector2( -744.233, 1385.68 )
+texture = ExtResource( 190 )
+
+[node name="RenegadeIcon" type="Sprite" parent="."]
+position = Vector2( -653.271, 1385.68 )
+texture = ExtResource( 192 )

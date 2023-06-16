@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource( 1 )
-cooldown = 55
+cooldown = 50
 damage = 8
 accuracy = 1.0
 crit_chance = 1.0
@@ -16,13 +16,15 @@ min_range = 0
 max_range = 150
 knockback = 5
 effect_scale = 1.0
-scaling_stats = [ [ "stat_harvesting", 0.35 ] ]
+scaling_stats = [ [ "stat_harvesting", 0.4 ] ]
 lifesteal = 0.0
 shooting_sounds = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ]
 sound_db_mod = -5
 is_healing = false
 recoil = 25
 recoil_duration = 0.1
+additional_cooldown_every_x_shots = -1
+additional_cooldown_multiplier = -1.0
 deal_dmg_on_return = false
 attack_type = 0
 alternate_attack_type = false

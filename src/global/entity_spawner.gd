@@ -10,7 +10,7 @@ signal structure_spawned(structure)
 export (PackedScene) var player_scene
 export (PackedScene) var entity_birth_scene
 
-const MAX_STRUCTURES = 50
+const MAX_STRUCTURES = 100
 const MIN_DIST_FROM_PLAYER = 300
 const SPAWN_DELAY = 3
 
@@ -337,7 +337,7 @@ func _on_StructureTimer_timeout()->void :
 				nb_turrets += 1
 			
 			for nb in struct.value:
-				var pos = get_spawn_pos_in_area(base_pos, spawn_radius) if RunData.effects["group_structures"] and struct.can_be_grouped else ZoneService.get_rand_pos(Utils.EDGE_MAP_DIST * 2.5)
+				var pos = get_spawn_pos_in_area(base_pos, spawn_radius) if RunData.effects["group_structures"] and struct.can_be_grouped else ZoneService.get_rand_pos((Utils.EDGE_MAP_DIST * 2.5) as int)
 				
 				if struct.spawn_around_player != - 1:
 					pos = get_spawn_pos_in_area(_player.global_position, struct.spawn_around_player)

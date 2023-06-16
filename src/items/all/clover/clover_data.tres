@@ -10,7 +10,7 @@
 [resource]
 script = ExtResource( 1 )
 my_id = "item_clover"
-unlocked_by_default = false
+unlocked_by_default = true
 icon = ExtResource( 2 )
 name = "ITEM_CLOVER"
 tier = 2

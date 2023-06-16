@@ -16,17 +16,18 @@ func init_melee_stats(from_stats:MeleeWeaponStats = MeleeWeaponStats.new(), weap
 
 
 func init_ranged_stats(from_stats:RangedWeaponStats = RangedWeaponStats.new(), weapon_id:String = "", sets:Array = [], effects:Array = [], is_structure:bool = false)->RangedWeaponStats:
-	
 	var new_stats = init_base_stats(from_stats, weapon_id, sets, effects, is_structure) as RangedWeaponStats
 	
 	if not is_structure:
 		new_stats.max_range = max(MIN_RANGE, new_stats.max_range + Utils.get_stat("stat_range")) as int
 	
-	new_stats.projectile_spread = from_stats.projectile_spread
-	new_stats.nb_projectiles = from_stats.nb_projectiles
+	new_stats.projectile_spread = from_stats.projectile_spread + (RunData.effects["projectiles"] * 0.1)
 	
-	var piercing_dmg_bonus = (RunData.get_stat("piercing_damage") / 100.0)
-	var bounce_dmg_bonus = (RunData.get_stat("bounce_damage") / 100.0)
+	if from_stats.nb_projectiles > 0:
+		new_stats.nb_projectiles = from_stats.nb_projectiles + RunData.effects["projectiles"]
+	
+	var piercing_dmg_bonus = (Utils.get_stat("piercing_damage") / 100.0)
+	var bounce_dmg_bonus = (Utils.get_stat("bounce_damage") / 100.0)
 	
 	new_stats.piercing = from_stats.piercing + RunData.effects["piercing"]
 	new_stats.piercing_dmg_reduction = clamp(from_stats.piercing_dmg_reduction - piercing_dmg_bonus, 0, 1)
@@ -107,7 +108,6 @@ func init_base_stats(from_stats:WeaponStats, weapon_id:String = "", sets:Array =
 		new_stats.max_range = base_stats.max_range
 	
 	new_stats.damage = base_stats.damage
-	
 	new_stats.damage = max(1.0, new_stats.damage + get_scaling_stats_value(base_stats.scaling_stats)) as int
 	
 	var percent_dmg_bonus = (1 + (Utils.get_stat("stat_percent_damage") / 100.0))
@@ -120,6 +120,7 @@ func init_base_stats(from_stats:WeaponStats, weapon_id:String = "", sets:Array =
 		exploding_dmg_bonus = (Utils.get_stat("explosion_damage") / 100.0)
 	
 	new_stats.damage = max(1, round(new_stats.damage * (percent_dmg_bonus + exploding_dmg_bonus))) as int
+	
 	new_stats.crit_damage = base_stats.crit_damage
 	
 	new_stats.crit_chance = base_stats.crit_chance + (Utils.get_stat("stat_crit_chance") / 100.0)
@@ -127,7 +128,7 @@ func init_base_stats(from_stats:WeaponStats, weapon_id:String = "", sets:Array =
 	if is_structure:
 		new_stats.crit_chance = base_stats.crit_chance
 	
-	new_stats.accuracy = base_stats.accuracy
+	new_stats.accuracy = (base_stats.accuracy + (RunData.effects["accuracy"] / 100.0))
 	new_stats.is_healing = base_stats.is_healing
 	
 	new_stats.lifesteal = ((Utils.get_stat("stat_lifesteal") / 100.0) + base_stats.lifesteal)
@@ -270,7 +271,10 @@ func get_scaling_stats_value(p_scaling_stats:Array)->float:
 	var value = 0
 	
 	for scaling_stat in p_scaling_stats:
-		value += Utils.get_stat(scaling_stat[0]) * scaling_stat[1]
+		if scaling_stat[0] == "stat_levels":
+			value += RunData.current_level * scaling_stat[1]
+		else :
+			value += Utils.get_stat(scaling_stat[0]) * scaling_stat[1]
 	
 	return value
 

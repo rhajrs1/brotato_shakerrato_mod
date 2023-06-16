@@ -69,28 +69,25 @@ func shoot()->void :
 			var start = base_rot - projectile_spread
 			rotation = start + (i * chunk)
 		
+		var pos = _parent.global_position
+		
 		if spawn_projectiles_on_target:
-			var pos
+			pos = target_pos
+		
+		if projectile_spawn_only_on_borders:
+			var rand = rand_range(0, 2 * PI)
 			
-			if projectile_spawn_only_on_borders:
-				var rand = rand_range(0, 2 * PI)
-				
-				if constant_spread:
-					rand = i * ((2 * PI) / number_projectiles)
-				
-				pos = Vector2(target_pos.x + cos(rand) * (projectile_spawn_spread / 2), target_pos.y + sin(rand) * (projectile_spawn_spread / 2))
-			else :
-				if atleast_one_projectile_on_target and i == 0:
-					pos = target_pos
-				else :
-					pos = Vector2(
-						rand_range(target_pos.x - projectile_spawn_spread / 2, target_pos.x + projectile_spawn_spread / 2), 
-						rand_range(target_pos.y - projectile_spawn_spread / 2, target_pos.y + projectile_spawn_spread / 2)
-					)
+			if constant_spread:
+				rand = i * ((2 * PI) / number_projectiles)
 			
-			var _projectile = spawn_projectile(rotation, pos)
-		else :
-			var _projectile = spawn_projectile(rotation, _parent.global_position)
+			pos = Vector2(pos.x + cos(rand) * (projectile_spawn_spread / 2), pos.y + sin(rand) * (projectile_spawn_spread / 2))
+		elif not atleast_one_projectile_on_target or i != 0:
+			pos = Vector2(
+				rand_range(pos.x - projectile_spawn_spread / 2, pos.x + projectile_spawn_spread / 2), 
+				rand_range(pos.y - projectile_spawn_spread / 2, pos.y + projectile_spawn_spread / 2)
+			)
+		
+		var _projectile = spawn_projectile(rotation, pos)
 
 
 func animation_finished(anim_name:String)->void :

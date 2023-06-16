@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=15 format=2]
+[gd_resource type="Resource" load_steps=16 format=2]
 
 [ext_resource path="res://weapons/melee/stick/1/stick_data.tres" type="Resource" id=1]
 [ext_resource path="res://items/characters/character_data.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://items/characters/wildling/wildling_effect_1.tres" type="Resource" id=5]
 [ext_resource path="res://items/characters/wildling/wildling_eyes_appearance.tres" type="Resource" id=6]
 [ext_resource path="res://items/characters/wildling/wildling_mouth_appearance.tres" type="Resource" id=7]
+[ext_resource path="res://weapons/melee/fighting_stick/1/fighting_stick_data.tres" type="Resource" id=8]
 [ext_resource path="res://items/characters/wildling/wildling_effect_2.tres" type="Resource" id=9]
 [ext_resource path="res://weapons/melee/rock/1/rock_data.tres" type="Resource" id=10]
 [ext_resource path="res://weapons/melee/spear/1/spear_data.tres" type="Resource" id=11]
@@ -29,4 +30,4 @@ max_nb = -1
 item_appearances = [ ExtResource( 6 ), ExtResource( 7 ) ]
 tags = [  ]
 wanted_tags = [  ]
-starting_weapons = [ ExtResource( 1 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 14 ) ]
+starting_weapons = [ ExtResource( 1 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 8 ), ExtResource( 14 ) ]

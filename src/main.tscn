@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=2]
+[gd_scene load_steps=107 format=2]
 
 [ext_resource path="res://global/entity_spawner.gd" type="Script" id=1]
 [ext_resource path="res://ui/hud/ui_dim_screen.gd" type="Script" id=2]
@@ -96,6 +96,9 @@
 [ext_resource path="res://zones/zone_1/000_hordes/group_5.tres" type="Resource" id=94]
 [ext_resource path="res://ui/menus/global/my_menu_button.gd" type="Script" id=95]
 [ext_resource path="res://zones/zone_1/000_extra/group_1.tres" type="Resource" id=96]
+[ext_resource path="res://zones/zone_1/000_debug/group_1.tres" type="Resource" id=97]
+[ext_resource path="res://zones/zone_1/000_loot/group_1.tres" type="Resource" id=98]
+[ext_resource path="res://items/all/turret/turret_effect_1.tres" type="Resource" id=99]
 [ext_resource path="res://items/materials/harvesting_icon.png" type="Texture" id=120]
 [ext_resource path="res://weapons/melee/dagger/dagger_icon.png" type="Texture" id=121]
 [ext_resource path="res://zones/zone_1/000_all/group_2.tres" type="Resource" id=122]
@@ -128,6 +131,7 @@ script = ExtResource( 39 )
 gold_bag_scene = ExtResource( 74 )
 gold_scene = ExtResource( 13 )
 consumable_scene = ExtResource( 18 )
+turret_effect = ExtResource( 99 )
 gold_sprites = [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 31 ), ExtResource( 34 ) ]
 gold_pickup_sounds = [ ExtResource( 62 ), ExtResource( 57 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 47 ) ]
 gold_alt_pickup_sounds = [ ExtResource( 85 ), ExtResource( 88 ), ExtResource( 84 ), ExtResource( 86 ), ExtResource( 87 ) ]
@@ -154,7 +158,9 @@ __meta__ = {
 
 [node name="WaveManager" type="Node2D" parent="."]
 script = ExtResource( 63 )
+debug_groups = [ ExtResource( 97 ) ]
 extra_groups = [ ExtResource( 96 ) ]
+loot_alien_groups = [ ExtResource( 98 ) ]
 groups_data_in_all_waves = [ ExtResource( 75 ), ExtResource( 122 ) ]
 horde_groups = [ ExtResource( 89 ), ExtResource( 92 ), ExtResource( 90 ), ExtResource( 93 ), ExtResource( 94 ) ]
 elite_group = ExtResource( 91 )

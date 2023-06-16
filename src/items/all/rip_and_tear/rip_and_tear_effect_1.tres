@@ -13,7 +13,6 @@ custom_key = ""
 storage_method = 0
 effect_sign = 3
 custom_args = [  ]
-arch_custom_args = [  ]
 chance = 0.2
 explosion_scene = ExtResource( 2 )
 scale = 0.65

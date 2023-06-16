@@ -66,7 +66,7 @@ func get_arg_value(from_arg_value:int, p_base_value:String)->String:
 	if from_arg_value != ArgValue.USUAL:
 		match from_arg_value:
 			ArgValue.VALUE:final_value = str(value)
-			ArgValue.KEY:final_value = str(key)
+			ArgValue.KEY:final_value = str(tr(key.to_upper()))
 			ArgValue.UNIQUE_WEAPONS:
 				var nb = RunData.get_unique_weapon_ids().size()
 				final_value = str(value * nb)
@@ -85,6 +85,18 @@ func get_arg_value(from_arg_value:int, p_base_value:String)->String:
 				final_value = str(WeaponService.get_scaling_stats_value([[key, value / 100.0]]))
 			ArgValue.MAX_NB_OF_WAVES:
 				final_value = str(RunData.nb_of_waves)
+			ArgValue.TIER_IV_WEAPONS:
+				var nb_tier_iv_weapons = 0
+				for weapon in RunData.weapons:
+					if weapon.tier >= Tier.LEGENDARY:
+						nb_tier_iv_weapons += 1
+				final_value = str(value * nb_tier_iv_weapons)
+			ArgValue.TIER_I_WEAPONS:
+				var nb_tier_i_weapons = 0
+				for weapon in RunData.weapons:
+					if weapon.tier <= Tier.COMMON:
+						nb_tier_i_weapons += 1
+				final_value = str(value * nb_tier_i_weapons)
 			_:print("wrong value")
 	return final_value
 

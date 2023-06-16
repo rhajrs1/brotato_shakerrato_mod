@@ -31,6 +31,7 @@ var tracked_item_effects: = {}
 var current_run_accessibility_settings:Dictionary
 
 var current_living_enemies: = 0
+var current_living_trees: = 0
 var resumed_from_state: = false
 var nb_of_waves: = 20
 
@@ -55,6 +56,8 @@ var active_set_effects: = []
 var active_sets = {}
 var unique_effects: = []
 var additional_weapon_effects: = []
+var tier_iv_weapon_effects: = []
+var tier_i_weapon_effects: = []
 var locked_shop_items = []
 var current_background = null
 var shop_effects_checked = false
@@ -104,6 +107,8 @@ func reset(restart:bool = false)->void :
 	active_set_effects = []
 	unique_effects = []
 	additional_weapon_effects = []
+	tier_iv_weapon_effects = []
+	tier_i_weapon_effects = []
 	weapons = []
 	items = []
 	
@@ -147,6 +152,13 @@ func reset(restart:bool = false)->void :
 	gold = DebugService.starting_gold
 	current_wave = DebugService.starting_wave
 	is_testing = false
+	
+	if DebugService.randomize_equipment:
+		gold = Utils.get_random_int(10, 500)
+		current_level = Utils.get_random_int(10, 26)
+	
+	if DebugService.randomize_waves:
+		current_wave = Utils.get_random_int(9, 20)
 	
 	chal_hoarder_completed = false
 
@@ -207,6 +219,10 @@ func init_elites_spawn(base_wave:int = 10, horde_chance:float = 0.4)->void :
 		
 		var type = EliteType.HORDE if randf() < horde_chance else EliteType.ELITE
 		
+		if DebugService.spawn_specific_elite != "":
+			type = EliteType.ELITE
+			wave = DebugService.starting_wave
+		
 		if i == 1:
 			wave = Utils.get_random_int(base_wave + 4, base_wave + 5)
 		elif i == 2:
@@ -219,6 +235,9 @@ func init_elites_spawn(base_wave:int = 10, horde_chance:float = 0.4)->void :
 			if elite.my_id == elite_id:
 				possible_elites.erase(elite)
 				break
+		
+		if DebugService.spawn_specific_elite != "":
+			elite_id = DebugService.spawn_specific_elite
 		
 		elites_spawn.push_back([wave, type, elite_id])
 
@@ -298,6 +317,9 @@ func level_up()->void :
 	current_xp = max(0, current_xp - get_next_level_xp_needed())
 	current_level += 1
 	emit_signal("levelled_up")
+	
+	if current_level >= 20:
+		ChallengeService.complete_challenge("chal_student")
 
 
 func add_gold(value:int)->void :
@@ -329,17 +351,42 @@ func add_item(item:ItemData)->void :
 	items.push_back(item)
 	apply_item_effects(item)
 	add_item_displayed(item)
-	update_unique_bonuses()
-	update_additional_weapon_bonuses()
+	update_item_related_effects()
 	LinkedStats.reset()
+	check_bait_chal(item.my_id)
+	check_scavenger_chal()
+
+
+func check_scavenger_chal()->void :
+	var parsed_items = {}
+	var nb_unique_commons = 0
+	
+	for item in items:
+		if item.tier <= Tier.COMMON and not parsed_items.has(item.my_id):
+			parsed_items[item.my_id] = true
+			nb_unique_commons += 1
+	
+	if nb_unique_commons >= ChallengeService.get_chal("chal_scavenger").value:
+		ChallengeService.complete_challenge("chal_scavenger")
+
+
+func check_bait_chal(item_id:String)->void :
+	if item_id == "item_bait":
+		var nb_baits = 0
+		
+		for player_item in items:
+			if player_item.my_id == "item_bait":
+				nb_baits += 1
+		
+		if nb_baits >= ChallengeService.get_chal("chal_baited").value:
+			ChallengeService.complete_challenge("chal_baited")
 
 
 func remove_item(item:ItemData)->void :
 	items.erase(item)
 	unapply_item_effects(item)
 	remove_item_displayed(item)
-	update_unique_bonuses()
-	update_additional_weapon_bonuses()
+	update_item_related_effects()
 	LinkedStats.reset()
 
 
@@ -353,11 +400,23 @@ func add_weapon(weapon:WeaponData, is_starting:bool = false)->WeaponData:
 	weapons.push_back(new_weapon)
 	apply_item_effects(new_weapon)
 	update_sets()
-	update_unique_bonuses()
-	update_additional_weapon_bonuses()
+	update_item_related_effects()
 	LinkedStats.reset()
 	
+	check_bourgeoisie_chal()
+	
 	return new_weapon
+
+
+func check_bourgeoisie_chal()->void :
+	var legendaries = 0
+	
+	for weapon in weapons:
+		if weapon.tier >= Tier.LEGENDARY:
+			legendaries += 1
+	
+	if legendaries >= ChallengeService.get_chal("chal_bourgeoisie").value:
+		ChallengeService.complete_challenge("chal_bourgeoisie")
 
 
 func remove_weapon(weapon:WeaponData)->int:
@@ -369,8 +428,7 @@ func remove_weapon(weapon:WeaponData)->int:
 			break
 	unapply_item_effects(weapon)
 	update_sets()
-	update_unique_bonuses()
-	update_additional_weapon_bonuses()
+	update_item_related_effects()
 	LinkedStats.reset()
 	ChallengeService.check_stat_challenges()
 	return removed_weapon_tracked_value
@@ -382,10 +440,9 @@ func remove_all_weapons()->void :
 	
 	weapons = []
 	update_sets()
-	update_unique_bonuses()
-	update_additional_weapon_bonuses()
+	update_item_related_effects()
 	LinkedStats.reset()
-	ChallengeService.check_s()
+	ChallengeService.check_stat_challenges()
 
 
 func add_weapon_dmg_dealt(pos:int, dmg_dealt:int)->void :
@@ -433,6 +490,13 @@ func get_unique_weapon_ids()->Array:
 	return unique_weapon_ids
 
 
+func update_item_related_effects()->void :
+	update_unique_bonuses()
+	update_additional_weapon_bonuses()
+	update_tier_iv_weapon_bonuses()
+	update_tier_i_weapon_bonuses()
+
+
 func update_unique_bonuses()->void :
 	for effect in unique_effects:
 		effects[effect[0]] -= effect[1]
@@ -456,6 +520,32 @@ func update_additional_weapon_bonuses()->void :
 		for effect in effects["additional_weapon_effects"]:
 			effects[effect[0]] += effect[1]
 			additional_weapon_effects.push_back(effect)
+
+
+func update_tier_iv_weapon_bonuses()->void :
+	for effect in tier_iv_weapon_effects:
+		effects[effect[0]] -= effect[1]
+	
+	tier_iv_weapon_effects = []
+	
+	for weapon in weapons:
+		if weapon.tier >= Tier.LEGENDARY:
+			for effect in effects["tier_iv_weapon_effects"]:
+				effects[effect[0]] += effect[1]
+				tier_iv_weapon_effects.push_back(effect)
+
+
+func update_tier_i_weapon_bonuses()->void :
+	for effect in tier_i_weapon_effects:
+		effects[effect[0]] -= effect[1]
+	
+	tier_i_weapon_effects = []
+	
+	for weapon in weapons:
+		if weapon.tier <= Tier.COMMON:
+			for effect in effects["tier_i_weapon_effects"]:
+				effects[effect[0]] += effect[1]
+				tier_i_weapon_effects.push_back(effect)
 
 
 func apply_item_effects(item_data:ItemParentData)->void :
@@ -664,17 +754,30 @@ func remove_currency(value:int)->void :
 		remove_gold(value)
 
 
-func get_nb_item(item_id:String)->int:
+func get_nb_item(item_id:String, use_cache:bool = true)->int:
 	var nb = 0
 	
-	if items_nb_cache.has(item_id):
+	if use_cache and items_nb_cache.has(item_id):
 		return items_nb_cache[item_id]
 	
 	for item in items:
 		if item_id == item.my_id:
 			nb += 1
 	
-	items_nb_cache[item_id] = nb
+	if use_cache:
+		items_nb_cache[item_id] = nb
+	
+	return nb
+
+
+func get_nb_different_items_of_tier(tier:int = Tier.COMMON)->int:
+	var nb = 0
+	var parsed_items = {}
+	
+	for item in items:
+		if item.tier == tier and not parsed_items.has(item.my_id) and not item.my_id.begins_with("character_"):
+			parsed_items[item.my_id] = true
+			nb += 1
 	
 	return nb
 
@@ -767,6 +870,8 @@ func get_state(
 		"active_set_effects":active_set_effects.duplicate(), 
 		"unique_effects":unique_effects.duplicate(), 
 		"additional_weapon_effects":additional_weapon_effects.duplicate(), 
+		"tier_iv_weapon_effects":tier_iv_weapon_effects.duplicate(), 
+		"tier_i_weapon_effects":tier_i_weapon_effects.duplicate(), 
 		"locked_shop_items":locked_shop_items, 
 		"current_background":current_background, 
 		"appearances_displayed":appearances_displayed.duplicate(), 
@@ -823,6 +928,8 @@ func resume_from_state(state:Dictionary)->void :
 	active_set_effects = state.active_set_effects
 	unique_effects = state.unique_effects
 	additional_weapon_effects = state.additional_weapon_effects
+	tier_iv_weapon_effects = state.tier_iv_weapon_effects
+	tier_i_weapon_effects = state.tier_i_weapon_effects
 	locked_shop_items = state.locked_shop_items
 	current_background = state.current_background
 	appearances_displayed = state.appearances_displayed
@@ -912,6 +1019,7 @@ func init_stats(all_null_values:bool = false)->Dictionary:
 		"item_box_gold":0, 
 		"knockback":0, 
 		"hp_cap":999999 if not all_null_values else 0, 
+		"speed_cap":999999 if not all_null_values else 0, 
 		"lose_hp_per_second":0, 
 		"map_size":0, 
 		"dodge_cap":60, 
@@ -980,6 +1088,7 @@ func init_effects()->Dictionary:
 		"gain_explosion_damage":0, 
 		"gain_piercing_damage":0, 
 		"gain_bounce_damage":0, 
+		"gain_damage_against_bosses":0, 
 		"neutral_gold_drops":0, 
 		"enemy_gold_drops":0, 
 		"wandering_bots":0, 
@@ -997,6 +1106,8 @@ func init_effects()->Dictionary:
 		"weapon_bonus":[], 
 		"unique_weapon_effects":[], 
 		"additional_weapon_effects":[], 
+		"tier_iv_weapon_effects":[], 
+		"tier_i_weapon_effects":[], 
 		"gold_on_crit_kill":[], 
 		"heal_on_crit_kill":0, 
 		"temp_stats_while_not_moving":[], 
@@ -1015,13 +1126,25 @@ func init_effects()->Dictionary:
 		"minimum_weapons_in_shop":0, 
 		"destroy_weapons":0, 
 		"extra_enemies_next_wave":0, 
+		"extra_loot_aliens_next_wave":0, 
 		"stats_next_wave":[], 
 		"consumable_stats_while_max":[], 
 		"explode_on_consumable":[], 
 		"structures_cooldown_reduction":[], 
 		"temp_pct_stats_start_wave":[], 
 		"temp_pct_stats_stacking":[], 
-		"convert_stats_half_wave":[]
+		"convert_stats_half_wave":[], 
+		"stats_on_level_up":[], 
+		"temp_stats_on_dodge":[], 
+		"no_heal":0, 
+		"tree_turrets":0, 
+		"stats_below_half_health":[], 
+		"guaranteed_shop_items":[], 
+		"special_enemies_last_wave":0, 
+		"specific_items_price":[], 
+		"accuracy":0, 
+		"projectiles":0, 
+		"upgraded_baits":0
 	}
 	
 	all_effects.merge(all_stats)

@@ -82,7 +82,7 @@ func get_translated_values(challenge:ChallengeData, lang:int)->Array:
 					args.push_back(get_translation(challenge.stat.to_upper(), lang))
 			
 			for additional_arg in challenge.additional_args:
-				args.push_back(str(additional_arg))
+				args.push_back(get_translation(str(additional_arg), lang))
 			
 			desc_loc = get_text(csv[lang], args)
 	
@@ -97,7 +97,7 @@ func get_translation(key:String, lang:int)->String:
 		if csv[0] == key:
 			return csv[lang]
 	
-	return ""
+	return key
 
 
 func get_text(text:String, args:Array)->String:

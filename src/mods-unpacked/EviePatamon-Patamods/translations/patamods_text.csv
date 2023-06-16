@@ -8,6 +8,7 @@ CHARACTER_MAGNETIC,Magnetic
 CHARACTER_DUAL_WIELDER,Dual Wielder
 CHARACTER_BUILDER,Builder
 CHARACTER_HERO,Hero
+CHARACTER_REGAL,Regal
 GMO_COMBINES CHARACTER_COLLECTOR,Starts with Collector
 GMO_COMBINES CHARACTER_DWARF,Starts with Dwarf
 GMO_COMBINES CHARACTER_PERFECTIONIST,Starts with Perfectionist
@@ -17,6 +18,7 @@ GMO_COMBINES CHARACTER_MAGNETIC,Starts with Magnetic
 GMO_COMBINES CHARACTER_DUAL_WIELDER,Starts with Dual Wielder
 GMO_COMBINES CHARACTER_BUILDER,Starts with Builder
 GMO_COMBINES CHARACTER_HERO,Starts with Hero
+GMO_COMBINES CHARACTER_REGAL,Starts with Regal
 ITEM_MONOCLE,Monocle
 ITEM_FORTRESS,Fortress
 ITEM_BULLET_TIME,Bullet Time
@@ -26,6 +28,7 @@ ITEM_DOMINO,Domino
 ITEM_BLUEPRINTS,Blueprints
 ITEM_BRAVE_HEART,Brave Heart
 WEAPON_HOOKSHOT,Hookshot
+WEAPON_MIDAS_SCEPTER,Midas' Scepter
 EFFECT_RECYCLING_LOSSES,Gain [color=red]99%[/color] less materials from recyling items
 EFFECT_STUCK_NULLIFIED,[color=#00ff00]5[/color] hits taken are nullified every wave
 EFFECT_CATATO_NULLIFIED,[color=#00ff00]8[/color] hits taken are nullified every wave

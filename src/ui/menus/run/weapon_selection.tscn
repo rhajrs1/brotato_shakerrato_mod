@@ -64,7 +64,7 @@ margin_left = 544.0
 margin_right = 564.0
 
 [node name="Inventory" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer" index="0"]
-columns = 9
+columns = 10
 
 [editable path="MarginContainer/VBoxContainer/DescriptionContainer/CharacterPanel"]
 [editable path="MarginContainer/VBoxContainer/DescriptionContainer/CharacterPanel/MarginContainer/VBoxContainer/ItemDescription"]

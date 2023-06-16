@@ -22,7 +22,7 @@ func get_args()->Array:
 	var scaling_text = ""
 	
 	if key != "":
-		dmg = (RunData.get_dmg((value / 100.0) * Utils.get_stat(key))) as int
+		dmg = RunData.get_dmg(((value / 100.0) * Utils.get_stat(key)) as int)
 		scaling_text = Utils.get_scaling_stat_text(key, value / 100.0)
 	
 	return [str(chance), str(dmg), scaling_text]
