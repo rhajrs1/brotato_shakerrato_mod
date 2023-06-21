@@ -1,7 +1,7 @@
 {
   "name": "LevelOfDifficulty",
   "namespace": "shakerratto",
-  "version_number": "2.0.8",
+  "version_number": "2.1.0",
   "description": "shakerratto's level of difficulty",
   "website_url": "",
   "dependencies": [
