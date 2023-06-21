@@ -3006,7 +3006,7 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
-		
+
 		e = Effect.new()
 		e.key = "stat_harvesting"
 		e.text_key = ""

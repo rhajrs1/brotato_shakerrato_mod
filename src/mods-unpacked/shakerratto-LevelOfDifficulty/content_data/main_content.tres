@@ -1,14 +1,12 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://mods-unpacked/Darkly77-ContentLoader/content_data.gd" type="Script" id=1]
 [ext_resource path="res://mods-unpacked/shakerratto-LevelOfDifficulty/content/characters/greed_shakerratto/greed_shakerratto.tres" type="Resource" id=2]
-[ext_resource path="res://mods-unpacked/shakerratto-LevelOfDifficulty/content/items/shakerratto_clover/shakerratto_clover_data.tres" type="Resource" id=3]
-[ext_resource path="res://weapons/melee/stick/1/stick_data.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
 characters = [ ExtResource( 2 ) ]
-items = [ ExtResource( 3 ) ]
+items = [  ]
 weapons = [  ]
 weapons_characters = [  ]
 sets = [  ]

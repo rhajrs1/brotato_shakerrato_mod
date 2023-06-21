@@ -28,8 +28,8 @@ func _init(modLoader = ModLoader):
 	ModLoaderMod.install_script_extension(ext_dir + "entities/units/enemies/boss/boss.gd")
 	ModLoaderMod.install_script_extension(ext_dir + "zones/wave_manager.gd")
 	ModLoaderMod.install_script_extension(ext_dir + "singletons/run_data.gd")
-	ModLoaderMod.install_script_extension(ext_dir + "singletons/debug_service.gd")
 	ModLoaderMod.install_script_extension(ext_dir + "main.gd")
+	ModLoaderMod.install_script_extension(ext_dir + "singletons/debug_service.gd")
 	
 	# Add translations
 	ModLoaderMod.add_translation(trans_dir + "shakerratto_translations.en.translation")
