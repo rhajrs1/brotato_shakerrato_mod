@@ -1316,6 +1316,16 @@ func edit_characters() -> void:
 		character.effects.append(e)
 
 		e = Effect.new()
+		e.key = "speed_cap"
+		e.text_key = "effect_speed_cap"
+		e.value = 90
+		e.custom_key = ""
+		e.storage_method = 2
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = Effect.new()
 		e.key = "stat_speed"
 		e.text_key = ""
 		e.value = 30
@@ -2217,7 +2227,7 @@ func edit_characters() -> void:
 		var e = Effect.new()
 		e.key = "damage_against_bosses"
 		e.text_key = "effect_damage_against_bosses"
-		e.value = 50
+		e.value = 75
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -2416,7 +2426,7 @@ func edit_characters() -> void:
 		var e = Effect.new()
 		e.key = "trees"
 		e.text_key = "effect_trees"
-		e.value = 5
+		e.value = 6
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -2424,15 +2434,13 @@ func edit_characters() -> void:
 		character.effects.append(e)
 		
 		e = GainStatForEveryStatEffect.new()
-		e.key = "stat_harvesting"
-		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_TREE"
-		e.value = 10
+		e.key = "cryptid"
+		e.text_key = "effect_cryptid"
+		e.value = 12
 		e.custom_key = ""
 		e.storage_method = 0
-		e.effect_sign = 0
+		e.effect_sign = 3
 		e.custom_args = [  ]
-		e.nb_stat_scaled = 1
-		e.stat_scaled = "living_tree"
 		character.effects.append(e)
 		
 		e = GainStatForEveryStatEffect.new()
@@ -2443,6 +2451,12 @@ func edit_characters() -> void:
 		e.storage_method = 0
 		e.effect_sign = 0
 		e.custom_args = [  ]
+		var c = CustomArg.new()
+		c.arg_index = 4
+		c.arg_sign = 4
+		c.arg_value = 0
+		c.arg_format = 0
+		e.custom_args.append(c)
 		e.nb_stat_scaled = 1
 		e.stat_scaled = "living_tree"
 		character.effects.append(e)
@@ -2511,6 +2525,16 @@ func edit_characters() -> void:
 	if character != null:
 		character.effects = []
 		var e = Effect.new()
+		e.key = "stat_max_hp"
+		e.text_key = ""
+		e.value = 5
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+
+		e = Effect.new()
 		e.key = "stat_harvesting"
 		e.text_key = ""
 		e.value = 20
@@ -2539,7 +2563,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "item_bait"
 		e.text_key = "EFFECT_SPECIFIC_ITEM_PRICE"
-		e.value = -95
+		e.value = -100
 		e.custom_key = "specific_items_price"
 		e.storage_method = 0
 		e.effect_sign = 0
@@ -2858,7 +2882,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "accuracy"
 		e.text_key = "EFFECT_ACCURACY"
-		e.value = -50
+		e.value = -30
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -3521,7 +3545,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "enemy_damage"
 		e.text_key = "EFFECT_GAIN_STATS_ON_HIT"
-		e.value = 3
+		e.value = 4
 		e.custom_key = "stats_on_hit"
 		e.storage_method = 0
 		e.effect_sign = 1
@@ -3570,7 +3594,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "stat_harvesting"
 		e.text_key = "EFFECT_GAIN_STATS_ON_HIT"
-		e.value = 5
+		e.value = 4
 		e.custom_key = "stats_on_hit"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -3743,6 +3767,7 @@ func edit_items() -> void:
 
 	item = find_item("ITEM_WEIRD_GHOST")
 	if item != null:
+		item.max_nb = 5
 		item.effects = []
 		var e = Effect.new()
 		e.key = "hp_start_next_wave"
@@ -4270,6 +4295,43 @@ func edit_items() -> void:
 	if item != null:
 		item.max_nb = 5
 		item.tags.append("tag_for_shakerratto")
+
+	item = find_item("ITEM_SHACKLES")
+	if item != null:
+		item.effects = []
+		var e = Effect.new()
+		e.key = "stat_hp_regeneration"
+		e.text_key = ""
+		e.value = 8
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_engineering"
+		e.text_key = ""
+		e.value = 8
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_range"
+		e.text_key = ""
+		e.value = 80
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "speed_cap"
+		e.text_key = "effect_speed_cap"
+		e.value = 90
+		e.custom_key = ""
+		e.storage_method = 2
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		item.effects.append(e)
 		
 	item = find_item("ITEM_TORTURE")
 	if item != null:
@@ -4386,7 +4448,7 @@ func edit_items() -> void:
 		var e = Effect.new()
 		e.key = "stat_melee_damage"
 		e.text_key = ""
-		e.value = 15
+		e.value = 20
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -4394,7 +4456,7 @@ func edit_items() -> void:
 		e = Effect.new()
 		e.key = "stat_hp_regeneration"
 		e.text_key = ""
-		e.value = 4
+		e.value = 5
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
