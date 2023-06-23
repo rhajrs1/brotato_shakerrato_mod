@@ -331,7 +331,7 @@ func edit_characters() -> void:
 		var e = Effect.new()
 		e.key = "stat_elemental_damage"
 		e.text_key = ""
-		e.value = 5
+		e.value = 2
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -1359,19 +1359,19 @@ func edit_characters() -> void:
 	if character != null:
 		character.effects = []
 		var e = Effect.new()
-		e.key = "items_price"
-		e.text_key = ""
-		e.value = -20
-		e.custom_key = ""
+		e.key = "ITEM_COUPON"
+		e.text_key = "effect_starting_item"
+		e.value = 5
+		e.custom_key = "starting_item"
 		e.storage_method = 0
-		e.effect_sign = 0
+		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
 		
 		e = StatGainsModificationEffect.new()
 		e.key = "effect_increase_stat_gains"
 		e.text_key = ""
-		e.value = 50
+		e.value = 40
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -2346,6 +2346,546 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
+
+		character = find_character("CHARACTER_APPRENTICE")
+	if character != null:
+		character.effects = []
+		var e = Effect.new()
+		e.key = "stat_melee_damage"
+		e.text_key = "EFFECT_STAT_ON_LEVEL_UP"
+		e.value = 2
+		e.custom_key = "stats_on_level_up"
+		e.storage_method = 1
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_ranged_damage"
+		e.text_key = "EFFECT_STAT_ON_LEVEL_UP"
+		e.value = 1
+		e.custom_key = "stats_on_level_up"
+		e.storage_method = 1
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_elemental_damage"
+		e.text_key = "EFFECT_STAT_ON_LEVEL_UP"
+		e.value = 1
+		e.custom_key = "stats_on_level_up"
+		e.storage_method = 1
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_engineering"
+		e.text_key = "EFFECT_STAT_ON_LEVEL_UP"
+		e.value = 1
+		e.custom_key = "stats_on_level_up"
+		e.storage_method = 1
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_max_hp"
+		e.text_key = "EFFECT_STAT_ON_LEVEL_UP"
+		e.value = -2
+		e.custom_key = "stats_on_level_up"
+		e.storage_method = 1
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "gain_gold"
+		e.text_key = "effect_gain_gold_end_of_wave_20"
+		e.value = 5000
+		e.custom_key = "end_of_wave_20"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		character = find_character("CHARACTER_CRYPTID")
+	if character != null:
+		character.effects = []
+		var e = Effect.new()
+		e.key = "trees"
+		e.text_key = "effect_trees"
+		e.value = 5
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = GainStatForEveryStatEffect.new()
+		e.key = "stat_harvesting"
+		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_TREE"
+		e.value = 10
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		e.nb_stat_scaled = 1
+		e.stat_scaled = "living_tree"
+		character.effects.append(e)
+		
+		e = GainStatForEveryStatEffect.new()
+		e.key = "stat_hp_regeneration"
+		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_TREE"
+		e.value = 3
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		e.nb_stat_scaled = 1
+		e.stat_scaled = "living_tree"
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "dodge_cap"
+		e.text_key = "effect_dodge_cap"
+		e.value = 70
+		e.custom_key = ""
+		e.storage_method = 2
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_attack_speed"
+		e.text_key = "EFFECT_TEMP_STAT_ON_DODGE"
+		e.value = 3
+		e.custom_key = "temp_stats_on_dodge"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_lifesteal"
+		e.text_key = ""
+		e.value = -100
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_range"
+		e.text_key = ""
+		e.value = -100
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "enemy_gold_drops"
+		e.text_key = "effect_enemy_gold_drops"
+		e.value = -50
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "gain_gold"
+		e.text_key = "effect_gain_gold_end_of_wave_20"
+		e.value = 5000
+		e.custom_key = "end_of_wave_20"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		character = find_character("CHARACTER_FISHERMAN")
+	if character != null:
+		character.effects = []
+		var e = Effect.new()
+		e.key = "stat_harvesting"
+		e.text_key = ""
+		e.value = 20
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "item_bait"
+		e.text_key = "effect_guaranteed_shop_item"
+		e.value = 1
+		e.custom_key = "guaranteed_shop_items"
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		var c = CustomArg.new()
+		c.arg_index = 0
+		c.arg_sign = 0
+		c.arg_value = 2
+		c.arg_format = 0
+		e.custom_args.append(c)
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "item_bait"
+		e.text_key = "EFFECT_SPECIFIC_ITEM_PRICE"
+		e.value = -95
+		e.custom_key = "specific_items_price"
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = GainStatForEveryStatEffect.new()
+		e.key = "stat_harvesting"
+		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_STAT"
+		e.value = 2
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		c = CustomArg.new()
+		c.arg_index = 4
+		c.arg_sign = 4
+		c.arg_value = 0
+		c.arg_format = 0
+		e.custom_args.append(c)
+		e.nb_stat_scaled = 1
+		e.stat_scaled = "item_bait"
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "upgraded_baits"
+		e.text_key = "effect_upgraded_baits"
+		e.value = 1
+		e.custom_key = ""
+		e.storage_method = 2
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "enemy_gold_drops"
+		e.text_key = "effect_enemy_gold_drops"
+		e.value = -50
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "gain_gold"
+		e.text_key = "effect_gain_gold_end_of_wave_20"
+		e.value = 5000
+		e.custom_key = "end_of_wave_20"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		character = find_character("CHARACTER_GOLEM")
+	if character != null:
+		character.effects = []
+		var e = Effect.new()
+		e.key = "stat_max_hp"
+		e.text_key = ""
+		e.value = 20
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = StatGainsModificationEffect.new()
+		e.key = "effect_increase_stat_gains"
+		e.text_key = ""
+		e.value = 33
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		e.stat_displayed = "stat_max_hp"
+		e.stats_modified = [ "stat_max_hp" ]
+		character.effects.append(e)
+		
+		e = StatGainsModificationEffect.new()
+		e.key = "effect_increase_stat_gains"
+		e.text_key = ""
+		e.value = 33
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		e.stat_displayed = "stat_armor"
+		e.stats_modified = [ "stat_armor" ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_attack_speed"
+		e.text_key = "effect_stat_below_half_health"
+		e.value = 40
+		e.custom_key = "stats_below_half_health"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_speed"
+		e.text_key = "effect_stat_below_half_health"
+		e.value = 20
+		e.custom_key = "stats_below_half_health"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "no_heal"
+		e.text_key = "effect_no_heal"
+		e.value = 1
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 2
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "gain_gold"
+		e.text_key = "effect_gain_gold_end_of_wave_20"
+		e.value = 5000
+		e.custom_key = "end_of_wave_20"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		character = find_character("CHARACTER_KING")
+	if character != null:
+		character.effects = []
+		var e = Effect.new()
+		e.key = "stat_luck"
+		e.text_key = ""
+		e.value = 50
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_percent_damage"
+		e.text_key = "EFFECT_TIER_IV_WEAPON_BONUS"
+		e.value = 25
+		e.custom_key = "tier_iv_weapon_effects"
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		var c = CustomArg.new()
+		c.arg_index = 2
+		c.arg_sign = 4
+		c.arg_value = 9
+		c.arg_format = 0
+		e.custom_args.append(c)
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_attack_speed"
+		e.text_key = "EFFECT_TIER_IV_WEAPON_BONUS"
+		e.value = 25
+		e.custom_key = "tier_iv_weapon_effects"
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		c = CustomArg.new()
+		c.arg_index = 2
+		c.arg_sign = 4
+		c.arg_value = 9
+		c.arg_format = 0
+		e.custom_args.append(c)
+		character.effects.append(e)
+		
+		e = GainStatForEveryStatEffect.new()
+		e.key = "stat_max_hp"
+		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_DIFFERENT_STAT"
+		e.value = 5
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		c = CustomArg.new()
+		c.arg_index = 4
+		c.arg_sign = 4
+		c.arg_value = 0
+		c.arg_format = 0
+		e.custom_args.append(c)
+		e.nb_stat_scaled = 1
+		e.stat_scaled = "legendary_item"
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_percent_damage"
+		e.text_key = "EFFECT_TIER_I_WEAPON_BONUS"
+		e.value = -15
+		e.custom_key = "tier_i_weapon_effects"
+		e.storage_method = 0
+		e.effect_sign = 1
+		e.custom_args = [  ]
+		c = CustomArg.new()
+		c.arg_index = 2
+		c.arg_sign = 4
+		c.arg_value = 10
+		c.arg_format = 0
+		e.custom_args.append(c)
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_attack_speed"
+		e.text_key = "EFFECT_TIER_I_WEAPON_BONUS"
+		e.value = -15
+		e.custom_key = "tier_i_weapon_effects"
+		e.storage_method = 0
+		e.effect_sign = 1
+		e.custom_args = [  ]
+		c = CustomArg.new()
+		c.arg_index = 2
+		c.arg_sign = 4
+		c.arg_value = 10
+		c.arg_format = 0
+		e.custom_args.append(c)
+		character.effects.append(e)
+		
+		e = GainStatForEveryStatEffect.new()
+		e.key = "stat_max_hp"
+		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_DIFFERENT_STAT"
+		e.value = -2
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 1
+		e.custom_args = [  ]
+		c = CustomArg.new()
+		c.arg_index = 4
+		c.arg_sign = 4
+		c.arg_value = 0
+		c.arg_format = 0
+		e.custom_args.append(c)
+		e.nb_stat_scaled = 1
+		e.stat_scaled = "common_item"
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "gain_gold"
+		e.text_key = "effect_gain_gold_end_of_wave_20"
+		e.value = 5000
+		e.custom_key = "end_of_wave_20"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		character = find_character("CHARACTER_RENEGADE")
+	if character != null:
+		character.effects = []
+		var e = Effect.new()
+		e.key = "projectiles"
+		e.text_key = "EFFECT_PROJECTILES"
+		e.value = 2
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "piercing"
+		e.text_key = "effect_piercing"
+		e.value = 1
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = GainStatForEveryStatEffect.new()
+		e.key = "stat_percent_damage"
+		e.text_key = "EFFECT_GAIN_STAT_FOR_EVERY_DIFFERENT_STAT"
+		e.value = 10
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 0
+		e.custom_args = [  ]
+		var c = CustomArg.new()
+		c.arg_index = 4
+		c.arg_sign = 4
+		c.arg_value = 0
+		c.arg_format = 0
+		e.custom_args.append(c)
+		e.nb_stat_scaled = 1
+		e.stat_scaled = "common_item"
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "no_melee_weapons"
+		e.text_key = "effect_no_melee_weapons"
+		e.value = 1
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 1
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "stat_percent_damage"
+		e.text_key = ""
+		e.value = -400
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "accuracy"
+		e.text_key = "EFFECT_ACCURACY"
+		e.value = -50
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
+		
+		e = StatGainsModificationEffect.new()
+		e.key = "effect_reduce_stat_gains"
+		e.text_key = ""
+		e.value = -80
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		e.stat_displayed = "stat_percent_damage"
+		e.stats_modified = [ "stat_percent_damage", "explosion_damage" ]
+		character.effects.append(e)
+		
+		e = Effect.new()
+		e.key = "gain_gold"
+		e.text_key = "effect_gain_gold_end_of_wave_20"
+		e.value = 5000
+		e.custom_key = "end_of_wave_20"
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = [  ]
+		character.effects.append(e)
 		
 	character = find_character("CHARACTER_ONE_ARM")
 	if character != null:
@@ -2981,26 +3521,26 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "enemy_damage"
 		e.text_key = "EFFECT_GAIN_STATS_ON_HIT"
-		e.value = 5
+		e.value = 3
 		e.custom_key = "stats_on_hit"
 		e.storage_method = 0
 		e.effect_sign = 1
 		e.custom_args = [  ]
 		character.effects.append(e)
 
-		e = Effect.new()
-		e.key = "hp_cap"
-		e.text_key = "EFFECT_HP_CAP"
-		e.value = 200
-		e.custom_key = ""
-		e.storage_method = 2
-		e.effect_sign = 1
-		character.effects.append(e)
+#		e = Effect.new()
+#		e.key = "hp_cap"
+#		e.text_key = "EFFECT_HP_CAP"
+#		e.value = 200
+#		e.custom_key = ""
+#		e.storage_method = 2
+#		e.effect_sign = 1
+#		character.effects.append(e)
 
 		e = Effect.new()
 		e.key = "stat_luck"
 		e.text_key = ""
-		e.value = 30
+		e.value = 44
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -3010,7 +3550,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "stat_harvesting"
 		e.text_key = ""
-		e.value = 30
+		e.value = 44
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -3020,7 +3560,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "stat_hp_regeneration"
 		e.text_key = ""
-		e.value = 5
+		e.value = 8
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -3030,7 +3570,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "stat_harvesting"
 		e.text_key = "EFFECT_GAIN_STATS_ON_HIT"
-		e.value = 3
+		e.value = 5
 		e.custom_key = "stats_on_hit"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -3297,12 +3837,12 @@ func edit_items() -> void:
 
 	item = find_item("ITEM_EYES_SURGERY")
 	if item != null:
-		item.max_nb = 4
+		item.max_nb = 2
 		item.effects = []
 		var e = Effect.new()
 		e.key = "burning_cooldown_reduction"
 		e.text_key = "effect_burning_cooldown_reduction"
-		e.value = 15
+		e.value = 20
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -3420,7 +3960,7 @@ func edit_items() -> void:
 
 	item = find_item("ITEM_PADDING")
 	if item != null:
-		item.max_nb = 5
+		item.max_nb = 3
 
 	item = find_item("ITEM_ALIEN_EYES")
 	if item != null:
@@ -3437,26 +3977,94 @@ func edit_items() -> void:
 	if item != null:
 		item.max_nb = 4
 
-	item = find_item("ITEM_ALLOY")
-	if item != null:
-		for i in item.effects.size():
-			if item.effects[i].key == "stat_melee_damage":
-				item.effects[i].value = 6
-
 	item = find_item("ITEM_CANDLE")
 	if item != null:
 		for i in item.effects.size():
 			if item.effects[i].key == "number_of_enemies":
 				item.effects[i].value = 10
 
+	item = find_item("ITEM_ALLOY")
+	if item != null:
+		item.effects = []
+		var e = Effect.new()
+		e.key = "stat_melee_damage"
+		e.text_key = ""
+		e.value = 6
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_ranged_damage"
+		e.text_key = ""
+		e.value = 3
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_elemental_damage"
+		e.text_key = ""
+		e.value = 3
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_engineering"
+		e.text_key = ""
+		e.value = 3
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_crit_chance"
+		e.text_key = ""
+		e.value = 5
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_dodge"
+		e.text_key = ""
+		e.value = -6
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+
+	item = find_item("ITEM_BARRICADE")
+	if item != null:
+		item.effects = []
+		var e = Effect.new()
+		e.key = "stat_armor"
+		e.text_key = ""
+		e.value = 5
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_speed"
+		e.text_key = ""
+		e.value = -5
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+
 	item = find_item("ITEM_STATUE")
 	if item != null:
+		item.max_nb = 1
 		item.effects[0].text_key = "effect_stat_while_moving"
 		item.effects[0].custom_key = "temp_stats_while_moving"
 		item.effects[1].value = -5
 
 	item = find_item("ITEM_CHAMELEON")
 	if item != null:
+		item.max_nb = 1
 		item.effects[1].text_key = "effect_stat_while_moving"
 		item.effects[1].custom_key = "temp_stats_while_moving"
 
@@ -3561,34 +4169,34 @@ func edit_items() -> void:
 		e.effect_sign = 3
 		item.effects.append(e)
 
-	item = find_item("ITEM_CLOVER")
-	if item != null:
-		item.max_nb = 1
-		item.effects = []
-		var e = Effect.new()
-		e.key = "stat_luck"
-		e.text_key = ""
-		e.value = 20
-		e.custom_key = ""
-		e.storage_method = 0
-		e.effect_sign = 3
-		item.effects.append(e)
-		e = Effect.new()
-		e.key = "stat_dodge"
-		e.text_key = ""
-		e.value = 6
-		e.custom_key = ""
-		e.storage_method = 0
-		e.effect_sign = 3
-		item.effects.append(e)
-		e = Effect.new()
-		e.key = "stat_lifesteal"
-		e.text_key = ""
-		e.value = -2
-		e.custom_key = ""
-		e.storage_method = 0
-		e.effect_sign = 3
-		item.effects.append(e)
+#	item = find_item("ITEM_CLOVER")
+#	if item != null:
+#		item.max_nb = 1
+#		item.effects = []
+#		var e = Effect.new()
+#		e.key = "stat_luck"
+#		e.text_key = ""
+#		e.value = 20
+#		e.custom_key = ""
+#		e.storage_method = 0
+#		e.effect_sign = 3
+#		item.effects.append(e)
+#		e = Effect.new()
+#		e.key = "stat_dodge"
+#		e.text_key = ""
+#		e.value = 6
+#		e.custom_key = ""
+#		e.storage_method = 0
+#		e.effect_sign = 3
+#		item.effects.append(e)
+#		e = Effect.new()
+#		e.key = "stat_lifesteal"
+#		e.text_key = ""
+#		e.value = -2
+#		e.custom_key = ""
+#		e.storage_method = 0
+#		e.effect_sign = 3
+#		item.effects.append(e)
 
 	item = find_item("ITEM_ALIEN_BABY")
 	if item != null:
@@ -3908,6 +4516,30 @@ func edit_items() -> void:
 		e.storage_method = 0
 		e.effect_sign = 3
 		e.max_value = 15
+		item.effects.append(e)
+
+	item = find_item("ITEM_SPIDER")
+	if item != null:
+		item.max_nb = 1
+		item.effects = []
+		var e = Effect.new()
+		e.key = "projectiles"
+		e.text_key = "EFFECT_PROJECTILES"
+		e.value = 1
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = StatGainsModificationEffect.new()
+		e.key = "effect_reduce_stat_gains"
+		e.text_key = ""
+		e.value = -30
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		e.custom_args = []
+		e.stat_displayed = "stat_percent_damage"
+		e.stats_modified = [ "stat_percent_damage", "stat_ranged_damage", "stat_melee_damage", "stat_elemental_damage", "explosion_damage", "piercing_damage", "bounce_damage", "stat_engineering" ]
 		item.effects.append(e)
 		
 #	item = find_item("ITEM_ESTYS_COUCH")
@@ -4476,11 +5108,15 @@ func edit_items() -> void:
 		e = Effect.new()
 		e.key = "stat_speed"
 		e.text_key = ""
-		e.value = -10
+		e.value = -5
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
 		item.effects.append(e)
+
+	item = find_item("Chainsaw man")
+	if item != null:
+		item.max_nb = 1
 
 # note: 무기 수정 method, find_weapon으로 무기 찾은 후 property 수정
 func edit_weapons() -> void:

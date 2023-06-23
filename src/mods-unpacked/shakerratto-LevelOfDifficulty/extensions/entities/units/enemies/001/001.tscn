@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://entities/units/enemies/boss/boss.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/units/enemies/attack_behaviors/enemy_charge_prep_animation.tres" type="Animation" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/projectiles/s_bullet_enemy/enemy_projectile_s_bullet.tscn" type="PackedScene" id=22]
 [ext_resource path="res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/projectiles/dagger_enemy/enemy_projectile_laser.tscn" type="PackedScene" id=23]
 [ext_resource path="res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/entities/units/attack_behaviors/multiple_ground_attack3_behavior.gd" type="Script" id=24]
+[ext_resource path="res://projectiles/slash/slash_projectile.tscn" type="PackedScene" id=25]
 [ext_resource path="res://mods-unpacked/shakerratto-LevelOfDifficulty/extensions/entities/units/attack_behaviors/random_spawn_attack_behavior.gd" type="Script" id=35]
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -89,9 +90,9 @@ delete_projectile_on_death = false
 [node name="ChargingAttackBehavior" type="Node2D" parent="." index="8"]
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 22 )
-projectile_speed = 500
-cooldown = 0.01
-damage_increase_each_wave = 1.5
+projectile_speed = 450
+cooldown = 0.02
+damage_increase_each_wave = 10.7
 max_cd_randomization = 0
 max_range = 999999
 attack_anim_speed = 0.01
@@ -104,7 +105,7 @@ shoot_in_unit_direction = true
 script = ExtResource( 21 )
 projectile_scene = ExtResource( 6 )
 projectile_speed = 0
-damage_increase_each_wave = 1.5
+damage_increase_each_wave = 10.7
 
 [node name="PhaseAlways" type="Node2D" parent="States" index="0"]
 script = ExtResource( 11 )
@@ -133,9 +134,42 @@ script = ExtResource( 5 )
 script = ExtResource( 15 )
 
 [node name="AttackBehavior2" type="Node2D" parent="States/Phase1" index="2"]
+position = Vector2( 0, 2 )
 script = ExtResource( 24 )
 projectile_scene = ExtResource( 6 )
 projectile_speed = 0
+damage_increase_each_wave = 8.0
+
+[node name="ChargingShootProjectilesBehavior" type="Node2D" parent="States/Phase1" index="3"]
+script = ExtResource( 8 )
+projectile_scene = ExtResource( 25 )
+projectile_speed = 500
+cooldown = 4.0
+damage_increase_each_wave = 7.0
+max_cd_randomization = 0
+max_range = 99999
+random_direction = true
+number_projectiles = 4
+projectile_spread = 1.5
+projectile_spawn_spread = 500
+projectile_spawn_only_on_borders = true
+constant_spread = true
+shoot_in_unit_direction = true
+
+[node name="AttackBehavior3" type="Node2D" parent="States/Phase1" index="4"]
+script = ExtResource( 8 )
+projectile_scene = ExtResource( 6 )
+projectile_speed = 200
+damage_increase_each_wave = 7.0
+max_range = 25000
+random_direction = true
+number_projectiles = 100
+projectile_spawn_spread = 1000
+atleast_one_projectile_on_target = true
+initial_cooldown = 120
+shoot_in_unit_direction = true
+rotate_projectile = false
+delete_projectile_on_death = true
 
 [node name="Phase2" type="Node2D" parent="States" index="2"]
 script = ExtResource( 11 )
@@ -147,29 +181,29 @@ script = ExtResource( 17 )
 
 [node name="AttackBehavior" type="Node2D" parent="States/Phase2" index="1"]
 script = ExtResource( 12 )
-damage_increase_each_wave = 1.5
+damage_increase_each_wave = 8.0
 
 [node name="AttackBehavior2" type="Node2D" parent="States/Phase2" index="2"]
 script = ExtResource( 14 )
 projectile_scene = ExtResource( 6 )
 projectile_speed = 0
 cooldown = 250.0
-damage_increase_each_wave = 1.5
+damage_increase_each_wave = 9.5
 max_cd_randomization = 0
 max_range = 2000
 attack_anim_speed = 2.0
+number_rings = 4
 
 [node name="AttackBehavior3" type="Node2D" parent="States/Phase2" index="3"]
 script = ExtResource( 14 )
 projectile_scene = ExtResource( 6 )
 projectile_speed = 0
 cooldown = 350.0
-damage_increase_each_wave = 1.5
+damage_increase_each_wave = 9.5
 max_cd_randomization = 0
 max_range = 2000
 attack_anim_speed = 2.0
 range_between_rings = 550
-number_rings = 2
 initial_cooldown = 1000
 
 [node name="AttackBehavior4" type="Node2D" parent="States/Phase2" index="4"]
@@ -177,7 +211,7 @@ script = ExtResource( 8 )
 projectile_scene = ExtResource( 6 )
 projectile_speed = 0
 cooldown = 650.0
-damage_increase_each_wave = 1.5
+damage_increase_each_wave = 9.5
 max_range = 2000
 number_projectiles = 200
 spawn_projectiles_on_target = true
@@ -187,20 +221,40 @@ rotate_projectile = false
 [node name="AttackBehavior5" type="Node2D" parent="States/Phase2" index="5"]
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 18 )
-projectile_speed = 700
-damage_increase_each_wave = 1.5
+projectile_speed = 800
+damage_increase_each_wave = 12.0
 max_range = 99999
-number_projectiles = 6
-projectile_spread = 3.1
+number_projectiles = 18
+projectile_spread = 3.14
 
 [node name="AttackBehavior6" type="Node2D" parent="States/Phase2" index="6"]
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 18 )
 projectile_speed = 1100
 cooldown = 75.0
-damage_increase_each_wave = 1.5
+damage_increase_each_wave = 12.0
 max_range = 99999
-number_projectiles = 3
+number_projectiles = 12
+projectile_spread = 2.0
+
+[node name="AttackBehavior7" type="Node2D" parent="States/Phase2" index="7"]
+script = ExtResource( 8 )
+projectile_scene = ExtResource( 18 )
+projectile_speed = 1500
+cooldown = 75.0
+damage_increase_each_wave = 13.5
+max_range = 99999
+number_projectiles = 4
+projectile_spread = 1.0
+
+[node name="AttackBehavior8" type="Node2D" parent="States/Phase2" index="8"]
+script = ExtResource( 8 )
+projectile_scene = ExtResource( 18 )
+projectile_speed = 1800
+cooldown = 75.0
+damage_increase_each_wave = 15.0
+max_range = 99999
+number_projectiles = 2
 projectile_spread = 1.0
 
 [node name="Phase3" type="Node2D" parent="States" index="3"]
@@ -214,22 +268,22 @@ script = ExtResource( 13 )
 [node name="AttackBehavior" type="Node2D" parent="States/Phase3" index="1"]
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 23 )
-projectile_speed = 200
+projectile_speed = 650
 cooldown = 150.0
-damage_increase_each_wave = 1.5
+damage_increase_each_wave = 10.7
 max_range = 99999
-number_projectiles = 20
+number_projectiles = 22
 projectile_spread = 3.1
 constant_spread = true
 
 [node name="AttackBehavior1" type="Node2D" parent="States/Phase3" index="2"]
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 23 )
-projectile_speed = 750
+projectile_speed = 1050
 cooldown = 120.0
-damage_increase_each_wave = 1.5
+damage_increase_each_wave = 11.7
 max_range = 99999
-number_projectiles = 18
+number_projectiles = 20
 projectile_spread = 3.1
 constant_spread = true
 
@@ -238,7 +292,7 @@ script = ExtResource( 8 )
 projectile_scene = ExtResource( 23 )
 projectile_speed = 1250
 cooldown = 100.0
-damage_increase_each_wave = 1.5
+damage_increase_each_wave = 12.7
 max_range = 99999
 number_projectiles = 15
 projectile_spread = 3.1
@@ -246,6 +300,41 @@ constant_spread = true
 
 [node name="AttackBehavior3" type="Node2D" parent="States/Phase3" index="4"]
 script = ExtResource( 20 )
+cooldown = 200.0
+nb_to_enemy_spawn = 5
+
+[node name="AttackBehavior4" type="Node2D" parent="States/Phase3" index="5"]
+script = ExtResource( 8 )
+projectile_scene = ExtResource( 23 )
+projectile_speed = 1450
+cooldown = 120.0
+damage_increase_each_wave = 15.0
+max_range = 99999
+number_projectiles = 12
+projectile_spread = 3.1
+constant_spread = true
+
+[node name="AttackBehavior5" type="Node2D" parent="States/Phase3" index="6"]
+script = ExtResource( 8 )
+projectile_scene = ExtResource( 23 )
+projectile_speed = 1000
+cooldown = 100.0
+damage_increase_each_wave = 12.7
+max_range = 99999
+number_projectiles = 15
+projectile_spread = 3.1
+constant_spread = true
+
+[node name="AttackBehavior6" type="Node2D" parent="States/Phase3" index="7"]
+script = ExtResource( 8 )
+projectile_scene = ExtResource( 23 )
+projectile_speed = 1250
+cooldown = 30.0
+damage_increase_each_wave = 10.0
+max_range = 99999
+number_projectiles = 16
+projectile_spread = 3.1
+constant_spread = true
 
 [node name="LifeBar" parent="." index="14"]
 margin_top = -200.0

@@ -2,7 +2,7 @@ extends "res://singletons/run_data.gd"
 
 var game_play_mode = 0
 var game_play_difficulty = 1
-var nightmare_end_wave = 40
+var nightmare_end_wave = 30
 var boss_scenes = []
 var boss_1 = null;
 
