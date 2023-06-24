@@ -8,6 +8,7 @@ var phaseAB = []
 var charging_attack_cd = 0.0
 
 onready var _phaseAlways = $States / PhaseAlways
+onready var _super_obliterator_attack_behavior = $States / PhaseAlways / SuperObliteratorAttackBehavior
 onready var _charging_attack_behavior = $ChargingAttackBehavior
 onready var _ground_attack_behavior = $GroundAttackBehavior
 
@@ -56,6 +57,8 @@ func _physics_process(delta:float)->void :
 
 func on_state_changed(new_state:int)->void :
 	.on_state_changed(new_state)
+	
+	_super_obliterator_attack_behavior._current_cd = -1
 	
 	var currentAB = _states[new_state][3]
 	for state in _states_container.get_children():

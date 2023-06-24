@@ -119,11 +119,11 @@ script = ExtResource( 7 )
 [node name="AttackBehavior" type="Node2D" parent="States/PhaseAlways" index="1"]
 script = ExtResource( 16 )
 
-[node name="AttackBehavior1" type="Node2D" parent="States/PhaseAlways" index="2"]
+[node name="SuperObliteratorAttackBehavior" type="Node2D" parent="States/PhaseAlways" index="2"]
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 26 )
 projectile_speed = 1000
-cooldown = 1e+07
+cooldown = 9.22337e+18
 damage_increase_each_wave = 24.0
 max_range = 99999
 
