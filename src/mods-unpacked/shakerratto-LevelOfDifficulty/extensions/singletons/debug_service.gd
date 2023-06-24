@@ -5330,9 +5330,9 @@ func edit_items() -> void:
 		effect = Effect.new()
 		effect.key = "no_ranged_weapons"
 		effect.text_key = "effect_no_ranged_weapons"
-		effect.value = 0
+		effect.value = 1
 		effect.storage_method = Effect.StorageMethod.SUM
-		effect.effect_sign = Effect.Sign.FROM_VALUE
+		effect.effect_sign = Effect.Sign.NEGATIVE
 		item.effects.append(effect)
 		effect = Effect.new()
 		effect.key = "stat_max_hp"
