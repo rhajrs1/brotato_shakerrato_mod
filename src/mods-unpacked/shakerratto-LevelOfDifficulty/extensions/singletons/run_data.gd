@@ -28,16 +28,24 @@ func init_elites_spawn(base_wave:int = 10, horde_chance:float = 0.4)->void :
 	else:
 		if base_wave < 20: .init_elites_spawn(base_wave, horde_chance)
 		else :
-			elites_spawn = []
-			var nb_elites = get_current_difficulty()
-			if nb_elites <= 0: nb_elites = 1
-			var step = floor(10.0 / nb_elites)
-			var possible_elites = ItemService.elites.duplicate()
+			var wave_set = {}
+			var nb_elite_waves = get_current_difficulty()
+			if nb_elite_waves <= 0: wave_set[Utils.get_random_int(1, 9)] = null
+			elif nb_elite_waves > 9: for i in 9: wave_set[i] = null
+			else:
+				var wave_count = 0
+				while true:
+					if wave_count >= nb_elite_waves : break
+					var wave = Utils.get_random_int(1, 9)
+					if !wave_set.has(wave):
+						wave_set[wave] = null
+						wave_count += 1
 			
-			for i in nb_elites:
-				var wave = int(base_wave + ((i + 1) * step))
-				if wave % 10 == 0: continue
-				elites_spawn.push_back([wave, EliteType.ELITE, Utils.get_rand_element(possible_elites).my_id])
+			elites_spawn = []
+			var waves = wave_set.keys()
+			waves.sort()
+			for i in waves:
+				elites_spawn.push_back([base_wave + i, EliteType.ELITE, Utils.get_rand_element(ItemService.elites.duplicate()).my_id])
 
 func get_additional_elites_endless()->Array:
 	var weight = 20.0
