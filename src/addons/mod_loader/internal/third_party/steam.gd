@@ -63,16 +63,15 @@ static func _get_path_to_workshop()->String:
 		return ModLoaderStore.ml_options.override_path_to_workshop
 
 	var game_install_directory: = _ModLoaderPath.get_local_folder_dir()
-	
 	var path: = ""
 
 	
 	var path_array: = game_install_directory.split("/")
 	path_array.resize(path_array.size() - 3)
-	
+
 	
 	path = "/".join(path_array)
-	
+
 	
 	path = path.plus_file("workshop/content/" + _get_steam_app_id())
 

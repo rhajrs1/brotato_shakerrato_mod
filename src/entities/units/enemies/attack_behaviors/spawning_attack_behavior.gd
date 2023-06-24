@@ -27,7 +27,10 @@ func physics_process(delta:float)->void :
 
 
 func shoot()->void :
-	var spawns = max(1, round(nb_to_spawn * (1.0 + (RunData.effects["number_of_enemies"] / 100.0))))
+	var spawns = nb_to_spawn
+	
+	if _parent != null and is_instance_valid(_parent) and _parent is Boss:
+		spawns = max(1, round(nb_to_spawn * (1.0 + (RunData.effects["number_of_enemies"] / 100.0))))
 	
 	for i in spawns:
 		var pos = _parent.global_position

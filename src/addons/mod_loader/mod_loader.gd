@@ -378,7 +378,7 @@ func save_scene(modified_scene:Node, scene_path:String)->void :
 	ModLoaderMod.save_scene(modified_scene, scene_path)
 
 
-func get_mod_config(mod_dir_name:String = "", key:String = ""):
+func get_mod_config(mod_dir_name:String = "", key:String = "")->ModConfig:
 	ModLoaderDeprecated.deprecated_changed("ModLoader.get_mod_config", "ModLoaderConfig.get_config", "6.0.0")
 	return ModLoaderConfig.get_config(mod_dir_name, ModLoaderConfig.DEFAULT_CONFIG_NAME)
 
@@ -389,5 +389,5 @@ func deprecated_direct_access_UNPACKED_DIR()->String:
 
 
 func deprecated_direct_access_mod_data()->Dictionary:
-	ModLoaderDeprecated.deprecated_message("The var \"mod_data\" was removed, use \"ModLoaderMod.get_mod_data()\" instead", "6.0.0")
+	ModLoaderDeprecated.deprecated_message("The var \"mod_data\" was removed, use \"ModLoaderMod.get_mod_data_all()\" instead", "6.0.0")
 	return ModLoaderStore.mod_data

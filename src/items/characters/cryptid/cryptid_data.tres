@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=28 format=2]
+[gd_resource type="Resource" load_steps=34 format=2]
 
 [ext_resource path="res://weapons/melee/fist/1/fist_data.tres" type="Resource" id=1]
 [ext_resource path="res://items/characters/cryptid/cryptid_icon.png" type="Texture" id=2]
@@ -26,7 +26,13 @@
 [ext_resource path="res://weapons/melee/stick/1/stick_data.tres" type="Resource" id=24]
 [ext_resource path="res://weapons/melee/knife/1/knife_data.tres" type="Resource" id=25]
 [ext_resource path="res://weapons/melee/cactus_mace/1/cactus_mace_data.tres" type="Resource" id=26]
+[ext_resource path="res://weapons/melee/ghost_axe/1/ghost_axe_data.tres" type="Resource" id=27]
 [ext_resource path="res://weapons/melee/lightning_shiv/1/lightning_shiv_data.tres" type="Resource" id=28]
+[ext_resource path="res://weapons/ranged/smg/1/smg_data.tres" type="Resource" id=29]
+[ext_resource path="res://weapons/ranged/pistol/1/pistol_data.tres" type="Resource" id=30]
+[ext_resource path="res://weapons/melee/ghost_flint/1/ghost_flint_data.tres" type="Resource" id=31]
+[ext_resource path="res://weapons/ranged/ghost_scepter/1/ghost_scepter_data.tres" type="Resource" id=32]
+[ext_resource path="res://weapons/melee/hand/1/hand_data.tres" type="Resource" id=33]
 
 [resource]
 script = ExtResource( 3 )
@@ -42,4 +48,4 @@ max_nb = -1
 item_appearances = [ ExtResource( 5 ), ExtResource( 4 ) ]
 tags = [  ]
 wanted_tags = [ "exploration", "stat_dodge" ]
-starting_weapons = [ ExtResource( 1 ), ExtResource( 18 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 28 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 20 ), ExtResource( 14 ), ExtResource( 17 ) ]
+starting_weapons = [ ExtResource( 1 ), ExtResource( 33 ), ExtResource( 18 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 27 ), ExtResource( 12 ), ExtResource( 28 ), ExtResource( 31 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 20 ), ExtResource( 14 ), ExtResource( 32 ), ExtResource( 17 ), ExtResource( 30 ), ExtResource( 29 ) ]

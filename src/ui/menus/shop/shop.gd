@@ -361,10 +361,7 @@ func on_item_discard_button_pressed(weapon_data:WeaponData)->void :
 	_weapons_container._elements.remove_element(weapon_data)
 	var _weapon = RunData.remove_weapon(weapon_data)
 	RunData.add_gold(ItemService.get_recycling_value(RunData.current_wave, weapon_data.value, true))
-	
-	if RunData.get_nb_item("item_recycling_machine") > 0:
-		var value = ItemService.get_value(RunData.current_wave, weapon_data.value, true, true, weapon_data.my_id)
-		RunData.tracked_item_effects["item_recycling_machine"] += (value * (RunData.effects["recycling_gains"] / 100.0)) as int
+	RunData.update_recycling_tracking_value(weapon_data)
 	
 	var nb_coupons = RunData.get_nb_item("item_coupon")
 	

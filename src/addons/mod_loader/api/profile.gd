@@ -1,11 +1,19 @@
+
 class_name ModLoaderUserProfile
 extends Object
 
 
-
-
 const LOG_NAME: = "ModLoader:UserProfile"
-const FILE_PATH_USER_PROFILES = "user://mod_user_profiles.json"
+
+
+const FILE_PATH_USER_PROFILES: = "user://mod_user_profiles.json"
+
+
+
+
+
+
+
 
 
 
@@ -17,8 +25,21 @@ static func enable_mod(mod_id:String, user_profile: = ModLoaderStore.current_use
 
 
 
+
+
+
+
+
+
 static func disable_mod(mod_id:String, user_profile: = ModLoaderStore.current_user_profile)->bool:
 	return _set_mod_state(mod_id, user_profile.name, false)
+
+
+
+
+
+
+
 
 
 
@@ -37,6 +58,11 @@ static func set_mod_current_config(mod_id:String, mod_config:ModConfig, user_pro
 		ModLoaderLog.debug("Set the \"current_config\" of \"%s\" to \"%s\" in user profile \"%s\" " % [mod_id, mod_config.name, user_profile.name], LOG_NAME)
 
 	return is_save_success
+
+
+
+
+
 
 
 
@@ -70,6 +96,11 @@ static func create_profile(profile_name:String)->bool:
 
 
 
+
+
+
+
+
 static func set_profile(user_profile:ModUserProfile)->bool:
 	
 	if not ModLoaderStore.user_profiles.has(user_profile.name):
@@ -86,6 +117,11 @@ static func set_profile(user_profile:ModUserProfile)->bool:
 		ModLoaderLog.debug("Current user profile set to \"%s\"" % user_profile.name, LOG_NAME)
 
 	return is_save_success
+
+
+
+
+
 
 
 
@@ -119,8 +155,15 @@ static func delete_profile(user_profile:ModUserProfile)->bool:
 
 
 
+
+
 static func get_current()->ModUserProfile:
 	return ModLoaderStore.current_user_profile
+
+
+
+
+
 
 
 
@@ -133,6 +176,8 @@ static func get_profile(profile_name:String)->ModUserProfile:
 
 
 
+
+
 static func get_all_as_array()->Array:
 	var user_profiles: = []
 
@@ -140,6 +185,7 @@ static func get_all_as_array()->Array:
 		user_profiles.push_back(ModLoaderStore.user_profiles[user_profile_name])
 
 	return user_profiles
+
 
 
 

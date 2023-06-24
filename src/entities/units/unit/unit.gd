@@ -68,7 +68,7 @@ func init_current_stats()->void :
 	var str_factor = Utils.get_stat("enemy_health") / 100.0
 	
 	var new_val = round((stats.health + (stats.health_increase_each_wave * (RunData.current_wave - 1))) * (RunData.current_run_accessibility_settings.health + str_factor))
-	max_stats.health = round(new_val * (1.0 + RunData.get_endless_factor() * 2)) as int
+	max_stats.health = round(new_val * (1.0 + RunData.get_endless_factor() * 2.25)) as int
 	
 	current_stats.copy(max_stats)
 	reset_stats()
@@ -83,7 +83,7 @@ func reset_stats(dmg_coef:float = 0.0, speed_coef:float = 0.0, armor_coef:float 
 	var new_damage = round(base_damage * (RunData.current_run_accessibility_settings.damage + str_factor))
 	var new_speed = round(base_speed * RunData.current_run_accessibility_settings.speed)
 	current_stats.damage = round(new_damage * (1.0 + RunData.get_endless_factor())) as int
-	current_stats.speed = round(new_speed * (1.0 + (min(1.75, RunData.get_endless_factor() / 10.0)))) as int
+	current_stats.speed = round(new_speed * (1.0 + (min(1.75, RunData.get_endless_factor() / 13.33)))) as int
 	current_stats.armor = round(base_armor) as int
 	
 	max_stats.copy(current_stats, true)

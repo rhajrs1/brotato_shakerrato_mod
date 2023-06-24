@@ -1,4 +1,4 @@
-[gd_scene load_steps=544 format=2]
+[gd_scene load_steps=545 format=2]
 
 [ext_resource path="res://singletons/item_service.gd" type="Script" id=1]
 [ext_resource path="res://weapons/melee/spear/1/spear_data.tres" type="Resource" id=2]
@@ -513,6 +513,7 @@
 [ext_resource path="res://items/characters/cyborg/cyborg_data.tres" type="Resource" id=511]
 [ext_resource path="res://items/characters/lich/lich_data.tres" type="Resource" id=512]
 [ext_resource path="res://items/all/lucky_coin/lucky_coin_data.tres" type="Resource" id=513]
+[ext_resource path="res://items/materials/material_ui.png" type="Texture" id=514]
 [ext_resource path="res://entities/units/enemies/elites/insect_data.tres" type="Resource" id=516]
 [ext_resource path="res://items/all/pocket_factory/pocket_factory_data.tres" type="Resource" id=517]
 [ext_resource path="res://items/all/lure/lure_data.tres" type="Resource" id=518]
@@ -560,3 +561,4 @@ difficulties = [ ExtResource( 351 ), ExtResource( 353 ), ExtResource( 349 ), Ext
 item_box = ExtResource( 54 )
 legendary_item_box = ExtResource( 480 )
 upgrade_to_process_icon = ExtResource( 56 )
+material_icon = ExtResource( 514 )

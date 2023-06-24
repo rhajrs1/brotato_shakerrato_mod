@@ -1,7 +1,8 @@
 extends "res://singletons/progress_data.gd"
 
 func _ready():
-	if ModLoader.mod_data.keys().has("Darkly77-Invasion") and ModLoader.mod_data.keys().has("Psina-Extatonion"):
+	var modData = ModLoaderMod.get_mod_data_all()
+	if modData.keys().has("Darkly77-Invasion") and modData.keys().has("Psina-Extatonion"):
 		check_crossover_starting_weapons("res://mods-unpacked/Psina-Extatonion/content_data/invasion_crossover_content.tres")
 
 

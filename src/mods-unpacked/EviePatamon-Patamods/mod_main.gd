@@ -7,8 +7,8 @@ var ext_dir = ""
 var trans_dir = ""
 
 func _init(modLoader = ModLoader):
-	ModLoaderUtils.log_info("Init", PATAMODS_LOG)
-	dir = modLoader.UNPACKED_DIR + "EviePatamon-Patamods/"
+	ModLoaderLog.info("Init", PATAMODS_LOG)
+	dir = ModLoaderMod.get_unpacked_dir() + "EviePatamon-Patamods/"
 	ext_dir = dir + "extensions/"
 	trans_dir = dir + "translations/"
 
@@ -18,10 +18,10 @@ func _init(modLoader = ModLoader):
 		"/main.gd"
 	]
 	for path in extensions:
-		modLoader.install_script_extension(ext_dir + path)
+		ModLoaderMod.install_script_extension(ext_dir + path)
 
 	# Add translations
-	modLoader.add_translation_from_resource(trans_dir + "patamods_text.en.translation")
+	ModLoaderMod.add_translation(trans_dir + "patamods_text.en.translation")
 
 func _ready():
 	_load_patamods_content()
@@ -75,10 +75,10 @@ func _ready():
 	var giant_belt_data = load("res://items/all/giant_belt/giant_belt_data.tres")
 	giant_belt_data.tags.push_back("damage_against_bosses")
 	
-	ModLoaderUtils.log_info("Done", PATAMODS_LOG)
+	ModLoaderLog.info("Done", PATAMODS_LOG)
 
 func _load_patamods_content():
-	ModLoaderUtils.log_info("Loading custom content", PATAMODS_LOG)
+	ModLoaderLog.info("Loading custom content", PATAMODS_LOG)
 	
 		# Get the ContentLoader class
 	var ContentLoader = get_node("/root/ModLoader/Darkly77-ContentLoader/ContentLoader")

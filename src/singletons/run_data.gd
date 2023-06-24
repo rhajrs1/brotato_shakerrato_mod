@@ -10,7 +10,7 @@ signal stat_removed(stat_name, value, db_mod)
 signal lifesteal_effect(value)
 signal healing_effect(value, tracking_text)
 
-const ENDLESS_HARVESTING_DECREASE: = 10
+const ENDLESS_HARVESTING_DECREASE: = 20
 
 export (Array, Resource) var backgrounds = []
 export (Array, Color) var background_colors = []
@@ -830,7 +830,12 @@ func handle_explosion(key:String, pos:Vector2)->void :
 				dmg += explosion_stats.damage
 			
 			var _inst = WeaponService.explode(first, pos, dmg, first.stats.accuracy, first.stats.crit_chance, first.stats.crit_damage, first.stats.burning_data, false, [], first.tracking_text)
-		
+
+
+func update_recycling_tracking_value(item_data:ItemParentData)->void :
+	if RunData.get_nb_item("item_recycling_machine") > 0:
+		var value = ItemService.get_value(RunData.current_wave, item_data.value, true, true, item_data.my_id)
+		RunData.tracked_item_effects["item_recycling_machine"] += (value * (RunData.effects["recycling_gains"] / 100.0)) as int
 
 
 func get_state(
@@ -1065,6 +1070,7 @@ func init_effects()->Dictionary:
 		"hp_start_next_wave":100, 
 		"no_min_range":0, 
 		"pacifist":0, 
+		"cryptid":0, 
 		"gain_pct_gold_start_wave":0, 
 		"torture":0, 
 		"recycling_gains":0, 

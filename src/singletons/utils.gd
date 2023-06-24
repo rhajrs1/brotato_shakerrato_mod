@@ -176,7 +176,7 @@ func get_enemy_scaling_text(enemy_health:float, enemy_damage:float, enemy_speed:
 
 	text += str(difficulty_val) + "%"
 	
-	if (health == 100 and damage == 100 and speed == 100) or (difficulty_val == 100):
+	if health == 100 and damage == 100 and speed == 100:
 		text = ""
 	
 	return text

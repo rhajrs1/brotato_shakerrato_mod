@@ -16,17 +16,17 @@ var _modLoader
 
 func _init(modLoader = ModLoader):
 	_modLoader = modLoader
-	ModLoaderUtils.log_info("Init",  LOG_NAME)
-	dir = modLoader.UNPACKED_DIR + MOD_DIR
+	ModLoaderLog.info("Init",  LOG_NAME)
+	dir = ModLoaderMod.get_unpacked_dir() + MOD_DIR
 	trans_dir = dir + "translations/"
 	content_dir = dir + "content/"
 	content_data_dir = dir + "content_data/"
 	ext_dir = dir + "extensions/"
-	modLoader.install_script_extension("res://mods-unpacked/asw-strong_enemy/extensions/zone_service.gd")
+	ModLoaderMod.install_script_extension("res://mods-unpacked/asw-strong_enemy/extensions/zone_service.gd")
 
 func _ready():
 	
-	ModLoaderUtils.log_info("Done",  LOG_NAME)
+	ModLoaderLog.info("Done",  LOG_NAME)
 
 	var ContentLoader = get_node("/root/ModLoader/Darkly77-ContentLoader/ContentLoader")
 	

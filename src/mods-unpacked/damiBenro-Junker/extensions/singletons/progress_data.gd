@@ -1,7 +1,8 @@
 extends "res://singletons/progress_data.gd"
 
 func _ready():
-	if ModLoader.mod_data.keys().has("damiBenro-Junker") and ModLoader.mod_data.keys().has("Psina-Extatonion"):
+	var modData = ModLoaderMod.get_mod_data_all()
+	if modData.keys().has("damiBenro-Junker") and modData.keys().has("Psina-Extatonion"):
 		check_crossover_starting_weapons("res://mods-unpacked/damiBenro-Junker/content_data/junker_extatonion_content.tres")
 
 

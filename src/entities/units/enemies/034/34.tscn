@@ -105,7 +105,7 @@ cooldown = 1.0
 damage_increase_each_wave = 1.15
 max_range = 2000
 random_direction = true
-number_projectiles = 4
+number_projectiles = 3
 projectile_spread = 0.8
 
 [node name="LifeBar" parent="." index="12"]

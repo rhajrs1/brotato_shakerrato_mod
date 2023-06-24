@@ -32,10 +32,11 @@ func _ready()->void:
 
 	var first_mod: Button = null
 	var last_mod: Button = null
-	for mod in ModLoader.mod_data:
+	var modData = ModLoaderMod.get_mod_data_all()
+	for mod in modData:
 		var instance: PanelContainer = mod_container_scene.instance()
 		_mod_list_container.add_child(instance)
-		var mod_data = ModLoader.mod_data[mod]
+		var mod_data = modData[mod]
 		instance.name = mod_data.manifest.name
 		instance.set_data(mod_data)
 		var _error = instance.connect("mod_focused", self, "on_mod_focused")

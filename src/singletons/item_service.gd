@@ -56,6 +56,7 @@ export (Array, Resource) var difficulties: = []
 export (Resource) var item_box = null
 export (Resource) var legendary_item_box = null
 export (Resource) var upgrade_to_process_icon = null
+export (Resource) var material_icon = null
 
 
 func reset_tiers_data()->void :
@@ -475,12 +476,12 @@ func get_value(wave:int, base_value:int, affected_by_items_price_stat:bool = tru
 	var items_price_factor = (1.0 + ((RunData.effects["items_price"] + specific_item_price_factor) / 100.0)) if affected_by_items_price_stat else 1.0
 	var diff_factor = (RunData.effects["inflation"] / 100.0) if affected_by_items_price_stat else 0.0
 	var endless_factor = (RunData.get_endless_factor(wave) / 5.0) if affected_by_items_price_stat else 0.0
-	
-	return max(1.0, ((value_after_weapon_price + wave + (value_after_weapon_price * wave * (0.1 + diff_factor + endless_factor))) * items_price_factor)) as int
+	return max(1.0, ((value_after_weapon_price + wave + (value_after_weapon_price * wave * (0.1 + diff_factor))) * items_price_factor * (1 + endless_factor))) as int
+
 
 
 func get_reroll_price(wave:int, last_reroll_value:int)->int:
-	return max(1.0, last_reroll_value + max(1.0, (0.5 * wave * (1.0 + RunData.get_endless_factor())))) as int
+	return max(1.0, last_reroll_value + max(1.0, (0.5 * wave * pow(1.0 + RunData.get_endless_factor(), 0.5)))) as int
 
 
 func get_recycling_value(wave:int, from_value:int, is_weapon:bool = false, affected_by_items_price_stat:bool = true)->int:

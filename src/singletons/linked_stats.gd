@@ -31,7 +31,10 @@ func reset()->void :
 			stat_scaled = RunData.get_nb_item(linked_stat[2], false)
 		else :
 			if RunData.effects.has(linked_stat[2]):
-				stat_scaled = RunData.get_stat(linked_stat[2]) + TempStats.get_stat(linked_stat[2])
+				if linked_stat[4] == true:
+					stat_scaled = RunData.get_stat(linked_stat[2])
+				else :
+					stat_scaled = RunData.get_stat(linked_stat[2]) + TempStats.get_stat(linked_stat[2])
 			else :
 				continue
 		

@@ -95,5 +95,5 @@ func _on_ButtonWithIcon_mouse_exited()->void :
 		_label.modulate = get_color("font_color")
 
 
-func set_icon(icon:Texture)->void :
-	_gold_icon.set_icon(icon)
+func set_icon(icon:Texture, color:Color = Color.white)->void :
+	_gold_icon.set_icon(icon, color)

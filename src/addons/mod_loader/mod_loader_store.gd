@@ -54,9 +54,6 @@ var has_shown_editor_zips_warning: = false
 var saved_objects: = []
 
 
-var loaded_vanilla_parents_cache: = {}
-
-
 var saved_scripts: = {}
 
 

@@ -11,4 +11,4 @@ custom_key = "dmg_on_dodge"
 storage_method = 0
 effect_sign = 3
 custom_args = [  ]
-chance = 50
+chance = 100

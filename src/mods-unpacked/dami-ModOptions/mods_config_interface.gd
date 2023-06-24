@@ -9,21 +9,22 @@ const LOG_NAME = "dami-ModOptions"
 var mod_configs := {}
 
 func _ready():
-	ModLoaderUtils.log_info("Loading mod configs", LOG_NAME)
+	ModLoaderLog.info("Loading mod configs", LOG_NAME)
 	var nb_configs := 0
 	
-	for mod in ModLoader.mod_load_order:
+	#ModLoader.mod_load_order:
+	for mod in ModLoaderStore.mod_load_order:
 		if mod is ModData:
 			var mod_name:String = mod.dir_name
-			var mod_config:Dictionary = mod.config
+			var mod_config:Dictionary = mod.configs
 			
-			_add_default_keys_if_needed(mod_config, mod.manifest.config_defaults)
+			_add_default_keys_if_needed(mod_config, mod.manifest.config_schema)
 			
 			if mod_config.empty():
-				ModLoaderUtils.log_info(mod_name + " : No config found", LOG_NAME)
+				ModLoaderLog.info(mod_name + " : No config found", LOG_NAME)
 			
 			else:
-				ModLoaderUtils.log_info(mod_name + " : " + str(mod.config), LOG_NAME)
+				ModLoaderLog.info(mod_name + " : " + str(mod.config), LOG_NAME)
 				nb_configs += 1
 				mod_configs[mod_name] = mod_config
 				
@@ -31,7 +32,7 @@ func _ready():
 			
 			
 		
-	ModLoaderUtils.log_info(str(nb_configs) + " mod configs loaded", LOG_NAME)
+	ModLoaderLog.info(str(nb_configs) + " mod configs loaded", LOG_NAME)
 	pass
 
 

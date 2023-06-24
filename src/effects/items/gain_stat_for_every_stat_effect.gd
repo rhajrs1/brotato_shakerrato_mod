@@ -10,16 +10,19 @@ static func get_id()->String:
 
 
 func apply()->void :
-	RunData.effects["stat_links"].push_back([key, value, stat_scaled, nb_stat_scaled])
+	var perm_only = text_key.to_upper() == "EFFECT_GAIN_STAT_FOR_EVERY_PERM_STAT"
+	RunData.effects["stat_links"].push_back([key, value, stat_scaled, nb_stat_scaled, perm_only])
 
 
 func unapply()->void :
-	RunData.effects["stat_links"].erase([key, value, stat_scaled, nb_stat_scaled])
+	var perm_only = text_key.to_upper() == "EFFECT_GAIN_STAT_FOR_EVERY_PERM_STAT"
+	RunData.effects["stat_links"].erase([key, value, stat_scaled, nb_stat_scaled, perm_only])
 
 
 func get_args()->Array:
 	var actual_nb_scaled = 0
 	var key_arg = key
+	var perm_only = text_key.to_upper() == "EFFECT_GAIN_STAT_FOR_EVERY_PERM_STAT"
 	
 	if stat_scaled == "materials":
 		actual_nb_scaled = RunData.gold
@@ -35,6 +38,8 @@ func get_args()->Array:
 		actual_nb_scaled = RunData.get_nb_item(stat_scaled, false)
 	elif stat_scaled == "living_tree":
 		actual_nb_scaled = RunData.current_living_trees
+	elif perm_only:
+		actual_nb_scaled = RunData.get_stat(stat_scaled)
 	else :
 		actual_nb_scaled = RunData.get_stat(stat_scaled) + TempStats.get_stat(stat_scaled)
 	

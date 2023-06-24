@@ -1,7 +1,6 @@
+
 class_name ModLoaderConfig
 extends Object
-
-
 
 
 const LOG_NAME: = "ModLoader:Config"

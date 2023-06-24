@@ -36,8 +36,7 @@ func update(dir:Directory, dir_path:String)->void :
 				var txt = ""
 				
 				for effect in cur_file.effects:
-					if effect is StatGainsModificationEffect and effect.stat_displayed == "stat_damage":
-						effect.stats_modified.push_back("damage_against_bosses")
+					if effect.text_key.to_upper() == "EFFECT_GAIN_STAT_FOR_EVERY_STAT" or effect.text_key.to_upper() == "EFFECT_GAIN_STAT_FOR_EVERY_PERM_STAT":
 						print(cur_file.my_id)
 		
 		file_name = dir.get_next()

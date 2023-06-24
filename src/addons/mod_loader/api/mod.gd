@@ -1,9 +1,19 @@
+
 class_name ModLoaderMod
 extends Object
 
 
-
 const LOG_NAME: = "ModLoader:Mod"
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -30,53 +40,11 @@ static func install_script_extension(child_script_path:String)->void :
 		_ModLoaderScriptExtension.apply_extension(child_script_path)
 
 
-static func uninstall_script_extension(extension_script_path:String)->void :
-	
-	
-	_ModLoaderScriptExtension.remove_specific_extension_from_script(extension_script_path)
 
 
 
 
 
-
-
-
-
-
-func reload_mods()->void :
-
-	
-	
-	ModLoader._reload_mods()
-
-
-
-
-
-
-
-
-
-func disable_mods()->void :
-
-	
-	
-	ModLoader._disable_mods()
-
-
-
-
-
-
-
-
-
-func disable_mod(mod_data:ModData)->void :
-
-	
-	
-	ModLoader._disable_mod(mod_data)
 
 
 
@@ -86,6 +54,12 @@ func disable_mod(mod_data:ModData)->void :
 static func register_global_classes_from_array(new_global_classes:Array)->void :
 	ModLoaderUtils.register_global_classes_from_array(new_global_classes)
 	var _savecustom_error:int = ProjectSettings.save_custom(_ModLoaderPath.get_override_path())
+
+
+
+
+
+
 
 
 
@@ -102,34 +76,14 @@ static func add_translation(resource_path:String)->void :
 
 
 
-static func get_mod_data(mod_id:String)->ModData:
-	if not ModLoaderStore.mod_data.has(mod_id):
-		print(ModLoaderStore.mod_data)
-		ModLoaderLog.error("%s is an invalid mod_id" % mod_id, LOG_NAME)
-		return null
-
-	return ModLoaderStore.mod_data[mod_id]
 
 
 
-static func get_mod_data_all()->Dictionary:
-	return ModLoaderStore.mod_data
 
 
 
-static func is_mod_loaded(mod_id:String)->bool:
-	if ModLoaderStore.is_initializing:
-		ModLoaderLog.warning(
-			"The ModLoader is not fully initialized. " + 
-			"Calling \"is_mod_loaded()\" in \"_init()\" may result in an unexpected return value as mods are still loading.", 
-			LOG_NAME
-		)
 
-	
-	if not ModLoaderStore.mod_data.has(mod_id) or not ModLoaderStore.mod_data[mod_id].is_loadable:
-		return false
 
-	return true
 
 
 static func append_node_in_scene(modified_scene:Node, node_name:String = "", node_parent = null, instance_path:String = "", is_visible:bool = true)->void :
@@ -151,6 +105,13 @@ static func append_node_in_scene(modified_scene:Node, node_name:String = "", nod
 		new_node.set_owner(modified_scene)
 
 
+
+
+
+
+
+
+
 static func save_scene(modified_scene:Node, scene_path:String)->void :
 	var packed_scene: = PackedScene.new()
 	var _pack_error: = packed_scene.pack(modified_scene)
@@ -160,5 +121,54 @@ static func save_scene(modified_scene:Node, scene_path:String)->void :
 	ModLoaderStore.saved_objects.append(packed_scene)
 
 
+
+
+
+
+
+
+
+static func get_mod_data(mod_id:String)->ModData:
+	if not ModLoaderStore.mod_data.has(mod_id):
+		ModLoaderLog.error("%s is an invalid mod_id" % mod_id, LOG_NAME)
+		return null
+
+	return ModLoaderStore.mod_data[mod_id]
+
+
+
+
+
+
+static func get_mod_data_all()->Dictionary:
+	return ModLoaderStore.mod_data
+
+
+
+
+
+
 static func get_unpacked_dir()->String:
 	return _ModLoaderPath.get_unpacked_mods_dir_path()
+
+
+
+
+
+
+
+
+
+static func is_mod_loaded(mod_id:String)->bool:
+	if ModLoaderStore.is_initializing:
+		ModLoaderLog.warning(
+			"The ModLoader is not fully initialized. " + 
+			"Calling \"is_mod_loaded()\" in \"_init()\" may result in an unexpected return value as mods are still loading.", 
+			LOG_NAME
+		)
+
+	
+	if not ModLoaderStore.mod_data.has(mod_id) or not ModLoaderStore.mod_data[mod_id].is_loadable:
+		return false
+
+	return true

@@ -106,7 +106,7 @@ script = ExtResource( 9 )
 enemy_to_spawn = ExtResource( 10 )
 cooldown = 15.0
 max_cd_randomization = 0
-nb_to_spawn = 10
+nb_to_spawn = 6
 spawn_at_random_pos = false
 spawn_in_radius_around_unit = 800
 

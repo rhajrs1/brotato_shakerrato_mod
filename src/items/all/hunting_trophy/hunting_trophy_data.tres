@@ -16,6 +16,6 @@ tier = 2
 value = 55
 effects = [ ExtResource( 3 ) ]
 tracking_text = "MATERIALS_GAINED"
-max_nb = -1
+max_nb = 3
 item_appearances = [ ExtResource( 1 ), ExtResource( 6 ) ]
 tags = [ "stat_crit_chance" ]

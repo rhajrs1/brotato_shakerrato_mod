@@ -15,6 +15,6 @@ tier = 1
 value = 35
 effects = [ ExtResource( 3 ) ]
 tracking_text = "MATERIALS_SAVED"
-max_nb = -1
+max_nb = 3
 item_appearances = [ ExtResource( 4 ) ]
 tags = [ "economy" ]

@@ -309,7 +309,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/entity_type.gd"
 }, {
-"base": "ChallengeData",
+"base": "Reference",
 "class": "ExpandedChallengeData",
 "language": "GDScript",
 "path": "res://mods-unpacked/Darkly77-ExpandedChallenges/challenges/ex_challenge_data.gd"
@@ -509,15 +509,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://mods-unpacked/otDan-ItemExplorer/ui/menus/items/parts/item_toggle.gd"
 }, {
-"base": "File",
-"class": "JSONFile",
-"language": "GDScript",
-"path": "res://addons/JSON_Schema_Validator/scripts/json_file.gd"
-}, {
 "base": "Reference",
 "class": "JSONSchema",
 "language": "GDScript",
-"path": "res://addons/JSON_Schema_Validator/scripts/json_schema_validator.gd"
+"path": "res://addons/JSON_Schema_Validator/json_schema_validator.gd"
 }, {
 "base": "Structure",
 "class": "Landmine",
@@ -663,6 +658,11 @@ _global_script_classes=[ {
 "class": "ModLoaderMod",
 "language": "GDScript",
 "path": "res://addons/mod_loader/api/mod.gd"
+}, {
+"base": "Reference",
+"class": "ModLoaderModManager",
+"language": "GDScript",
+"path": "res://addons/mod_loader/api/mod_manager.gd"
 }, {
 "base": "Resource",
 "class": "ModLoaderOptionsProfile",
@@ -1410,7 +1410,6 @@ _global_script_class_icons={
 "ItemPopup": "",
 "ItemTierStatGainsModificationEffect": "",
 "ItemToggle": "",
-"JSONFile": "",
 "JSONSchema": "",
 "Landmine": "",
 "LanguageButton": "",
@@ -1441,6 +1440,7 @@ _global_script_class_icons={
 "ModLoaderDeprecated": "",
 "ModLoaderLog": "",
 "ModLoaderMod": "",
+"ModLoaderModManager": "",
 "ModLoaderOptionsProfile": "",
 "ModLoaderSetupLog": "",
 "ModLoaderSetupUtils": "",
@@ -1575,7 +1575,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Brotato"
-run/main_scene="res://addons/mod_loader/pause.tscn"
+run/main_scene="res://pause.tscn"
 config/use_custom_user_dir=true
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://brotato_icon.png"

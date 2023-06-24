@@ -102,9 +102,6 @@ onready var _test_button = $"%TestButton"
 
 func _ready()->void :
 	
-#	RunData.add_gold(999999999999999)
-#	if RunData.current_wave <= 10: RunData.current_wave = 30
-	
 	if RunData.is_testing:_test_button.show()
 	else :_test_button.hide()
 	
@@ -300,9 +297,6 @@ func on_hp_bar_on_character_changed(value:int)->void :
 		
 		if not _player.is_connected("health_updated", self, "on_player_health_updated"):
 			var _error_hp_lifebar = _player.connect("health_updated", self, "on_player_health_updated")
-	else :
-		if _player.is_connected("health_updated", self, "on_player_health_updated"):
-			_player.disconnect("health_updated", self, "on_player_health_updated")
 
 
 func on_stat_updated(_stat_name:String, _value:int, _db_mod:float = 0.0)->void :
@@ -478,9 +472,9 @@ func spawn_loot(unit:Unit, entity_type:int)->void :
 	if entity_type == EntityType.ENEMY:
 		gold_drops += RunData.effects["enemy_gold_drops"] / 100.0
 	
-	var wave_factor = (RunData.current_wave * 0.015) if RunData.current_wave <= RunData.nb_of_waves else (RunData.current_wave * 0.025)
+	var wave_factor = RunData.current_wave * 0.015
 	var diff_factor = (RunData.effects["diff_gold_drops"] / 100.0)
-	var spawn_chance = (1.0 + diff_factor) * gold_drops if (RunData.current_wave < 5) else max(0.25, (1.0 - wave_factor + diff_factor) * gold_drops)
+	var spawn_chance = (1.0 + diff_factor) * gold_drops if (RunData.current_wave < 5) else max(0.5 * gold_drops, (1.0 - wave_factor + diff_factor) * gold_drops)
 	
 	if _is_horde_wave:
 		spawn_chance *= 0.65
@@ -504,7 +498,7 @@ func spawn_consumables(unit:Unit)->void :
 	var drop_chance = min(1.0, unit.stats.base_drop_chance * (1 + luck))
 	
 	if RunData.current_wave > RunData.nb_of_waves:
-		drop_chance /= (1.0 + (RunData.get_endless_factor() * 3.0))
+		drop_chance /= (1.0 + RunData.get_endless_factor())
 	
 	if randf() <= drop_chance or unit.stats.always_drop_consumables:
 		var pos = unit.global_position
@@ -829,6 +823,7 @@ func on_item_box_take_button_pressed(item_data:ItemParentData)->void :
 
 func on_item_box_discard_button_pressed(item_data:ItemParentData)->void :
 	RunData.add_gold(ItemService.get_recycling_value(RunData.current_wave, item_data.value))
+	RunData.update_recycling_tracking_value(item_data)
 
 
 func _on_PauseMenu_paused()->void :
@@ -878,6 +873,8 @@ func _on_WaveTimer_timeout()->void :
 		Utils.convert_stats(RunData.effects["convert_stats_end_of_wave"])
 	
 	manage_harvesting()
+	
+	
 	DebugService.log_data("start clean_up_room...")
 	clean_up_room(is_last_wave, false, _is_run_won)
 	
@@ -932,13 +929,14 @@ func manage_harvesting()->void :
 
 	var elite_end_wave_bonus = 0
 	
-	if Utils.get_stat("stat_harvesting") != 0 or RunData.effects["pacifist"] != 0 or elite_end_wave_bonus != 0 or _elite_killed_bonus != 0:
+	if Utils.get_stat("stat_harvesting") != 0 or RunData.effects["pacifist"] != 0 or elite_end_wave_bonus != 0 or _elite_killed_bonus != 0 or (RunData.effects["cryptid"] != 0 and RunData.current_living_trees != 0):
 		var pacifist_bonus = round((_entity_spawner.get_all_enemies().size() + _entity_spawner.enemies_removed_for_perf) * (RunData.effects["pacifist"] / 100.0))
+		var cryptid_bonus = RunData.current_living_trees * RunData.effects["cryptid"]
 		
 		if _is_horde_wave:
 			pacifist_bonus = (pacifist_bonus / 2) as int
 		
-		var val = Utils.get_stat("stat_harvesting") + pacifist_bonus + _elite_killed_bonus + elite_end_wave_bonus
+		var val = Utils.get_stat("stat_harvesting") + pacifist_bonus + cryptid_bonus + _elite_killed_bonus + elite_end_wave_bonus
 		
 		RunData.add_gold(val)
 		RunData.add_xp(val)
@@ -947,6 +945,8 @@ func manage_harvesting()->void :
 		
 		if Utils.get_stat("stat_harvesting") > 0:
 			_harvesting_timer.start()
+		
+		RunData.add_xp(0)
 
 
 func _on_FiveSecondsTimer_timeout()->void :
@@ -990,8 +990,8 @@ func _on_EntitySpawner_player_spawned(player:Player)->void :
 	
 	if ProgressData.settings.hp_bar_on_character:
 		_player_life_bar.update_value(player.current_stats.health, player.max_stats.health)
-		var _error_hp_lifebar = player.connect("health_updated", self, "on_player_health_updated")
 	
+	var _error_player_hp = player.connect("health_updated", self, "on_player_health_updated")
 	set_life_label(player.current_stats.health, player.max_stats.health)
 	_xp_bar.update_value(RunData.current_xp, RunData.get_next_level_xp_needed())
 	var _error_hp_vignette = player.connect("health_updated", _damage_vignette, "update_from_hp")

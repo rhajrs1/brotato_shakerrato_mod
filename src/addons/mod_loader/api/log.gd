@@ -1,10 +1,10 @@
+
 class_name ModLoaderLog
 extends Node
 
 
-
-
 const MOD_LOG_PATH: = "user://logs/modloader.log"
+
 const LOG_NAME: = "ModLoader:Log"
 
 enum VERBOSITY_LEVEL{
@@ -14,17 +14,41 @@ enum VERBOSITY_LEVEL{
 	DEBUG, 
 }
 
+
 class ModLoaderLogEntry:
 	extends Resource
 
+	
 	var mod_name:String
+
+	
 	var message:String
+
+	
 	var type:String
+
+	
+	
 	var time:String
+
+	
+	
 	var time_stamp:int
+
+	
+	
 	var stack: = []
 
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	func _init(_mod_name:String, _message:String, _type:String, _time:String)->void :
 		mod_name = _mod_name
 		message = _message
@@ -33,23 +57,43 @@ class ModLoaderLogEntry:
 		time_stamp = Time.get_ticks_msec()
 
 
+	
+	
+	
 	func get_entry()->String:
 		return str(time, get_prefix(), message)
 
 
+	
+	
+	
 	func get_prefix()->String:
 		return "%s %s: " % [type.to_upper(), mod_name]
 
 
+	
+	
+	
 	func get_md5()->String:
 		return str(get_prefix(), message).md5_text()
 
 
+	
+	
+	
 	func get_all_entries()->Array:
 		var entries: = [self]
 		entries.append_array(stack)
 
 		return entries
+
+
+
+
+
+
+
+
 
 
 
@@ -64,8 +108,24 @@ static func fatal(message:String, mod_name:String, only_once: = false)->void :
 
 
 
+
+
+
+
+
+
+
+
 static func error(message:String, mod_name:String, only_once: = false)->void :
 	_log(message, mod_name, "error", only_once)
+
+
+
+
+
+
+
+
 
 
 
@@ -76,8 +136,24 @@ static func warning(message:String, mod_name:String, only_once: = false)->void :
 
 
 
+
+
+
+
+
+
+
+
 static func info(message:String, mod_name:String, only_once: = false)->void :
 	_log(message, mod_name, "info", only_once)
+
+
+
+
+
+
+
+
 
 
 
@@ -88,8 +164,25 @@ static func success(message:String, mod_name:String, only_once: = false)->void :
 
 
 
+
+
+
+
+
+
+
+
 static func debug(message:String, mod_name:String, only_once: = false)->void :
 	_log(message, mod_name, "debug", only_once)
+
+
+
+
+
+
+
+
+
 
 
 
@@ -103,8 +196,15 @@ static func debug_json_print(message:String, json_printable, mod_name:String, on
 
 
 
+
+
+
+
 static func get_all_as_resource()->Array:
 	return get_all()
+
+
+
 
 
 
@@ -114,8 +214,20 @@ static func get_all_as_string()->Array:
 
 
 
+
+
+
+
+
+
 static func get_by_mod_as_resource(mod_name:String)->Array:
 	return get_by_mod(mod_name)
+
+
+
+
+
+
 
 
 
@@ -125,14 +237,30 @@ static func get_by_mod_as_string(mod_name:String)->Array:
 
 
 
+
+
+
+
+
+
 static func get_by_type_as_resource(type:String)->Array:
 	return get_by_type(type)
+
+
+
+
+
+
 
 
 
 static func get_by_type_as_string(type:String)->Array:
 	var log_entries: = get_by_type(type)
 	return get_all_entries_as_string(log_entries)
+
+
+
+
 
 
 static func get_all()->Array:
@@ -149,6 +277,13 @@ static func get_all()->Array:
 	return log_entries
 
 
+
+
+
+
+
+
+
 static func get_by_mod(mod_name:String)->Array:
 	var log_entries: = []
 
@@ -163,6 +298,13 @@ static func get_by_mod(mod_name:String)->Array:
 	return log_entries
 
 
+
+
+
+
+
+
+
 static func get_by_type(type:String)->Array:
 	var log_entries: = []
 
@@ -171,6 +313,13 @@ static func get_by_type(type:String)->Array:
 		log_entries.append_array(entry.get_all_entries())
 
 	return log_entries
+
+
+
+
+
+
+
 
 
 static func get_all_entries_as_string(log_entries:Array)->Array:
@@ -249,13 +398,15 @@ static func _get_verbosity()->int:
 
 
 static func _store_log(log_entry:ModLoaderLogEntry)->void :
+	var existing_entry:ModLoaderLogEntry
+
 	
 	
 	if not ModLoaderStore.logged_messages.all.has(log_entry.get_md5()):
 		ModLoaderStore.logged_messages.all[log_entry.get_md5()] = log_entry
 	
 	else :
-		var existing_entry:ModLoaderLogEntry = ModLoaderStore.logged_messages.all[log_entry.get_md5()]
+		existing_entry = ModLoaderStore.logged_messages.all[log_entry.get_md5()]
 		existing_entry.time = log_entry.time
 		existing_entry.stack.push_back(log_entry)
 
@@ -264,10 +415,10 @@ static func _store_log(log_entry:ModLoaderLogEntry)->void :
 	if not ModLoaderStore.logged_messages.by_mod.has(log_entry.mod_name):
 		ModLoaderStore.logged_messages.by_mod[log_entry.mod_name] = {}
 
-	ModLoaderStore.logged_messages.by_mod[log_entry.mod_name][log_entry.get_md5()] = log_entry
+	ModLoaderStore.logged_messages.by_mod[log_entry.mod_name][log_entry.get_md5()] = log_entry if not existing_entry else existing_entry
 
 	
-	ModLoaderStore.logged_messages.by_type[log_entry.type.to_lower()][log_entry.get_md5()] = log_entry
+	ModLoaderStore.logged_messages.by_type[log_entry.type.to_lower()][log_entry.get_md5()] = log_entry if not existing_entry else existing_entry
 
 
 static func _is_logged_before(entry:ModLoaderLogEntry)->bool:

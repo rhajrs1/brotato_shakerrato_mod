@@ -140,19 +140,34 @@ func on_group_spawn_timing_reached(group_data:WaveGroupData, _is_elite_wave:bool
 			
 			number += nb_to_add
 		
-		for i in number:
-			if randf() <= unit_wave_data.spawn_chance:
+		if group_data.is_neutral:
+			
+			var total_chance:float = number * unit_wave_data.spawn_chance
+			var nb = floor(total_chance)
+			var residual_chance:float = total_chance - nb
+			
+			if randf() <= residual_chance:
+				nb += 1
+			
+			for i in nb:
 				var spawn_pos = get_spawn_pos_in_area(group_pos, group_data.area, group_data.spawn_dist_away_from_edges, group_data.spawn_edge_of_map)
-				
+			
 				while spawn_pos.distance_to(_player.global_position) < MIN_DIST_FROM_PLAYER:
 					spawn_pos = get_spawn_pos_in_area(group_pos, - 1, group_data.spawn_dist_away_from_edges, group_data.spawn_edge_of_map)
 				
-				if group_data.is_boss:
-					queue_to_spawn_bosses.push_back([unit_wave_data.type, unit_wave_data.unit_scene, spawn_pos])
-				elif group_data.is_neutral:
-					queue_to_spawn_trees.push_back([unit_wave_data.type, unit_wave_data.unit_scene, spawn_pos])
-				else :
-					queue_to_spawn.push_back([unit_wave_data.type, unit_wave_data.unit_scene, spawn_pos])
+				queue_to_spawn_trees.push_back([unit_wave_data.type, unit_wave_data.unit_scene, spawn_pos])
+		else :
+			for i in number:
+				if randf() <= unit_wave_data.spawn_chance:
+					var spawn_pos = get_spawn_pos_in_area(group_pos, group_data.area, group_data.spawn_dist_away_from_edges, group_data.spawn_edge_of_map)
+					
+					while spawn_pos.distance_to(_player.global_position) < MIN_DIST_FROM_PLAYER:
+						spawn_pos = get_spawn_pos_in_area(group_pos, - 1, group_data.spawn_dist_away_from_edges, group_data.spawn_edge_of_map)
+					
+					if group_data.is_boss:
+						queue_to_spawn_bosses.push_back([unit_wave_data.type, unit_wave_data.unit_scene, spawn_pos])
+					else :
+						queue_to_spawn.push_back([unit_wave_data.type, unit_wave_data.unit_scene, spawn_pos])
 
 
 func get_group_pos(group_data:WaveGroupData)->Vector2:
