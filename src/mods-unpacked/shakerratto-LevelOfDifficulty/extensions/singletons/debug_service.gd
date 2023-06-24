@@ -3766,6 +3766,26 @@ func edit_items() -> void:
 		e.effect_sign = 3
 		item.effects.append(e)
 
+	item = find_item("ITEM_BOXING_GLOVE")
+	if item != null:
+		item.effects = []
+		var e = Effect.new()
+		e.key = "knockback"
+		e.text_key = "effect_knockback"
+		e.value = 3
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_range"
+		e.text_key = ""
+		e.value = 20
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+
 	item = find_item("ITEM_WEIRD_GHOST")
 	if item != null:
 		item.max_nb = 5
@@ -3812,7 +3832,7 @@ func edit_items() -> void:
 		var effect = Effect.new()
 		effect.key = "stat_luck"
 		effect.text_key = "EFFECT_FEELING_GOOD"
-		effect.value = 5
+		effect.value = 10
 		effect.storage_method = Effect.StorageMethod.SUM
 		effect.effect_sign = Effect.Sign.FROM_VALUE
 		item.effects.append(effect)
@@ -3828,7 +3848,7 @@ func edit_items() -> void:
 		effect = Effect.new()
 		effect.key = "stat_max_hp"
 		effect.text_key = "EFFECT_FEELING_TIRED_WHEN_READ"
-		effect.value = -5
+		effect.value = -4
 		effect.storage_method = Effect.StorageMethod.SUM
 		effect.effect_sign = 1
 		item.effects.append(effect)
@@ -3882,6 +3902,26 @@ func edit_items() -> void:
 		e.effect_sign = 3
 		item.effects.append(e)
 
+	item = find_item("ITEM_CYCLOPS_WORM")
+	if item != null:
+		item.effects = []
+		var e = Effect.new()
+		e.key = "stat_percent_damage"
+		e.text_key = ""
+		e.value = 12
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_range"
+		e.text_key = ""
+		e.value = -6
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+
 	item = find_item("ITEM_COG")
 	if item != null:
 		item.max_nb = 2
@@ -3903,6 +3943,33 @@ func edit_items() -> void:
 		e.effect_sign = 3
 		item.effects.append(e)
 		e.key = "stat_speed"
+		e.text_key = ""
+		e.value = -2
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+
+	item = find_item("ITEM_BANNER")
+	if item != null:
+		item.effects = []
+		var e = Effect.new()
+		e.key = "stat_range"
+		e.text_key = ""
+		e.value = 30
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_attack_speed"
+		e.text_key = ""
+		e.value = 10
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e.key = "stat_lifesteal"
 		e.text_key = ""
 		e.value = -2
 		e.custom_key = ""
@@ -4155,7 +4222,7 @@ func edit_items() -> void:
 		e = Effect.new()
 		e.key = "hp_cap"
 		e.text_key = "EFFECT_HP_CAP"
-		e.value = 500
+		e.value = 600
 		e.custom_key = ""
 		e.storage_method = 2
 		e.effect_sign = 3
@@ -4528,7 +4595,7 @@ func edit_items() -> void:
 		e = Effect.new()
 		e.key = "stat_range"
 		e.text_key = ""
-		e.value = 20
+		e.value = 25
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -4536,7 +4603,7 @@ func edit_items() -> void:
 		e = Effect.new()
 		e.key = "pickup_range"
 		e.text_key = "effect_pickup_range"
-		e.value = -20
+		e.value = -25
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -4656,6 +4723,94 @@ func edit_items() -> void:
 		e.text_key = "effect_gain_stat_end_of_wave"
 		e.value = 1
 		e.custom_key = "stats_end_of_wave"
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+
+	item = find_item("ITEM_CAPE")
+	if item != null:
+		item.effects = []
+		var e = Effect.new()
+		e.key = "stat_lifesteal"
+		e.text_key = ""
+		e.value = 5
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_range"
+		e.text_key = ""
+		e.value = 40
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_dodge"
+		e.text_key = ""
+		e.value = 20
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_melee_damage"
+		e.text_key = ""
+		e.value = -2
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_ranged_damage"
+		e.text_key = ""
+		e.value = -2
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_elemental_damage"
+		e.text_key = ""
+		e.value = -2
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+
+	item = find_item("ITEM_NIGHT_GOGGLES")
+	if item != null:
+		item.effects = []
+		var e = Effect.new()
+		e.key = "stat_crit_chance"
+		e.text_key = ""
+		e.value = 15
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_range"
+		e.text_key = ""
+		e.value = 75
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_max_hp"
+		e.text_key = ""
+		e.value = -3
+		e.custom_key = ""
+		e.storage_method = 0
+		e.effect_sign = 3
+		item.effects.append(e)
+		e = Effect.new()
+		e.key = "stat_armor"
+		e.text_key = ""
+		e.value = -1
+		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
 		item.effects.append(e)
@@ -5036,7 +5191,7 @@ func edit_items() -> void:
 		item.effects.append(e)
 		e = Effect.new()
 		e.key = "stat_max_hp"
-		e.value = -10
+		e.value = -8
 		e.storage_method = 0
 		e.effect_sign = 3
 		item.effects.append(e)
@@ -5110,7 +5265,7 @@ func edit_items() -> void:
 		item.effects.append(effect)
 		effect = Effect.new()
 		effect.key = "stat_max_hp"
-		effect.value = -10
+		effect.value = -8
 		effect.storage_method = Effect.StorageMethod.SUM
 		effect.effect_sign = Effect.Sign.FROM_VALUE
 		item.effects.append(effect)
@@ -5135,7 +5290,7 @@ func edit_items() -> void:
 		item.effects.append(e2)
 		effect = Effect.new()
 		effect.key = "stat_range"
-		effect.value = 250
+		effect.value = 280
 		effect.storage_method = Effect.StorageMethod.SUM
 		effect.effect_sign = Effect.Sign.FROM_VALUE
 		item.effects.append(effect)
@@ -5380,6 +5535,10 @@ func edit_weapons() -> void:
 	w = find_weapon("WEAPON_ROCK", ItemParentData.Tier.LEGENDARY)
 	if w != null:
 		w.stats.scaling_stats[0][1] = 1.5
+
+	w = find_weapon("WEAPON_EXCALIBUR", ItemParentData.Tier.LEGENDARY)	
+	if w != null:
+		w.stats.scaling_stats[1][1] = 1
 
 	w = find_weapon("Bow", ItemParentData.Tier.COMMON)	
 	if w != null:
