@@ -7,6 +7,7 @@ func _ready():
 	edit_items()
 	edit_weapons()
 	remove_items()
+	remove_characters()
 	remove_weapons()
 	append_items()
 
@@ -5691,6 +5692,11 @@ func remove_items() -> void:
 	remove_item("Insect turret")
 	remove_item("Swarm")
 
+# note : 캐릭터 삭제 method, remove_character(삭제 할 아이템 이름)
+func remove_characters() -> void:
+	remove_character("Beelzebub")
+	remove_character("Glitched")
+
 # note : 무기 삭제 method, remove_weapon(삭제 할 아이템 이름)
 func remove_weapons() -> void:
 	remove_weapon("Armageddon")
@@ -5703,11 +5709,6 @@ func remove_weapons() -> void:
 	remove_weapon("USP")
 	remove_weapon("Grenade Launcher")
 	remove_weapon("Click fingers")
-
-# note : 캐릭터 삭제 method, remove_character(삭제 할 아이템 이름)
-func remove_character() -> void:
-	remove_character("Beelzebub")
-	remove_character("Glitched")
 
 #-----------------------------------------------------------------------
 # note : 이하 utils
@@ -5744,6 +5745,18 @@ func remove_item(name: String) -> void:
 		
 	for i in removeTarget.size():
 		ItemService.items.erase(removeTarget[i])
+		
+func remove_character(name: String) -> void:
+	var removeTarget = []
+	for i in ItemService.characters.size():
+		if ItemService.characters[i].name == name:
+			removeTarget.append(ItemService.characters[i])
+			
+	if removeTarget.size() == 0:
+		print("Fail to remove item : " + name)
+		
+	for i in removeTarget.size():
+		ItemService.characters.erase(removeTarget[i])
 
 func remove_weapon(name: String) -> void:
 	var removeTarget = []
