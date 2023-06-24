@@ -123,7 +123,7 @@ script = ExtResource( 16 )
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 26 )
 projectile_speed = 1000
-cooldown = 120.0
+cooldown = 1e+07
 damage_increase_each_wave = 24.0
 max_range = 99999
 
@@ -248,11 +248,11 @@ max_range = 99999
 script = ExtResource( 8 )
 projectile_scene = ExtResource( 26 )
 projectile_speed = 900
-cooldown = 90.0
+cooldown = 225.0
 damage_increase_each_wave = 18.0
 max_range = 99999
-number_projectiles = 12
-projectile_spread = 2.0
+number_projectiles = 3
+projectile_spread = 1.4
 
 [node name="AttackBehavior8" type="Node2D" parent="States/Phase2" index="8"]
 script = ExtResource( 8 )
