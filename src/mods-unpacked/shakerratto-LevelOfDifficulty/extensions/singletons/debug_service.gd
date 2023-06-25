@@ -3528,8 +3528,8 @@ func edit_characters() -> void:
 		e.effect_sign = 3
 		e.custom_args = [  ]
 		character.effects.append(e)
-
-		character = find_character("CHARACTER_GREED_SHAKERRATTO")
+		
+	character = find_character("CHARACTER_GREED_SHAKERRATTO")
 	if character != null:
 		character.effects = []
 		var e = Effect.new()
