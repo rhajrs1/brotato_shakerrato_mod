@@ -5764,28 +5764,28 @@ func edit_weapons() -> void:
 		
 #	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.COMMON)
 #	if w != null:
-#		w.stats.damage = 20000
+#		w.stats.damage = 50000
 #		w.stats.cooldown = 1
 #		w.stats.recoil = 1
 #		w.stats.recoil_duration = 0.05
 #
 #	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.UNCOMMON)
 #	if w != null:
-#		w.stats.damage = 20000
+#		w.stats.damage = 50000
 #		w.stats.cooldown = 1
 #		w.stats.recoil = 1
 #		w.stats.recoil_duration = 0.05
 #
 #	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.RARE)
 #	if w != null:
-#		w.stats.damage = 20000
+#		w.stats.damage = 50000
 #		w.stats.cooldown = 1
 #		w.stats.recoil = 1
 #		w.stats.recoil_duration = 0.05
 #
 #	w = find_weapon("WEAPON_SHREDDER", ItemParentData.Tier.LEGENDARY)
 #	if w != null:
-#		w.stats.damage = 20000
+#		w.stats.damage = 50000
 #		w.stats.cooldown = 1
 #		w.stats.recoil = 1
 #		w.stats.recoil_duration = 0.05
