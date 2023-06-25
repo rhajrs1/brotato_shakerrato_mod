@@ -1370,7 +1370,7 @@ func edit_characters() -> void:
 	if character != null:
 		character.effects = []
 		var e = Effect.new()
-		e.key = "ITEM_COUPON"
+		e.key = "item_coupon"
 		e.text_key = "effect_starting_item"
 		e.value = 5
 		e.custom_key = "starting_item"
@@ -1420,7 +1420,16 @@ func edit_characters() -> void:
 		e.effect_sign = 1
 		e.custom_args = [  ]
 		e.stat_displayed = "stat_damage"
-		e.stats_modified = [ "stat_damage" ]
+		e.stats_modified = [ 
+			"stat_percent_damage",
+			"stat_ranged_damage",
+			"stat_melee_damage",
+			"stat_elemental_damage",
+			"explosion_damage",
+			"bounce_damage",
+			"piercing_damage",
+			"damage_against_bosses"
+		]
 		character.effects.append(e)
 		
 		e = Effect.new()
