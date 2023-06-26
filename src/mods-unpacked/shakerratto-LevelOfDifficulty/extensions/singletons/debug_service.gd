@@ -1319,7 +1319,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "speed_cap"
 		e.text_key = "effect_speed_cap"
-		e.value = 90
+		e.value = 85
 		e.custom_key = ""
 		e.storage_method = 2
 		e.effect_sign = 3
