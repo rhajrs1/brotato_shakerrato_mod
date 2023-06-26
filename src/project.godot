@@ -309,7 +309,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/entity_type.gd"
 }, {
-"base": "Reference",
+"base": "ChallengeData",
 "class": "ExpandedChallengeData",
 "language": "GDScript",
 "path": "res://mods-unpacked/Darkly77-ExpandedChallenges/challenges/ex_challenge_data.gd"

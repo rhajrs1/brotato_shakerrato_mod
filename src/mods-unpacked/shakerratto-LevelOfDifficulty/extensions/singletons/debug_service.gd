@@ -4869,6 +4869,7 @@ func edit_items() -> void:
 		e.storage_method = 0
 		e.effect_sign = 3
 		item.effects.append(e)
+		
 		e = Effect.new()
 		e.key = "stat_attack_speed"
 		e.text_key = ""
@@ -4877,6 +4878,8 @@ func edit_items() -> void:
 		e.storage_method = 0
 		e.effect_sign = 3
 		item.effects.append(e)
+		
+		e = Effect.new()
 		e.key = "stat_lifesteal"
 		e.text_key = ""
 		e.value = -2
