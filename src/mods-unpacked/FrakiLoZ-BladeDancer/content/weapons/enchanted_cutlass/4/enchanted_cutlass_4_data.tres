@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=1]
+[ext_resource path="res://items/sets/fire/fire_set_data.tres" type="Resource" id=2]
+[ext_resource path="res://items/sets/blade/blade_set_data.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/FrakiLoZ-BladeDancer/content/weapons/enchanted_cutlass/4/enchanted_cutlass_4_stats.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/FrakiLoZ-BladeDancer/content/weapons/enchanted_cutlass/enchanted_cutlass.tscn" type="PackedScene" id=5]
+[ext_resource path="res://mods-unpacked/FrakiLoZ-BladeDancer/content/weapons/enchanted_cutlass/enchanted_cutlass_icon.png" type="Texture" id=6]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "weapon_enchanted_cutlass_4"
+unlocked_by_default = false
+icon = ExtResource( 6 )
+name = "WEAPON_ENCHANTED_CUTLASS"
+tier = 3
+value = 176
+effects = [  ]
+tracking_text = ""
+weapon_id = "weapon_enchanted_cutlass"
+type = 0
+sets = [ ExtResource( 3 ), ExtResource( 2 ) ]
+scene = ExtResource( 5 )
+stats = ExtResource( 4 )
