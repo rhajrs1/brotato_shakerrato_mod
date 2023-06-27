@@ -8,12 +8,12 @@ var ext_dir = ""
 var trans_dir = ""
 
 func _init(modLoader = ModLoader):
-	ModLoaderUtils.log_info("Init", BLADEDANCER_LOG)
-	dir = modLoader.UNPACKED_DIR + "FrakiLoZ-BladeDancer/"
+	ModLoaderLog.info("Init", BLADEDANCER_LOG)
+	dir = ModLoaderMod.get_unpacked_dir() + "FrakiLoZ-BladeDancer/"
 	ext_dir = dir + "extensions/"
 	trans_dir = dir + "translations/"
-
-	modLoader.add_translation_from_resource(trans_dir + "mod_bladedancer_text.en.translation")
+	
+	ModLoaderMod.add_translation(trans_dir + "mod_bladedancer_text.en.translation")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,4 +27,4 @@ func _ready():
 	ContentLoader.load_data(content_dir + "contentdata_character_bladedancer.tres", mod_log)
 	ContentLoader.load_data(content_dir + "contentdata_weapon_dancingblade.tres", mod_log)
 	ContentLoader.load_data(content_dir + "contentdata_weapon_enchantedcutlass.tres", mod_log)
-	ModLoaderUtils.log_info("Done", BLADEDANCER_LOG)
+	ModLoaderLog.info("Done", BLADEDANCER_LOG)
