@@ -1319,7 +1319,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "speed_cap"
 		e.text_key = "effect_speed_cap"
-		e.value = 85
+		e.value = 80
 		e.custom_key = ""
 		e.storage_method = 2
 		e.effect_sign = 3
@@ -2621,7 +2621,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "gain_gold"
 		e.text_key = "effect_gain_gold_end_of_wave_20"
-		e.value = 5000
+		e.value = 3000
 		e.custom_key = "end_of_wave_20"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -5332,7 +5332,7 @@ func edit_items() -> void:
 		e = Effect.new()
 		e.key = "speed_cap"
 		e.text_key = "effect_speed_cap"
-		e.value = 90
+		e.value = 80
 		e.custom_key = ""
 		e.storage_method = 2
 		e.effect_sign = 3
