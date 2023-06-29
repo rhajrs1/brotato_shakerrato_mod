@@ -2070,7 +2070,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "gain_gold"
 		e.text_key = "effect_gain_gold_end_of_wave_20"
-		e.value = 2000
+		e.value = 5000
 		e.custom_key = "end_of_wave_20"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -3672,7 +3672,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "gain_gold"
 		e.text_key = "effect_gain_gold_end_of_wave_20"
-		e.value = 15000
+		e.value = 12000
 		e.custom_key = "end_of_wave_20"
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -4362,9 +4362,9 @@ func edit_characters() -> void:
 		character.effects.append(e)
 		
 		e = Effect.new()
-		e.key = "stat_attack_speed"
+		e.key = "stat_harvesting"
 		e.text_key = ""
-		e.value = -50
+		e.value = 35
 		e.custom_key = ""
 		e.storage_method = 0
 		e.effect_sign = 3
@@ -4374,7 +4374,7 @@ func edit_characters() -> void:
 		e = Effect.new()
 		e.key = "gain_gold"
 		e.text_key = "effect_gain_gold_end_of_wave_20"
-		e.value = 7000
+		e.value = 10000
 		e.custom_key = "end_of_wave_20"
 		e.storage_method = 0
 		e.effect_sign = 3
