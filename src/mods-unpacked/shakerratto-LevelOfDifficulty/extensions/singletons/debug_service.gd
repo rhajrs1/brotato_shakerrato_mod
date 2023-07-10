@@ -4298,7 +4298,7 @@ func edit_characters() -> void:
 		e.custom_args = [  ]
 		character.effects.append(e)
 		
-		character = find_character("Agent")
+		character = find_character("CHAR_AGENT")
 	if character != null:
 		character.effects = []
 		var e = Effect.new()
@@ -4381,7 +4381,7 @@ func edit_characters() -> void:
 		e.custom_args = [  ]
 		character.effects.append(e)
 		
-		character = find_character("Peasant")
+		character = find_character("CHAR_PEASANT")
 	if character != null:
 		character.effects = []
 		var e = GainStatForEveryStatEffect.new()
@@ -4537,7 +4537,7 @@ func append_items() -> void:
 		character.starting_weapons.append(w)
 		
 	character = find_character("CHARACTER_GREED_SHAKERRATTO")
-	w = find_weapon("Taxes", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEP_TAXES", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 		
@@ -4622,7 +4622,7 @@ func append_items() -> void:
 		character.starting_weapons.append(w)
 		
 	character = find_character("CHARACTER_DEMON")
-	w = find_weapon("Pitchfork", ItemParentData.Tier.COMMON)
+	w = find_weapon("WEP_PITCHFORK", ItemParentData.Tier.COMMON)
 	if character != null and w != null:
 		character.starting_weapons.append(w)
 		
@@ -5802,40 +5802,40 @@ func edit_items() -> void:
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 		
-	item = find_item("Dami's plushie")
+	item = find_item("ITEM_DAMI_PLUSH")
 	if item != null:
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 		
-	item = find_item("Drone")
+	item = find_item("ITEM_DRONE")
 	if item != null:
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 		
-	item = find_item("Insect turret")
+	item = find_item("ITEM_INSECT_TURRET")
 	if item != null:
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 		
-	item = find_item("Slashing Turret")
+	item = find_item("ITEM_SLASHING_TURRET")
 	if item != null:
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 		
-	item = find_item("Spiky Ball")
+	item = find_item("ITEM_SPIKY_BALL")
 	if item != null:
 		item.effects[0].stats.scaling_stats.append([ "stat_percent_damage", 1 ])
 		item.effects[0].stats.scaling_stats.append([ "stat_crit_chance", 1 ])
 	
-	item = find_item("Blanket")
+	item = find_item("ITEM_BLANKET")
 	if item != null:
 		item.effects[2].value = -2
 		
-	item = find_item("Extra onion")
+	item = find_item("ITEM_EXTRAONION")
 	if item != null:
 		item.effects[1].value = -2
 
-	item = find_item("Not a rat")
+	item = find_item("ITEM_NOTRAT")
 	if item != null:
 		item.effects = []
 		var e = Effect.new()
@@ -5847,7 +5847,7 @@ func edit_items() -> void:
 		e.effect_sign = 3
 		item.effects.append(e)
 
-	item = find_item("Brun's badge")
+	item = find_item("ITEM_BRUNS_BADGE")
 	if item != null:
 		item.effects = []
 		var e = Effect.new()
@@ -5868,7 +5868,7 @@ func edit_items() -> void:
 		item.effects.append(e)
 
 
-	item = find_item("Gabriel's gloves")
+	item = find_item("ITEM_GABRIEL_GLOVES")
 	if item != null:
 		item.effects = []
 		var e = Effect.new()
@@ -5902,7 +5902,7 @@ func edit_items() -> void:
 		item.effects[1].value = -2
 		item.effects[2].value = -2
 	
-	item = find_item("Mimicry")
+	item = find_item("ITEM_MIMICRY")
 	if item != null:
 		item.effects[1].value = 8
 		var effect = Effect.new()
@@ -5912,12 +5912,12 @@ func edit_items() -> void:
 		effect.effect_sign = Effect.Sign.FROM_VALUE
 		item.effects.append(effect)
 	
-	item = find_item("Skal's firework")
+	item = find_item("ITEM_SKAL_FIREWORK")
 	if item != null:
 		item.effects[0].value = 15
 		item.effects[1].value = 15
 	
-	item = find_item("Tijoe mask")
+	item = find_item("item_tijoe_mask")
 	if item != null:
 		item.effects = []
 		var e = Effect.new()
@@ -5957,7 +5957,7 @@ func edit_items() -> void:
 		effect.effect_sign = Effect.Sign.FROM_VALUE
 		item.effects.append(effect)
 		
-	item = find_item("Magical Plant")
+	item = find_item("ITEM_MAGICAL_PLANT")
 	if item != null:
 		item.effects[0].value = 3
 
@@ -6018,7 +6018,7 @@ func edit_items() -> void:
 		e.effect_sign = 1
 		item.effects.append(e)
 		
-	item = find_item("Abaddon")
+	item = find_item("ITEM_ABADDON")
 	if item != null:
 		item.effects[1].key = "stat_dodge"
 		item.effects[2].value = 18
@@ -6029,7 +6029,7 @@ func edit_items() -> void:
 		effect.effect_sign = Effect.Sign.FROM_VALUE
 		item.effects.append(effect)
 
-	item = find_item("June's Tail")
+	item = find_item("ITEM_JUNE_TAIL")
 	if item != null:
 		item.effects = []
 		var e = GainStatForEveryStatEffect.new()
@@ -6051,11 +6051,11 @@ func edit_items() -> void:
 		e.effect_sign = 3
 		item.effects.append(e)
 		
-	item = find_item("Cursed dice")
+	item = find_item("item_cursed_dice")
 	if item != null:
 		item.max_nb = 1
 		
-	item = find_item("Modding Guide")
+	item = find_item("ITEM_MOD_GUIDE")
 	if item != null:
 		item.max_nb = 2
 		item.effects = []
@@ -6076,12 +6076,12 @@ func edit_items() -> void:
 		e.effect_sign = 3
 		item.effects.append(e)
 		
-	item = find_item("Olexa's mantle")
+	item = find_item("ITEM_OLEXA_MANTLE")
 	if item != null:
 		item.max_nb = 1
 		item.effects[0].nb_stat_scaled = 2
 		
-	item = find_item("John's contract")
+	item = find_item("ITEM_JOHN_CONTRACT")
 	if item != null:
 		item.effects = []
 		var e = Effect.new()
@@ -6107,7 +6107,7 @@ func edit_items() -> void:
 		e.effect_sign = 3
 		item.effects.append(e)
 
-	item = find_item("Dark altar")
+	item = find_item("ITEM_DARK_ALTAR")
 	if item != null:
 		item.effects = []
 		var e1 = StatGainsModificationEffect.new()
@@ -6126,7 +6126,7 @@ func edit_items() -> void:
 		effect.effect_sign = Effect.Sign.FROM_VALUE
 		item.effects.append(effect)
 
-	item = find_item("Investments")
+	item = find_item("ITEM_INVESTMENTS")
 	if item != null:
 		item.max_nb = 1
 		item.effects = []
@@ -6146,19 +6146,19 @@ func edit_items() -> void:
 		effect.effect_sign = Effect.Sign.FROM_VALUE
 		item.effects.append(effect)
 
-	item = find_item("Dami's plushie")
+	item = find_item("ITEM_DAMI_PLUSH")
 	if item != null:
 		item.effects[0].stats.scaling_stats[0][1] = 1.2
 	
-	item = find_item("Slashing Turret")
+	item = find_item("ITEM_SLASHING_TURRET")
 	if item != null:
 		item.effects[0].stats.scaling_stats[0][1] = 1.45
 	
-	item = find_item("Meat Amulet")
+	item = find_item("ITEM_MEAT_AMULET")
 	if item != null:
 		item.max_nb = 1
 		
-	item = find_item("Chaos")
+	item = find_item("ITEM_JUST_CHAOS")
 	if item != null:
 		item.effects[1].key = "stat_melee_damage"
 		item.effects[1].value = -4
@@ -6181,7 +6181,7 @@ func edit_items() -> void:
 		effect.effect_sign = Effect.Sign.FROM_VALUE
 		item.effects.append(effect)
 	
-	item = find_item("Rhino's relic")
+	item = find_item("ITEM_RHINO_RELIC")
 	if item != null:
 		item.effects = []
 		var effect = Effect.new()
@@ -6212,7 +6212,7 @@ func edit_items() -> void:
 		effect.effect_sign = Effect.Sign.FROM_VALUE
 		item.effects.append(effect)	
 	
-	item = find_item("Vurtfish")
+	item = find_item("ITEM_VURTFISH")
 	if item != null:
 		item.max_nb = 1
 		item.effects = []
@@ -6261,7 +6261,7 @@ func edit_items() -> void:
 		e1.stats_modified = [ "stat_ranged_damage" ]
 		item.effects.append(e1)
 
-	item = find_item("Tank muzzle")
+	item = find_item("ITEM_TANK_MUZZLE")
 	if item != null:
 		item.max_nb = 1
 		item.effects = []
@@ -6298,7 +6298,7 @@ func edit_items() -> void:
 		e.effect_sign = 3
 		item.effects.append(e)
 
-	item = find_item("Chainsaw man")
+	item = find_item("ITEM_CHAINSAW_MAN")
 	if item != null:
 		item.max_nb = 1
 
@@ -6451,53 +6451,53 @@ func edit_weapons() -> void:
 	if w != null:
 		w.stats.scaling_stats[1][1] = 1
 
-	w = find_weapon("Bow", ItemParentData.Tier.COMMON)	
+	w = find_weapon("WEP_BOW", ItemParentData.Tier.COMMON)	
 	if w != null:
 		w.stats.scaling_stats[0][1] = 0.2
 		w.stats.scaling_stats[1][1] = 0.1
 		w.stats.crit_damage = 2
 		w.stats.piercing = 2
 		
-	w = find_weapon("Bow", ItemParentData.Tier.UNCOMMON)	
+	w = find_weapon("WEP_BOW", ItemParentData.Tier.UNCOMMON)	
 	if w != null:
 		w.stats.scaling_stats[0][1] = 0.3
 		w.stats.scaling_stats[1][1] = 0.125
 		w.stats.crit_damage = 2.25
 		w.stats.piercing = 2
 
-	w = find_weapon("Bow", ItemParentData.Tier.RARE)	
+	w = find_weapon("WEP_BOW", ItemParentData.Tier.RARE)	
 	if w != null:
 		w.stats.scaling_stats[0][1] = 0.4
 		w.stats.scaling_stats[1][1] = 0.15
 		w.stats.crit_damage = 2.5
 		w.stats.piercing = 2
 		
-	w = find_weapon("Bow", ItemParentData.Tier.LEGENDARY)	
+	w = find_weapon("WEP_BOW", ItemParentData.Tier.LEGENDARY)	
 	if w != null:
 		w.stats.scaling_stats[0][1] = 0.5
 		w.stats.scaling_stats[1][1] = 0.2
 		w.stats.crit_damage = 3
 		w.stats.piercing = 2
 
-	w = find_weapon("Taxes", ItemParentData.Tier.COMMON)	
+	w = find_weapon("WEP_TAXES", ItemParentData.Tier.COMMON)	
 	if w != null:
 		w.stats.scaling_stats[0][1] = 0.1
 		w.stats.scaling_stats.append([ "stat_melee_damage", 0.1 ])
 		w.stats.crit_damage = 2
 		
-	w = find_weapon("Taxes", ItemParentData.Tier.UNCOMMON)	
+	w = find_weapon("WEP_TAXES", ItemParentData.Tier.UNCOMMON)	
 	if w != null:
 		w.stats.scaling_stats[0][1] = 0.1
 		w.stats.scaling_stats.append([ "stat_melee_damage", 0.2 ])
 		w.stats.crit_damage = 3
 
-	w = find_weapon("Taxes", ItemParentData.Tier.RARE)	
+	w = find_weapon("WEP_TAXES", ItemParentData.Tier.RARE)	
 	if w != null:
 		w.stats.scaling_stats[0][1] = 0.1
 		w.stats.scaling_stats.append([ "stat_melee_damage", 0.3 ])
 		w.stats.crit_damage = 4
 		
-	w = find_weapon("Taxes", ItemParentData.Tier.LEGENDARY)	
+	w = find_weapon("WEP_TAXES", ItemParentData.Tier.LEGENDARY)	
 	if w != null:
 		w.stats.scaling_stats[0][1] = 0.1
 		w.stats.scaling_stats.append([ "stat_melee_damage", 0.4 ])
@@ -6757,28 +6757,28 @@ func edit_weapons() -> void:
 
 # note : 아이템 삭제 method, remove_item(삭제 할 아이템 이름)
 func remove_items() -> void:
-	remove_item("Drone")
-	remove_item("Spiky Ball")
-	remove_item("Insect turret")
-	remove_item("Swarm")
+	remove_item("ITEM_DRONE")
+	remove_item("ITEM_SPIKY_BALL")
+	remove_item("ITEM_INSECT_TURRET")
+	remove_item("ITEM_SWARM")
 
 # note : 캐릭터 삭제 method, remove_character(삭제 할 아이템 이름)
 func remove_characters() -> void:
-	remove_character("Beelzebub")
-	remove_character("Glitched")
+	remove_character("CHAR_BEELZEBUB")
+	remove_character("CHAR_GLITCHED")
 
 # note : 무기 삭제 method, remove_weapon(삭제 할 아이템 이름)
 func remove_weapons() -> void:
-	remove_weapon("Armageddon")
-	remove_weapon("Bee hive")
-	remove_weapon("Severed hand")
-	remove_weapon("Flare gun")
+	remove_weapon("WEP_ARMAGEDDON")
+	remove_weapon("WEP_BEE_HIVE")
+	remove_weapon("WEP_SEVERED_HAND")
+	remove_weapon("WEP_FLARE_GUN")
 	remove_weapon("FN F2000")
 	remove_weapon("Leafy's machinegun")
-	remove_weapon("Locust spreader")
+	remove_weapon("WEP_LOCUST_GUN")
 	remove_weapon("USP")
-	remove_weapon("Grenade Launcher")
-	remove_weapon("Click fingers")
+	remove_weapon("WEP_GRENADE_LAUNCHER")
+	remove_weapon("WEP_CLICK_FINGERS")
 
 #-----------------------------------------------------------------------
 # note : 이하 utils

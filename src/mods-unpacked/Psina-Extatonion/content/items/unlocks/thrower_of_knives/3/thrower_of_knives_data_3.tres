@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=8 format=2]
+
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/unlocks/thrower_of_knives/3/thrower_of_knives_effect_3.tres" type="Resource" id=1]
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=2]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/unlocks/thrower_of_knives/4/thrower_of_knives_data_4.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/unlocks/thrower_of_knives/3/thrower_of_knives_stats_3.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/unlocks/thrower_of_knives/thrower_of_knives_icon.png" type="Texture" id=5]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/unlocks/thrower_of_knives/thrower_of_knives.tscn" type="PackedScene" id=6]
+[ext_resource path="res://items/sets/precise/precise_set_data.tres" type="Resource" id=7]
+
+[resource]
+script = ExtResource( 2 )
+my_id = "weapon_thrower_of_knives_3"
+unlocked_by_default = true
+icon = ExtResource( 5 )
+name = "WEP_KNIFE_THROWER"
+tier = 2
+value = 70
+effects = [ ExtResource( 1 ) ]
+tracking_text = ""
+weapon_id = "weapon_thrower_of_knives"
+type = 1
+sets = [ ExtResource( 7 ) ]
+scene = ExtResource( 6 )
+stats = ExtResource( 4 )
+upgrades_into = ExtResource( 3 )

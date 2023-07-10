@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/lil_brotato/3/lil_brotato_3_stats.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/lil_brotato/4/lil_brotato_4_data.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/lil_brotato/lil_brotato_icon.png" type="Texture" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/weapons/lil_brotato/lil_brotato_3.tscn" type="PackedScene" id=5]
+[ext_resource path="res://items/sets/fire/fire_set_data.tres" type="Resource" id=6]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "weapon_lil_brotato_3"
+unlocked_by_default = true
+icon = ExtResource( 4 )
+name = "WEP_LIL_BROTATO"
+tier = 2
+value = 61
+effects = [  ]
+tracking_text = ""
+weapon_id = "weapon_lil_brotato"
+type = 1
+sets = [ ExtResource( 6 ) ]
+scene = ExtResource( 5 )
+stats = ExtResource( 2 )
+upgrades_into = ExtResource( 3 )

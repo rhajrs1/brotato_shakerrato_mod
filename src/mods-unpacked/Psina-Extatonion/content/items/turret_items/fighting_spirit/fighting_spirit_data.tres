@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://items/global/item_data.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/turret_items/fighting_spirit/fighting_spirit_effect_1.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/turrets/fighting_spirit/fighting_spirit_icon.png" type="Texture" id=3]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/turret_items/fighting_spirit/fighting_spirit_effect_3.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/Psina-Extatonion/content/items/turret_items/fighting_spirit/fighting_spirit_effect_2.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "item_spirit_yellow"
+unlocked_by_default = true
+icon = ExtResource( 3 )
+name = "ITEM_FIGHT_SPIRIT"
+tier = 0
+value = 15
+effects = [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ]
+tracking_text = ""
+max_nb = 7
+item_appearances = [  ]
+tags = [ "stat_elemental_damage" ]
