@@ -25,7 +25,7 @@ git clean -df
 ### Adjust elite HP
 - res://mods-unpacked/shakerrato-InfiniteElites/extensions/entities/units/enemies/enemy.gd
 
-## Item 수정
+## Update Items
 
 All instructions below refer to editing the following file:
 res://mods-unpacked/shakerrato-InfiniteElites/extensions/content_editor.gd
